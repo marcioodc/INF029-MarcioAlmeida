@@ -25,6 +25,13 @@ int cadastrar_aluno(aluno a[], int *ativo)
         printf("\nInforme a matrícula: ");
         scanf("%d", &matricula);
         // VERIFICA SE A MATRICULA É VÁLIDA
+        for (int j = 0; j < *ativo; j++)
+        {
+            if (matricula == a[j].matricula)
+            {
+                return 2;
+            }
+        }
         if (matricula < 0)
         {
             return 2;
