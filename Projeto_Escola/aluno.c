@@ -8,8 +8,9 @@ int validar_cpf(char cpf)
 {
     if (strlen(cpf) < 0 && strlen(cpf) > 11)
     {
-        return 1;
+        return 0;
     }
+    return 1;
 }
 
 int cadastrar_aluno(aluno a[], int *ativo)
@@ -48,21 +49,20 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         else
         {
-            a[*ativo].sexo = sexo;
+            strcpy(a[*ativo].sexo, sexo);
         }
         // CPF
-        char cpf;
+        char cpf[15];
         getchar();
         printf("Informe o CPF: ");
-        scanf(" %15s", &cpf);
-        int validar = validar_cpf(cpf);
-        if (validar == 1)
+        scanf(" %15s", cpf);
+        if (validar_cpf(cpf) == 1)
         {
-            a[*ativo].cpf = cpf;
+            return 1;
         }
         else
         {
-            return 4;
+            strcpy(a[*ativo].cpf, cpf);
         }
 
         // DATA NASCIMENTO
