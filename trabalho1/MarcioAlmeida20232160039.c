@@ -146,8 +146,6 @@ int q1(char data[])
  */
 DiasMesesAnos q2(char datainicial[], char datafinal[])
 {
-
-    // calcule os dados e armazene nas três variáveis a seguir
     DiasMesesAnos dma;
 
     if (q1(datainicial) == 0)
@@ -162,7 +160,6 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
     }
     else
     {
-        // verifique se a data final não é menor que a data inicial
         for (int i = 0; datainicial[i] != '\0' && datafinal[i] != '\0'; i++)
         {
             if (datainicial[i] < datafinal[i])
@@ -196,7 +193,6 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
             dma.qtdDias++;
             dqInicial.iDia++;
         }
-        // se tudo der certo
         dma.retorno = 1;
         return dma;
     }
@@ -246,11 +242,11 @@ int q3(char *texto, char c, int isCaseSensitive)
      e fim de cada ocorrência da palavra (strBusca) no texto base (texto).
  @saida
     Um número n >= 0 correspondente a quantidade de ocorrências encontradas.
-    O vetor posicoes deve ser preenchido com cada entrada e saída correspondente. Por exemplo, se tiver uma única ocorrência, 
-    a posição 0 do vetor deve ser preenchido com o índice de início do texto, e na posição 1, 
-    deve ser preenchido com o índice de fim da ocorrencias. Se tiver duas ocorrências, 
-    a segunda ocorrência será amazenado nas posições 2 e 3, e assim consecutivamente. 
-    Suponha a string "Instituto Federal da Bahia", e palavra de busca "dera". 
+    O vetor posicoes deve ser preenchido com cada entrada e saída correspondente. Por exemplo, se tiver uma única ocorrência,
+    a posição 0 do vetor deve ser preenchido com o índice de início do texto, e na posição 1,
+    deve ser preenchido com o índice de fim da ocorrencias. Se tiver duas ocorrências,
+    a segunda ocorrência será amazenado nas posições 2 e 3, e assim consecutivamente.
+    Suponha a string "Instituto Federal da Bahia", e palavra de busca "dera".
     Como há uma ocorrência da palavra de busca no texto, deve-se armazenar no vetor, da seguinte forma:
         posicoes[0] = 13;
         posicoes[1] = 16;
@@ -311,6 +307,7 @@ int q5(int num)
 int q6(int numerobase, int numerobusca)
 {
     int qtdOcorrencias;
+
     return qtdOcorrencias;
 }
 
