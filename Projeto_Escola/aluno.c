@@ -4,9 +4,9 @@
 
 #include "aluno.h"
 
-int validar_cpf(char cpf)
+int validar_cpf(char *cpf)
 {
-    if (strlen(cpf) < 0 && strlen(cpf) > 11)
+    if (strlen(*cpf) < 0 || strlen(*cpf) > 11)
     {
         return 0;
     }
