@@ -4,9 +4,9 @@
 
 #include "aluno.h"
 
-int validar_cpf(char cpf)
+int validar_cpf(char cpf[])
 {
-    if (strlen(cpf) < 0 || strlen(cpf) > 11)
+    if (strlen(cpf) != 11)
     {
         return 0;
     }
@@ -29,41 +29,34 @@ int cadastrar_aluno(aluno a[], int *ativo)
         {
             return 2;
         }
-        else
-        {
-            a[*ativo].matricula = matricula;
-        }
+        a[*ativo].matricula = matricula;
+
         getchar();
         // NOME
         printf("Informe o nome: ");
         fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
         a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
+
         // SEXO
         char sexo;
         printf("Informe o sexo (F ou M): ");
-        scanf("%c", &sexo);
+        scanf(" %c", &sexo);
         sexo = toupper(sexo);
         if (sexo != 'F' && sexo != 'M')
         {
             return 3;
         }
-        else
-        {
-            strcpy(&a[*ativo].sexo, sexo);
-        }
+        strcpy(&a[*ativo].sexo, sexo);
+
         // CPF
         char cpf[15];
-        getchar();
         printf("Informe o CPF: ");
-        scanf(" %15s", cpf);
+        scanf("%15s", cpf);
         if (validar_cpf(cpf) == 1)
         {
-            return 1;
+            return 4;
         }
-        else
-        {
-            strcpy(a[*ativo].cpf, cpf);
-        }
+        strcpy(a[*ativo].cpf, cpf);
 
         // DATA NASCIMENTO
         printf("Informe a data de nascimento: ");
@@ -80,16 +73,14 @@ int listar_aluno(aluno a[], int *ativo)
     {
         return 1;
     }
-    else
+
+    int j = 1;
+    printf("\n>>>Alunos cadastrados<<<\n");
+    for (int i = 0; i > *ativo; i++)
     {
-        int j = 1;
-        printf("\n>>>Alunos cadastrados<<<\n");
-        for (int i = 0; i > *ativo; i++)
-        {
-            printf("%d -> Matrícula: %d \tNome: %s \tcCPF: %s \tData de nascimento: %s \tSexo: %s\n", j, a[*ativo].matricula, a[*ativo].nome, a[*ativo].cpf, a[*ativo].data_nascimento, a[*ativo].sexo);
-            j++;
-        }
+        printf("%d -> Matrícula: %d \tNome: %s \tcCPF: %s \tData de nascimento: %s \tSexo: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].cpf, a[i].data_nascimento, a[i].sexo);
     }
+    return 0;
 }
 
 int atualizar_aluno(aluno a[], int *ativo)
