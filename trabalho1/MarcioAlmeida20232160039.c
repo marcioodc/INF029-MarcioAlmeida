@@ -252,18 +252,36 @@ int q3(char *texto, char c, int isCaseSensitive)
         posicoes[1] = 16;
         Observe que o índice da posição no texto deve começar ser contado a partir de 1.
         O retorno da função, n, nesse caso seria 1;
+    a acentuação e pontuação devem ser ignoradas
 
  */
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    for(int i = 0; strTexto[i] != '\0'; i++)
+    for (int i = 0; strTexto[i] != '\0'; i++)
     {
-        
         int j;
         for (j = 0; strBusca[j] != '\0'; j++)
         {
-            if (strTexto[i + j] != strBusca[j])
+            char cTexto = strTexto[i + j];
+            char cBusca = strBusca[j];
+            if (cTexto >= 'A' && cTexto <= 'Z')
+            {
+                cTexto += 32;
+            }
+            else if (cTexto >= 'a' && cTexto <= 'z')
+            {
+                cTexto -= 32;
+            }
+            if (cBusca >= 'A' && cBusca <= 'Z')
+            {
+                cBusca += 32;
+            }
+            else if (cBusca >= 'a' && cBusca <= 'z')
+            {
+                cBusca -= 32;
+            }
+            if (cTexto != cBusca)
             {
                 break;
             }
@@ -274,8 +292,15 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
             posicoes[qtdOcorrencias * 2 + 1] = i + j;
             qtdOcorrencias++;
         }
-    }
+        }
 
+    printf("%d\n", posicoes[0]);
+    printf("%d\n", posicoes[1]);
+    printf("%d\n", posicoes[2]);
+    printf("%d\n", posicoes[3]);
+    printf("%d\n", posicoes[4]);
+    printf("%d\n", posicoes[5]);
+    printf("%d\n", posicoes[6]);
     return qtdOcorrencias;
 }
 
@@ -314,7 +339,27 @@ int q5(int num)
 
 int q6(int numerobase, int numerobusca)
 {
-    int qtdOcorrencias;
+    int qtdOcorrencias = 0;
+    char sNumerobase[20];
+    char sNumerobusca[20];
+    sprintf(sNumerobase, "%d", numerobase);
+    sprintf(sNumerobusca, "%d", numerobusca);
+
+    for (int i = 0; sNumerobase[i] != '\0'; i++)
+    {
+        int j;
+        for (j = 0; sNumerobusca[j] != '\0'; j++)
+        {
+            if (sNumerobase[i + j] != sNumerobusca[j])
+            {
+                break;
+            }
+        }
+        if (sNumerobusca[j] == '\0')
+        {
+            qtdOcorrencias++;
+        }
+    }
 
     return qtdOcorrencias;
 }
@@ -331,7 +376,45 @@ int q6(int numerobase, int numerobusca)
 
 int q7(char matriz[8][10], char palavra[5])
 {
-    int achou;
+    int achou = 0;
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            // verificar se a palavra começa na posição (i, j)
+            if (matriz[i][j] == palavra[0])
+            {
+                // verificar as 8 direções
+                int direcoes[8][2] = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
+                for (int d = 0; d < 8; d++)
+                {
+                    int k;
+                    for (k = 0; palavra[k] != '\0'; k++)
+                    {
+                        int x = i + k * direcoes[d][0];
+                        int y = j + k * direcoes[d][1];
+                        if (x < 0 || x >= 8 || y < 0 || y >= 10 || matriz[x][y] != palavra[k])
+                        {
+                            break;
+                        }
+                    }
+                    if (palavra[k] == '\0')
+                    {
+                        achou = 1;
+                        break;
+                    }
+                }
+            }
+            if (achou)
+            {
+                break;
+            }
+        }
+        if (achou)
+        {
+            break;
+        }
+    }
     return achou;
 }
 
