@@ -46,13 +46,13 @@ int cadastrar_aluno(aluno a[], int *ativo)
         {
             return 3;
         }
-        strcpy(a[*ativo].sexo, sexo);
+        a[*ativo].sexo = sexo;
 
         // CPF
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
-        if (validar_cpf(cpf) == 1)
+        if (validar_cpf(cpf) == 0)
         {
             return 4;
         }
@@ -76,7 +76,7 @@ int listar_aluno(aluno a[], int *ativo)
 
     int j = 1;
     printf("\n>>>Alunos cadastrados<<<\n");
-    for (int i = 0; i > *ativo; i++)
+    for (int i = 0; i < *ativo; i++)
     {
         printf("%d -> Matrícula: %d \tNome: %s \tcCPF: %s \tData de nascimento: %s \tSexo: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].cpf, a[i].data_nascimento, a[i].sexo);
     }
