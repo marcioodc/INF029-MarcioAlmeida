@@ -85,7 +85,7 @@ int listar_aluno(aluno a[], int *ativo)
     printf("\n>>>Alunos cadastrados<<<\n");
     for (int i = 0; i < *ativo; i++)
     {
-        printf("%d -> Matrícula: %d", i + 1, a[i].matricula);
+        printf("%d\t  Matrícula: %d", i + 1, a[i].matricula);
     }
     return 0;
 }
