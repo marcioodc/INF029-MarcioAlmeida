@@ -4,9 +4,9 @@
 
 #include "aluno.h"
 
-int validar_cpf(char *cpf)
+int validar_cpf(char cpf)
 {
-    if (strlen(*cpf) < 0 || strlen(*cpf) > 11)
+    if (strlen(cpf) < 0 || strlen(cpf) > 11)
     {
         return 0;
     }
@@ -49,7 +49,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         else
         {
-            strcpy(a[*ativo].sexo, sexo);
+            strcpy(&a[*ativo].sexo, sexo);
         }
         // CPF
         char cpf[15];
