@@ -4,6 +4,14 @@
 
 #include "aluno.h"
 
+int validar_cpf(char cpf)
+{
+    if (strlen(cpf) < 0 && strlen(cpf) > 11)
+    {
+        return 1;
+    }
+}
+
 int cadastrar_aluno(aluno a[], int *ativo)
 {
     if (*ativo == tam_aluno)
@@ -43,10 +51,20 @@ int cadastrar_aluno(aluno a[], int *ativo)
             a[*ativo].sexo = sexo;
         }
         // CPF
+        char cpf;
         getchar();
         printf("Informe o CPF: ");
-        scanf(" %15s", a[*ativo].cpf);
-        
+        scanf(" %15s", &cpf);
+        int validar = validar_cpf(cpf);
+        if (validar == 1)
+        {
+            a[*ativo].cpf = cpf;
+        }
+        else
+        {
+            return 4;
+        }
+
         // DATA NASCIMENTO
         printf("Informe a data de nascimento: ");
         scanf("%s", a[*ativo].data_nascimento);
@@ -58,6 +76,20 @@ int cadastrar_aluno(aluno a[], int *ativo)
 
 int listar_aluno(aluno a[], int *ativo)
 {
+    if (*ativo == 0)
+    {
+        return 1;
+    }
+    else
+    {
+        int j = 1;
+        printf("\n>>>Alunos cadastrados<<<\n");
+        for (int i = 0; i > *ativo; i++)
+        {
+            printf("%d -> Matrícula: %d \tNome: %s \tcCPF: %s \tData de nascimento: %s \tSexo: %s\n", j, a[*ativo].matricula, a[*ativo].nome, a[*ativo].cpf, a[*ativo].data_nascimento, a[*ativo].sexo);
+            j++;
+        }
+    }
 }
 
 int atualizar_aluno(aluno a[], int *ativo)

@@ -89,6 +89,10 @@ int main(void)
         // LISTAR
         case 2:
         {
+          if (listar_aluno(a, &ativo) == 1)
+          {
+            printf("\n>>>Não ha alunos cadastrados!<<<\n");
+          }
         }
         break;
         // ATUALIZAR
