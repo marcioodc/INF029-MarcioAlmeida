@@ -32,15 +32,15 @@ void testQ7();
 
 int main()
 {
-    /*testSomar();
+    testSomar();
     testFatorial();
     testQ1();
     testQ2();
-    testQ3();*/
+    testQ3();
     testQ4();
-    /*testQ5();
+    testQ5();
     testQ6();
-    testQ7();*/
+    testQ7();
 }
 
 int ligado = 0;
@@ -163,7 +163,7 @@ void testQ4()
     {
         posicoes[i] = -1;
     }
-    strcpy(strTexto, "Laboratorio de programação: para ratos de programação");
+    strcpy(strTexto, "Laboratorio de programacao: para ratos de programacao");
     strcpy(strBusca, "rato");
     printf("32 %d\n", q4(strTexto, strBusca, posicoes) == 2);
     printf("33 %d\n", posicoes[0] == 5);
@@ -175,7 +175,7 @@ void testQ4()
     {
         posicoes[i] = -1;
     }
-    strcpy(strTexto, "Olá, o mundo é muito grande. Tem muitas pessoas, e muitos problemas");
+    strcpy(strTexto, "Ola, o mundo e muito grande. Tem muitas pessoas, e muitos problemas");
     strcpy(strBusca, "mui");
     printf("37 %d\n", q4(strTexto, strBusca, posicoes) == 3);
     printf("38 %d\n", posicoes[0] == 16);

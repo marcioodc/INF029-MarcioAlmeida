@@ -258,7 +258,27 @@ int q3(char *texto, char c, int isCaseSensitive)
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
+    int sTexto = strlen(strTexto);
+    int sBusca = strlen(strBusca);
 
+    for (int i = 0; i <= sTexto - sBusca; i++)
+    {
+        int achou = 1;
+        for (int j = 0; j < sBusca; j++)
+        {
+            if (strTexto[i + j] != strBusca[j])
+            {
+                achou = 0;
+                break;
+            }
+        }
+        if (achou)
+        {
+            posicoes[qtdOcorrencias * 2] = i + 1;
+            posicoes[qtdOcorrencias * 2 + 1] = i + sBusca;
+            qtdOcorrencias++;
+        }
+    }
     return qtdOcorrencias;
 }
 
@@ -271,7 +291,6 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
  @saida
     Número invertido
  */
-
 int q5(int num)
 {
     int invertido = 0;
@@ -294,7 +313,6 @@ int q5(int num)
  @saida
     Quantidade de vezes que número de busca ocorre em número base
  */
-
 int q6(int numerobase, int numerobusca)
 {
     int qtdOcorrencias = 0;
@@ -331,7 +349,6 @@ int q6(int numerobase, int numerobusca)
  @saida
     1 se achou 0 se não achou
  */
-
 int q7(char matriz[8][10], char palavra[5])
 {
     int achou = 0;
