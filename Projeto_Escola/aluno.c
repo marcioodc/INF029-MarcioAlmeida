@@ -46,7 +46,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         {
             return 3;
         }
-        strcpy(&a[*ativo].sexo, sexo);
+        strcpy(a[*ativo].sexo, sexo);
 
         // CPF
         char cpf[15];
