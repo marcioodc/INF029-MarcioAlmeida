@@ -21,7 +21,7 @@
 // #################################################
 
 #include <stdio.h>
-#include "MarcioAlmeida20232160039.h"
+#include "MV.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -258,49 +258,7 @@ int q3(char *texto, char c, int isCaseSensitive)
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    for (int i = 0; strTexto[i] != '\0'; i++)
-    {
-        int j;
-        for (j = 0; strBusca[j] != '\0'; j++)
-        {
-            char cTexto = strTexto[i + j];
-            char cBusca = strBusca[j];
-            if (cTexto >= 'A' && cTexto <= 'Z')
-            {
-                cTexto += 32;
-            }
-            else if (cTexto >= 'a' && cTexto <= 'z')
-            {
-                cTexto -= 32;
-            }
-            if (cBusca >= 'A' && cBusca <= 'Z')
-            {
-                cBusca += 32;
-            }
-            else if (cBusca >= 'a' && cBusca <= 'z')
-            {
-                cBusca -= 32;
-            }
-            if (cTexto != cBusca)
-            {
-                break;
-            }
-        }
-        if (strBusca[j] == '\0')
-        {
-            posicoes[qtdOcorrencias * 2] = i + 1;
-            posicoes[qtdOcorrencias * 2 + 1] = i + j;
-            qtdOcorrencias++;
-        }
-        }
 
-    printf("%d\n", posicoes[0]);
-    printf("%d\n", posicoes[1]);
-    printf("%d\n", posicoes[2]);
-    printf("%d\n", posicoes[3]);
-    printf("%d\n", posicoes[4]);
-    printf("%d\n", posicoes[5]);
-    printf("%d\n", posicoes[6]);
     return qtdOcorrencias;
 }
 
