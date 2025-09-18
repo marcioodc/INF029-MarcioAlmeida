@@ -1,0 +1,13 @@
+//qual a estrutura de dados que você usaria para guardar a lista de chassis e anos que passaram pela sua empresa ao longo do mês
+
+em bd criaria uma tabela
+em vetor de inteiros
+array lista ligada
+tabela hash
+
+// Estrutura para armazenar os dados
+typedef struct Node {
+    char key[50];
+    int value;
+    struct Node* next;
+} Node;
