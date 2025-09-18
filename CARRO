@@ -6,6 +6,10 @@ array lista ligada
 tabela hash
 
 // Estrutura para armazenar os dados
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 typedef struct aluno {
     int a_matricula;
     char a_nome[50];
@@ -37,20 +41,26 @@ void main(){
     printf("informe a quantidade de alunos: ");
     scanf("%d", &max);
 
-    for(i=0;i>max;i++){
-         printf("Nome do %d° aluno: ");
+    for(int i=0;i>max;i++){
+         printf("Nome do %d° aluno: ", i+ 1);
          fgets(a[i].a_nome, sizeof(a[i].a_nome), stdin);
-         printf("sexo do %d° aluno: ");
+         printf("sexo do %d° aluno: ", i+ 1);
          fgets(a[i].a_sexo, sizeof(a[i].a_sexo), stdin);
-         printf("matricula do %d° aluno: ");
+         printf("matricula do %d° aluno: ", i+ 1);
          scanf("%d", &a[i].a_matricula);
-         printf("CPF do %d° aluno: ");
+         printf("CPF do %d° aluno: ", i+ 1);
          scanf("%d", &a[i].a_cpf);
-         printf("data de nascimento do %d° aluno: ");
+         printf("data de nascimento do %d° aluno: ", i+ 1);
          scanf("%d", &a[i].a_data_nascimento);
 }
 
      printf("–––– Lista de alunos ––––");
-     for(int i=0;i<n;i++){
-         printf("nome: %s \nidade: %d \nmatricula: %d \nsexo: %s \ndata de nascimento: %dcpf: %d\n", a[i].a_nome, a[i].a_idade,a[i].a_matricula; a[i].a_sexo;a[i].a_cpf,a[i].a_data_nascimento);
+     for(int i=0;i<max;i++){
+         printf("\nMatricula: %d", a[i].a_matricula);
+         printf("\nNome: %s", a[i].a_nome);
+         printf("\nIdade: %d", a[i].a_idade);
+         printf("\nCPF: %d", a[i].a_cpf);
+         printf("\nSexo: %s", a[i].a_sexo);
+         printf("\nData de nascimento: %d", a[i].a_data_nascimento);
+     }
 }
