@@ -9,58 +9,33 @@ tabela hash
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+    
 
-typedef struct aluno {
-    int a_matricula;
-    char a_nome[50];
-    char a_sexo[2];
-    int a_data_nascimento;
-    int a_cpf;
-} aluno;
+typedef struct infcar{
+    int chassi;
+    int ano;
+} infcar;
 
-typedef struct professor {
-    int p_matricula;
-    char p_nome[50];
-    char p_sexo;
-    int p_data_nascimento;
-    int p_cpf;
-} professor;
+int main(){
 
-typedef struct disciplina {
-    char d_nome[50];
-    int d_codigo;
-    int d_semestre;
-    char d_professor;
-} disciplina;
+    infcar carro[tam];
 
-void main(){
-
-    aluno a[2];
-    int max;
-
-    printf("informe a quantidade de alunos: ");
-    scanf("%d", &max);
-
-    for(int i=0;i>max;i++){
-         printf("Nome do %d° aluno: ", i+ 1);
-         fgets(a[i].a_nome, sizeof(a[i].a_nome), stdin);
-         printf("sexo do %d° aluno: ", i+ 1);
-         fgets(a[i].a_sexo, sizeof(a[i].a_sexo), stdin);
-         printf("matricula do %d° aluno: ", i+ 1);
-         scanf("%d", &a[i].a_matricula);
-         printf("CPF do %d° aluno: ", i+ 1);
-         scanf("%d", &a[i].a_cpf);
-         printf("data de nascimento do %d° aluno: ", i+ 1);
-         scanf("%d", &a[i].a_data_nascimento);
-}
-
-     printf("–––– Lista de alunos ––––");
-     for(int i=0;i<max;i++){
-         printf("\nMatricula: %d", a[i].a_matricula);
-         printf("\nNome: %s", a[i].a_nome);
-         printf("\nIdade: %d", a[i].a_idade);
-         printf("\nCPF: %d", a[i].a_cpf);
-         printf("\nSexo: %s", a[i].a_sexo);
-         printf("\nData de nascimento: %d", a[i].a_data_nascimento);
-     }
+    for(int i=0; i<tam; i++){
+        printf("Informe o chassi do %d° carro: ", i+ 1);
+        scanf("%d", &carro[i].chassi);
+        getchar();
+        
+        printf("Informe o ano do %d° carro: ", i+ 1);
+        scanf("%d", &carro[i].ano);
+        getchar();
+        printf("\n");
+    }
+    printf("\n-----Lista de carros-----\n");
+    for(int i=0; i<tam; i++){
+        printf("\nCarro %d", i+ 1);
+        printf("\nChassi: %d", carro[i].chassi);
+        printf("\nAno: %d\n", carro[i].ano);
+        
+    }
+    
 }
