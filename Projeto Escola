@@ -1,1 +1,26 @@
-//inicio
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct aluno {
+    int a_matricula[11];
+    char a_nome[50];
+    char a_sexo[10];
+    int a_dia, a_mes, a_ano; //data nascimento 
+    int a_cpf[11];
+} aluno;
+
+typedef struct professor {
+    int p_matricula;
+    char p_nome[50];
+    char p_sexo;
+    int p_data_nascimento;
+    int p_cpf;
+} professor;
+
+typedef struct disciplina {
+    char d_nome[50];
+    int d_codigo;
+    int d_semestre;
+    char d_professor;
+} disciplina;
