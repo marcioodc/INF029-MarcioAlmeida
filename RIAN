@@ -1,0 +1,100 @@
+Entendi! Você quer que, automaticamente, no primeiro dia de cada mês, uma nova planilha seja criada com os mesmos dados e configurações da planilha "mãe", ou seja, a planilha "filha" deve ser gerada de forma programada. Para isso, podemos criar um **agendamento** de tarefa no Excel utilizando o VBA combinado com o **Windows Task Scheduler** (Agendador de Tarefas do Windows) para rodar o código no dia 1 de cada mês.
+
+Aqui está como você pode fazer isso:
+
+### Passo 1: Ajustar o código VBA para criar uma nova planilha
+
+A primeira coisa é ajustar o código VBA para que, no primeiro dia do mês, ele crie uma nova planilha filha com o mesmo conteúdo da planilha mãe. Vou fazer algumas mudanças no código para garantir que a planilha filha seja criada com base no nome do mês atual.
+
+### Código VBA para criar a nova planilha filha:
+
+```vba
+Sub CriarNovaPlanilhaFilha()
+    Dim caminho As String
+    Dim pastaMãe As String
+    Dim arquivoMãe As String
+    Dim arquivoFilha As String
+    Dim dataAtual As Date
+    Dim nomeArquivoFilha As String
+    
+    ' Obter a data atual
+    dataAtual = Date
+    
+    ' Define a pasta onde a planilha mãe está localizada
+    pastaMãe = ThisWorkbook.Path
+    
+    ' Defina o nome do arquivo da planilha mãe
+    arquivoMãe = "PlanilhaMãe.xlsx" ' Nome do arquivo da planilha mãe
+    
+    ' Defina o nome da planilha filha (exemplo: "Filha_MM_AAAA.xlsx")
+    nomeArquivoFilha = "PlanilhaFilha_" & Format(dataAtual, "mm_yyyy") & ".xlsx"
+    
+    ' Caminho completo dos arquivos
+    caminho = pastaMãe & "\" & nomeArquivoFilha
+    
+    ' Cria uma nova planilha filha com os mesmos dados da planilha mãe
+    ThisWorkbook.Sheets(1).UsedRange.Copy
+    Workbooks.Add
+    ActiveSheet.PasteSpecial Paste:=xlPasteValuesAndNumberFormats
+    ActiveSheet.PasteSpecial Paste:=xlPasteFormats
+    
+    ' Salva a nova planilha filha
+    ActiveWorkbook.SaveAs Filename:=caminho
+    
+    ' Fecha a nova planilha filha
+    ActiveWorkbook.Close SaveChanges:=True
+    
+    ' Notifica que a nova planilha foi criada
+    MsgBox "Nova planilha filha criada com sucesso: " & nomeArquivoFilha
+End Sub
+```
+
+### Explicação do código:
+
+* **`nomeArquivoFilha`**: O nome da planilha filha será gerado dinamicamente com o formato `"PlanilhaFilha_MM_AAAA.xlsx"`, onde "MM" é o mês atual e "AAAA" é o ano.
+* **`Workbooks.Add`**: Cria uma nova planilha em branco para receber os dados.
+* **`ActiveSheet.PasteSpecial`**: Coloca os dados e formatos copiados da planilha mãe na nova planilha filha.
+* **`ActiveWorkbook.SaveAs`**: Salva a nova planilha filha na mesma pasta da planilha mãe.
+* **`MsgBox`**: Exibe uma mensagem informando que a nova planilha filha foi criada.
+
+### Passo 2: Configurar o Agendador de Tarefas (Task Scheduler) no Windows
+
+Agora, para garantir que essa macro seja executada automaticamente no primeiro dia de cada mês, você pode configurar o **Windows Task Scheduler** (Agendador de Tarefas do Windows) para abrir o Excel e rodar a macro no dia 1 de cada mês.
+
+#### Passo a Passo:
+
+1. **Abra o Agendador de Tarefas do Windows**:
+
+   * Pressione `Win + R`, digite `taskschd.msc` e pressione Enter.
+
+2. **Criar uma nova tarefa**:
+
+   * No painel à direita, clique em **Criar Tarefa**.
+
+3. **Configuração da tarefa**:
+
+   * **Geral**: Dê um nome à tarefa, por exemplo, "Criar Nova Planilha Filha".
+   * **Disparadores**: Clique em **Novo...** e selecione "Mensal". Defina para rodar no **dia 1 de cada mês**. Deixe o restante das configurações como estão.
+   * **Ações**: Clique em **Novo...**, em **Ação**, selecione "Iniciar um programa". Na caixa de "Programa/script", insira o caminho do **Excel**. Normalmente, o caminho seria algo como:
+
+     * `C:\Program Files\Microsoft Office\root\OfficeXX\EXCEL.EXE` (onde XX corresponde à versão do Office, por exemplo, "Office16" para o Office 2016).
+   * **Adicionar argumentos (opcional)**: Na caixa de argumentos, insira o caminho completo do arquivo Excel onde está a macro. Exemplo:
+
+     ```bash
+     "C:\Caminho\Para\Sua\PlanilhaMãe.xlsx"
+     ```
+   * Isso fará com que o Excel abra e execute a planilha mãe.
+
+4. **Configuração de execução**:
+
+   * Certifique-se de que a tarefa seja executada com privilégios elevados (marque a opção “Executar com privilégios mais altos”).
+   * Salve a tarefa.
+
+### Passo 3: Executar a macro automaticamente
+
+Agora, toda vez que for o **dia 1 de cada mês**, o Agendador de Tarefas abrirá o Excel, carregará a planilha mãe e executará a macro `CriarNovaPlanilhaFilha`, criando a nova planilha filha com os dados e formatação da planilha mãe.
+
+### Observação:
+
+* **Importante**: Assegure-se de que o arquivo Excel esteja configurado para permitir macros, ou o código VBA não será executado.
+* Se houver mais configurações ou ajustes específicos, me avise!
