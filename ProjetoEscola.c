@@ -130,7 +130,59 @@ void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes){
         printf("\nNão há aniversariantes neste mês!\n");
     }
 }
-
+void menu_principal(){
+    printf("\n---Projeto Escola---\n");
+    printf("Escolha uma opção:\n");
+    printf("1- Aluno\n");
+    printf("2- Professor\n");
+    printf("3- Disciplina\n");
+    printf("4- Relatórios\n");
+    printf("5- Finalizar programa\n");
+}
+void menu_aluno(){
+    printf("\n---Aluno---\n");
+    printf("1- Cadastrar aluno\n");
+    printf("2- Listar aluno\n");
+    printf("3- Atualizar aluno\n");                
+    printf("4- Excluir aluno\n");
+    printf("5- Voltar ao menu principal\n");                                
+}
+void menu_professor(){
+    printf("\n---Professor---\n");
+    printf("1- Cadastrar professor\n");
+    printf("2- Listar professor\n");
+    printf("3- Atualizar professor\n");
+    printf("4- Excluir professor\n");
+    printf("5- Voltar ao menu principal\n");
+}
+void menu_disciplina(){
+    printf("\n---Disciplina---\n");
+    printf("1- Cadastrar disciplina\n");
+    printf("2- Listar disciplinas\n");
+    printf("3- Atualizar disciplina\n");
+    printf("4- Excluir disciplina\n");
+    printf("5- Inserir aluno na disciplina\n");
+    printf("6- Excluir aluno da disciplina\n");
+    printf("7- Voltar ao menu principal\n");
+}
+void menu_relatorio(){
+    printf("\n---Relatórios---\n");
+    printf("1- Voltar ao menu principal\n");
+    printf("2- Listar alunos\n");
+    printf("3- Listar professor\n");
+    printf("4- Listar disciplina\n");
+    printf("5- Dados da disciplina\n");
+    printf("6- Alunos ordenados por sexo\n");
+    printf("7- Alunos ordenados por nome\n");
+    printf("8- Alunos ordenados por data de nascimento\n");
+    printf("9- Professores ordenados por sexo\n");
+    printf("10- Professores ordenados por nome\n");
+    printf("11- Professores ordenados por data de nascimento\n");
+    printf("12- Aniversariantes do mês\n");
+    printf("13- Pesquisa por nome\n");
+    printf("14- Alunos matriculados em menos de 3 disciplinas\n");
+    printf("15- Lista de disciplinas com mais de 40 vagas\n");
+}
 int main(void){
     aluno a[TAMALUNO];
     professor p[TAMPROFESSOR];
@@ -143,13 +195,7 @@ int main(void){
     
     while(!sair){
         //Menu principal
-        printf("\n---Projeto Escola---\n");
-        printf("Escolha uma opção:\n");
-        printf("1- Aluno\n");
-        printf("2- Professor\n");
-        printf("3- Disciplina\n");
-        printf("4- Relatórios\n");
-        printf("5- Finalizar programa\n");
+        menu_principal();
         scanf("%d", &opcao);
         switch(opcao){
             case 5: {
@@ -162,15 +208,11 @@ int main(void){
                 
                 while(!sairaluno){
                     //Menu aluno
-                    printf("\n---Aluno---\n");
-                    printf("1- Cadastrar aluno\n");
-                    printf("2- Listar aluno\n");
-                    printf("3- Atualizar aluno\n");
-                    printf("4- Excluir aluno\n");
-                    printf("5- Voltar ao menu principal\n");
+                    menu_aluno();
                     scanf("%d", &opcaoaluno);
                     switch(opcaoaluno){
                         case 5:{
+                            printf("\n---Voltando ao menu principal---\n");
                             sairaluno = 1;
                             break;
                         }
@@ -329,15 +371,11 @@ int main(void){
                 
                 while(!sairprofessor){
                     //Menu professor
-                    printf("\n---Professor---\n");
-                    printf("1- Cadastrar professor\n");
-                    printf("2- Listar professor\n");
-                    printf("3- Atualizar professor\n");
-                    printf("4- Excluir professor\n");
-                    printf("5- Voltar ao menu principal\n");
+                    menu_professor();
                     scanf("%d", &opcaoprofessor);
                     switch(opcaoprofessor){
                         case 5:{
+                            printf("\n---Voltando ao menu principal---\n");
                             sairprofessor = 1;
                         }break;
                         case 1:{
@@ -496,14 +534,7 @@ int main(void){
                 int sairdisciplina = 0;
                 int opcaodisciplina;
                 while(!sairdisciplina){
-                    printf("\n---Disciplina---\n");
-                    printf("1- Cadastrar disciplina\n");
-                    printf("2- Listar disciplinas\n");
-                    printf("3- Atualizar disciplina\n");
-                    printf("4- Excluir disciplina\n");
-                    printf("5- Inserir aluno na disciplina\n");
-                    printf("6- Excluir aluno da disciplina\n");
-                    printf("7- Voltar ao menu principal\n");
+                    menu_disciplina();
                     scanf("%d", &opcaodisciplina);
                     switch(opcaodisciplina){
                         case 7:{
@@ -752,22 +783,7 @@ int main(void){
                 int opcaorelatorio;
                 int sairrelatorio = 0;
                 while(!sairrelatorio){
-                    printf("\n---Relatórios---\n");
-                    printf("1- Voltar ao menu principal\n");
-                    printf("2- Listar alunos\n");
-                    printf("3- Listar professor\n");
-                    printf("4- Listar disciplina\n");
-                    printf("5- Dados da disciplina\n");
-                    printf("6- Alunos ordenados por sexo\n");
-                    printf("7- Alunos ordenados por nome\n");
-                    printf("8- Alunos ordenados por data de nascimento\n");
-                    printf("9- Professores ordenados por sexo\n");
-                    printf("10- Professores ordenados por nome\n");
-                    printf("11- Professores ordenados por data de nascimento\n");
-                    printf("12- Aniversariantes do mês\n");
-                    printf("13- Pesquisa por nome\n");
-                    printf("14- Alunos matriculados em menos de 3 disciplinas\n");
-                    printf("15- Lista de disciplinas com mais de 40 vagas\n");
+                    menu_relatorio();
                     scanf("%d", &opcaorelatorio);
                     switch(opcaorelatorio){
                         case 1:{
