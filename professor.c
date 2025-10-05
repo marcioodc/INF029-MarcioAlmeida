@@ -52,6 +52,7 @@ void cadastrarprof(professor p[], int *qtdprof){
         }
     }
 }
+
 void listarprof(professor p[], int *qtdprof){
     if(*qtdprof == 0){
         printf("A lista está vazia!\n");
@@ -68,6 +69,7 @@ void listarprof(professor p[], int *qtdprof){
         return;
     }
 }
+
 void atualizarprof(professor p[], int *qtdprof){
                                 //atualizar professor
     int atualizarM;
@@ -117,6 +119,7 @@ void atualizarprof(professor p[], int *qtdprof){
         return;
     }
 }
+
 void excluirprof(professor p[], int *qtdprof, disciplina d[], int *qtdisciplina){
      //excluir professor
     int excluir;
@@ -140,5 +143,26 @@ void excluirprof(professor p[], int *qtdprof, disciplina d[], int *qtdisciplina)
         printf("***Professor excluído com sucesso!***\n");
         return;
     } 
+}
+
+int posprof(professor p[], int qtdprof, int matricula){
+    int i;
+    for(i=0; i<qtdprof; i++){
+        if(p[i].matricula == matricula){
+            return i;
+        }
+    }
+    return -1;
+}
+
+int validaData(int dia, int mes, int ano) {
+    if (ano < 1 || mes < 1 || mes > 12 || dia < 1) return 0;
+
+    int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if (mes == 2 && ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0)) {
+        diasMes[2] = 29; // fevereiro em ano bissexto
+    }
+
+    return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
