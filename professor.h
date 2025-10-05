@@ -20,5 +20,7 @@ void cadastrarprof(professor p[], int *qtdprof);
 void listarprof(professor p[], int *qtdprof);
 void atualizarprof(professor p[], int *qtdprof);
 void excluirprof(professor p[], int *qtdprof, disciplina d[], int *qtdisciplina);
+int posprof(professor p[], int *qtdprof, int matricula);
+int validaData(int dia, int mes, int ano);
 
 #endif
