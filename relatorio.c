@@ -77,7 +77,6 @@ void Ralunosdisciplina(aluno a[], int *qtdaluno, disciplina d[], int *qtdiscipli
                         }
                     }
                 }
-                return;
                 if(!temaluno){
                     printf("Nenhum aluno matriculado nesta disciplina!\n\n");
                 }
@@ -102,7 +101,7 @@ void Rsexoalunos(aluno a[], int *qtdaluno){
                 masc++;
             }
         }   
-        if(masc == 0);{
+        if(masc == 0){
             printf("\nNão há aluno masculino matriculado!\n");  
         }
         printf("\n--Feminino--\n");
