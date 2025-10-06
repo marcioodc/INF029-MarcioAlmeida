@@ -1,4 +1,5 @@
 #include "aluno.h"
+#include "disciplina.h"
 
 int posaluno(aluno a[], int qtdaluno, int matricula){
     int i;
@@ -41,7 +42,7 @@ void cadastraraluno(aluno a[], int *qtdaluno){
         }else{
             
             a[*qtdaluno].matricula = matricula;
-                                    //Nome do aluno
+                //Nome do aluno
             getchar();
             printf("Nome: ");
             fgets(a[*qtdaluno].nome, sizeof(a[*qtdaluno].nome), stdin);

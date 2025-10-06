@@ -5,6 +5,7 @@
 #include "disciplina.h"
 #include "relatorio.h"
 
+
 void menu_principal();
 void menu_aluno();
 void menu_professor();
