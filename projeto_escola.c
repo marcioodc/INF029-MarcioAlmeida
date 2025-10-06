@@ -39,7 +39,7 @@ int main(void){
                     menu_aluno();
                     scanf("%d", &opcaoaluno);
                     switch(opcaoaluno){
-                        case 5:{
+                        case 0:{
                             printf("\n---Voltando ao menu principal---\n");
                             sairaluno = 1;
                             break;
@@ -138,44 +138,44 @@ int main(void){
                     menu_relatorio();
                     scanf("%d", &opcaorelatorio);
                     switch(opcaorelatorio){
-                        case 1:{
+                        case 0:{
                             printf("\n---Voltando ao menu principal---\n");
                             sairrelatorio = 1;
                         }break;
-                        case 2: {
+                        case 1: {
                             Rlistaralunos(a, &qtdaluno);
                         }break;
-                        case 3:{
+                        case 2:{
                             Rlistarprofessor(p, &qtdprof);
                         }break;
-                        case 4:{
+                        case 3:{
                             Rlistardisciplina(d, &qtdisciplina, p, &qtdprof);
                         }break;
-                        case 5:{
+                        case 4:{
                             Ralunosdisciplina(a, &qtdaluno, d, &qtdisciplina, p, &qtdprof);
                         } break;
-                        case 6:{
+                        case 5:{
                             Rsexoalunos(a, &qtdaluno);
                         }break;
-                        case 7:{
+                        case 6:{
                             Rnomealunos(a, &qtdaluno);
                         }break;
-                        case 8:{
+                        case 7:{
                             Ralunosdatanascimento(a, &qtdaluno);
                         }break;
-                        case 9:{
+                        case 8:{
                             Rprofessorsexo(p, &qtdprof);
                         }break;
-                        case 10:{
+                        case 9:{
                             Rnomeprofessor(p, &qtdprof);
                         }break;
-                        case 11:{
+                        case 10:{
                             Rprofessordatanascimento(p, &qtdprof);
                         }break;
-                        case 12:{
+                        case 11:{
                             Raniversariantesmes(a, &qtdaluno, p, &qtdprof);
                         }break;
-                        case 13:{/*
+                        case 12:{/*
                             char busca;
                             printf("Informe o nome de quem deseja buscar: \n");
                             fgets(busca, sizeof(busca), stdin);
@@ -184,10 +184,10 @@ int main(void){
                             
                             
                         }break;
-                        case 14:{//imprimir os alunos que estão matriculados em menos de 3 disciplinas
+                        case 13:{//imprimir os alunos que estão matriculados em menos de 3 disciplinas
                             Ralunos3disciplinas(a, &qtdaluno, d, &qtdisciplina);
                         }break;
-                        case 15:{//disciplinas cujas vagas são superiores a 40
+                        case 14:{//disciplinas cujas vagas são superiores a 40
                             Rdisciplinas40(d, &qtdisciplina, p, &qtdprof);
                         }break;
                         default:{
@@ -208,57 +208,57 @@ int main(void){
 void menu_principal(){
     printf("\n---Projeto Escola---\n");
     printf("\nEscolha uma opção:\n");
+    printf("0- Finalizar programa\n");
     printf("1- Aluno\n");
     printf("2- Professor\n");
     printf("3- Disciplina\n");
     printf("4- Relatórios\n");
-    printf("5- Finalizar programa\n");
 }
 
 void menu_aluno(){
     printf("\n---Aluno---\n");
+    printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar aluno\n");
     printf("2- Listar aluno\n");
     printf("3- Atualizar aluno\n");                
-    printf("4- Excluir aluno\n");
-    printf("5- Voltar ao menu principal\n");                                
+    printf("4- Excluir aluno\n");                              
 }
 
 void menu_professor(){
     printf("\n---Professor---\n");
+    printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar professor\n");
     printf("2- Listar professor\n");
     printf("3- Atualizar professor\n");
     printf("4- Excluir professor\n");
-    printf("5- Voltar ao menu principal\n");
 }
 
 void menu_disciplina(){
     printf("\n---Disciplina---\n");
+    printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar disciplina\n");
     printf("2- Listar disciplinas\n");
     printf("3- Atualizar disciplina\n");
     printf("4- Excluir disciplina\n");
     printf("5- Inserir aluno na disciplina\n");
     printf("6- Excluir aluno da disciplina\n");
-    printf("7- Voltar ao menu principal\n");
 }
 
 void menu_relatorio(){
     printf("\n---Relatórios---\n");
-    printf("1- Voltar ao menu principal\n");
-    printf("2- Listar alunos\n");
-    printf("3- Listar professor\n");
-    printf("4- Listar disciplina\n");
-    printf("5- Dados da disciplina\n");
-    printf("6- Alunos ordenados por sexo\n");
-    printf("7- Alunos ordenados por nome\n");
-    printf("8- Alunos ordenados por data de nascimento\n");
-    printf("9- Professores ordenados por sexo\n");
-    printf("10- Professores ordenados por nome\n");
-    printf("11- Professores ordenados por data de nascimento\n");
-    printf("12- Aniversariantes do mês\n");
-    printf("13- Pesquisa por nome\n");
-    printf("14- Alunos matriculados em menos de 3 disciplinas\n");
-    printf("15- Lista de disciplinas com mais de 40 vagas\n");
+    printf("0- Voltar ao menu principal\n");
+    printf("1- Listar alunos\n");
+    printf("2- Listar professor\n");
+    printf("3- Listar disciplina\n");
+    printf("4- Dados da disciplina\n");
+    printf("5- Alunos ordenados por sexo\n");
+    printf("6- Alunos ordenados por nome\n");
+    printf("7- Alunos ordenados por data de nascimento\n");
+    printf("8- Professores ordenados por sexo\n");
+    printf("9- Professores ordenados por nome\n");
+    printf("10- Professores ordenados por data de nascimento\n");
+    printf("11- Aniversariantes do mês\n");
+    printf("12- Pesquisa por nome\n");
+    printf("13- Alunos matriculados em menos de 3 disciplinas\n");
+    printf("14- Lista de disciplinas com mais de 40 vagas\n");
 }
