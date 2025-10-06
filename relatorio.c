@@ -50,7 +50,6 @@ void Rlistardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qt
                 }
             }
         }
-        return;
     }
 }
 
@@ -81,15 +80,17 @@ void Ralunosdisciplina(aluno a[], int *qtdaluno, disciplina d[], int *qtdiscipli
                 return;
                 if(!temaluno){
                     printf("Nenhum aluno matriculado nesta disciplina!\n\n");
-                    return;
                 }
             }
         }
     }
+    return;
 }
 
 void Rsexoalunos(aluno a[], int *qtdaluno){
         //alunos listados por sexo
+    int masc = 0;
+    int fem = 0;
     if(*qtdaluno == 0){
         printf("\nNão há alunos cadastrados!\n");
         return;
@@ -98,18 +99,22 @@ void Rsexoalunos(aluno a[], int *qtdaluno){
         for(int i=0; i< *qtdaluno; i++){
             if(a[i].sexo == 'M' || a[i].sexo == 'm'){
                 printf("%s | %c\n", a[i].nome, a[i].sexo);
-            }else{
-                printf("\nNão há aluno masculino matriculado!\n");
+                masc++;
             }
+        }   
+        if(masc == 0);{
+            printf("\nNão há aluno masculino matriculado!\n");  
         }
         printf("\n--Feminino--\n");
         for(int j=0; j< *qtdaluno; j++){
             if(a[j].sexo == 'F' || a[j].sexo == 'f'){
                 printf("%s | %c\n", a[j].nome, a[j].sexo);
-            }else{
-                printf("\nNão há aluna femino matriculada!\n");
+                fem++;
             }
         }
+        if(fem == 0){
+            printf("\nNão há aluna femino matriculada!\n");
+            }
         return;
     }
 }
