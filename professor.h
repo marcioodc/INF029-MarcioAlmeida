@@ -5,7 +5,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define TAMPROF 2
+#define TAMPROFESSOR 2
 
 typedef struct professor {
     int matricula;
