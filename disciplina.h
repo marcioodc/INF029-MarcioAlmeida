@@ -18,7 +18,6 @@ typedef struct disciplina {
 
 } disciplina;
 
-int validaData(int dia, int mes, int ano);
 int posdisc(disciplina d[], int *qtdisciplina, char codigo[]);
 void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
 void listardisciplina(disciplina d[], int *qtdisciplina);
