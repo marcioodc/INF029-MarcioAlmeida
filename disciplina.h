@@ -20,7 +20,7 @@ typedef struct disciplina {
 
 } disciplina;
 
-int posdisc(disciplina d[], int *qtdisciplina, char codigo[]);
+int posdisc(disciplina d[], int qtdisciplina, char codigo[]);
 void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
 void listardisciplina(disciplina d[], int *qtdisciplina);
 void atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
