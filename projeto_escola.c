@@ -26,7 +26,8 @@ int main(void){
         menu_principal();
         scanf("%d", &opcao);
         switch(opcao){
-            case 5: {
+            case 0: {
+                printf("\nFinalizando o programa!\n");
                 sair = 1;
                 break;
             }
