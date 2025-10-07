@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "relatorio.h"
 
 void Rlistaralunos(aluno a[], int *qtdaluno){

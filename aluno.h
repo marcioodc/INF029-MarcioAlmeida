@@ -1,9 +1,6 @@
 #ifndef aluno_h
 #define aluno_h
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 #include "disciplina.h"
 
 #define TAMALUNO 2

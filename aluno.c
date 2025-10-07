@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include "aluno.h"
 #include "disciplina.h"
 

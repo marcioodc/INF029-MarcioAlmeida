@@ -1,9 +1,6 @@
 #ifndef relatorio_h
 #define relatorio_h
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
