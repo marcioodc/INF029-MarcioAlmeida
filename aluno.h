@@ -10,7 +10,7 @@ typedef struct aluno {
     char nome[50];
     char sexo;
     int dia, mes, ano; //data nascimento 
-    char cpf[15];
+    char cpf[12];
     int ativo;
 } aluno;
 
