@@ -1,9 +1,10 @@
 #ifndef professor_h
 #define professor_h
-#include "disciplina.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include "disciplina.h"
 
 #define TAMPROFESSOR 2
 
