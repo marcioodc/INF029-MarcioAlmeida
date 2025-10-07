@@ -1,7 +1,7 @@
 #ifndef aluno_h
 #define aluno_h
 
-#include "disciplina.h"
+typedef struct disciplina disciplina;
 
 #define TAMALUNO 2
 

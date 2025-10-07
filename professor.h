@@ -1,8 +1,8 @@
 #ifndef professor_h
 #define professor_h
 
-#include "disciplina.h"
 #include "aluno.h"
+typedef struct disciplina disciplina;
 
 #define TAMPROFESSOR 2
 
