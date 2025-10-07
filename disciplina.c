@@ -1,4 +1,6 @@
 #include "disciplina.h"
+#include "aluno.h"
+#include "professor.h"
 
 int posdisc(disciplina d[], int qtdisciplina, char codigo[]){
     int i;
