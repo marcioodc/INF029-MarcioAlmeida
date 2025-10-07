@@ -3,8 +3,6 @@
 #include <ctype.h>
 #include "professor.h"
 #include "disciplina.h"
-#include "aluno.h"
-
 
 void cadastrarprof(professor p[], int *qtdprof){
     //cadastrar professor

@@ -1,5 +1,5 @@
-#ifndef relatorio_h
-#define relatorio_h
+#ifndef RELATORIO_H
+#define RELATORIO_H
 
 #include "aluno.h"
 #include "professor.h"

@@ -1,5 +1,5 @@
-#ifndef professor_h
-#define professor_h
+#ifndef PROFESSOR_H
+#define PROFESSOR_H
 
 #include "disciplina.h"
 

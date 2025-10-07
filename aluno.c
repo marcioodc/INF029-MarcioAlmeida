@@ -2,6 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 #include "aluno.h"
+#include "disciplina.h"
 
 int posaluno(aluno a[], int qtdaluno, int matricula){
     int i;

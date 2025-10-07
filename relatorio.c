@@ -2,6 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 #include "relatorio.h"
+#include "aluno.h"
+#include "professor.h"
+#include "disciplina.h"
 
 void Rlistaralunos(aluno a[], int *qtdaluno){
         //listando os alunos
