@@ -20,6 +20,6 @@ void atualizaraluno(aluno a[], int *qtdaluno);
 void excluiraluno(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina);
 int posaluno(aluno a[], int qtdaluno, int matricula);
 int validaData(int dia, int mes, int ano);
-void removerdedisciplina(disciplina d[], int qtdisciplina, int matricula, char tipo);
+void removerdedisciplina(disciplina d[], int *qtdisciplina, int matricula, char tipo);
 
 #endif
