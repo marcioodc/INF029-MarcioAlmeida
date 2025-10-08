@@ -25,6 +25,23 @@ int validaData(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
+void removerdedisciplina(disciplina d[], int qtdisciplina, int matricula, char tipo) {
+    // a = aluno, p = professor
+    for(int i=0; i<qtdisciplina; i++){
+        if(tipo == 'a') {
+            for(int j=0; j<TAMALUNO; j++) {
+                if(d[i].alunomatriculado[j] == matricula) {
+                    d[i].alunomatriculado[j] = 0;
+                }
+            }
+        } else if(tipo == 'p') {
+            if(d[i].disprof == matricula){
+                d[i].disprof = 0;
+            }
+        }
+    }
+}
+
 void cadastraraluno(aluno a[], int *qtdaluno){
     int matricula;
     if(*qtdaluno == TAMALUNO){
@@ -59,8 +76,8 @@ void cadastraraluno(aluno a[], int *qtdaluno){
                 return;
             }
                                     //CPF do aluno
-            printf("CPF '123.456.789-01': ");
-            scanf(" %15s", a[*qtdaluno].cpf);
+            printf("CPF (apenas números): ");
+            scanf(" %12s", a[*qtdaluno].cpf);
                                       
                                     //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
@@ -129,8 +146,8 @@ void atualizaraluno(aluno a[], int *qtdaluno){
             return;
         }
                                 //CPF do novo aluno 
-        printf("CPF: ");
-        scanf(" %14s", novoaluno.cpf);
+        printf("CPF (apenas números): ");
+        scanf(" %12s", novoaluno.cpf);
                                   
                                 //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
