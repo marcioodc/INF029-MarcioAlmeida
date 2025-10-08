@@ -21,5 +21,8 @@ void Rdisciplinas40(disciplina d[], int *qtdisciplina, professor p[], int *qtdpr
 void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes);
 int Pcomparadata(professor i, professor j);
 int Acomparadata(aluno i, aluno j);
+int posprof(professor p[], int qtdprof, int matricula);
+int posdisc(disciplina d[], int qtdisciplina, char codigo[]);
+int posaluno(aluno a[], int qtdaluno, int matricula);
 
 #endif
