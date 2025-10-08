@@ -25,23 +25,6 @@ int validaData(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
-void removerdedisciplina(disciplina d[], int qtdisciplina, int matricula, char tipo) {
-    // a = aluno, p = professor
-    for(int i=0; i<qtdisciplina; i++){
-        if(tipo == 'a') {
-            for(int j=0; j<TAMALUNO; j++) {
-                if(d[i].alunomatriculado[j] == matricula) {
-                    d[i].alunomatriculado[j] = 0;
-                }
-            }
-        } else if(tipo == 'p') {
-            if(d[i].disprof == matricula){
-                d[i].disprof = 0;
-            }
-        }
-    }
-}
-
 void cadastraraluno(aluno a[], int *qtdaluno){
     int matricula;
     if(*qtdaluno == TAMALUNO){
@@ -165,7 +148,7 @@ void atualizaraluno(aluno a[], int *qtdaluno){
     }
 }
 
-void excluiraluno(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina){
+void excluiraluno(aluno a[], int *qtdaluno){
                                 //excluir aluno
     int excluir;
     if(*qtdaluno == 0){
@@ -179,7 +162,6 @@ void excluiraluno(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina){
         printf("Matricula não encontrada!\n");
         return;
     }else{
-        removerdedisciplina(d, *qtdisciplina, a[posexcluir].matricula, 'a');
         for(int i = posexcluir; i < *qtdaluno - 1; i++){
             a[i] = a[i+1];
         }
