@@ -1,7 +1,5 @@
 #ifndef DISCIPLINA_H
 #define DISCIPLINA_H
-
-
 #include "professor.h"
 #include "aluno.h"
 
