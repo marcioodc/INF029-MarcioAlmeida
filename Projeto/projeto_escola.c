@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
 #include "relatorio.h"
-
 
 void menu_principal();
 void menu_aluno();
