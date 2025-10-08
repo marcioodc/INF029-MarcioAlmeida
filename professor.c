@@ -38,7 +38,7 @@ void cadastrarprof(professor p[], int *qtdprof){
                 return;
             }
                                     //CPF do professor
-            printf("CPF: ");
+            printf("CPF (apenas números): ");
             scanf(" %12s", p[*qtdprof].cpf);
                                     
                                     //Data de nascimento do professor
@@ -105,7 +105,7 @@ void atualizarprof(professor p[], int *qtdprof){
             return;
         }
                                 //CPF do novo professor 
-        printf("CPF: ");
+        printf("CPF (apenas números): ");
         scanf(" %12s", novoprof.cpf);
         getchar();                          
                                 //Data de nascimento do novo professor
