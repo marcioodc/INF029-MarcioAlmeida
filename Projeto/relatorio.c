@@ -259,23 +259,25 @@ void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
         return;
     }
 }
-void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof, char busca[]){
+void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
     if(*qtdaluno && *qtdprof == 0){
         printf("Não há dados cadastrados!\n");
         return;
     }else{
+        char busca[50];
         printf("Informe o nome que deseja buscar: ");
         fgets(busca, sizeof(busca), stdin);
         busca[strcspn(busca, "\n")] = '\0';
-        for(int i=0; i < (*qtdaluno; i++){
-            if(strcmpa[i].nome, busca) == 0){
+        for(int i=0; i < *qtdaluno; i++){
+            if(strcmp(a[i].nome, busca) == 0){
                 printf("%s\n", a[i].nome);
             }else{
                 printf("Aluno não localizado!\n");
             }
-        for(int j=0; j < (*qtdaluno; j++){
-            if(strcmp(p[i].nome, busca) == 0){
-                printf("%s\n", p[i].nome);
+        }
+        for(int j=0; j < *qtdaluno; j++){
+            if(strcmp(p[j].nome, busca) == 0){
+                printf("%s\n", p[j].nome);
             }else{
                 printf("Professor não localizado!\n");
             }
