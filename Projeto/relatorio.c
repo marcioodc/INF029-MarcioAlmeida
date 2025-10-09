@@ -273,7 +273,6 @@ void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof, char bus
             }else{
                 printf("Aluno não localizado!\n");
             }
-        }
         for(int j=0; j < (*qtdaluno; j++){
             if(strcmp(p[i].nome, busca) == 0){
                 printf("%s\n", p[i].nome);
