@@ -3,8 +3,8 @@
 #include <ctype.h>
 
 #include "aluno.h"
-#include "professor.h"/*
-#include "disciplina.h"
+#include "professor.h"
+#include "disciplina.h"/*
 #include "relatorio.h"
 */
 void menu_principal();
