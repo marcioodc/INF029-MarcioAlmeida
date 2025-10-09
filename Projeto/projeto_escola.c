@@ -4,9 +4,9 @@
 
 #include "aluno.h"
 #include "professor.h"
-#include "disciplina.h"/*
+#include "disciplina.h"
 #include "relatorio.h"
-*/
+
 void menu_principal();
 void menu_aluno();
 void menu_professor();
@@ -133,7 +133,7 @@ int main(void){
                         }
                     }
                 }
-            }break;/*
+            }break;
             case 4:{
                 int opcaorelatorio;
                 int sairrelatorio = 0;
@@ -198,7 +198,7 @@ int main(void){
                         }break;
                     }
                 }break;
-            }*/
+            }
             default:{
                 printf("\nOpção inválida!\n");
             }break;
