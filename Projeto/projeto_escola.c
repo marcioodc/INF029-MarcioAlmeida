@@ -47,16 +47,16 @@ int main(void){
                             sairaluno = 1;
                             break;
                         }
-                        case 1:{//cadastrar
+                        case 1:{
                             cadastraraluno(a, &qtdaluno);
                         }break;
-                        case 2:{//listar
+                        case 2:{
                             listaraluno(a, &qtdaluno);
                         }break;
-                        case 3:{//atualizar
+                        case 3:{
                             atualizaraluno(a, &qtdaluno);
                         }break;
-                        case 4:{//excluir
+                        case 4:{
                             excluiraluno(a, &qtdaluno);
                         }break;
                         default:{
@@ -103,6 +103,7 @@ int main(void){
                 int sairdisciplina = 0;
                 int opcaodisciplina;
                 while(!sairdisciplina){
+                    //menu disciplina
                     menu_disciplina();
                     scanf("%d", &opcaodisciplina);
                     switch(opcaodisciplina){
@@ -138,6 +139,7 @@ int main(void){
                 int opcaorelatorio;
                 int sairrelatorio = 0;
                 while(!sairrelatorio){
+                    //menu relatório
                     menu_relatorio();
                     scanf("%d", &opcaorelatorio);
                     switch(opcaorelatorio){
@@ -178,19 +180,13 @@ int main(void){
                         case 11:{
                             Raniversariantesmes(a, &qtdaluno, p, &qtdprof);
                         }break;
-                        case 12:{/*
-                            char busca;
-                            printf("Informe o nome de quem deseja buscar: \n");
-                            fgets(busca, sizeof(busca), stdin);
-                            
-                            
-                            
-                            */
+                        case 12:{
+                            Rbuscarnome(a, &qtdaluno, p, &qtdprof);
                         }break;
-                        case 13:{//imprimir os alunos que estão matriculados em menos de 3 disciplinas
+                        case 13:{
                             Ralunos3disciplinas(a, &qtdaluno, d, &qtdisciplina);
                         }break;
-                        case 14:{//disciplinas cujas vagas são superiores a 40
+                        case 14:{
                             Rdisciplinas40(d, &qtdisciplina, p, &qtdprof);
                         }break;
                         default:{
