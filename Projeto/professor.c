@@ -4,22 +4,6 @@
 #include "professor.h"
 #include "disciplina.h"
 
-void removerdedisciplina(disciplina d[], int qtdisciplina, int matricula, char tipo) {
-    // a = aluno, p = professor
-    for(int i=0; i<qtdisciplina; i++){
-        if(tipo == 'a') {
-            for(int j=0; j<TAMALUNO; j++) {
-                if(d[i].alunomatriculado[j] == matricula) {
-                    d[i].alunomatriculado[j] = 0;
-                }
-            }
-        } else if(tipo == 'p') {
-            if(d[i].disprof == matricula){
-                d[i].disprof = 0;
-            }
-        }
-    }
-}
 
 void cadastrarprof(professor p[], int *qtdprof){
     //cadastrar professor
@@ -155,7 +139,6 @@ void excluirprof(professor p[], int *qtdprof, disciplina d[], int *qtdisciplina)
         printf("Matricula não encontrada!\n");
         return;
     }else{
-        removerdedisciplina(d, *qtdisciplina, p[posexcluir].matricula, 'p');
         for(int i = posexcluir; i < *qtdprof - 1; i++){
             p[i] = p[i+1];
         }
