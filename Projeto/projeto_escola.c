@@ -65,7 +65,7 @@ int main(void){
                     }
                     
                 }
-            }break;
+            }break;/*
             case 2:{
                 int sairprofessor = 0;
                 int opcaoprofessor;
@@ -178,12 +178,12 @@ int main(void){
                         case 11:{
                             Raniversariantesmes(a, &qtdaluno, p, &qtdprof);
                         }break;
-                        case 12:{/*
+                        case 12:{
                             char busca;
                             printf("Informe o nome de quem deseja buscar: \n");
                             fgets(busca, sizeof(busca), stdin);
                             
-                          */  
+                            
                             
                             
                         }break;
@@ -198,7 +198,7 @@ int main(void){
                         }break;
                     }
                 }break;
-            }
+            }*/
             default:{
                 printf("\nOpção inválida!\n");
             }break;
