@@ -16,6 +16,7 @@ void Rprofessorsexo(professor p[], int *qtdprof);
 void Rnomeprofessor(professor p[], int *qtdprof);
 void Rprofessordatanascimento(professor p[], int *qtdprof);
 void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof);
+void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof, char busca[])
 void Ralunos3disciplinas(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina);
 void Rdisciplinas40(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
 void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes);
