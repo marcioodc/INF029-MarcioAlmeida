@@ -158,7 +158,7 @@ int posprof(professor p[], int qtdprof, int matricula){
     return -1;
 }
 
-int validaData(int dia, int mes, int ano) {
+int validata(int dia, int mes, int ano) {
     if (ano < 1 || mes < 1 || mes > 12 || dia < 1) return 0;
 
     int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
