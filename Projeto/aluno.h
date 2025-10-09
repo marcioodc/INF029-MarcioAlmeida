@@ -1,8 +1,6 @@
 #ifndef ALUNO_H
 #define ALUNO_H
 
-#include "disciplina.h"
-
 #define TAMALUNO 2
 
 typedef struct aluno {
