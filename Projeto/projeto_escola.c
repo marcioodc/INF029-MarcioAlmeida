@@ -15,7 +15,7 @@ void menu_relatorio();
 
 int main(void){
     aluno a[TAMALUNO];
-    /*professor p[TAMPROFESSOR];
+    professor p[TAMPROFESSOR];/*
     disciplina d[TAMDISCIPLINA];*/
     int opcao;
     int sair = 0;
