@@ -57,7 +57,7 @@ int main(void){
                             atualizaraluno(a, &qtdaluno);
                         }break;
                         case 4:{//excluir
-                            excluiraluno(a, &qtdaluno, d, &qtdisciplina);
+                            excluiraluno(a, &qtdaluno);
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
