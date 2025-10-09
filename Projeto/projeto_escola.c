@@ -3,7 +3,7 @@
 #include <ctype.h>
 
 #include "aluno.h"
-/*#include "professor.h"
+#include "professor.h"/*
 #include "disciplina.h"
 #include "relatorio.h"
 */
@@ -93,7 +93,7 @@ int main(void){
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
-                        }
+                        }break;
                     }
                     
                 }
