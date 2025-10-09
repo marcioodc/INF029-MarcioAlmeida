@@ -170,3 +170,87 @@ void excluiraluno(aluno a[], int *qtdaluno){
         return;
     }
 }
+int main(void){
+    aluno a[TAMALUNO];
+    professor p[TAMPROFESSOR];
+    disciplina d[TAMDISCIPLINA];
+    int opcao;
+    int sair = 0;
+    int qtdaluno = 0;
+    int qtdprof = 0;
+    int qtdisciplina = 0;
+    while(!sair){
+        //Menu principal
+        menu_principal();
+        scanf("%d", &opcao);
+        switch(opcao){
+            case 0: {
+                printf("\nFinalizando o programa!\n");
+                sair = 1;
+                break;
+            }
+            case 1:{
+                int sairaluno = 0;
+                int opcaoaluno;
+                
+                while(!sairaluno){
+                    //Menu aluno
+                    menu_aluno();
+                    scanf("%d", &opcaoaluno);
+                    switch(opcaoaluno){
+                        case 0:{
+                            printf("\n---Voltando ao menu principal---\n");
+                            sairaluno = 1;
+                            break;
+                        }
+                        case 1:{//cadastrar
+                            cadastraraluno(a, &qtdaluno);
+                        }break;
+                        case 2:{//listar
+                            listaraluno(a, &qtdaluno);
+                        }break;
+                        case 3:{//atualizar
+                            atualizaraluno(a, &qtdaluno);
+                        }break;
+                        case 4:{//excluir
+                            excluiraluno(a, &qtdaluno, d, &qtdisciplina);
+                        }break;
+                        default:{
+                            printf("\nOpção inválida!\n");
+                        }break;
+                    }
+                    
+                }
+            }break;Menu aluno
+                    menu_aluno();
+                    scanf("%d", &opcaoaluno);
+                    switch(opcaoaluno){
+                        case 0:{
+                            printf("\n---Voltando ao menu principal---\n");
+                            sairaluno = 1;
+                            break;
+                        }
+                        case 1:{//cadastrar
+                            cadastraraluno(a, &qtdaluno);
+                        }break;
+                        case 2:{//listar
+                            listaraluno(a, &qtdaluno);
+                        }break;
+                        case 3:{//atualizar
+                            atualizaraluno(a, &qtdaluno);
+                        }break;
+                        case 4:{//excluir
+                            excluiraluno(a, &qtdaluno, d, &qtdisciplina);
+                        }break;
+                        default:{
+                            printf("\nOpção inválida!\n");
+                        }break;
+                    }
+                    
+                }
+            }break;
+        }
+    }
+}
+
+        
