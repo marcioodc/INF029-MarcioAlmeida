@@ -15,8 +15,8 @@ void menu_relatorio();
 
 int main(void){
     aluno a[TAMALUNO];
-    professor p[TAMPROFESSOR];/*
-    disciplina d[TAMDISCIPLINA];*/
+    professor p[TAMPROFESSOR];
+    disciplina d[TAMDISCIPLINA];
     int opcao;
     int sair = 0;
     int qtdaluno = 0;
@@ -98,7 +98,7 @@ int main(void){
                     
                 }
                 
-            }break;/*
+            }break;
             case 3:{
                 int sairdisciplina = 0;
                 int opcaodisciplina;
@@ -133,7 +133,7 @@ int main(void){
                         }
                     }
                 }
-            }break;
+            }break;/*
             case 4:{
                 int opcaorelatorio;
                 int sairrelatorio = 0;
