@@ -238,7 +238,7 @@ void Rprofessordatanascimento(professor p[], int *qtdprof){
 
 void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
         //aniversariantes do mês    
-        if(*qtdaluno == 0 || *qtdprof == 0){
+        if(*qtdaluno == 0 && *qtdprof == 0){
         printf("\nNão há dados cadastrados!\n");
         return;
     }else{
@@ -251,9 +251,13 @@ void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
             scanf("%d", &mes);
             if(mes >= 1 && mes <= 12){
                 meses(a, *qtdaluno, p, *qtdprof, mes);
+            }
+            else if(mes == 0){
+                printf("--Voltando ao menu relatório!--\n");
+                return;
             }else{
                 printf("\nMês inválido!\n");
-                
+                return;
             }
         }
         return;
