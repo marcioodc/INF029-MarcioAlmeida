@@ -44,7 +44,7 @@ void cadastrarprof(professor p[], int *qtdprof){
                                     //Data de nascimento do professor
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &p[*qtdprof].dia, &p[*qtdprof].mes, &p[*qtdprof].ano);
-            int res= validaData(p[*qtdprof].dia, p[*qtdprof].mes, p[*qtdprof].ano);
+            int res= validata(p[*qtdprof].dia, p[*qtdprof].mes, p[*qtdprof].ano);
             if(res == 0){
                 printf("Data inválida!\n");
                 return;
@@ -111,7 +111,7 @@ void atualizarprof(professor p[], int *qtdprof){
                                 //Data de nascimento do novo professor
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoprof.dia, &novoprof.mes, &novoprof.ano);
-        int res = validaData(novoprof.dia, novoprof.mes, novoprof.ano);
+        int res = validata(novoprof.dia, novoprof.mes, novoprof.ano);
         if(res == 0){
             printf("Data inválida!\n");
             return;
