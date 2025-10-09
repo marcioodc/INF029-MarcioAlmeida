@@ -65,7 +65,7 @@ int main(void){
                     }
                     
                 }
-            }break;/*
+            }break;
             case 2:{
                 int sairprofessor = 0;
                 int opcaoprofessor;
@@ -89,7 +89,7 @@ int main(void){
                             atualizarprof(p, &qtdprof);
                         }break;
                         case 4:{
-                            excluirprof(p, &qtdprof, d, &qtdisciplina);
+                            excluirprof(p, &qtdprof);
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
@@ -98,7 +98,7 @@ int main(void){
                     
                 }
                 
-            }break;
+            }break;/*
             case 3:{
                 int sairdisciplina = 0;
                 int opcaodisciplina;
