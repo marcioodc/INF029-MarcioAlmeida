@@ -347,33 +347,3 @@ void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes){
         printf("\nNão há aniversariantes neste mês!\n");
     }
 }
-
-int posaluno(aluno a[], int qtdaluno, int matricula){
-    int i;
-    for(i = 0; i < qtdaluno; i++){
-        if(a[i].matricula == matricula){
-            return i;
-        }
-    }
-    return -1;
-}
-
-int posdisc(disciplina d[], int qtdisciplina, char codigo[]){
-    int i;
-    for(i=0; i<qtdisciplina; i++){
-        if(strcmp(d[i].codigo, codigo) == 0){
-            return i;
-        }
-    }
-    return -1;
-}
-
-int posprof(professor p[], int qtdprof, int matricula){
-    int i;
-    for(i=0; i<qtdprof; i++){
-        if(p[i].matricula == matricula){
-            return i;
-        }
-    }
-    return -1;
-}
