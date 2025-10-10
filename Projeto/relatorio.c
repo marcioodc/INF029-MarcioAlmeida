@@ -268,23 +268,25 @@ void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
         printf("Não há dados cadastrados!\n");
         return;
     }else{
-        char busca[50];
+        char busca[100];
         printf("Informe o nome que deseja buscar: ");
         getchar();
         fgets(busca, sizeof(busca), stdin);
         busca[strcspn(busca, "\n")] = '\0';
         for(int i=0; i < *qtdaluno; i++){
             if(strcmp(a[i].nome, busca) == 0){
-                printf("%s\n", a[i].nome);
+                printf("Nome: %s\n", a[i].nome);
+                printf("Matrícula: %d\n", a[i].matricula);
             }else{
-                printf("Aluno não localizado!\n");
+                printf("\nAluno não localizado!\n");
             }
         }
         for(int j=0; j < *qtdaluno; j++){
             if(strcmp(p[j].nome, busca) == 0){
                 printf("%s\n", p[j].nome);
+                printf("Matrícula: %d\n", p[j].matricula);
             }else{
-                printf("Professor não localizado!\n");
+                printf("\nProfessor não localizado!\n");
             }
         }
         return;
