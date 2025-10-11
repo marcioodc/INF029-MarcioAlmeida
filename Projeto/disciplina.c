@@ -84,7 +84,7 @@ void listardisciplina(disciplina d[], int *qtdisciplina){
         printf("--Listando as disciplinas--\n");
         for(int i=0; i < *qtdisciplina; i++){
             if(d[i].ativo == 1){
-                printf("Código: %s  |  Nome: %s\n", d[i].codigo, d[i].nome);
+                printf("\nCódigo: %s  -  Nome: %s\n", d[i].codigo, d[i].nome);
                 printf("Semestre: %d\n", d[i].semestre);
                 printf("Professor responsável: %d\n", d[i].disprof);
             }

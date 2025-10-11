@@ -87,8 +87,8 @@ void listaraluno(aluno a[], int *qtdaluno){
         printf("--Listando os alunos--\n");
         for(int i=0; i < *qtdaluno; i++){
             if(a[i].ativo == 1){
-                printf("Matricula: %d  |  Nome: %s\n", a[i].matricula, a[i].nome);
-                printf("Sexo: %c  |  Data de Nascimento: %d/%d/%d\n", a[i].sexo, a[i].dia, a[i].mes, a[i].ano);
+                printf("\nMatricula: %d  -  Nome: %s\n", a[i].matricula, a[i].nome);
+                printf("Sexo: %c  -  Data de Nascimento: %d/%d/%d\n", a[i].sexo, a[i].dia, a[i].mes, a[i].ano);
                 printf("CPF: %s\n", a[i].cpf);
                                        
             }
