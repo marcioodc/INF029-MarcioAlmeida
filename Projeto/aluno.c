@@ -90,7 +90,7 @@ int listaraluno(aluno a[], int *qtdaluno){
                                        
             }
         }
-        return;
+        return 1;
     }
 }
 
