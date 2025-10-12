@@ -54,29 +54,29 @@ int main(void){
                                     printf("\nA lista está cheia!\n");
                                 }break;
                                 case 1:{
-printf("\nJá existe aluno cadastrado com essa matrícula!\n");
+printf("Já existe aluno cadastrado com essa matrícula!\n");
 }break;
                                 case 2:{
-printf("\nMatrícula inválida!\n");
+printf("Matrícula inválida!\n");
 }break;
                                 case 3:{
-printf("\nCPF inválido!\n");
+printf("CPF inválido!\n");
 }break;
                                 case 4:{
-printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+printf("Não entendi. Use apenas 'M' ou 'F'!\n");
 }break;
                                 case 5:{
-printf("\nData inválida!\n");
+printf("Data inválida!\n");
 }break;
                                 case 6:{
-printf("\n***Aluno cadastrado com sucesso!***\n");
+printf("***Aluno cadastrado com sucesso!***\n");
 }break;
 }
                         }break;
                         case 2:{
                             int L_Resu = listaraluno(a, &qtdaluno);
 if(L_Resu == 0){
-printf("\nNenhum aluno cadastrado!\n");
+printf("Nenhum aluno cadastrado!\n");
 }else{
 listaraluno(a, &qtdaluno);
 }
@@ -85,33 +85,33 @@ listaraluno(a, &qtdaluno);
                             int A_Resu = atualizaraluno(a, &qtdaluno);
 switch(A_Resu){
 case 0:{
-printf("\nNenhum aluno cadastrado!\n");
+printf("Nenhum aluno cadastrado!\n");
 }break;
 case 1:{
-printf("\nAluno não localizado!\n");
+printf("Aluno não localizado!\n");
 }break;
 case 2:{
-printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+printf("Não entendi. Use apenas 'M' ou 'F'!\n");
 }break;
 case 3:{
-printf("\nCPF inválido!\n");
+printf("CPF inválido!\n");
 }break;
 case 4:{
-printf("\nData inválida!\n");
+printf("Data inválida!\n");
 }break;
 case 5:{
-printf("\n***Cadastro atualizado com sucesso!***\n");
+printf("***Cadastro atualizado com sucesso!***\n");
 }break;
 }
                         }break;
                         case 4:{
                             int E_Resu = excluiraluno(a, &qtdaluno);
 if(E_Resu == 0){
-printf("\nNenhum aluno cadastrado!\n");
+printf("Nenhum aluno cadastrado!\n");
 }else if(E_Resu == 1){
-printf("\nAluno não localizado!\n");
+printf("Aluno não localizado!\n");
 }else{
-printf("\n***Aluno excluído com sucesso!***\n");
+printf("***Aluno excluído com sucesso!***\n");
 }
                         }break;
                         default:{
@@ -141,29 +141,29 @@ printf("\n***Aluno excluído com sucesso!***\n");
                                     printf("\nA lista está cheia!\n");
                                 }break;
                                 case 1:{
-printf("\nJá existe professor cadastrado com essa matrícula!\n");
+printf("Já existe professor cadastrado com essa matrícula!\n");
 }break;
                                 case 2:{
-printf("\nMatrícula inválida!\n");
+printf("Matrícula inválida!\n");
 }break;
                                 case 3:{
-printf("\nCPF inválido!\n");
+printf("CPF inválido!\n");
 }break;
                                 case 4:{
-printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+printf("Não entendi. Use apenas 'M' ou 'F'!\n");
 }break;
                                 case 5:{
-printf("\nData inválida!\n");
+printf("Data inválida!\n");
 }break;
                                 case 6:{
-printf("\n***Professor cadastrado com sucesso!***\n");
+printf("***Professor cadastrado com sucesso!***\n");
 }break;
 }
                         }break;
                         case 2:{
                             int L_Resul = listarprof(p, &qtdprof);
 if(L_Resul == 0){
-printf("\nNenhum professor cadastrado!\n");
+printf("Nenhum professor cadastrado!\n");
 }else{
 listarprof(p, &qtdprof);
                         }break;
@@ -171,33 +171,33 @@ listarprof(p, &qtdprof);
                             int A_Resul = atualizarprof(p, &qtdprof);
 switch(A_Resul){
 case 0:{
-printf("\nNenhum professor cadastrado!\n");
+printf("Nenhum professor cadastrado!\n");
 }break;
 case 1:{
-printf("\nProfessor não localizado!\n");
+printf("Professor não localizado!\n");
 }break;
 case 2:{
-printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+printf("Não entendi. Use apenas 'M' ou 'F'!\n");
 }break;
 case 3:{
-printf("\nCPF inválido!\n");
+printf("CPF inválido!\n");
 }break;
 case 4:{
-printf("\nData inválida!\n");
+printf("Data inválida!\n");
 }break;
 case 5:{
-printf("\n***Cadastro atualizado com sucesso!***\n");
+printf("***Cadastro atualizado com sucesso!***\n");
 }break;
 }
                         }break;
                         case 4:{
                             int E_Resul = excluirprof(p, &qtdprof);
 if(E_Resul == 0){
-printf("\nNenhum professor cadastrado!\n");
+printf("Nenhum professor cadastrado!\n");
 }else if(E_Resul == 1){
-printf("\nProfessor não localizado!\n");
+printf("Professor não localizado!\n");
 }else{
-printf("\n***Professor excluído com sucesso!***\n");
+printf("***Professor excluído com sucesso!***\n");
 }
                         }break;
                         default:{
