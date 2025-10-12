@@ -34,7 +34,8 @@ void Rlistarprofessor(professor p[], int *qtdprof){
         printf("\nN° - Nome - Matrícula - CPF\n");
         for(int i=0; i < *qtdprof; i++){
             if(p[i].ativo == 1){
-                printf("%d - %s - %d - %03d.%03d.%03d-%04d\n", i+1, p[i].nome, p[i].matricula, p[i].cpf);
+                printf("%d - %s - %d -", i+1, p[i].nome, p[i].matricula);
+                printf(" %03d.%03d.%03d-%04d\n", p[i].cpf);
             }
         }
         return;
