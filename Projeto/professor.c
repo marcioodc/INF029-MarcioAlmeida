@@ -166,8 +166,8 @@ int validata(int dia, int mes, int ano) {
 
 int validarCPF(professor p[], char cpf[]) {
     int i = 0;
-    while (p[i].cpf != '\0') {         // enquanto não chegar ao fim da string
-        if (!isdigit(p[i].cpf)) {      // se o caractere não for número
+    while (*p[i].cpf != '\0') {         // enquanto não chegar ao fim da string
+        if (!isdigit(*p[i].cpf)) {      // se o caractere não for número
             return 0;                // CPF inválido (tem letra ou símbolo)
         }
         i++;                         // avança para o próximo caractere

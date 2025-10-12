@@ -168,8 +168,8 @@ int excluiraluno(aluno a[], int *qtdaluno){
 
 int validacpf(aluno a[], char cpf[]) {
     int i = 0;
-    while (a[i].cpf != '\0') {         // enquanto não chegar ao fim da string
-        if (!isdigit(a[i].cpf)) {      // se o caractere não for número
+    while (*a[i].cpf != '\0') {         // enquanto não chegar ao fim da string
+        if (!isdigit(*a[i].cpf)) {      // se o caractere não for número
             return 0;                // CPF inválido (tem letra ou símbolo)
         }
         i++;                         // avança para o próximo caractere
