@@ -48,16 +48,70 @@ int main(void){
                             break;
                         }
                         case 1:{
-                            cadastraraluno(a, &qtdaluno);
+                            int C_Resu = cadastraraluno(a, &qtdaluno);
+                            switch(C_Resu){
+                                case 0:{
+                                    printf("\nA lista está cheia!\n");
+                                }break;
+                                case 1:{
+printf("\nJá existe aluno cadastrado com essa matrícula!\n");
+}break;
+                                case 2:{
+printf("\nMatrícula inválida!\n");
+}break;
+                                case 3:{
+printf("\nCPF inválido!\n");
+}break;
+                                case 4:{
+printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+}break;
+                                case 5:{
+printf("\nData inválida!\n");
+}break;
+                                case 6:{
+printf("\nAluno cadastrado com sucesso!\n");
+}break;
+}
                         }break;
                         case 2:{
-                            listaraluno(a, &qtdaluno);
+                            int L_Resu = listaraluno(a, &qtdaluno);
+if(L_Resu == 0){
+printf("\nNenhum aluno cadastrado!\n");
+}else{
+listaraluno(a, &qtdaluno);
+}
                         }break;
                         case 3:{
-                            atualizaraluno(a, &qtdaluno);
+                            int A_Resu = atualizaraluno(a, &qtdaluno);
+switch(A_Resu){
+case 0:{
+printf("\nNenhum aluno cadastrado!\n");
+break;
+case 1:{
+printf("\nAluno não localizado!\n");
+break;
+case 2:{
+printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+break;
+case 3:{
+printf("\nCPF inválido!\n");
+break;
+case 4:{
+printf("\nData inválida!\n");
+break;
+case 5:{
+printf("\n***Cadastro atualizado com sucesso!***\n");
+break;
                         }break;
                         case 4:{
-                            excluiraluno(a, &qtdaluno);
+                            int E_Resu = excluiraluno(a, &qtdaluno);
+if(E_Resu == 0){
+printf("\nNenhum aluno cadastrado!\n");
+}else if(E_Resu == 1){
+printf("\nAluno não localizado!\n");
+}else{
+printf("\nAluno excluído com sucesso!\n");
+}
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
