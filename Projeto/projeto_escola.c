@@ -223,16 +223,57 @@ printf("***Professor excluído com sucesso!***\n");
                         case 1:{
                             int C_Result = cadastrardisciplina(d, &qtdisciplina, p, &qtdprof); 
 switch(C_Result){
-case 0:
+case 0:{
+printf("Limite de cadastro atingido!\n");
+}break;
+case 1:{
+printf("Já existe disciplina cadastrada com o código informado!\n");
+}break;
+case 2:{
+printf("O semestre deve ser superior a 0\n");
+}break;
+case 3:{
+printf("A quantidade de vagas não pode ser inferior a 0\n");
+}break;
+case 4:{
+printf("Professor não localizado\n");
+}break;
+case 5:{
+printf("***Disciplina cadastrada com sucesso!***\n");
+}break;
+}
                         }break;
                         case 2:{
-                            listardisciplina(d, &qtdisciplina);
+                            int L_Result = listardisciplina(d, &qtdisciplina);
+if(L_Result == 0){
+printf("Nenhuma disciplina cadastrada!\n");
+}else{
+listardisciplina(d, &qtdisciplina);
                         }break;
                         case 3:{
-                            atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
+                            int A_Result = atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
+switch(A_Result){
+case 0:{
+printf("Nenhuma disciplina cadastrada!\n");
+break;
+case 1:{
+printf("Disciplina não encontrada!\n");
+break;
+case 2:{
+printf("O semestre deve ser superior a 0\n");
+break;
+case 3:{
+printf("A quantidade de vagas não pode ser inferior a 0!\n");
+break;
+case 4:{
+printf("Professor não localizado!\n");
+break;
+case 5:{
+printf("***Disciplina atualizada com sucesso!***\n");
                         }break;
                         case 4:{
-                            excluirdisciplina(d, &qtdisciplina);
+                            int E_Result = excluirdisciplina(d, &qtdisciplina);
+
                         }break;
                         case 5:{
                             atribuiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
