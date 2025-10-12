@@ -18,6 +18,6 @@ int atualizarprof(professor p[], int *qtdprof);
 int excluirprof(professor p[], int *qtdprof);
 int posprof(professor p[], int qtdprof, int matricula);
 int validata(int dia, int mes, int ano);
-int validaCPF(professor p[], char cpf[]);
+int validarCPF(professor p[], char cpf[]);
 
 #endif
