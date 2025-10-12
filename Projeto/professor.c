@@ -3,25 +3,22 @@
 #include <ctype.h>
 #include "professor.h"
 
-
-void cadastrarprof(professor p[], int *qtdprof){
+int cadastrarprof(professor p[], int *qtdprof){
     //cadastrar professor
     int matricula;
     if(*qtdprof == TAMPROFESSOR){
-        printf("A lista está cheia!\n");
-        return;                        
+        return 0;                        
     }else{
         printf("--Cadastrando professor--\n");
         printf("Informações do professor:\n");
         printf("Matricula: ");
         scanf("%d", &matricula);
         if(posprof(p, *qtdprof, matricula) != -1){
-            printf("\nJá existe professor com essa matrícula!\n");
-            return;
+            return 1;
         }
         if(matricula < 0){
-            printf("\nMatricula inválida!\n");
-            return;
+            
+            return 2;
         }else{
             p[*qtdprof].matricula = matricula;
                                     //Nome do professor
@@ -34,33 +31,29 @@ void cadastrarprof(professor p[], int *qtdprof){
             scanf(" %c", &p[*qtdprof].sexo);
             p[*qtdprof].sexo = toupper(p[*qtdprof].sexo);
             if(p[*qtdprof].sexo != 'F' && p[*qtdprof].sexo != 'M'){
-                printf("\nNão entendi! Use apenas 'M' ou 'F'!\n");
-                return;
+                return 3;
             }
                                     //CPF do professor
             printf("CPF (apenas números): ");
             scanf(" %12s", p[*qtdprof].cpf);
-                                    
+                                //  4  
                                     //Data de nascimento do professor
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &p[*qtdprof].dia, &p[*qtdprof].mes, &p[*qtdprof].ano);
             int res= validata(p[*qtdprof].dia, p[*qtdprof].mes, p[*qtdprof].ano);
             if(res == 0){
-                printf("Data inválida!\n");
-                return;
+                return 5;
             }
             p[*qtdprof].ativo = 1;
             (*qtdprof)++;
-            printf("***Cadastro realizado com sucesso!***\n");
-            return;
+            return 6;
         }
     }
 }
 
-void listarprof(professor p[], int *qtdprof){
+int listarprof(professor p[], int *qtdprof){
     if(*qtdprof == 0){
-        printf("A lista está vazia!\n");
-        return;
+        return 0;
     }else{
         printf("--Listando os professores--\n");
         for(int i=0; i < *qtdprof; i++){
@@ -74,20 +67,18 @@ void listarprof(professor p[], int *qtdprof){
     }
 }
 
-void atualizarprof(professor p[], int *qtdprof){
+int atualizarprof(professor p[], int *qtdprof){
                                 //atualizar professor
     int atualizarM;
     if(*qtdprof == 0){
-        printf("\nNenhum professor cadastrado!\n");
-        return;
+        return 0;
     }
     printf("Informe a matricula do professor que você deseja atualizar: ");
     scanf("%d", &atualizarM);
     int posicao = posprof(p, *qtdprof, atualizarM);
                             
     if(posicao == -1){
-        printf("\nProfessor não encontrado!\n");
-        return;
+        return 1;
     }else{
         professor novoprof;
         getchar();
@@ -101,26 +92,25 @@ void atualizarprof(professor p[], int *qtdprof){
         scanf(" %c", &novoprof.sexo);
         novoprof.sexo = toupper(novoprof.sexo);
         if(novoprof.sexo != 'F' && novoprof.sexo != 'M'){
-            printf("Não entendi! Use apenas 'M' ou 'F'!\n");
-            return;
+            
+            return 2;
         }
                                 //CPF do novo professor 
         printf("CPF (apenas números): ");
         scanf(" %12s", novoprof.cpf);
-        getchar();                          
+        getchar();         //3                 
                                 //Data de nascimento do novo professor
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoprof.dia, &novoprof.mes, &novoprof.ano);
         int res = validata(novoprof.dia, novoprof.mes, novoprof.ano);
         if(res == 0){
-            printf("Data inválida!\n");
-            return;
+            
+            return 4;
         }
         novoprof.ativo = p[posicao].ativo;
         novoprof.matricula = p[posicao].matricula;
         p[posicao] = novoprof;
-        printf("\n***Cadastro atualizado com sucesso!***\n");
-        return;
+        return 5;
     }
 }
 
@@ -128,23 +118,21 @@ void excluirprof(professor p[], int *qtdprof){
      //excluir professor
     int excluir;
     if(*qtdprof == 0){
-        printf("\nNenhum professor cadastrado!\n");
-        return;
+        return 0;
     }
     printf("Digite a matricula do professor que deseja excluir: ");
     scanf("%d", &excluir);
     int posexcluir = posprof(p, *qtdprof, excluir);
     if(posexcluir == -1){
-        printf("Matricula não encontrada!\n");
-        return;
+        return 1;
     }else{
         for(int i = posexcluir; i < *qtdprof - 1; i++){
             p[i] = p[i+1];
         }
         (*qtdprof)--;
         p[*qtdprof].ativo = 0;
-        printf("***Professor excluído com sucesso!***\n");
-        return;
+        
+        return 2;
     } 
 }
 
