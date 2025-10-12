@@ -174,6 +174,5 @@ int validarCPF(professor p[], char cpf[]) {
     }
     if (i != 11) {                   // se não tiver exatamente 11 dígitos
         return 0;                    // CPF inválido
-    }
-    return 1;                        // CPF válido (somente números e 11 dígitos)
+    }                       // CPF válido (somente números e 11 dígitos)
 }
