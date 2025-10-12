@@ -36,7 +36,7 @@ int cadastrarprof(professor p[], int *qtdprof){
                 //CPF do professor
             printf("CPF (apenas números): ");
             scanf(" %12s", p[*qtdprof].cpf);
-            int cpf = validaCPF(p, p[*qtdprof].cpf);
+            int cpf = validarCPF(p, p[*qtdprof].cpf);
             if(cpf == 0){
                 return 4;
             }
@@ -102,8 +102,8 @@ int atualizarprof(professor p[], int *qtdprof){
         printf("CPF (apenas números): ");
         scanf(" %12s", novoprof.cpf);
         getchar();         
-        int cpf = validaCPF(p, novoprof.cpf);    
-        if(cpf == 0){
+        int CPF = validarCPF(p, novoprof.cpf);    
+        if(CPF == 0){
             return 3;
         }      
             //Data de nascimento do novo professor
