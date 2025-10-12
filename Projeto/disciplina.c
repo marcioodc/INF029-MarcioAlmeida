@@ -87,7 +87,7 @@ int listardisciplina(disciplina d[], int *qtdisciplina){
                 printf("Professor responsável: %d\n", d[i].disprof);
             }
         }
-        return;
+        return 1;
     }
 }
 

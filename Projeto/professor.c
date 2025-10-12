@@ -63,7 +63,7 @@ int listarprof(professor p[], int *qtdprof){
                 printf("CPF: %s\n", p[i].cpf);
             }
         }
-        return;
+        return 1;
     }
 }
 
