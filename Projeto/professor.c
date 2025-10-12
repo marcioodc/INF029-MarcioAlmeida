@@ -21,23 +21,26 @@ int cadastrarprof(professor p[], int *qtdprof){
             return 2;
         }else{
             p[*qtdprof].matricula = matricula;
-                                    //Nome do professor
+                //Nome do professor
             getchar();
             printf("Nome: ");
             fgets(p[*qtdprof].nome, sizeof(p[*qtdprof].nome), stdin);
             p[*qtdprof].nome[strcspn(p[*qtdprof].nome, "\n")] = '\0';
-                                    //Sexo do professor
+                //Sexo do professor
             printf("Sexo: 'F' ou 'M': ");
             scanf(" %c", &p[*qtdprof].sexo);
             p[*qtdprof].sexo = toupper(p[*qtdprof].sexo);
             if(p[*qtdprof].sexo != 'F' && p[*qtdprof].sexo != 'M'){
                 return 3;
             }
-                                    //CPF do professor
+                //CPF do professor
             printf("CPF (apenas números): ");
             scanf(" %12s", p[*qtdprof].cpf);
-                                //  4  
-                                    //Data de nascimento do professor
+            int cpf = validaCPF(p, p[*qtdprof].cpf);
+            if(cpf == 0){
+                return 4;
+            }
+                //Data de nascimento do professor
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &p[*qtdprof].dia, &p[*qtdprof].mes, &p[*qtdprof].ano);
             int res= validata(p[*qtdprof].dia, p[*qtdprof].mes, p[*qtdprof].ano);
@@ -68,7 +71,7 @@ int listarprof(professor p[], int *qtdprof){
 }
 
 int atualizarprof(professor p[], int *qtdprof){
-                                //atualizar professor
+         //atualizar professor
     int atualizarM;
     if(*qtdprof == 0){
         return 0;
@@ -82,12 +85,12 @@ int atualizarprof(professor p[], int *qtdprof){
     }else{
         professor novoprof;
         getchar();
-                                //Nome do novo professor
+            //Nome do novo professor
         printf("\nNome: ");
         fgets(novoprof.nome, sizeof(novoprof.nome), stdin);
         novoprof.nome[strcspn(novoprof.nome, "\n")] = '\0';
                                 
-                                //Sexo do novo professor
+            //Sexo do novo professor
         printf("Sexo: 'F' ou 'M': ");
         scanf(" %c", &novoprof.sexo);
         novoprof.sexo = toupper(novoprof.sexo);
@@ -95,11 +98,15 @@ int atualizarprof(professor p[], int *qtdprof){
             
             return 2;
         }
-                                //CPF do novo professor 
+            //CPF do novo professor 
         printf("CPF (apenas números): ");
         scanf(" %12s", novoprof.cpf);
-        getchar();         //3                 
-                                //Data de nascimento do novo professor
+        getchar();         
+        int cpf = validaCPF(p, novoprof.cpf);    
+        if(cpf == 0){
+            return 3;
+        }      
+            //Data de nascimento do novo professor
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoprof.dia, &novoprof.mes, &novoprof.ano);
         int res = validata(novoprof.dia, novoprof.mes, novoprof.ano);
@@ -157,3 +164,16 @@ int validata(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
+int validarCPF(professor p[], char cpf[]) {
+    int i = 0;
+    while (p[i].cpf != '\0') {         // enquanto não chegar ao fim da string
+        if (!isdigit(p[i].cpf)) {      // se o caractere não for número
+            return 0;                // CPF inválido (tem letra ou símbolo)
+        }
+        i++;                         // avança para o próximo caractere
+    }
+    if (i != 11) {                   // se não tiver exatamente 11 dígitos
+        return 0;                    // CPF inválido
+    }
+    return 1;                        // CPF válido (somente números e 11 dígitos)
+}

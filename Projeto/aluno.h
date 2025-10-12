@@ -18,5 +18,6 @@ int atualizaraluno(aluno a[], int *qtdaluno);
 int excluiraluno(aluno a[], int *qtdaluno);
 int posaluno(aluno a[], int qtdaluno, int matricula);
 int validaData(int dia, int mes, int ano);
+int validaCpf(aluno a[], char cpf[]);
 
 #endif

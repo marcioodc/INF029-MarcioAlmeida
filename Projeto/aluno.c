@@ -56,11 +56,14 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 
                 return 3;
             }
-                                    //CPF do aluno
+                //CPF do aluno
             printf("CPF (apenas números): ");
             scanf(" %12s", a[*qtdaluno].cpf);
-              // 4                       
-                                    //Data de nascimento do aluno
+            int cpf = validacpf(a, a[*qtdaluno].cpf);
+            if(cpf == 0){
+                return 4;
+            }     
+                //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
             int res= validaData(a[*qtdaluno].dia, a[*qtdaluno].mes, a[*qtdaluno].ano);
@@ -77,7 +80,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
 }
 
 int listaraluno(aluno a[], int *qtdaluno){
-                                //listar alunos
+         //listar alunos
     if(*qtdaluno == 0){
         return 0;
     }else{
@@ -95,7 +98,7 @@ int listaraluno(aluno a[], int *qtdaluno){
 }
 
 int atualizaraluno(aluno a[], int *qtdaluno){
-                                //atualizar alunos
+        //atualizar alunos
     int atualizarM;
     if(*qtdaluno == 0){
         return 0;
@@ -109,22 +112,25 @@ int atualizaraluno(aluno a[], int *qtdaluno){
     }else{
         aluno novoaluno;
         getchar();
-                                //Nome do novo aluno
+            //Nome do novo aluno
         printf("\nNome: ");
         fgets(novoaluno.nome, sizeof(novoaluno.nome), stdin);
         novoaluno.nome[strcspn(novoaluno.nome, "\n")] = '\0';
                                 
-                                //Sexo do novo aluno
+            //Sexo do novo aluno
         printf("Sexo: 'F' ou 'M': ");
         scanf(" %c", &novoaluno.sexo);
         novoaluno.sexo = toupper(novoaluno.sexo);
         if(novoaluno.sexo != 'F' && novoaluno.sexo != 'M'){
             return 2;
         }
-                                //CPF do novo aluno 
+            //CPF do novo aluno 
         printf("CPF (apenas números): ");
         scanf(" %12s", novoaluno.cpf);
-                                 // 3
+        int cpf = validacpf(a, novoaluno.cpf);
+        if(cpf == 0){
+            return 3;
+        }
                                 //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
@@ -158,4 +164,18 @@ int excluiraluno(aluno a[], int *qtdaluno){
         a[*qtdaluno].ativo = 0;
         return 2;
     }
+}
+
+int validacpf(aluno a[], char cpf[]) {
+    int i = 0;
+    while (a[i].cpf != '\0') {         // enquanto não chegar ao fim da string
+        if (!isdigit(a[i].cpf)) {      // se o caractere não for número
+            return 0;                // CPF inválido (tem letra ou símbolo)
+        }
+        i++;                         // avança para o próximo caractere
+    }
+    if (i != 11) {                   // se não tiver exatamente 11 dígitos
+        return 0;                    // CPF inválido
+    }
+    return 1;                        
 }
