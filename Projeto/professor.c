@@ -114,7 +114,7 @@ int atualizarprof(professor p[], int *qtdprof){
     }
 }
 
-void excluirprof(professor p[], int *qtdprof){
+int excluirprof(professor p[], int *qtdprof){
      //excluir professor
     int excluir;
     if(*qtdprof == 0){

@@ -163,6 +163,7 @@ int main(void){
                                 printf("Nenhum professor cadastrado!\n");
                             }else{
                                 listarprof(p, &qtdprof);
+                            }
                         }break;
                         case 3:{
                             int A_Resul = atualizarprof(p, &qtdprof);
@@ -250,7 +251,7 @@ int main(void){
                         }break;
                         case 3:{
                             int A_Result = atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
-                            switch(A _Result){
+                            switch(A_Result){
                                 case 0:{
                                     printf("Nenhuma disciplina cadastrada!\n");
                                 }break;
@@ -273,13 +274,13 @@ int main(void){
                         }break;
                         case 4:{
                             int E_Result = excluirdisciplina(d, &qtdisciplina);
-                                if(E_Result == 0)
-                                    printf("Nenhuma disciplina cadastrada!\n");
-                                }else if(E_Result == 1){
-                                    printf(" Disciplina não encontrada!\n");
-                                }else{
-                                    printf("***Disciplina excluída com sucesso!***\n");
-}
+                            if(E_Result == 0){
+                                printf("Nenhuma disciplina cadastrada!\n");
+                            }else if(E_Result == 1){
+                                printf(" Disciplina não encontrada!\n");
+                            }else{
+                                printf("***Disciplina excluída com sucesso!***\n");
+                            }
                         }break;
                         case 5:{
                             int AA_Result = atribuiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
@@ -300,7 +301,7 @@ int main(void){
                         }break;
                         case 6:{
                             int EA_Result = excluiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
-                            switch(EA_RESULT){
+                            switch(EA_Result){
                                 case 0:{
                                     printf("Nenhum aluno cadastrado!\n");
                                 }break;
@@ -397,6 +398,7 @@ int main(void){
 }
 
 int menu_principal(){
+    int opcao;
     printf("\n---Projeto Escola---\n");
     printf("\nEscolha uma opção:\n");
     printf("0- Finalizar programa\n");
@@ -409,6 +411,7 @@ int menu_principal(){
 }
 
 int menu_aluno(){
+    int opcaoaluno;
     printf("\n---Aluno---\n");
     printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar aluno\n");
@@ -420,6 +423,7 @@ int menu_aluno(){
 }
 
 int menu_professor(){
+    int opcaoprofessor;
     printf("\n---Professor---\n");
     printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar professor\n");
@@ -431,6 +435,7 @@ int menu_professor(){
 }
 
 int menu_disciplina(){
+    int opcaodisciplina;
     printf("\n---Disciplina---\n");
     printf("0- Voltar ao menu principal\n");
     printf("1- Cadastrar disciplina\n");
@@ -444,6 +449,7 @@ int menu_disciplina(){
 }
 
 int menu_relatorio(){
+    int opcaorelatorio;
     printf("\n---Relatórios---\n");
     printf("0- Voltar ao menu principal\n");
     printf("1- Listar alunos\n");
