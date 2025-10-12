@@ -12,9 +12,9 @@ typedef struct professor {
     int ativo;
 } professor;
 
-void cadastrarprof(professor p[], int *qtdprof);
-void listarprof(professor p[], int *qtdprof);
-void atualizarprof(professor p[], int *qtdprof);
+int cadastrarprof(professor p[], int *qtdprof);
+int listarprof(professor p[], int *qtdprof);
+int atualizarprof(professor p[], int *qtdprof);
 void excluirprof(professor p[], int *qtdprof);
 int posprof(professor p[], int qtdprof, int matricula);
 int validata(int dia, int mes, int ano);
