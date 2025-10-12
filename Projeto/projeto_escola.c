@@ -57,10 +57,10 @@ int main(void){
                                     printf("Matrícula inválida!\n");
                                 }break;
                                 case 3:{
-                                    printf("CPF inválido!\n");
+                                    printf("Não entendi. Use apemas 'M' ou 'F'!\n");
                                 }break;
                                 case 4:{
-                                    printf("Não entendi. Use apenas 'M' ou 'F'!\n");
+                                    printf("CPF inválido!\n");
                                 }break;
                                 case 5:{
                                     printf("Data inválida!\n");
@@ -144,10 +144,10 @@ int main(void){
                                     printf("Matrícula inválida!\n");
                                 }break;
                                 case 3:{
-                                    printf("CPF inválido!\n");
+                                    printf("Não entendi. Use apenas 'M' ou 'F'!\n");
                                 }break;
                                 case 4:{
-                                    printf("Não entendi. Use apenas 'M' ou 'F'!\n");
+                                    printf("CPF inválido!\n");
                                 }break;
                                 case 5:{
                                     printf("Data inválida!\n");
