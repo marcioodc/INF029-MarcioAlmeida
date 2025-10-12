@@ -249,37 +249,80 @@ if(L_Result == 0){
 printf("Nenhuma disciplina cadastrada!\n");
 }else{
 listardisciplina(d, &qtdisciplina);
+}
                         }break;
                         case 3:{
                             int A_Result = atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
 switch(A_Result){
 case 0:{
 printf("Nenhuma disciplina cadastrada!\n");
-break;
+}break;
 case 1:{
 printf("Disciplina não encontrada!\n");
-break;
+}break;
 case 2:{
 printf("O semestre deve ser superior a 0\n");
-break;
+}break;
 case 3:{
 printf("A quantidade de vagas não pode ser inferior a 0!\n");
-break;
+}break;
 case 4:{
 printf("Professor não localizado!\n");
-break;
+}break;
 case 5:{
 printf("***Disciplina atualizada com sucesso!***\n");
+}break;
+}
                         }break;
                         case 4:{
                             int E_Result = excluirdisciplina(d, &qtdisciplina);
-
+if(E_Result == 0)
+printf("Nenhuma disciplina cadastrada!\n");
+}else if(E_Result == 1){
+printf("Disciplina não encontrada!\n");
+}else{
+printf("***Disciplina excluída com sucesso!***\n");
+}
                         }break;
                         case 5:{
-                            atribuiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
+                            int AA_Result = atribuiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
+switch(AA_Result){
+case 0:{
+printf("Nenhum aluno cadastrado!\n");
+}break;
+case 1:{
+printf("Disciplina não encontrada!\n");
+}break;
+case 2:{
+printf("Aluno não localizado!\n");
+}break;
+case 3:{
+printf("***Aluno atribuído à disciplina com sucesso!***\n");
+}break;
+}
                         }break;
                         case 6:{
-                            excluiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
+                            int EA_Result = excluiralunodisciplina(d, &qtdisciplina, a, &qtdaluno);
+switch(EA_RESULT){
+case 0:{
+printf("Nenhum aluno cadastrado!\n");
+}break;
+case 1:{
+printf("Disciplina não encontrada!\n");
+}break;
+case 2:{
+printf("Aluno não localizado!\n");
+}break;
+case 3:{
+printf("O aluno já está matriculado nesta disciplina!\n");
+}break;
+case 4:{
+printf("***Aluno excluído da disciplina com sucesso!***\n");
+}break;
+case 5:{
+printf("Não há vaga nesta disciplina!\n");
+}break;
+}
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
