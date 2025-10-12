@@ -59,7 +59,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                                     //CPF do aluno
             printf("CPF (apenas números): ");
             scanf(" %12s", a[*qtdaluno].cpf);
-               4                       
+              // 4                       
                                     //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
@@ -76,7 +76,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
     }
 }
 
-void listaraluno(aluno a[], int *qtdaluno){
+int listaraluno(aluno a[], int *qtdaluno){
                                 //listar alunos
     if(*qtdaluno == 0){
         return 0;
@@ -94,7 +94,7 @@ void listaraluno(aluno a[], int *qtdaluno){
     }
 }
 
-void atualizaraluno(aluno a[], int *qtdaluno){
+int atualizaraluno(aluno a[], int *qtdaluno){
                                 //atualizar alunos
     int atualizarM;
     if(*qtdaluno == 0){
@@ -124,7 +124,7 @@ void atualizaraluno(aluno a[], int *qtdaluno){
                                 //CPF do novo aluno 
         printf("CPF (apenas números): ");
         scanf(" %12s", novoaluno.cpf);
-                                  3
+                                 // 3
                                 //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
@@ -139,7 +139,7 @@ void atualizaraluno(aluno a[], int *qtdaluno){
     }
 }
 
-void excluiraluno(aluno a[], int *qtdaluno){
+int excluiraluno(aluno a[], int *qtdaluno){
                                 //excluir aluno
     int excluir;
     if(*qtdaluno == 0){
