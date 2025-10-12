@@ -12,10 +12,10 @@ typedef struct aluno {
     int ativo;
 } aluno;
 
-void cadastraraluno(aluno a[], int *qtdaluno);
-void listaraluno(aluno a[], int *qtdaluno);
-void atualizaraluno(aluno a[], int *qtdaluno);
-void excluiraluno(aluno a[], int *qtdaluno);
+int cadastraraluno(aluno a[], int *qtdaluno);
+int listaraluno(aluno a[], int *qtdaluno);
+int atualizaraluno(aluno a[], int *qtdaluno);
+int excluiraluno(aluno a[], int *qtdaluno);
 int posaluno(aluno a[], int qtdaluno, int matricula);
 int validaData(int dia, int mes, int ano);
 
