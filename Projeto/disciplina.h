@@ -17,11 +17,11 @@ typedef struct disciplina {
 } disciplina;
 
 int posdisc(disciplina d[], int qtdisciplina, char codigo[]);
-void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
-void listardisciplina(disciplina d[], int *qtdisciplina);
-void atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
-void excluirdisciplina(disciplina d[], int *qtdisciplina);
-void atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno);
-void excluiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno);
+int cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
+int listardisciplina(disciplina d[], int *qtdisciplina);
+int atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof);
+int excluirdisciplina(disciplina d[], int *qtdisciplina);
+int atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno);
+int excluiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno);
 
 #endif
