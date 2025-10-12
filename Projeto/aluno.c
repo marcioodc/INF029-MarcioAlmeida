@@ -48,7 +48,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
             printf("Nome: ");
             fgets(a[*qtdaluno].nome, sizeof(a[*qtdaluno].nome), stdin);
             a[*qtdaluno].nome[strcspn(a[*qtdaluno].nome, "\n")] = '\0';
-                                    //Sexo do aluno
+                //Sexo do aluno
             printf("Sexo 'F' ou 'M': ");
             scanf(" %c", &a[*qtdaluno].sexo);
             a[*qtdaluno].sexo = toupper(a[*qtdaluno].sexo);
@@ -131,7 +131,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
         if(cpf == 0){
             return 3;
         }
-                                //Data de nascimento do novo aluno
+            //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
         int res= validaData(novoaluno.dia, novoaluno.mes, novoaluno.ano);
@@ -146,7 +146,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
 }
 
 int excluiraluno(aluno a[], int *qtdaluno){
-                                //excluir aluno
+        //excluir aluno
     int excluir;
     if(*qtdaluno == 0){
         return 0;
