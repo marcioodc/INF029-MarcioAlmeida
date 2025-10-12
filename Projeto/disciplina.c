@@ -16,23 +16,22 @@ int posdisc(disciplina d[], int qtdisciplina, char codigo[]){
     return -1;
 }
 
-void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
+int cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
         //cadastrar disciplina
     for(int j=0; j<TAMALUNO; j++){
         d[*qtdisciplina].alunomatriculado[j] = 0;
     }
     char codigo[10];
     if(*qtdisciplina == TAMDISCIPLINA){
-        printf("A lista está cheia!\n");
-        return;
+        return 0;
     }else{
         printf("--Cadastrando disciplina--\n");
         printf("Informações da disciplina:\n");
         printf("Código: ");
         scanf("%9s", codigo);
         if(posdisc(d, *qtdisciplina, codigo) != -1){
-            printf("Já existe disciplina com este código!\n");
-            return;
+            
+            return 1;
         }
         strcpy(d[*qtdisciplina].codigo, codigo);
             //Nome da disciplina
@@ -44,15 +43,15 @@ void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *
         printf("Semestre: ");
         scanf("%d", &d[*qtdisciplina].semestre);
         if(d[*qtdisciplina].semestre < 1){
-            printf("\nSemestre inválido. Digite um valor maior que zero!\n");
-            return;
+            
+            return 2;
         }
             //Quantidade de vagas
         printf("Quantidade de vagas: ");
         scanf("%d", &d[*qtdisciplina].qtdvagas);
         if(d[*qtdisciplina].qtdvagas < 1){
-            printf("\nValor inválido! Digite um valor maior que 0!\n");
-            return;
+            
+            return 3;
         }
             //Matricula do prof responsável
         printf("Matrícula do professor: ");
@@ -65,21 +64,20 @@ void cadastrardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *
             }
         }
         if(!existe){
-            printf("\nNão há professor cadastrado com a matrícula informada!\n");
-            return;
+            
+            return 4;
         }else{
-            printf("\n***Cadastro realizado com sucesso!***\n");
             d[*qtdisciplina].ativo = 1;
             (*qtdisciplina)++;
-            return; 
+            return 5; 
         }
     }
 }
 
-void listardisciplina(disciplina d[], int *qtdisciplina){
+int listardisciplina(disciplina d[], int *qtdisciplina){
     if(*qtdisciplina == 0){
-        printf("A lista está vazia!\n");
-        return;
+        
+        return 0;
     }else{
         printf("--Listando as disciplinas--\n");
         for(int i=0; i < *qtdisciplina; i++){
@@ -93,17 +91,17 @@ void listardisciplina(disciplina d[], int *qtdisciplina){
     }
 }
 
-void atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
+int atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
     char atualizarcod[10];
     if(*qtdisciplina == 0){
-        printf("\nNenhuma disciplina cadastrada!\n");
-        return;
+        
+        return 0;
     }
     printf("Informe o código da disciplina que você deseja atualizar: ");
     scanf("%9s", atualizarcod);
     int posicao = posdisc(d, *qtdisciplina, atualizarcod);
     if(posicao == -1){
-        printf("\nDisciplina não encontrado!\n");
+return 1;
     }else{
         disciplina novadisc = d[posicao];
         strcpy(novadisc.codigo, d[posicao].codigo);
@@ -116,15 +114,15 @@ void atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *
         printf("Semestre: ");                         
         scanf("%d", &novadisc.semestre);
         if(novadisc.semestre < 1){
-            printf("\nSemestre inválido. Digite um valor maior que zero!\n");
-            return;
+            
+            return 2;
         }
             //Quantidade de vagas
         printf("Quantidade de vagas: ");
         scanf("%d", &novadisc.qtdvagas);
         if(novadisc.qtdvagas < 1){
-            printf("\nValor inválido! Digite um valor maior que 0!\n");
-            return;
+            
+            return 3;
         }
             //Matricula do prof responsável 
         printf("Matrícula do professor: ");
@@ -139,45 +137,44 @@ void atualizardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *
         }
         if(!existe){
             printf("\nNão há professor cadastrado com a matrícula informada!\n");
-            return;
+            return 4;
         }else{
-            printf("\n***Cadastro realizado com sucesso!***\n");
             novadisc.ativo = d[posicao].ativo;
             d[posicao] = novadisc;
-            return;
+            return 5;
         }
     }
 }
 
-void excluirdisciplina(disciplina d[], int *qtdisciplina){
+int excluirdisciplina(disciplina d[], int *qtdisciplina){
     char excluir[10];
     if(*qtdisciplina == 0){
-        printf("\nNenhuma disciplina cadastrada!\n");
-        return;
+        
+        return 0;
     }else{
         printf("Digite o código da disciplina que deseja excluir: ");
         scanf("%9s", excluir);
         int posexcluir = posdisc(d, *qtdisciplina, excluir);
         if(posexcluir == -1){
-            printf("Código não encontrado!\n");
-            return;
+            
+            return 1;
         }else{
             for(int i = posexcluir; i < *qtdisciplina - 1; i++){
                 d[i] = d[i+1];
             }
             (*qtdisciplina)--;
-            printf("***Disciplina excluída com sucesso!***\n");
-            return;
+            
+            return 2;
         }
     }
 }
 
-void atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno){
+int atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno){
     int a_matricula;
     char codisc[10];
     if(*qtdaluno == 0){
-        printf("\nNenhum aluno cadastrado!\n");
-        return;
+       
+        return 0;
     }else{
         printf("\n--Atribuindo aluno à disciplina--\n");
         printf("Informe o código da disciplina: \n");
@@ -185,19 +182,19 @@ void atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *
         int poscod = posdisc(d, *qtdisciplina, codisc);
         if(poscod == -1){
             printf("\nCódigo da disciplina não localizado!\n");
-            return;
+            return 1;
         }
         printf("Informe a matrícula do aluno: \n");
         scanf("%d", &a_matricula);
         int posmat = posaluno(a, *qtdaluno, a_matricula);
         if(posmat == -1){
-            printf("\nMatrícula do aluno não localizada!\n");
-            return;
+            
+            return 2;
         }
         for(int j=0; j<TAMALUNO; j++){
             if(d[poscod].alunomatriculado[j] == a_matricula){
                 printf("\nAluno já está matriculado nesta disciplina!\n");
-                return;
+                return 3;
             }
         }
         int matriculado = 0;
@@ -210,32 +207,35 @@ void atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *
         }
         if(matriculado){
             printf("\n***Aluno %s matriculado na disciplina %s com sucesso!***\n", a[posmat].nome, d[poscod].codigo);
+return 4;
         }else{
             printf("\nNão há vagas nesta disciplina!\n");
+return 5;
         }
     }
 }
 
-void excluiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno){
+int excluiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *qtdaluno){
     int a_matricula;
     char codisc[10];
     if(*qtdaluno == 0){
-        printf("\nNão há aluno cadastrado!\n");
+        
+return 0;
     }else{
         printf("\n--Excluíndo aluno da disciplina--\n");
         printf("Informe o código da disciplina: \n");
         scanf("%9s", codisc);
         int poscod = posdisc(d, *qtdisciplina, codisc);
         if(poscod == -1){
-            printf("\nCódigo da disciplina não localizado!\n");
-            return;
+            
+            return 1;
         }
         printf("Informe a matrícula do aluno: \n");
         scanf("%d", &a_matricula);
         int posmat = posaluno(a, *qtdaluno, a_matricula);
         if(posmat == -1){
-            printf("\nMatrícula do aluno não localizada!\n");
-            return;
+            
+            return 2;
         }          
         int excluiralunodisc = 0;
         for(int j=0; j<TAMALUNO; j++){
@@ -247,10 +247,10 @@ void excluiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *q
         }
         if(excluiralunodisc){
             printf("\n***Aluno %s excluído da disciplina %s com sucesso!***\n", a[posmat].nome, d[poscod].codigo);
-            return;
+            return 3;
         }else{
             printf("\nAluno não está matriículado nesta disciplina!\n");
-            return;
+            return 4;
         }
     }
 }
