@@ -17,7 +17,7 @@ void Rlistaralunos(aluno a[], int *qtdaluno){
         printf("\nN° - Nome - Matrícula - CPF\n");
         for(int i=0; i < *qtdaluno; i++){
             if(a[i].ativo == 1){
-                printf("%d - %s - %d - %03d.%03d.%03d-%04d\n", i+1, a[i].nome, a[i].matricula, a[i].cpf);
+                printf("%d - %s - %d - %s\n", i+1, a[i].nome, a[i].matricula, a[i].cpf);
             }
         }
         return;
@@ -35,7 +35,7 @@ void Rlistarprofessor(professor p[], int *qtdprof){
         for(int i=0; i < *qtdprof; i++){
             if(p[i].ativo == 1){
                 printf("%d - %s - %d -", i+1, p[i].nome, p[i].matricula);
-                printf(" %03d.%03d.%03d-%04d\n", p[i].cpf);
+                printf(" %s\n", p[i].cpf);
             }
         }
         return;

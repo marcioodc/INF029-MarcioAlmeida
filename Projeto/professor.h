@@ -8,7 +8,7 @@ typedef struct professor {
     char nome[50];
     char sexo;
     int dia, mes, ano; //data nascimento
-    int cpf[12];
+    char cpf[12];
     int ativo;
 } professor;
 
