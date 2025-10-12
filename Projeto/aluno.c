@@ -24,11 +24,10 @@ int validaData(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
-void cadastraraluno(aluno a[], int *qtdaluno){
+int cadastraraluno(aluno a[], int *qtdaluno){
     int matricula;
     if(*qtdaluno == TAMALUNO){
-        printf("A lista está cheia!\n");
-        return;
+        return 0;
     }else{
         printf("--Cadastrando aluno--\n");
         printf("Informações do aluno:\n");
@@ -36,11 +35,11 @@ void cadastraraluno(aluno a[], int *qtdaluno){
         scanf("%d", &matricula);
         if(posaluno(a, *qtdaluno, matricula) != -1){
         printf("\nJá existe aluno com essa matrícula!\n");
-        return;
+        return 1;
         } 
         else if(matricula < 0){
-            printf("\nMatricula inválida!\n");
-            return;
+            
+            return 2;
         }else{
             
             a[*qtdaluno].matricula = matricula;
@@ -54,26 +53,25 @@ void cadastraraluno(aluno a[], int *qtdaluno){
             scanf(" %c", &a[*qtdaluno].sexo);
             a[*qtdaluno].sexo = toupper(a[*qtdaluno].sexo);
             if(a[*qtdaluno].sexo != 'F' && a[*qtdaluno].sexo != 'M'){
-                printf("\nNão entendi! Use apenas 'M' ou 'F'!\n");
-                return;
+                
+                return 3;
             }
                                     //CPF do aluno
             printf("CPF (apenas números): ");
             scanf(" %12s", a[*qtdaluno].cpf);
-                                      
+               4                       
                                     //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
             scanf("%d/%d/%d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
             int res= validaData(a[*qtdaluno].dia, a[*qtdaluno].mes, a[*qtdaluno].ano);
             if(res == 0){
-                printf("Data inválida!\n");
-                return;
+                
+                return 5;
             }
                                     
             a[*qtdaluno].ativo = 1;
             (*qtdaluno)++;
-                                 
-            printf("***Cadastro realizado com sucesso***\n");
+            return 6;                     
         }
     }
 }
@@ -81,8 +79,7 @@ void cadastraraluno(aluno a[], int *qtdaluno){
 void listaraluno(aluno a[], int *qtdaluno){
                                 //listar alunos
     if(*qtdaluno == 0){
-        printf("A lista está vazia!\n");
-        return;
+        return 0;
     }else{
         printf("--Listando os alunos--\n");
         for(int i=0; i < *qtdaluno; i++){
@@ -101,16 +98,14 @@ void atualizaraluno(aluno a[], int *qtdaluno){
                                 //atualizar alunos
     int atualizarM;
     if(*qtdaluno == 0){
-        printf("\nNenhum aluno cadastrado!\n");
-        return;
+        return 0;
     }
     printf("Informe a matricula do aluno que você deseja atualizar: ");
     scanf("%d", &atualizarM);
     int posicao = posaluno(a, *qtdaluno, atualizarM);
                             
     if(posicao == -1){
-        printf("Aluno não encontrado!\n");
-        return;
+        return 1;
     }else{
         aluno novoaluno;
         getchar();
@@ -124,26 +119,23 @@ void atualizaraluno(aluno a[], int *qtdaluno){
         scanf(" %c", &novoaluno.sexo);
         novoaluno.sexo = toupper(novoaluno.sexo);
         if(novoaluno.sexo != 'F' && novoaluno.sexo != 'M'){
-            printf("Não entendi! Use apenas 'M' ou 'F'!\n");
-            return;
+            return 2;
         }
                                 //CPF do novo aluno 
         printf("CPF (apenas números): ");
         scanf(" %12s", novoaluno.cpf);
-                                  
+                                  3
                                 //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
         scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
         int res= validaData(novoaluno.dia, novoaluno.mes, novoaluno.ano);
         if(res == 0){
-            printf("Data inválida!\n");
-            return;
+            return 4;
         }
         novoaluno.ativo = a[posicao].ativo;
         novoaluno.matricula = a[posicao].matricula;
         a[posicao] = novoaluno;
-        printf("\n***Cadastro atualizado com sucesso!***\n");
-        return;
+        return 5;
     }
 }
 
@@ -151,22 +143,19 @@ void excluiraluno(aluno a[], int *qtdaluno){
                                 //excluir aluno
     int excluir;
     if(*qtdaluno == 0){
-        printf("\nNenhum aluno cadastrado!\n");
-        return;
+        return 0;
     }
     printf("Digite a matricula do aluno que deseja excluir: ");
     scanf("%d", &excluir);
     int posexcluir = posaluno(a, *qtdaluno, excluir);
     if(posexcluir == -1){
-        printf("Matricula não encontrada!\n");
-        return;
+        return 1;
     }else{
         for(int i = posexcluir; i < *qtdaluno - 1; i++){
             a[i] = a[i+1];
         }
         (*qtdaluno)--;
         a[*qtdaluno].ativo = 0;
-        printf("***Aluno excluído com sucesso***\n");
-        return;
+        return 2;
     }
 }
