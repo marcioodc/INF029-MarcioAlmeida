@@ -69,7 +69,7 @@ printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
 printf("\nData inválida!\n");
 }break;
                                 case 6:{
-printf("\nAluno cadastrado com sucesso!\n");
+printf("\n***Aluno cadastrado com sucesso!***\n");
 }break;
 }
                         }break;
@@ -86,22 +86,23 @@ listaraluno(a, &qtdaluno);
 switch(A_Resu){
 case 0:{
 printf("\nNenhum aluno cadastrado!\n");
-break;
+}break;
 case 1:{
 printf("\nAluno não localizado!\n");
-break;
+}break;
 case 2:{
 printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
-break;
+}break;
 case 3:{
 printf("\nCPF inválido!\n");
-break;
+}break;
 case 4:{
 printf("\nData inválida!\n");
-break;
+}break;
 case 5:{
 printf("\n***Cadastro atualizado com sucesso!***\n");
-break;
+}break;
+}
                         }break;
                         case 4:{
                             int E_Resu = excluiraluno(a, &qtdaluno);
@@ -110,7 +111,7 @@ printf("\nNenhum aluno cadastrado!\n");
 }else if(E_Resu == 1){
 printf("\nAluno não localizado!\n");
 }else{
-printf("\nAluno excluído com sucesso!\n");
+printf("\n***Aluno excluído com sucesso!***\n");
 }
                         }break;
                         default:{
@@ -134,16 +135,70 @@ printf("\nAluno excluído com sucesso!\n");
                             sairprofessor = 1;
                         }break;
                         case 1:{
-                            cadastrarprof(p, &qtdprof);
+                            int C_Resul = cadastrarprof(p, &qtdprof);
+                            switch(C_Resul){
+                                case 0:{
+                                    printf("\nA lista está cheia!\n");
+                                }break;
+                                case 1:{
+printf("\nJá existe professor cadastrado com essa matrícula!\n");
+}break;
+                                case 2:{
+printf("\nMatrícula inválida!\n");
+}break;
+                                case 3:{
+printf("\nCPF inválido!\n");
+}break;
+                                case 4:{
+printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+}break;
+                                case 5:{
+printf("\nData inválida!\n");
+}break;
+                                case 6:{
+printf("\n***Professor cadastrado com sucesso!***\n");
+}break;
+}
                         }break;
                         case 2:{
-                            listarprof(p, &qtdprof);
+                            int L_Resul = listarprof(p, &qtdprof);
+if(L_Resul == 0){
+printf("\nNenhum professor cadastrado!\n");
+}else{
+listarprof(p, &qtdprof);
                         }break;
                         case 3:{
-                            atualizarprof(p, &qtdprof);
+                            int A_Resul = atualizarprof(p, &qtdprof);
+switch(A_Resul){
+case 0:{
+printf("\nNenhum professor cadastrado!\n");
+}break;
+case 1:{
+printf("\nProfessor não localizado!\n");
+}break;
+case 2:{
+printf("\nNão entendi. Use apenas 'M' ou 'F'!\n");
+}break;
+case 3:{
+printf("\nCPF inválido!\n");
+}break;
+case 4:{
+printf("\nData inválida!\n");
+}break;
+case 5:{
+printf("\n***Cadastro atualizado com sucesso!***\n");
+}break;
+}
                         }break;
                         case 4:{
-                            excluirprof(p, &qtdprof);
+                            int E_Resul = excluirprof(p, &qtdprof);
+if(E_Resul == 0){
+printf("\nNenhum professor cadastrado!\n");
+}else if(E_Resul == 1){
+printf("\nProfessor não localizado!\n");
+}else{
+printf("\n***Professor excluído com sucesso!***\n");
+}
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
@@ -166,7 +221,9 @@ printf("\nAluno excluído com sucesso!\n");
                             sairdisciplina = 1;
                         }break;
                         case 1:{
-                            cadastrardisciplina(d, &qtdisciplina, p, &qtdprof); 
+                            int C_Result = cadastrardisciplina(d, &qtdisciplina, p, &qtdprof); 
+switch(C_Result){
+case 0:
                         }break;
                         case 2:{
                             listardisciplina(d, &qtdisciplina);
