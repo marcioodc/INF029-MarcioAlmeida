@@ -51,7 +51,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 //Sexo do aluno
             printf("Sexo 'F' ou 'M': ");
             scanf(" %c", &a[*qtdaluno].sexo);
-            toupper(a[*qtdaluno].sexo);
+            a[*qtdaluno].sexo = toupper(a[*qtdaluno].sexo);
             if(a[*qtdaluno].sexo != 'F' && a[*qtdaluno].sexo != 'M'){
                 
                 return 3;
@@ -173,9 +173,6 @@ int validacpf(aluno a[], char cpf[]) {
             return 0;                
         }
         i++;                       
-    }
-    if (i != 11) {                  
-        return 0;               
     }
     return 1;                        
 }

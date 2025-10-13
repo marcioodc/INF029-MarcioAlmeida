@@ -172,8 +172,5 @@ int validarCPF(professor p[], char cpf[]){
         }
         i++;                        
     }
-    if(i != 11){               
-        return 0;                    
-    }
     return 1;                       
 }
