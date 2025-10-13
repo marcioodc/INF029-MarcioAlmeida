@@ -52,7 +52,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
             printf("Sexo 'F' ou 'M': ");
             scanf(" %c", &a[*qtdaluno].sexo);
             toupper(a[*qtdaluno].sexo);
-            if(a[*qtdaluno].sexo != 'F' || a[*qtdaluno].sexo != 'M'){
+            if(a[*qtdaluno].sexo != 'F' && a[*qtdaluno].sexo != 'M'){
                 
                 return 3;
             }
@@ -121,7 +121,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
         printf("Sexo: 'F' ou 'M': ");
         scanf(" %c", &novoaluno.sexo);
         novoaluno.sexo = toupper(novoaluno.sexo);
-        if(novoaluno.sexo != 'F' || novoaluno.sexo != 'M'){
+        if(novoaluno.sexo != 'F' && novoaluno.sexo != 'M'){
             return 2;
         }
             //CPF do novo aluno 
