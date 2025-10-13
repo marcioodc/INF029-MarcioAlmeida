@@ -124,7 +124,7 @@ int main(void){
                 int sairprofessor = 0;                
                 while(!sairprofessor){
                     //Menu professor
-                    int opcaoprofessor = menu_professor;
+                    int opcaoprofessor = menu_professor();
                     switch(opcaoprofessor){
                         case 0:{
                             printf("\n---Voltando ao menu principal---\n");
