@@ -166,11 +166,6 @@ int validata(int dia, int mes, int ano) {
 
 int validarCPF(professor p[], char cpf[]){
     int i = 0;
-    for(int i=0; i<15; i++){
-        if(isdigit(p[i].cpf ) > 12){
-            return 0;
-        }
-    }break;
     while(*p[i].cpf != '\0'){      
         if(!isdigit(*p[i].cpf)){     
             return 0;             
