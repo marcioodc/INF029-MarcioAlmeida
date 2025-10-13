@@ -30,7 +30,7 @@ int cadastrarprof(professor p[], int *qtdprof){
             printf("Sexo: 'F' ou 'M': ");
             scanf(" %c", &p[*qtdprof].sexo);
             p[*qtdprof].sexo = toupper(p[*qtdprof].sexo);
-            if(p[*qtdprof].sexo != 'F' && p[*qtdprof].sexo != 'M'){
+            if(p[*qtdprof].sexo != 'F' || p[*qtdprof].sexo != 'M'){
                 return 3;
             }
                 //CPF do professor
@@ -94,7 +94,7 @@ int atualizarprof(professor p[], int *qtdprof){
         printf("Sexo: 'F' ou 'M': ");
         scanf(" %c", &novoprof.sexo);
         novoprof.sexo = toupper(novoprof.sexo);
-        if(novoprof.sexo != 'F' && novoprof.sexo != 'M'){
+        if(novoprof.sexo != 'F' || novoprof.sexo != 'M'){
             
             return 2;
         }
