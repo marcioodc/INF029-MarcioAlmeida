@@ -55,7 +55,7 @@ int main(void){
                                     printf("Matrícula inválida!\n");
                                 }break;
                                 case 3:{
-                                    printf("Não entendi. Use apemas 'M' ou 'F'!\n");
+                                    printf("Não entendi. Use apenas 'M' ou 'F'!\n");
                                 }break;
                                 case 4:{
                                     printf("CPF inválido!\n");
@@ -66,15 +66,15 @@ int main(void){
                                 case 6:{
                                     printf("***Aluno cadastrado com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 2:{
-                            int L_Resu = listaraluno(a, &qtdaluno);
-                            if(L_Resu == 0){
+                            if(!listaraluno(a, &qtdaluno)){
                                 printf("Nenhum aluno cadastrado!\n");
-                            }else{
-                                listaraluno(a, &qtdaluno);
-                                }
+                            }                           
                         }break;
                         case 3:{
                             int A_Resu = atualizaraluno(a, &qtdaluno);
@@ -97,6 +97,9 @@ int main(void){
                                 case 5:{
                                     printf("***Cadastro atualizado com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 4:{
@@ -152,6 +155,9 @@ int main(void){
                                 case 6:{
                                     printf("***Professor cadastrado com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 2:{
@@ -183,16 +189,19 @@ int main(void){
                                 case 5:{
                                     printf("***Cadastro atualizado com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 4:{
                             int E_Resul = excluirprof(p, &qtdprof);
                             if(E_Resul == 0){
-                                    printf("Nenhum professor cadastrado!\n");
+                                printf("Nenhum professor cadastrado!\n");
                             }else if(E_Resul == 1){
-                                    printf("Professor não localizado!\n");
+                                printf("Professor não localizado!\n");
                             }else{
-                                    printf("***Professor excluído com sucesso!***\n");
+                                printf("***Professor excluído com sucesso!***\n");
                             }
                         }break;
                         default:{
@@ -235,6 +244,9 @@ int main(void){
                                 case 5:{
                                     printf("***Disciplina cadastrada com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 2:{
@@ -266,6 +278,9 @@ int main(void){
                                 case 5:{
                                     printf(" ***Disciplina atualizada com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 4:{
@@ -293,6 +308,9 @@ int main(void){
                                 case 3:{
                                     printf("***Aluno atribuído à disciplina com sucesso!***\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         case 6:{
@@ -316,6 +334,9 @@ int main(void){
                                 case 5:{
                                     printf("Não há vaga nesta disciplina!\n");
                                 }break;
+                                default:{
+                                    printf("\nOpção inválida!\n");
+                                }
                             }
                         }break;
                         default:{
