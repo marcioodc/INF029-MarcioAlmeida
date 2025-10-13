@@ -51,7 +51,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 //Sexo do aluno
             printf("Sexo 'F' ou 'M': ");
             scanf(" %c", &a[*qtdaluno].sexo);
-            a[*qtdaluno].sexo = toupper(a[*qtdaluno].sexo);
+            toupper(a[*qtdaluno].sexo);
             if(a[*qtdaluno].sexo != 'F' || a[*qtdaluno].sexo != 'M'){
                 
                 return 3;
