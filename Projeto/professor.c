@@ -170,7 +170,7 @@ int validarCPF(professor p[], char cpf[]){
         if(isdigit(p[i].cpf ) > 12){
             return 0;
         }
-    }
+    }break;
     while(*p[i].cpf != '\0'){      
         if(!isdigit(*p[i].cpf)){     
             return 0;             
