@@ -24,7 +24,6 @@ int main(void){
 
     while(!sair){
         //Menu principal
-        menu_principal();
         int opcao = menu_principal();
         switch(opcao){
             case 0: {
@@ -36,7 +35,6 @@ int main(void){
                 int sairaluno = 0;
                 while(!sairaluno){
                     //Menu aluno
-                    menu_aluno();
                     int opcaoaluno = menu_aluno();
                     switch(opcaoaluno){
                         case 0:{
@@ -109,7 +107,8 @@ int main(void){
                                 printf("Aluno não localizado!\n");
                             }else{
                                 printf("***Aluno excluído com sucesso!***\n");
-}
+                            }
+
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
@@ -119,13 +118,11 @@ int main(void){
                 }
             }break;
             case 2:{
-                int sairprofessor = 0;
-                int opcaoprofessor;
-                
+                int sairprofessor = 0;                
                 while(!sairprofessor){
                     //Menu professor
-                    menu_professor();
-                    scanf("%d", &opcaoprofessor);
+
+                    int opcaoprofessor = menu_professor;
                     switch(opcaoprofessor){
                         case 0:{
                             printf("\n---Voltando ao menu principal---\n");
@@ -211,7 +208,6 @@ int main(void){
                 
                 while(!sairdisciplina){
                     //menu disciplina
-                    menu_disciplina();
                     int opcaodisciplina = menu_disciplina();
                     switch(opcaodisciplina){
                         case 0:{
@@ -333,7 +329,6 @@ int main(void){
                 int sairrelatorio = 0;
                 while(!sairrelatorio){
                     //menu relatório
-                    menu_relatorio();
                     int opcaorelatorio = menu_relatorio();
                     switch(opcaorelatorio){
                         case 0:{
