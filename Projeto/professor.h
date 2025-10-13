@@ -1,7 +1,7 @@
 #ifndef PROFESSOR_H
 #define PROFESSOR_H
 
-#define TAMPROFESSOR 2
+#define TAMPROFESSOR 100
 
 typedef struct professor {
     int matricula;
