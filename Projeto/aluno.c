@@ -168,6 +168,9 @@ int excluiraluno(aluno a[], int *qtdaluno){
 
 int validacpf(aluno a[], char cpf[]) {
     int i = 0;
+    if(strlen(a[*qtdaluno].cpf) > 12){
+        return 0;
+    }
     while (*a[i].cpf != '\0') {         
         if (!isdigit(*a[i].cpf)) {      
             return 0;                
