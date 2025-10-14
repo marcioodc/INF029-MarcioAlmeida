@@ -36,7 +36,7 @@ int cadastrarprof(professor p[], int *qtdprof){
                 //CPF do professor
             printf("CPF (apenas números): ");
             scanf(" %12s", p[*qtdprof].cpf);
-            int cpf = validarCPF(p, p[*qtdprof].cpf);
+            int cpf = validarcpf(p[*qtdprof].cpf);
             if(cpf == 0){
                 return 4;
             }

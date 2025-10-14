@@ -34,11 +34,9 @@ int cadastraraluno(aluno a[], int *qtdaluno){
         printf("Matricula: ");
         scanf("%d", &matricula);
         if(posaluno(a, *qtdaluno, matricula) != -1){
-        printf("\nJá existe aluno com essa matrícula!\n");
-        return 1;
+            return 1;
         } 
         else if(matricula < 0){
-            
             return 2;
         }else{
             
@@ -59,7 +57,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 //CPF do aluno
             printf("CPF (apenas números): ");
             scanf(" %12s", a[*qtdaluno].cpf);
-            int cpf = validacpf(a, a[*qtdaluno].cpf);
+            int cpf = validar_cpf(a[*qtdaluno].cpf);
             if(cpf == 0){
                 return 4;
             }     
