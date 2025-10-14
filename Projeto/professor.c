@@ -164,13 +164,14 @@ int validata(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
-int validarCPF(professor p[], char cpf[]){
-    int i = 0;
-    while(*p[i].cpf != '\0'){      
-        if(!isdigit(*p[i].cpf)){     
-            return 0;             
-        }
-        i++;                        
+int validarcpf(professor p[], int i){
+    if (strlen(p[i].cpf) > 15){
+        return 0;
     }
-    return 1;                       
+    for (int j = 0; p[i].cpf[j] != '\0'; ++j){
+        if (isalpha((unsigned char)p[i].cpf[j])){
+            return 0;
+        }
+    }
+    return 1;
 }
