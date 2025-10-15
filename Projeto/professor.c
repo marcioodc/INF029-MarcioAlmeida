@@ -164,7 +164,7 @@ int validata(int dia, int mes, int ano) {
 }
 
 int validarcpf(char cpf[]){
-    if(strlen(cpf) > 15){
+    if(strlen(cpf) > 15 || strlen(cpf) < 15){
         return 0;
     }
     for(int j = 0; cpf[j] != '\0'; ++j){
