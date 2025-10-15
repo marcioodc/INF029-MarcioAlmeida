@@ -72,7 +72,7 @@ int main(void){
                             }
                         }break;
                         case 2:{
-                            if(!listaraluno(a, &qtdaluno)){
+                            if(!listaraluno(a, qtdaluno)){
                                 printf("Nenhum aluno cadastrado!\n");
                             }                           
                         }break;
@@ -160,7 +160,7 @@ int main(void){
                             }
                         }break;
                         case 2:{
-                            int L_Resul = listarprof(p, &qtdprof);
+                            int L_Resul = listarprof(p, qtdprof);
                             if(L_Resul == 0){
                                 printf("Nenhum professor cadastrado!\n");
                             }else{
