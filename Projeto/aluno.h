@@ -1,7 +1,7 @@
 #ifndef ALUNO_H
 #define ALUNO_H
 
-#define TAMALUNO 100
+#define TAMALUNO 2
 
 typedef struct aluno {
     int matricula;

@@ -3,7 +3,7 @@
 #include "professor.h"
 #include "aluno.h"
 
-#define TAMDISCIPLINA 100
+#define TAMDISCIPLINA 2
 
 typedef struct disciplina {
     char nome[50];
