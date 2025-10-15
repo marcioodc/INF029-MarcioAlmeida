@@ -57,7 +57,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 //CPF do aluno
             printf("CPF: ");
             scanf(" %15s", a[*qtdaluno].cpf);
-            char cpf1 = a[*qtdaluno].cpf;
+            char cpf1[15] = a[*qtdaluno].cpf;
             int cpf = validar_cpf(cpf1);
             if(cpf == 0){
                 return 4;
