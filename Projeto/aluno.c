@@ -125,7 +125,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
             //CPF do novo aluno 
         printf("CPF: ");
         scanf(" %15s", novoaluno.cpf);
-        int cpf = validacpf(a, novoaluno.cpf);
+        int cpf = validar_cpf(novoaluno.cpf);
         if(cpf == 0){
             return 3;
         }
@@ -164,12 +164,12 @@ int excluiraluno(aluno a[], int *qtdaluno){
     }
 }
 
-int validar_cpf(aluno a[], int i){
-    if (strlen(a[i].cpf) > 15){
+int validar_cpf(aluno a[]){
+    if (strlen(a[qtdaluno].cpf) > 15){
         return 0;
     }
-    for (int j = 0; a[i].cpf[j] != '\0'; ++j){
-        if (isalpha((unsigned char)a[i].cpf[j])){
+    for (int j = 0; a[qtdaluno].cpf[j] != '\0'; ++j){
+        if (isalpha((unsigned char)a[qtdaluno].cpf[j])){
             return 0;
         }
     }
