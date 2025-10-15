@@ -54,12 +54,12 @@ int cadastrarprof(professor p[], int *qtdprof){
     }
 }
 
-int listarprof(professor p[], int *qtdprof){
-    if(*qtdprof == 0){
+int listarprof(professor p[], int qtdprof){
+    if(qtdprof == 0){
         return 0;
     }else{
         printf("--Listando os professores--\n");
-        for(int i=0; i < *qtdprof; i++){
+        for(int i=0; i < qtdprof; i++){
             if(p[i].ativo == 1){
                 printf("Matricula: %d  |  Nome: %s\n", p[i].matricula, p[i].nome);
                 printf("Sexo: %c  |  Data de Nascimento: %d/%d/%d\n", p[i].sexo, p[i].dia, p[i].mes, p[i].ano);
@@ -136,9 +136,8 @@ int excluirprof(professor p[], int *qtdprof){
         for(int i = posexcluir; i < *qtdprof - 1; i++){
             p[i] = p[i+1];
         }
-        (*qtdprof)--;
         p[*qtdprof].ativo = 0;
-        
+        (*qtdprof)--;
         return 2;
     } 
 }
@@ -164,12 +163,12 @@ int validata(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
-int validarcpf(professor p[]){
-    if (strlen(p[qtdprof].cpf) > 15){
+int validarcpf(char cpf[]){
+    if(strlen(cpf) > 15){
         return 0;
     }
-    for (int j = 0; p[qtdprof].cpf[j] != '\0'; ++j){
-        if (isalpha((unsigned char)p[qtdprof].cpf[j])){
+    for(int j = 0; cpf[j] != '\0'; ++j){
+        if(isalpha((unsigned char)cpf[j])){
             return 0;
         }
     }
