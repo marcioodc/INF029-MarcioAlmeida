@@ -13,11 +13,11 @@ typedef struct aluno {
 } aluno;
 
 int cadastraraluno(aluno a[], int *qtdaluno);
-int listaraluno(aluno a[], int *qtdaluno);
+int listaraluno(aluno a[], int qtdaluno);
 int atualizaraluno(aluno a[], int *qtdaluno);
 int excluiraluno(aluno a[], int *qtdaluno);
 int posaluno(aluno a[], int qtdaluno, int matricula);
 int validaData(int dia, int mes, int ano);
-int validar_cpf(aluno a[]);
+int validar_cpf(char *cpf[]);
 
 #endif
