@@ -164,7 +164,7 @@ int main(void){
                             if(L_Resul == 0){
                                 printf("Nenhum professor cadastrado!\n");
                             }else{
-                                listarprof(p, &qtdprof);
+                                listarprof(p, qtdprof);
                             }
                         }break;
                         case 3:{
