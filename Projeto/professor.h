@@ -13,7 +13,7 @@ typedef struct professor {
 } professor;
 
 int cadastrarprof(professor p[], int *qtdprof);
-int listarprof(professor p[], int *qtdprof);
+int listarprof(professor p[], int qtdprof);
 int atualizarprof(professor p[], int *qtdprof);
 int excluirprof(professor p[], int *qtdprof);
 int posprof(professor p[], int qtdprof, int matricula);
