@@ -63,7 +63,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
             }     
                 //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
-            scanf("%d/%d/%d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
+            scanf("%d / %d / %d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
             int res= validaData(a[*qtdaluno].dia, a[*qtdaluno].mes, a[*qtdaluno].ano);
             if(res == 0){
                 
@@ -77,13 +77,13 @@ int cadastraraluno(aluno a[], int *qtdaluno){
     }
 }
 
-int listaraluno(aluno a[], int *qtdaluno){
+int listaraluno(aluno a[], int qtdaluno){
          //listar alunos
-    if(*qtdaluno == 0){
+    if(qtdaluno == 0){
         return 0;
     }else{
         printf("--Listando os alunos--\n");
-        for(int i=0; i < *qtdaluno; i++){
+        for(int i=0; i < qtdaluno; i++){
             if(a[i].ativo == 1){
                 printf("\nMatricula: %d  -  Nome: %s\n", a[i].matricula, a[i].nome);
                 printf("Sexo: %c  -  Data de Nascimento: %d/%d/%d\n", a[i].sexo, a[i].dia, a[i].mes, a[i].ano);
@@ -131,7 +131,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
         }
             //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
-        scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
+        scanf("%d / %d / %d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
         int res= validaData(novoaluno.dia, novoaluno.mes, novoaluno.ano);
         if(res == 0){
             return 4;
@@ -159,17 +159,16 @@ int excluiraluno(aluno a[], int *qtdaluno){
             a[i] = a[i+1];
         }
         (*qtdaluno)--;
-        a[*qtdaluno].ativo = 0;
         return 2;
     }
 }
 
-int validar_cpf(char cpf[]) {
-    if (strlen(cpf) > 15) {
+int validar_cpf(char cpf[]){
+    if(strlen(cpf) > 15){
         return 0;
     }
-    for (int j = 0; cpf[j] != '\0'; ++j) {
-        if (isalpha((unsigned char)cpf[j])) {
+    for(int j = 0; cpf[j] != '\0'; ++j){
+        if(isalpha((unsigned char)cpf[j])){
             return 0;
         }
     }
