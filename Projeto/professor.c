@@ -34,8 +34,8 @@ int cadastrarprof(professor p[], int *qtdprof){
                 return 3;
             }
                 //CPF do professor
-            printf("CPF (apenas números): ");
-            scanf(" %12s", p[*qtdprof].cpf);
+            printf("CPF: ");
+            scanf(" %15s", p[*qtdprof].cpf);
             int cpf = validarcpf(p[*qtdprof].cpf);
             if(cpf == 0){
                 return 4;
@@ -99,10 +99,10 @@ int atualizarprof(professor p[], int *qtdprof){
             return 2;
         }
             //CPF do novo professor 
-        printf("CPF (apenas números): ");
-        scanf(" %12s", novoprof.cpf);
+        printf("CPF: ");
+        scanf(" %15s", novoprof.cpf);
         getchar();         
-        int CPF = validarCPF(p, novoprof.cpf);    
+        int CPF = validarcpf(novoprof.cpf);    
         if(CPF == 0){
             return 3;
         }      
@@ -164,12 +164,12 @@ int validata(int dia, int mes, int ano) {
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
-int validarcpf(professor p[], int i){
-    if (strlen(p[i].cpf) > 15){
+int validarcpf(professor p[]){
+    if (strlen(p[qtdprof].cpf) > 15){
         return 0;
     }
-    for (int j = 0; p[i].cpf[j] != '\0'; ++j){
-        if (isalpha((unsigned char)p[i].cpf[j])){
+    for (int j = 0; p[qtdprof].cpf[j] != '\0'; ++j){
+        if (isalpha((unsigned char)p[qtdprof].cpf[j])){
             return 0;
         }
     }

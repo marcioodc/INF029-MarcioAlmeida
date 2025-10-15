@@ -55,8 +55,8 @@ int cadastraraluno(aluno a[], int *qtdaluno){
                 return 3;
             }
                 //CPF do aluno
-            printf("CPF (apenas números): ");
-            scanf(" %12s", a[*qtdaluno].cpf);
+            printf("CPF: ");
+            scanf(" %15s", a[*qtdaluno].cpf);
             int cpf = validar_cpf(a[*qtdaluno].cpf);
             if(cpf == 0){
                 return 4;
@@ -123,8 +123,8 @@ int atualizaraluno(aluno a[], int *qtdaluno){
             return 2;
         }
             //CPF do novo aluno 
-        printf("CPF (apenas números): ");
-        scanf(" %12s", novoaluno.cpf);
+        printf("CPF: ");
+        scanf(" %15s", novoaluno.cpf);
         int cpf = validacpf(a, novoaluno.cpf);
         if(cpf == 0){
             return 3;
