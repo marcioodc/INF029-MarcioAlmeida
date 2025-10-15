@@ -158,6 +158,7 @@ int excluiraluno(aluno a[], int *qtdaluno){
         for(int i = posexcluir; i < *qtdaluno - 1; i++){
             a[i] = a[i+1];
         }
+        a[*qtdaluno].ativo = 0;
         (*qtdaluno)--;
         return 2;
     }
