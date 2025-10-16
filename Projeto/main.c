@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
@@ -66,9 +65,6 @@ int main(void){
                                 case 6:{
                                     printf("***Aluno cadastrado com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\n--ERRO--\n");
-                                }
                             }
                         }break;
                         case 2:{
@@ -97,9 +93,6 @@ int main(void){
                                 case 5:{
                                     printf("***Cadastro atualizado com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\n--ERRO--\n");
-                                }
                             }
                         }break;
                         case 4:{
@@ -111,13 +104,11 @@ int main(void){
                             }else{
                                 printf("***Aluno excluído com sucesso!***\n");
                             }
-
                         }break;
                         default:{
                             printf("\nOpção inválida!\n");
                         }break;
                     }
-                    
                 }
             }break;
             case 2:{
@@ -154,17 +145,13 @@ int main(void){
                                 case 6:{
                                     printf("***Professor cadastrado com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         case 2:{
                             int L_Resul = listarprof(p, qtdprof);
                             if(L_Resul == 0){
                                 printf("Nenhum professor cadastrado!\n");
-                            }1
-
+                            }
                         }break;
                         case 3:{
                             int A_Resul = atualizarprof(p, &qtdprof);
@@ -187,9 +174,6 @@ int main(void){
                                 case 5:{
                                     printf("***Cadastro atualizado com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         case 4:{
@@ -206,13 +190,10 @@ int main(void){
                             printf("\nOpção inválida!\n");
                         }break;
                     }
-                    
                 }
-                
             }break;
             case 3:{
                 int sairdisciplina = 0;
-                
                 while(!sairdisciplina){
                     //menu disciplina
                     int opcaodisciplina = menu_disciplina();
@@ -242,9 +223,6 @@ int main(void){
                                 case 5:{
                                     printf("***Disciplina cadastrada com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         case 2:{
@@ -274,9 +252,6 @@ int main(void){
                                 case 5:{
                                     printf(" ***Disciplina atualizada com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         case 4:{
@@ -304,9 +279,6 @@ int main(void){
                                 case 3:{
                                     printf("***Aluno atribuído à disciplina com sucesso!***\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         case 6:{
@@ -339,7 +311,6 @@ int main(void){
                 }
             }break;
             case 4:{
-                
                 int sairrelatorio = 0;
                 while(!sairrelatorio){
                     //menu relatório
@@ -401,7 +372,6 @@ int main(void){
                 printf("\nOpção inválida!\n");
             }break;
         }
-        
     }
     return 0;
 }
