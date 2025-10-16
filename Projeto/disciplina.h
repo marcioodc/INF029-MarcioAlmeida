@@ -2,7 +2,6 @@
 #define DISCIPLINA_H
 #include "professor.h"
 #include "aluno.h"
-
 #define TAMDISCIPLINA 2
 
 typedef struct disciplina {
@@ -13,7 +12,6 @@ typedef struct disciplina {
     int ativo;
     int qtdvagas;
     int alunomatriculado[TAMALUNO]; 
-
 } disciplina;
 
 int posdisc(disciplina d[], int qtdisciplina, char codigo[]);
