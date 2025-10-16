@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+
 #include "aluno.h"
 
 int posaluno(aluno a[], int qtdaluno, int matricula){
