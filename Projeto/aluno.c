@@ -63,7 +63,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
             }     
                 //Data de nascimento do aluno
             printf("Data de nascimento 'dd/mm/aaaa': ");
-            scanf("%s / %s / %s", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
+            scanf("%d/%d/%d", &a[*qtdaluno].dia, &a[*qtdaluno].mes, &a[*qtdaluno].ano);
             int res= validaData(a[*qtdaluno].dia, a[*qtdaluno].mes, a[*qtdaluno].ano);
             if(res == 0){
                 
@@ -86,7 +86,7 @@ int listaraluno(aluno a[], int qtdaluno){
         for(int i=0; i < qtdaluno; i++){
             if(a[i].ativo == 1){
                 printf("\nMatricula: %d  -  Nome: %s\n", a[i].matricula, a[i].nome);
-                printf("Sexo: %c  -  Data de Nascimento: %s/%s/%s\n", a[i].sexo, a[i].dia, a[i].mes, a[i].ano);
+                printf("Sexo: %c  -  Data de Nascimento: %d/%d/%d\n", a[i].sexo, a[i].dia, a[i].mes, a[i].ano);
                 printf("CPF: %s\n", a[i].cpf);
                                        
             }
@@ -131,7 +131,7 @@ int atualizaraluno(aluno a[], int *qtdaluno){
         }
             //Data de nascimento do novo aluno
         printf("Data de nascimento: 'dd/mm/aaaa': ");
-        scanf("%s/%s/%s", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
+        scanf("%d/%d/%d", &novoaluno.dia, &novoaluno.mes, &novoaluno.ano);
         int res= validaData(novoaluno.dia, novoaluno.mes, novoaluno.ano);
         if(res == 0){
             return 4;

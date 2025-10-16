@@ -42,7 +42,7 @@ int cadastrarprof(professor p[], int *qtdprof){
             }
                 //Data de nascimento do professor
             printf("Data de nascimento 'dd/mm/aaaa': ");
-            scanf("%s/%s/%s", &p[*qtdprof].dia, &p[*qtdprof].mes, &p[*qtdprof].ano);
+            scanf("%d/%d/%d", &p[*qtdprof].dia, &p[*qtdprof].mes, &p[*qtdprof].ano);
             int res= validata(p[*qtdprof].dia, p[*qtdprof].mes, p[*qtdprof].ano);
             if(res == 0){
                 return 5;
@@ -62,7 +62,7 @@ int listarprof(professor p[], int qtdprof){
         for(int i=0; i < qtdprof; i++){
             if(p[i].ativo == 1){
                 printf("Matricula: %d  |  Nome: %s\n", p[i].matricula, p[i].nome);
-                printf("Sexo: %c  |  Data de Nascimento: %s/%s/%s\n", p[i].sexo, p[i].dia, p[i].mes, p[i].ano);
+                printf("Sexo: %c  |  Data de Nascimento: %d/%d/%d\n", p[i].sexo, p[i].dia, p[i].mes, p[i].ano);
                 printf("CPF: %s\n", p[i].cpf);
             }
         }
@@ -108,7 +108,7 @@ int atualizarprof(professor p[], int *qtdprof){
         }      
             //Data de nascimento do novo professor
         printf("Data de nascimento: 'dd/mm/aaaa': ");
-        scanf("%s/%s/%s", &novoprof.dia, &novoprof.mes, &novoprof.ano);
+        scanf("%d/%d/%d", &novoprof.dia, &novoprof.mes, &novoprof.ano);
         int res = validata(novoprof.dia, novoprof.mes, novoprof.ano);
         if(res == 0){
             
