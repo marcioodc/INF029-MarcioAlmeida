@@ -1,6 +1,5 @@
 #ifndef ALUNO_H
 #define ALUNO_H
-
 #define TAMALUNO 2
 
 typedef struct aluno {
