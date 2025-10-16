@@ -165,7 +165,7 @@ int excluiraluno(aluno a[], int *qtdaluno){
 }
 
 int validar_cpf(char cpf[]){
-    if(strlen(cpf) > 15 || strlen(cpf) > 15){
+    if(strlen(cpf) > 15 || strlen(cpf) < 15){
         return 0;
     }
     for(int j = 0; cpf[j] != '\0'; ++j){
