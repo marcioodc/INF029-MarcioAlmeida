@@ -169,7 +169,7 @@ int validar_cpf(char cpf[]){
         return 0;
     }
     for(int j = 0; cpf[j] != '\0'; ++j){
-        if(isalpha((unsigned char)cpf[j])){
+        if(!isalpha((unsigned char)cpf[j])){
             return 0;
         }
     }
