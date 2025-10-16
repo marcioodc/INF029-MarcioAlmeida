@@ -4,7 +4,6 @@
 #include "professor.h"
 
 int cadastrarprof(professor p[], int *qtdprof){
-    //cadastrar professor
     int matricula;
     if(*qtdprof == TAMPROFESSOR){
         return 0;                        
@@ -17,7 +16,6 @@ int cadastrarprof(professor p[], int *qtdprof){
             return 1;
         }
         if(matricula < 0){
-            
             return 2;
         }else{
             p[*qtdprof].matricula = matricula;
@@ -71,7 +69,6 @@ int listarprof(professor p[], int qtdprof){
 }
 
 int atualizarprof(professor p[], int *qtdprof){
-         //atualizar professor
     int atualizarM;
     if(*qtdprof == 0){
         return 0;
@@ -79,7 +76,6 @@ int atualizarprof(professor p[], int *qtdprof){
     printf("Informe a matricula do professor que você deseja atualizar: ");
     scanf("%d", &atualizarM);
     int posicao = posprof(p, *qtdprof, atualizarM);
-                            
     if(posicao == -1){
         return 1;
     }else{
@@ -89,13 +85,11 @@ int atualizarprof(professor p[], int *qtdprof){
         printf("\nNome: ");
         fgets(novoprof.nome, sizeof(novoprof.nome), stdin);
         novoprof.nome[strcspn(novoprof.nome, "\n")] = '\0';
-                                
             //Sexo do novo professor
         printf("Sexo: 'F' ou 'M': ");
         scanf(" %c", &novoprof.sexo);
         novoprof.sexo = toupper(novoprof.sexo);
         if(novoprof.sexo != 'F' && novoprof.sexo != 'M'){
-            
             return 2;
         }
             //CPF do novo professor 
@@ -111,7 +105,6 @@ int atualizarprof(professor p[], int *qtdprof){
         scanf("%d/%d/%d", &novoprof.dia, &novoprof.mes, &novoprof.ano);
         int res = validata(novoprof.dia, novoprof.mes, novoprof.ano);
         if(res == 0){
-            
             return 4;
         }
         novoprof.ativo = p[posicao].ativo;
@@ -122,7 +115,6 @@ int atualizarprof(professor p[], int *qtdprof){
 }
 
 int excluirprof(professor p[], int *qtdprof){
-     //excluir professor
     int excluir;
     if(*qtdprof == 0){
         return 0;
@@ -153,13 +145,13 @@ int posprof(professor p[], int qtdprof, int matricula){
 }
 
 int validata(int dia, int mes, int ano) {
-    if (ano < 1 || mes < 1 || mes > 12 || dia < 1) return 0;
-
+    if (ano < 1 || mes < 1 || mes > 12 || dia < 1){
+        return 0;
+    }
     int diasMes[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (mes == 2 && ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0)) {
-        diasMes[2] = 29; // fevereiro em ano bissexto
+        diasMes[2] = 29;
     }
-
     return (dia <= diasMes[mes]) ? 1 : 0;
 }
 
