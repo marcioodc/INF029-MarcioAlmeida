@@ -181,7 +181,7 @@ int atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *q
         scanf("%9s", codisc);
         int poscod = posdisc(d, *qtdisciplina, codisc);
         if(poscod == -1){
-            printf("\nCódigo da disciplina não localizado!\n");
+            
             return 1;
         }
         printf("Informe a matrícula do aluno: \n");
@@ -193,7 +193,7 @@ int atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *q
         }
         for(int j=0; j<TAMALUNO; j++){
             if(d[poscod].alunomatriculado[j] == a_matricula){
-                printf("\nAluno já está matriculado nesta disciplina!\n");
+                
                 return 3;
             }
         }
@@ -206,11 +206,9 @@ int atribuiralunodisciplina(disciplina d[], int *qtdisciplina, aluno a[], int *q
             }
         }
         if(matriculado){
-            printf("\n***Aluno %s matriculado na disciplina %s com sucesso!***\n", a[posmat].nome, d[poscod].codigo);
-return 4;
+            return 4;
         }else{
-            printf("\nNão há vagas nesta disciplina!\n");
-return 5;
+            return 5;
         }
     }
 }
@@ -227,14 +225,12 @@ return 0;
         scanf("%9s", codisc);
         int poscod = posdisc(d, *qtdisciplina, codisc);
         if(poscod == -1){
-            
             return 1;
         }
         printf("Informe a matrícula do aluno: \n");
         scanf("%d", &a_matricula);
         int posmat = posaluno(a, *qtdaluno, a_matricula);
         if(posmat == -1){
-            
             return 2;
         }          
         int excluiralunodisc = 0;
@@ -246,10 +242,8 @@ return 0;
             }
         }
         if(excluiralunodisc){
-            printf("\n***Aluno %s excluído da disciplina %s com sucesso!***\n", a[posmat].nome, d[poscod].codigo);
             return 3;
         }else{
-            printf("\nAluno não está matriículado nesta disciplina!\n");
             return 4;
         }
     }

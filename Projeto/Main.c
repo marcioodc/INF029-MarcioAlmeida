@@ -163,9 +163,8 @@ int main(void){
                             int L_Resul = listarprof(p, qtdprof);
                             if(L_Resul == 0){
                                 printf("Nenhum professor cadastrado!\n");
-                            }else{
-                                listarprof(p, qtdprof);
-                            }
+                            }1
+
                         }break;
                         case 3:{
                             int A_Resul = atualizarprof(p, &qtdprof);
@@ -252,9 +251,7 @@ int main(void){
                             int L_Result = listardisciplina(d, &qtdisciplina);
                             if(L_Result == 0){
                                 printf("Nenhuma disciplina cadastrada!\n");
-                            }else{
-                                listardisciplina(d, &qtdisciplina);
-                            }
+                            }3
                         }break;
                         case 3:{
                             int A_Result = atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
@@ -333,9 +330,6 @@ int main(void){
                                 case 5:{
                                     printf("Não há vaga nesta disciplina!\n");
                                 }break;
-                                default:{
-                                    printf("\nOpção inválida!\n");
-                                }
                             }
                         }break;
                         default:{
