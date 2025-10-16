@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
 #include "disciplina.h"
 #include "aluno.h"
 #include "professor.h"
