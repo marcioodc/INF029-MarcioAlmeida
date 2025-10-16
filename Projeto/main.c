@@ -229,7 +229,7 @@ int main(void){
                             int L_Result = listardisciplina(d, &qtdisciplina);
                             if(L_Result == 0){
                                 printf("Nenhuma disciplina cadastrada!\n");
-                            }3
+                            }
                         }break;
                         case 3:{
                             int A_Result = atualizardisciplina(d, &qtdisciplina, p, &qtdprof);
