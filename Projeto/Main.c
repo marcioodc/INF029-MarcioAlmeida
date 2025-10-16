@@ -67,7 +67,7 @@ int main(void){
                                     printf("***Aluno cadastrado com sucesso!***\n");
                                 }break;
                                 default:{
-                                    printf("\nOpção inválida!\n");
+                                    printf("\n--ERRO--\n");
                                 }
                             }
                         }break;
@@ -98,7 +98,7 @@ int main(void){
                                     printf("***Cadastro atualizado com sucesso!***\n");
                                 }break;
                                 default:{
-                                    printf("\nOpção inválida!\n");
+                                    printf("\n--ERRO--\n");
                                 }
                             }
                         }break;
