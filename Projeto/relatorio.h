@@ -1,6 +1,5 @@
 #ifndef RELATORIO_H
 #define RELATORIO_H
-
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
