@@ -1,14 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
 #include "relatorio.h"
 #include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
 
 void Rlistaralunos(aluno a[], int *qtdaluno){
-        //listando os alunos
     if(*qtdaluno == 0){
         printf("\nNão há alunos cadastrados!\n");
         return;
@@ -25,7 +23,6 @@ void Rlistaralunos(aluno a[], int *qtdaluno){
 }
 
 void Rlistarprofessor(professor p[], int *qtdprof){
-        //listando professores
     if(*qtdprof == 0){
         printf("Não há professores cadastrados!\n");
         return;
@@ -43,7 +40,6 @@ void Rlistarprofessor(professor p[], int *qtdprof){
 }
 
 void Rlistardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
-            //Listando disciplina
     if(*qtdisciplina == 0){
         printf("\nNão há disciplinas cadastradas!\n");
         return;
@@ -62,7 +58,6 @@ void Rlistardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qt
 }
 
 void Ralunosdisciplina(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
-            // Listar disciplina com alunos matriculados
     if(*qtdisciplina == 0){
         printf("\nNão há disciplina cadastrada!\n");
         return;
@@ -95,7 +90,6 @@ void Ralunosdisciplina(aluno a[], int *qtdaluno, disciplina d[], int *qtdiscipli
 }
 
 void Rsexoalunos(aluno a[], int *qtdaluno){
-        //alunos listados por sexo
     int sexoaM = 0;
     int sexoaF = 0;
     if(*qtdaluno == 0){
@@ -129,7 +123,6 @@ void Rsexoalunos(aluno a[], int *qtdaluno){
 }
 
 void Rnomealunos(aluno a[], int *qtdaluno){
-    //alunos por ordem alfabética
     if(*qtdaluno == 0){
         printf("\nNenhum aluno cadastrado!\n");
         return;
@@ -153,7 +146,6 @@ void Rnomealunos(aluno a[], int *qtdaluno){
 }
 
 void Ralunosdatanascimento(aluno a[], int *qtdaluno){
-    //alunos ordenados por data de nascimento
     if(*qtdaluno == 0){
         printf("\nNenhum aluno cadastrado!\n");
         return;
@@ -176,7 +168,6 @@ void Ralunosdatanascimento(aluno a[], int *qtdaluno){
 }
 
 void Rprofessorsexo(professor p[], int *qtdprof){
-    //professor ordenadas pelo sexo
     int sexopM = 0;
     int sexopF = 0;
     if(*qtdprof == 0){
@@ -210,7 +201,6 @@ void Rprofessorsexo(professor p[], int *qtdprof){
 }
 
 void Rnomeprofessor(professor p[], int *qtdprof){
-        //professores ordenados pelo nome
     if(*qtdprof == 0){
         printf("\nNenhum professor cadastrado!\n");
         return;
@@ -233,7 +223,6 @@ void Rnomeprofessor(professor p[], int *qtdprof){
 }
 
 void Rprofessordatanascimento(professor p[], int *qtdprof){
-        //professores ordenados pela data de nascimento 
     if(*qtdprof == 0){
         printf("\nNenhum professor cadastrado!\n");
         return;
@@ -256,7 +245,6 @@ void Rprofessordatanascimento(professor p[], int *qtdprof){
 }
 
 void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
-        //aniversariantes do mês    
         if(*qtdaluno == 0 && *qtdprof == 0){
         printf("\nNão há dados cadastrados!\n");
         return;
@@ -282,6 +270,7 @@ void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
         return;
     }
 }
+
 void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
     if(*qtdaluno == 0 && *qtdprof == 0){
         printf("Não há dados cadastrados!\n");
@@ -313,7 +302,6 @@ void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
 }
 
 void Ralunos3disciplinas(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina){
-        //alunos cadastrados -3 disciplinas
     if(*qtdaluno == 0){
         printf("\nNenhum aluno cadastrado!\n");
         return; 
@@ -365,16 +353,12 @@ void Rdisciplinas40(disciplina d[], int *qtdisciplina, professor p[], int *qtdpr
     }
 }
 
-int Acomparadata(aluno i, aluno j) {
-    return (i.ano > j.ano) ||
-           (i.ano == j.ano && i.mes > j.mes) ||
-           (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
+int Acomparadata(aluno i, aluno j){
+    return (i.ano > j.ano) || (i.ano == j.ano && i.mes > j.mes) || (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
 }
 
-int Pcomparadata(professor i, professor j) {
-    return (i.ano > j.ano) ||
-           (i.ano == j.ano && i.mes > j.mes) ||
-           (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
+int Pcomparadata(professor i, professor j){
+    return (i.ano > j.ano) || (i.ano == j.ano && i.mes > j.mes) || (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
 }
 
 void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes){
