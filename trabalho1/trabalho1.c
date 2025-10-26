@@ -89,10 +89,60 @@ int teste(int a)
     Não utilizar funções próprias de string (ex: strtok)   
     pode utilizar strlen para pegar o tamanho da string
  */
+int bissexto(int ano){
+	  if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)){
+		  return 1;
+	  }else{
+		  return 0;
+	  }
 int q1(char data[])
 {
   int datavalida = 1;
-
+  int i=0;
+  int dia=0;
+  int mes=0;
+  int ano=0;
+  int cont=0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
+	  dia = dia * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i++] != '/'){
+	  return 0;
+  }
+  cont = 0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
+	  mes = mes * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i++] != '/'){
+	  return 0;
+  }
+  cont = 0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 4){
+	  ano = ano * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i] != '\0'){
+	  return 0;
+  }
+  int diasmes[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+  if(bissexto(ano)){
+	  diasmes[2] = 29;
+  }
+  if(dia<1 || dia>diasmes[mes]){
+	  return 0;
+  }
+  if(mes<1 || mes>12){
+	  return 0;
+  }
+  if(ano<1){
+	  return 0;
+  }
+  return 1;
   //quebrar a string data em strings sDia, sMes, sAno
 
 
