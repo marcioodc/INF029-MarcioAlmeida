@@ -23,10 +23,10 @@
 #include <stdio.h>
 #include "trabalho1.h" 
 #include <stdlib.h>
-
+/*
 DataQuebrada quebraData(char data[]);
 
-/*
+
 ## função utilizada para testes  ##
 
  somar = somar dois valores
@@ -36,7 +36,7 @@ DataQuebrada quebraData(char data[]);
     dois inteiros x e y
 @saida
     resultado da soma (x + y)
- */
+ 
 int somar(int x, int y)
 {
     int soma;
@@ -44,7 +44,7 @@ int somar(int x, int y)
     return soma;
 }
 
-/*
+
 ## função utilizada para testes  ##
 
  fatorial = fatorial de um número
@@ -54,7 +54,7 @@ int somar(int x, int y)
     um inteiro x
 @saida
     fatorial de x -> x!
- */
+ 
 int fatorial(int x)
 { //função utilizada para testes
   int i, fat = 1;
@@ -76,7 +76,7 @@ int teste(int a)
     return val;
 }
 
-/*
+
  Q1 = validar data
 @objetivo
     Validar uma data
@@ -89,20 +89,60 @@ int teste(int a)
     Não utilizar funções próprias de string (ex: strtok)   
     pode utilizar strlen para pegar o tamanho da string
  */
+int bissexto(int ano){
+	  if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)){
+		  return 1;
+	  }else{
+		  return 0;
+	  }
+}
 
-int q1(char data[])
-{
-  int datavalida = 1;
-  
-  //quebrar a string data em strings sDia, sMes, sAno
-
-
-  //printf("%s\n", data);
-
-  if (datavalida)
-      return 1;
-  else
-      return 0;
+int q1(char data[]){
+  int i=0;
+  int dia=0;
+  int mes=0;
+  int ano=0;
+  int cont=0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
+	  dia = dia * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i++] != '/'){
+	  return 0;
+  }
+  cont = 0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
+	  mes = mes * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i++] != '/'){
+	  return 0;
+  }
+  cont = 0;
+  while(data[i] >= '0' && data[i] <= '9' && cont < 4){
+	  ano = ano * 10 + (data[i] = '0');
+	  i++;
+	  cont++;
+  }
+  if(data[i] != '\0'){
+	  return 0;
+  }
+  int diasmes[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
+  if(bissexto(ano)){
+	  diasmes[2] = 29;
+  }
+  if(dia<1 || dia>diasmes[mes]){
+	  return 0;
+  }
+  if(mes<1 || mes>12){
+	  return 0;
+  }
+  if(ano<1){
+	  return 0;
+  }
+  return 1;
 }
 
 /*
@@ -118,7 +158,7 @@ int q1(char data[])
     3 -> datafinal inválida
     4 -> datainicial > datafinal
     Caso o cálculo esteja correto, os atributos qtdDias, qtdMeses e qtdAnos devem ser preenchidos com os valores correspondentes.
- */
+ 
 DiasMesesAnos q2(char datainicial[], char datafinal[])
 {
 
@@ -154,7 +194,7 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
         Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças entre maiúsculos e minúsculos.
  @saida
     Um número n >= 0.
- */
+ 
 int q3(char *texto, char c, int isCaseSensitive)
 {
     int qtdOcorrencias = -1;
@@ -176,7 +216,7 @@ int q3(char *texto, char c, int isCaseSensitive)
         Observe que o índice da posição no texto deve começar ser contado a partir de 1.
         O retorno da função, n, nesse caso seria 1;
 
- */
+ 
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = -1;
@@ -192,7 +232,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
     uma int num.
  @saida
     Número invertido
- */
+ 
 
 int q5(int num)
 {
@@ -208,7 +248,7 @@ int q5(int num)
     Um número base (numerobase) e um número de busca (numerobusca).
  @saida
     Quantidade de vezes que número de busca ocorre em número base
- */
+ 
 
 int q6(int numerobase, int numerobusca)
 {
@@ -224,7 +264,7 @@ int q6(int numerobase, int numerobusca)
     Uma matriz de caracteres e uma string de busca (palavra).
  @saida
     1 se achou 0 se não achou
- */
+ 
 
  int q7(char matriz[8][10], char palavra[5])
  {
@@ -346,3 +386,4 @@ int validata(data[]){
   }
   return 1;
 }
+*/
