@@ -20,29 +20,29 @@
 //renomeie o arquivo do include abaixo para trabalho1.h
 #include "trabalho1.h"
 
-void testSomar();    //função utilizada para testes
-void testFatorial(); //função utilizada para testes
+//void testSomar();    //função utilizada para testes
+//void testFatorial(); //função utilizada para testes
 void testQ1();
-void testQ2();
+/*void testQ2();
 void testQ3();
 void testQ4();
 void testQ5();
 void testQ6();
 void testQ7();
-
+*/
 int main()
 {
     //testSomar();
     //testFatorial();
     testQ1();
-    testQ2();
+  /*  testQ2();
     testQ3();
     testQ4();
     testQ5();
     testQ6();
-    testQ7();
+    testQ7();*/
 }
-
+/*
 void testSomar()
 {
     printf("%d\n", somar(3, 4) == 7);
@@ -61,7 +61,7 @@ void testFatorial()
     printf("%d\n", fatorial(1) == 1);
     printf("%d\n", fatorial(5) == 120);
 }
-
+*/
 void testQ1()
 {
     char str[11];
@@ -76,7 +76,7 @@ void testQ1()
     strcpy(str, "/9/2014");
     printf("%d\n", q1(str) == 0);
 }
-
+/*
 void testQ2()
 {
     char datainicial[11], datafinal[11];
@@ -212,3 +212,4 @@ void testQ7()
     printf("%d\n", q7(matrix, stringBusca) == 1);
 
 }
+*/
