@@ -173,7 +173,7 @@ void testQ4()
     printf("%d\n", posicoes[4] == 52);
     printf("%d\n", posicoes[5] == 54);
 }
-/*
+
 void testQ5()
 {
     printf("%d\n", q5(345) == 543);
@@ -181,7 +181,7 @@ void testQ5()
     printf("%d\n", q5(3) == 3);
     printf("%d\n", q5(5430) == 345);
 }
-
+/*
 void testQ6()
 {
     printf("%d\n", q6(34567368, 3) == 2);
