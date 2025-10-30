@@ -266,7 +266,7 @@ int q3(char *texto, char c, int isCaseSensitive){
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
   int qtdOcorrencias = -1;
-  int tambusca = strlen(strTexto);
+  int tambusca = strlen(strBusca);
   int tamtexto = strlen(strTexto);
   for(int i=0; i<=tamtexto - tambusca; i++){
     int encontrou = 1;
@@ -276,8 +276,8 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
         break;
       }
       if(encontrou){
-        posicao[qtdOcorrencias * 2] = i + 1;
-        posicao[qtdOcorrencias * 2 + 1] = i + tambusca;
+        posicoes[qtdOcorrencias * 2] = i + 1;
+        posicoes[qtdOcorrencias * 2 + 1] = i + tambusca;
         qtdOcorrencias++;
       }
     }
