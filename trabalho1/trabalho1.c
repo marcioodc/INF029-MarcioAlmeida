@@ -165,7 +165,9 @@ typedef struct{
   int qtd_anos;
   int qtd_retorno;
 }diasmesesanos;
-
+void extrairData(char data[], int *dia, int *mes, int *ano){
+    sscanf(data, "%d/%d/%d", dia, mes, ano);
+}
 diasmesesanos q2(char datainicial[], char datafinal[]){
     //calcule os dados e armazene nas três variáveis a seguir
   diasmesesanos dma = {0,0,0,0};
