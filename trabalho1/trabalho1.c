@@ -241,7 +241,7 @@ int q3(char *texto, char c, int isCaseSensitive){
 	if(isCaseSensitive != 1){
 		c = minusculo(c);
 	}
-	for(int i =0; i<tamanho;i++){
+	for(int i=0; i<tamanho; i++){
 		char atual = texto[i];
 		if(isCaseSensitive != 1){
 			atual = minusculo(atual);
@@ -249,8 +249,8 @@ int q3(char *texto, char c, int isCaseSensitive){
 		if(atual == c){
 			qtdOcorrencias++;
 		}
-		return qtdOcorrencias;
   }
+  return qtdOcorrencias;
 }
 
 /*
