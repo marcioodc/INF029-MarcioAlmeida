@@ -159,12 +159,7 @@ int q1(char data[]){
     4 -> datainicial > datafinal
     Caso o cálculo esteja correto, os atributos qtdDias, qtdMeses e qtdAnos devem ser preenchidos com os valores correspondentes.
  */
-typedef struct{
-  int qtd_dias;
-  int qtd_meses;
-  int qtd_anos;
-  int qtd_retorno;
-}diasmesesanos;
+
 void extrairData(char data[], int *dia, int *mes, int *ano){
     sscanf(data, "%d/%d/%d", dia, mes, ano);
 }
