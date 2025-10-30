@@ -181,7 +181,7 @@ void testQ5()
     printf("%d\n", q5(3) == 3);
     printf("%d\n", q5(5430) == 345);
 }
-/*
+
 void testQ6()
 {
     printf("%d\n", q6(34567368, 3) == 2);
@@ -189,7 +189,7 @@ void testQ6()
     printf("%d\n", q6(3539343, 3) == 4);
     printf("%d\n", q6(3539343, 39) == 1);
 }
-
+/*
 void testQ7()
 {
     char matrix[8][10] = {
