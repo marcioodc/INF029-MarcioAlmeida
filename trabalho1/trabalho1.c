@@ -237,7 +237,7 @@ char minusculo(char c){
 }
 int q3(char *texto, char c, int isCaseSensitive){
     int qtdOcorrencias = -1;
-    int tamanho = strnlen(texto);
+    int tamanho = strlen(texto);
 	if(isCaseSensitive != 1){
 		c = minusculo(c);
 	}
