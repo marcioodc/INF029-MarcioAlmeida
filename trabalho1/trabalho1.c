@@ -285,7 +285,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
   return qtdOcorrencias;
 }
 
-/*
+
  Q5 = inverte número
  @objetivo
     Inverter número inteiro
@@ -297,8 +297,14 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
 
 int q5(int num)
 {
-
-    return num;
+  int invertido = 0;
+  while(num != 0){
+	int digito = num % 10;
+	invertido = invertido * 10 + digito;
+	num = num / 10;
+  }
+  num = invertido;
+  return num;
 }
 
 /*
