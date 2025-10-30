@@ -90,11 +90,11 @@ int teste(int a)
     pode utilizar strlen para pegar o tamanho da string
  */
 int bissexto(int ano){
-	  if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)){
-		  return 1;
-	  }else{
-		  return 0;
-	  }
+  if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)){
+	return 1;
+  }else{
+	return 0;
+  }
 }
 
 int q1(char data[]){
@@ -158,32 +158,68 @@ int q1(char data[]){
     3 -> datafinal inválida
     4 -> datainicial > datafinal
     Caso o cálculo esteja correto, os atributos qtdDias, qtdMeses e qtdAnos devem ser preenchidos com os valores correspondentes.
- 
-DiasMesesAnos q2(char datainicial[], char datafinal[])
-{
+ */
+typedef struct{
+  int qtd_dias;
+  int qtd_meses;
+  int qtd_anos;
+  int qtd_retorno;
+}diasmesesanos;
 
+diasmesesanos q2(char datainicial[], char datafinal[]){
     //calcule os dados e armazene nas três variáveis a seguir
-    DiasMesesAnos dma;
-
-    if (q1(datainicial) == 0){
+  diasmesesanos dma = {0,0,0,0};
+  if (q1(datainicial) == 0){
       dma.retorno = 2;
       return dma;
-    }else if (q1(datafinal) == 0){
+  }else if (q1(datafinal) == 0){
       dma.retorno = 3;
       return dma;
-    }else{
-      //verifique se a data final não é menor que a data inicial
-      
-      //calcule a distancia entre as datas
-
-
+  }
+  int dia_inicial, mes_inicial, ano_inicial;
+  int dia_final, mes_final, ano_final;
+  extrairdata(data_inicial, &dia_inicial, &mes_inicial, &ano_inicial);
+  extrairdata(data_final, &dia_final, &mes_final, ano_final);
+  if(ano_final < ano_inicial){
+	  dma.retorno = 4;
+	  return dma;
+  }else if(ano_final == ano_inicial && mes_final < mes_inicial){
+	  dma.retorno = 4;
+	  return dma;
+  }else if(ano_final == ano_inicial && mes_final == mes_inicial && dia_final < dia_inicial){
+	  dma.retorno = 4;
+	  return dma;
+  }
+  dma.qtd_anos= ano_final - ano_inicial;
+  dma.qtd.meses= mes_final - mes inicial;
+  dma.qtd.dias= dias_final - dias_inicial;
+  if(dma.qtd_dias < 0){
+	  int diasmes[13];
+	  int mes_anterior;
+	  int ano_ref;
+	  if(mes_final == 1){
+          mes_anterior = 12;
+		  ano_ref = ano_final - 1;
+	  }else{
+		  mes_anterior = mes_final - 1;
+		  ano_ref = ano_final;
+	  }
+	  if(bissexto(ano_ref)){
+		  diasmes[2] = 29;
+	  }
+	  dma.qtd_dias += diasmes(mes_anterior);
+	  dma.qtd_meses--;
+  }
+  if(dma.qtd_meses < 0){
+	  dma.qtd_meses += 12;
+	  dma.qtd_anos--;
+  }
       //se tudo der certo
-      dma.retorno = 1;
-      return dma;
+  dma.retorno = 1;
+  return dma;
       
-    }
-    
 }
+
 
 /*
  Q3 = encontrar caracter em texto
@@ -194,12 +230,29 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
         Se isCaseSensitive != 1, a pesquisa não deve  considerar diferenças entre maiúsculos e minúsculos.
  @saida
     Um número n >= 0.
- 
+ */
+char minusculo(char c){
+  if(c >= 'A' && c <= 'Z'){
+    return c + 32;
+  }
+  return c;
+
 int q3(char *texto, char c, int isCaseSensitive)
 {
     int qtdOcorrencias = -1;
-
-    return qtdOcorrencias;
+    int tamanho = strelen(texto);
+	if(iscasesensite != 1){
+		c = minusculo(c);
+	}
+	for(int i =0; i<tamanho;i++){
+		char atual = texto[i];
+		if(iscasesensitive != 1){
+			atual = minusculo(atual);
+		}
+		if(atual == c){
+			contador++;
+		}
+		return qtdOcorrencias;
 }
 
 /*
