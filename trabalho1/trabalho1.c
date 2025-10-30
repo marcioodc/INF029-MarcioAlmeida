@@ -316,11 +316,59 @@ int q5(int num)
  @saida
     Quantidade de vezes que número de busca ocorre em número base
  
-
+*/
 int q6(int numerobase, int numerobusca)
 {
-    int qtdOcorrencias;
-    return qtdOcorrencias;
+  int qtdOcorrencias;
+  char baseStr[50];
+  char buscaStr[50];
+  int i = 0;
+  int j=0;
+  if(numerobase == 0){
+	  baseStr[i++] = '0';
+  }else{
+	  int temp = numerobase;
+	  int digitos[50];
+	  int n = 0;
+      while(temp > 0){
+		  digitos[n++] = temp % 10;
+		  temp /= 10;
+	  }
+	  for(int d=n-1; d>=0; d--){
+		  baseStr[i++] = digitos[d] + '0';
+	  }
+  }
+  baseStr[i] = '\0';
+  if(numerobusca == 0){
+	  buscaStr[j++] = '\0';
+  }else{
+	  int temp = numerobusca;
+	  int digitos[50];
+	  int n = 0;
+      while(temp > 0){
+		  digitos[n++] = temp % 10;
+		  temp /= 10;
+	  }
+	  for(int d=n-1; d>=0; d--){
+		  buscaStr[j++] = digitos[d] + '0';
+	  }
+  }
+  buscaStr[j] = '\0';
+  int tambase = strlen(baseStr);
+  int tambusca = strlen(buscaStr);
+  for(i=0; i<=tambase - tambusca; i++){
+	  int encontrou = 1;
+	  for(int k=0; k<tambusca;k++){
+		  if(baseStr[i+k] != buscaStr[k]){
+			  encontrou = 0;
+			  break;
+		  }
+		  if(encontrou){
+			  qtdOcorrencias++;
+		  }
+	  }
+  }
+  return qtdOcorrencias;
 }
 
 /*
