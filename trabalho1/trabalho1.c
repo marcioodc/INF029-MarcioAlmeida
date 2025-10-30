@@ -229,26 +229,21 @@ DiasMesesAnos q2(char datainicial[], char datafinal[]){
  @saida
     Um número n >= 0.
  */
-char minusculo(char c){
-  if(c >= 'A' && c <= 'Z'){
-    return c + 32;
-  }
-  return c;
-}
 int q3(char *texto, char c, int isCaseSensitive){
     int qtdOcorrencias = -1;
-    int tamanho = strlen(texto);
-	if(isCaseSensitive != 1){
-		c = minusculo(c);
-	}
-	for(int i=0; i<tamanho; i++){
-		char atual = texto[i];
-		if(isCaseSensitive != 1){
-			atual = minusculo(atual);
-		}
-		if(atual == c){
-			qtdOcorrencias++;
-		}
+    int i = 0;
+	if(isCaseSensitive != 1 && c >= 'A' && c<= 'Z'){
+		c = c + 32;
+  }
+  while(texto[i] != '\0'){
+    char atual = texto[i];
+    if(isCaseSensitive != 1 && atual >= 'A' && atual <= 'Z'){
+      atual = atual + 32;
+    }
+    if(atual == c){
+      qtdOcorrencias++;
+    }
+    i++;
   }
   return qtdOcorrencias;
 }
