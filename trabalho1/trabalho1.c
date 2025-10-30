@@ -262,12 +262,27 @@ int q3(char *texto, char c, int isCaseSensitive){
         Observe que o índice da posição no texto deve começar ser contado a partir de 1.
         O retorno da função, n, nesse caso seria 1;
 
- 
+ */
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
-    int qtdOcorrencias = -1;
-
-    return qtdOcorrencias;
+  int qtdOcorrencias = -1;
+  int tambusca = strlen(strTexto);
+  int tamtexto = strlen(strTexto);
+  for(int i=0; i<=tamtexto - tambusca; i++){
+    int encontrou = 1;
+    for(int j=0; j<tambusca; j++){
+      if(strTexto[i+j] != strbusca[j]){
+        encontrou = 0;
+        break;
+      }
+      if(encontrou){
+        posicao[qtdOcorrencias * 2] = i + 1;
+        posicao[qtdOcorrencias * 2 + 1] = i + tambusca;
+        qtdOcorrencias++;
+      }
+    }
+  }
+  return qtdOcorrencias;
 }
 
 /*
