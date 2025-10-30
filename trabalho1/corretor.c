@@ -23,8 +23,8 @@
 //void testSomar();    //função utilizada para testes
 //void testFatorial(); //função utilizada para testes
 void testQ1();
-/*void testQ2();
-void testQ3();
+void testQ2();
+void testQ3();/*
 void testQ4();
 void testQ5();
 void testQ6();
@@ -35,8 +35,8 @@ int main()
     //testSomar();
     //testFatorial();
     testQ1();
-  /*  testQ2();
-    testQ3();
+    testQ2();
+    testQ3();/*
     testQ4();
     testQ5();
     testQ6();
@@ -76,7 +76,7 @@ void testQ1()
     strcpy(str, "/9/2014");
     printf("%d\n", q1(str) == 0);
 }
-/*
+
 void testQ2()
 {
     char datainicial[11], datafinal[11];
@@ -140,7 +140,7 @@ void testQ3()
     printf("%d\n", q3(str, 'l', 0) == 1);
     printf("%d\n", q3(str, 'L', 0) == 1);
 }
-
+/*
 void testQ4()
 {
     char strTexto[250];
