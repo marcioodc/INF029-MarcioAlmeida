@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include "trabalho1.h" 
 #include <stdlib.h>
+#include <string.h>
 /*
 DataQuebrada quebraData(char data[]);
 
@@ -161,7 +162,7 @@ int q1(char data[]){
  */
 
 void extrairdata(char data[], int *dia, int *mes, int *ano){
-    sscanf(data, "%d/%d/%d", dia, mes, ano);
+  sscanf(data, "%d/%d/%d", dia, mes, ano);
 }
 DiasMesesAnos q2(char datainicial[], char datafinal[]){
     //calcule os dados e armazene nas três variáveis a seguir
@@ -176,7 +177,7 @@ DiasMesesAnos q2(char datainicial[], char datafinal[]){
   int dia_inicial, mes_inicial, ano_inicial;
   int dia_final, mes_final, ano_final;
   extrairdata(datainicial, &dia_inicial, &mes_inicial, &ano_inicial);
-  extrairdata(datafinal, &dia_final, &mes_final, ano_final);
+  extrairdata(datafinal, &dia_final, &mes_final, &ano_final);
   if(ano_final < ano_inicial){
 	  dma.retorno = 4;
 	  return dma;
