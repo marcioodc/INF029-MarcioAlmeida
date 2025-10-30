@@ -33,12 +33,12 @@ typedef struct DQ
 */
 typedef struct Qtd
 {
-    int qtd_dias;
-    int qtd_meses;
-    int qtd_anos;
+    int qtdDias;
+    int qtdMeses;
+    int qtdAnos;
     int retorno;
 
-} diasmesesanos;
+} DiasMesesAnos;
 
 //int somar(int x, int y); //função utilizada para testes
 //int fatorial(int x); //função utilizada para testes

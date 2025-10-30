@@ -104,7 +104,7 @@ int q1(char data[]){
   int ano=0;
   int cont=0;
   while(data[i] >= '0' && data[i] <= '9' && cont < 2){
-	  dia = dia * 10 + (data[i] = '0');
+	  dia = dia * 10 + (data[i] - '0');
 	  i++;
 	  cont++;
   }
@@ -113,7 +113,7 @@ int q1(char data[]){
   }
   cont = 0;
   while(data[i] >= '0' && data[i] <= '9' && cont < 2){
-	  mes = mes * 10 + (data[i] = '0');
+	  mes = mes * 10 + (data[i] - '0');
 	  i++;
 	  cont++;
   }
@@ -122,7 +122,7 @@ int q1(char data[]){
   }
   cont = 0;
   while(data[i] >= '0' && data[i] <= '9' && cont < 4){
-	  ano = ano * 10 + (data[i] = '0');
+	  ano = ano * 10 + (data[i] - '0');
 	  i++;
 	  cont++;
   }
@@ -160,12 +160,12 @@ int q1(char data[]){
     Caso o cálculo esteja correto, os atributos qtdDias, qtdMeses e qtdAnos devem ser preenchidos com os valores correspondentes.
  */
 
-void extrairData(char data[], int *dia, int *mes, int *ano){
+void extrairdata(char data[], int *dia, int *mes, int *ano){
     sscanf(data, "%d/%d/%d", dia, mes, ano);
 }
-diasmesesanos q2(char datainicial[], char datafinal[]){
+DiasMesesAnos q2(char datainicial[], char datafinal[]){
     //calcule os dados e armazene nas três variáveis a seguir
-  diasmesesanos dma = {0,0,0,0};
+  DiasMesesAnos dma = {0,0,0,0};
   if (q1(datainicial) == 0){
       dma.retorno = 2;
       return dma;
@@ -175,8 +175,8 @@ diasmesesanos q2(char datainicial[], char datafinal[]){
   }
   int dia_inicial, mes_inicial, ano_inicial;
   int dia_final, mes_final, ano_final;
-  extrairdata(data_inicial, &dia_inicial, &mes_inicial, &ano_inicial);
-  extrairdata(data_final, &dia_final, &mes_final, ano_final);
+  extrairdata(datainicial, &dia_inicial, &mes_inicial, &ano_inicial);
+  extrairdata(datafinal, &dia_final, &mes_final, ano_final);
   if(ano_final < ano_inicial){
 	  dma.retorno = 4;
 	  return dma;
@@ -187,11 +187,11 @@ diasmesesanos q2(char datainicial[], char datafinal[]){
 	  dma.retorno = 4;
 	  return dma;
   }
-  dma.qtd_anos= ano_final - ano_inicial;
-  dma.qtd.meses= mes_final - mes inicial;
-  dma.qtd.dias= dias_final - dias_inicial;
-  if(dma.qtd_dias < 0){
-	  int diasmes[13];
+  dma.qtdAnos= ano_final - ano_inicial;
+  dma.qtdMeses= mes_final - mes_inicial;
+  dma.qtdDias= dia_final - dia_inicial;
+  if(dma.qtdDias < 0){
+	  int diasmes[13] = {0,31,28,31,30,31,30,31,31,30,31,30,31};
 	  int mes_anterior;
 	  int ano_ref;
 	  if(mes_final == 1){
@@ -204,12 +204,12 @@ diasmesesanos q2(char datainicial[], char datafinal[]){
 	  if(bissexto(ano_ref)){
 		  diasmes[2] = 29;
 	  }
-	  dma.qtd_dias += diasmes(mes_anterior);
-	  dma.qtd_meses--;
+	  dma.qtdDias += diasmes[mes_anterior];
+	  dma.qtdMeses--;
   }
-  if(dma.qtd_meses < 0){
-	  dma.qtd_meses += 12;
-	  dma.qtd_anos--;
+  if(dma.qtdMeses < 0){
+	  dma.qtdMeses += 12;
+	  dma.qtdAnos--;
   }
       //se tudo der certo
   dma.retorno = 1;
@@ -233,23 +233,23 @@ char minusculo(char c){
     return c + 32;
   }
   return c;
-
-int q3(char *texto, char c, int isCaseSensitive)
-{
+}
+int q3(char *texto, char c, int isCaseSensitive){
     int qtdOcorrencias = -1;
     int tamanho = strelen(texto);
-	if(iscasesensite != 1){
+	if(isCaseSensitive != 1){
 		c = minusculo(c);
 	}
 	for(int i =0; i<tamanho;i++){
 		char atual = texto[i];
-		if(iscasesensitive != 1){
+		if(isCaseSensitive != 1){
 			atual = minusculo(atual);
 		}
 		if(atual == c){
-			contador++;
+			qtdOcorrencias++;
 		}
 		return qtdOcorrencias;
+  }
 }
 
 /*
