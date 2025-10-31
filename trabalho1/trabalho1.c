@@ -24,9 +24,9 @@
 #include "trabalho1.h" 
 #include <stdlib.h>
 #include <string.h>
-/*
-DataQuebrada quebraData(char data[]);
 
+DataQuebrada quebraData(char data[]);
+/*
 
 ## função utilizada para testes  ##
 
@@ -161,9 +161,6 @@ int q1(char data[]){
     Caso o cálculo esteja correto, os atributos qtdDias, qtdMeses e qtdAnos devem ser preenchidos com os valores correspondentes.
  */
 
-void extrairdata(char data[], int *dia, int *mes, int *ano){
-  sscanf(data, "%d/%d/%d", dia, mes, ano);
-}
 DiasMesesAnos q2(char datainicial[], char datafinal[]){
     //calcule os dados e armazene nas três variáveis a seguir
   DiasMesesAnos dma = {0,0,0,0};
@@ -176,8 +173,8 @@ DiasMesesAnos q2(char datainicial[], char datafinal[]){
   }
   int dia_inicial, mes_inicial, ano_inicial;
   int dia_final, mes_final, ano_final;
-  extrairdata(datainicial, &dia_inicial, &mes_inicial, &ano_inicial);
-  extrairdata(datafinal, &dia_final, &mes_final, &ano_final);
+  quebraData(datainicial);
+  quebraData(datafinal);
   if(ano_final < ano_inicial){
 	  dma.retorno = 4;
 	  return dma;
@@ -380,14 +377,12 @@ int q6(int numerobase, int numerobusca)
  @saida
     1 se achou 0 se não achou
  
-
+*/
  int q7(char matriz[8][10], char palavra[5])
  {
      int achou;
      return achou;
  }
-
-
 
 DataQuebrada quebraData(char data[]){
   DataQuebrada dq;
@@ -446,59 +441,3 @@ DataQuebrada quebraData(char data[]){
     
   return dq;
 }
-int bissexto(int ano){
-	  if((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0)){
-		  return 1;
-	  }else{
-		  return 0;
-	  }
-}
-
-int validata(data[]){
-  int i=0;
-  int dia=0;
-  int mes=0;
-  int ano=0;
-  int cont=0;
-  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
-	  dia = dia * 10 + (data[i] = '0');
-	  i++;
-	  cont++;
-  }
-  if(data[i++] != '/'){
-	  return 0;
-  }
-  cont = 0;
-  while(data[i] >= '0' && data[i] <= '9' && cont < 2){
-	  mes = mes * 10 + (data[i] = '0');
-	  i++;
-	  cont++;
-  }
-  if(data[i++] != '/'){
-	  return 0;
-  }
-  cont = 0;
-  while(data[i] >= '0' && data[i] <= '9' && cont < 4){
-	  ano = ano * 10 + (data[i] = '0');
-	  i++;
-	  cont++;
-  }
-  if(data[i] != '\0'){
-	  return 0;
-  }
-  int diasmes[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
-  if(bissexto(ano)){
-	  diasmes[2] = 29;
-  }
-  if(dia<1 || dia>diasmes[mes]){
-	  return 0;
-  }
-  if(mes<1 || mes>12){
-	  return 0;
-  }
-  if(ano<1){
-	  return 0;
-  }
-  return 1;
-}
-*/
