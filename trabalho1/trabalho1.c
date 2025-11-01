@@ -380,8 +380,36 @@ int q6(int numerobase, int numerobusca)
 */
  int q7(char matriz[8][10], char palavra[5])
  {
-     int achou;
-     return achou;
+  int achou = 0;
+  int tampalavra = strlen(palavra);
+  int direcoes[8][2] = {{0,-1},{0,1},{1,0},{-1,0},{1,1},{-1,-1},{-1,1},{1,-1}};
+  for(int i=0; i<8; i++){
+	  for(int j=0; j<10; j++){
+		  for(int d=0; d<8; d++){
+			  int dx = direcoes[d][0];
+			  int dy = direcoes[d][1];
+			  int x=i, y=j;
+			  int encontrou = 1;
+			  for(int k=0; k<tampalavra; k++){
+				  if(x<0 || x>=8 || y<0 || y>=10){
+					  encontrou = 0;
+					  break;
+				  }
+				  if(matrix[x][y] != palavra[k]){
+					  encontrou = 0;
+					  break;
+				  }
+				  x += dx;
+				  y += dy;
+			  }
+			  if(encontrou){
+				  achou = 1;
+				  return achou;
+			  }
+		  }
+	  }	
+  }
+  return achou;
  }
 
 DataQuebrada quebraData(char data[]){
