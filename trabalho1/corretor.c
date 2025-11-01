@@ -25,11 +25,11 @@
 void testQ1();
 void testQ2();
 void testQ3();
-void testQ4();/*
+void testQ4();
 void testQ5();
 void testQ6();
 void testQ7();
-*/
+
 int main()
 {
     //testSomar();
@@ -37,10 +37,10 @@ int main()
     testQ1();
     testQ2();
     testQ3();
-    testQ4();/*
+    testQ4();
     testQ5();
     testQ6();
-    testQ7();*/
+    testQ7();
 }
 /*
 void testSomar()
@@ -189,7 +189,7 @@ void testQ6()
     printf("%d\n", q6(3539343, 3) == 4);
     printf("%d\n", q6(3539343, 39) == 1);
 }
-/*
+
 void testQ7()
 {
     char matrix[8][10] = {
@@ -212,4 +212,4 @@ void testQ7()
     printf("%d\n", q7(matrix, stringBusca) == 1);
 
 }
-*/
+
