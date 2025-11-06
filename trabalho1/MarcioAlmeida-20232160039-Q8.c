@@ -22,7 +22,7 @@ void main(){
     printf("C  %c |  %c |  %c ", tabuleiro[2][0], tabuleiro[2][1], tabuleiro[2][2]);
     printf("\nJogador %c, informe a sua jogada: ", jogador);
     scanf("%c%d", &linhanum, colunanum;);
-/*
+
     if(linhanum == 'A' || linhanum == 'a'){
       linha = 0;
     }else if(linhanum == 'B' || linhanum == 'b'){
@@ -74,6 +74,6 @@ void main(){
       jogador = 'O'
     }else{
       jogador = 'X';
-    }*/
+    }
   }
 }
