@@ -8,8 +8,8 @@ void main(){
   int jogadas = 0;
   int venceu = 0;
 
-  for(i=0; i< 10; i++){
-    for(i=0; j<10; j++){
+  for(int i=0; i< 10; i++){
+    for(int j=0; j<10; j++){
       tabuleiro[i][j] = ' ';
     }
   }
