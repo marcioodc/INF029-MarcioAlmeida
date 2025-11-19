@@ -267,7 +267,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
   for(int i=0; i<=tamtexto - tambusca; i++){
     int encontrou = 1;
     for(int j=0; j<tambusca; j++){
-      if(strTexto[i+j] != strbusca[j]){
+      if(strTexto[i+j] != strBusca[j]){
         encontrou = 0;
         break;
       }
@@ -394,7 +394,7 @@ int q6(int numerobase, int numerobusca)
 					  encontrou = 0;
 					  break;
 				  }
-				  if(matrix[x][y] != palavra[k]){
+				  if(matriz[x][y] != palavra[k]){
 					  encontrou = 0;
 					  break;
 				  }
