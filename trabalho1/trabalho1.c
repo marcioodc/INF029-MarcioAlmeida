@@ -268,7 +268,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30]){
     int tamtexto = strlen(strTexto);
     if(tambusca==0) return 0;
     for(int i=0; i<=tamtexto - tambusca; i++){
-        int encontrou = 1;
+        int encontrou = 0;
         for(int j=0; j<tambusca; j++){
             if(strTexto[i+j] != strBusca[j]){
                 encontrou = 0;
@@ -325,7 +325,7 @@ int q6(int numerobase, int numerobusca){
     int tambusca = strlen(buscaStr);
     if(tambusca==0 || tambusca>tambase) return 0;
     for(int i=0; i<=tambase - tambusca; i++){
-        int encontrou = 1;
+        int encontrou = 0;
         for(int k=0; k<tambusca;k++){
             if(baseStr[i+k] != buscaStr[k]){
                 encontrou = 0;
@@ -360,7 +360,7 @@ int q6(int numerobase, int numerobusca){
                 int dx = direcoes[d][0];
                 int dy = direcoes[d][1];
                 int x=i, y=j;
-                int encontrou = 1;
+                int encontrou = 0;
                 for(int k=0; k<tampalavra; k++){
                     if(x<0 || x>=8 || y<0 || y>=10){
                         encontrou = 0;
