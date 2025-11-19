@@ -209,7 +209,6 @@ DiasMesesAnos q2(char datainicial[], char datafinal[]){
 	  dma.qtdMeses += 12;
 	  dma.qtdAnos--;
   }
-      //se tudo der certo
   dma.retorno = 1;
   return dma;
       
@@ -283,14 +282,14 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
 }
 
 
- Q5 = inverte número
+ /*Q5 = inverte número
  @objetivo
     Inverter número inteiro
  @entrada
     uma int num.
  @saida
     Número invertido
- 
+ */
 
 int q5(int num)
 {
