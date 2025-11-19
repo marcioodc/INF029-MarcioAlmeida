@@ -315,8 +315,7 @@ int q5(int num){
     Quantidade de vezes que número de busca ocorre em número base
  
 */
-int q6(int numerobase, int numerobusca)
-{
+int q6(int numerobase, int numerobusca){
     int qtdOcorrencias = 0;
     char baseStr[50];
     char buscaStr[50];
@@ -338,6 +337,50 @@ int q6(int numerobase, int numerobusca)
         }
     }
     return qtdOcorrencias;
+}
+
+/*
+ Q7 = jogo busca palavras
+ @objetivo
+    Verificar se existe uma string em uma matriz de caracteres em todas as direções e sentidos possíves
+ @entrada
+    Uma matriz de caracteres e uma string de busca (palavra).
+ @saida
+    1 se achou 0 se não achou
+ */
+
+ int q7(char matriz[8][10], char palavra[5]){
+    int achou = 0;
+    int tampalavra = strlen(palavra);
+    if(tampalavra==0) return 0;
+    int direcoes[8][2] = {{0,-1},{0,1},{1,0},{-1,0},{1,1},{-1,-1},{-1,1},{1,-1}};
+    for(int i=0; i<8; i++){
+        for(int j=0; j<10; j++){
+            for(int d=0; d<8; d++){
+                int dx = direcoes[d][0];
+                int dy = direcoes[d][1];
+                int x=i, y=j;
+                int encontrou = 1;
+                for(int k=0; k<tampalavra; k++){
+                    if(x<0 || x>=8 || y<0 || y>=10){
+                        encontrou = 0;
+                        break;
+                    }
+                    if(matriz[x][y] != palavra[k]){
+                        encontrou = 0;
+                        break;
+                    }
+                    x += dx;
+                    y += dy;
+                }
+                if(encontrou){
+                    achou = 1;
+                    return achou;
+                }
+            }
+        }
+    }
+    return achou;
 }
 
 DataQuebrada quebraData(char data[]){
