@@ -10,72 +10,77 @@
 // 2 = tiro errado (X)
 // 3 = acerto (O)
 
-// --------- ferramentas de entrada ----------
 void read_line(char *buf, int n) {
-    if (!fgets(buf, n, stdin)) {
+    if(!fgets(buf, n, stdin)){
         buf[0] = '\0';
         return;
     }
-    // remove newline
     size_t L = strlen(buf);
-    if (L > 0 && buf[L-1] == '\n') buf[L-1] = '\0';
+    if(L > 0 && buf[L-1] == '\n'){
+        buf[L-1] = '\0';
+    }
 }
 
-// converte entrada tipo "B3" ou "b3" ou "J10" para índices 0-based
-// retorna 1 se OK (preenche *r,*c), 0 se inválido
-int parseCell(const char *s, int *r, int *c) {
-    if (!s || strlen(s) < 2) return 0;
+int parseCell(const char *s, int *r, int *c){
+    if(!s || strlen(s) < 2){
+        return 0;
+    }
     char rowChar = toupper(s[0]);
-    if (rowChar < 'A' || rowChar > 'J') return 0;
+    if(rowChar < 'A' || rowChar > 'J'){
+        return 0;
+    }
     int col;
-    // parse remaining as integer
-    if (sscanf(s+1, "%d", &col) != 1) return 0;
-    if (col < 1 || col > TAM) return 0;
+    if(sscanf(s+1, "%d", &col) != 1){
+        return 0;
+    }
+    if(col < 1 || col > TAM){
+        return 0;
+    }
     *r = rowChar - 'A';
     *c = col - 1;
     return 1;
 }
 
-// --------- inicializacao ----------
-void inicializar(int tab[TAM][TAM]) {
-    for (int i=0;i<TAM;i++)
-        for (int j=0;j<TAM;j++)
+void inicializar(int tab[TAM][TAM]){
+    for(int i=0;i<TAM;i++){
+        for(int j=0;j<TAM;j++){
             tab[i][j] = 0;
+        }
+    }
 }
 
-// --------- imprimir tabuleiros ----------
-// imprime o tabuleiro do jogador (mostra navios, acertos e erros)
-void imprimirProprio(int tab[TAM][TAM]) {
+void Tab_Jogador(int tab[TAM][TAM]){
     printf("   ");
-    for(int j = 1; j <= TAM; j++){
+    for(int j=1; j<=TAM; j++){
         printf("%2d ", j);
         printf("\n");
     }
-    for(int i=0;i<TAM;i++){
+    for(int i=0; i<TAM; i++){
         printf(" %c ", 'A' + i);
-        for(int j=0;j<TAM;j++){
+        for(int j=0; j<TAM; j++){
             if(tab[i][j] == 0){
                 printf(" . ");
-            }else if{(tab[i][j] == 1){
+            }else if(tab[i][j] == 1){
                 printf(" N ");
-            }else if{(tab[i][j] == 2){
+            }else if(tab[i][j] == 2){
                 printf(" X ");
-            }else if{(tab[i][j] == 3){
+            }else if(tab[i][j] == 3){
                 printf(" O ");
+            }
         }
         printf("\n");
     }
 }
 
-void imprimirAdversario(int tiros[TAM][TAM]){
+void Tab_Adversario(int tiros[TAM][TAM]){
     printf("   ");
-    for(int j = 1; j <= TAM; j++){
+    for(int j=1; j<=TAM; j++){
         printf("%2d ", j);
       )
     printf("\n");
-    for(int i=0;i<TAM;i++){
+    for(int i=0; i<TAM; i++){
         printf(" %c ", 'A' + i);
-        for (int j=0;j<TAM;j++){
+        for (int j=0; j<TAM; j++){
             if (tiros[i][j] == 0){
                 printf(" . ");
             }else if(tiros[i][j] == 2){
@@ -91,13 +96,14 @@ void imprimirAdversario(int tiros[TAM][TAM]){
 }
 
 int podeColocar(int tab[TAM][TAM], int linha, int coluna, int tam, char dir) {
-    if(linha < 0 || linha >= TAM || coluna < 0 || coluna >= TAM){
+    if(linha<0 || linha>=TAM || coluna<0 || coluna>=TAM){
         return 0;
     }
     if(dir == 'H'){
         if(coluna + tam > TAM){
           return 0;
-        for(int j=0;j<tam;j++){
+        }
+        for(int j=0; j<tam; j++){
             if(tab[linha][coluna+j] != 0){
                 return 0;
             }
@@ -106,7 +112,7 @@ int podeColocar(int tab[TAM][TAM], int linha, int coluna, int tam, char dir) {
         if(linha + tam > TAM){
             return 0;
         }
-        for(int i=0;i<tam;i++){
+        for(int i=0; i<tam; i++){
             if(tab[linha+i][coluna] != 0){
               return 0;
             }
@@ -117,17 +123,17 @@ int podeColocar(int tab[TAM][TAM], int linha, int coluna, int tam, char dir) {
 
 void colocar(int tab[TAM][TAM], int linha, int coluna, int tam, char dir) {
     if(dir == 'H'){
-        for(int j=0;j<tam;j++){
+        for(int j=0; j<tam; j++){
             tab[linha][coluna+j] = 1;
         }
     }else{
-        for(int i=0;i<tam;i++){
+        for(int i=0; i<tam; i++){
             tab[linha+i][coluna] = 1;
         }
     }
 }
 
-void pos_navio(int tab[TAM][TAM], int jogador) {
+void pos_navio(int tab[TAM][TAM], int jogador){
     char buf[64];
     int r,c;
     char dir;
@@ -184,7 +190,7 @@ void pos_navio(int tab[TAM][TAM], int jogador) {
         }
     }
 
-    for(int i=1;i<=3;i++){
+    for(int i=1; i<=3; i++){
         while(1){
             printf("Barco tamanho 1 (%d/3) - informe a posição: ", i);
             read_line(buf, sizeof(buf));
@@ -200,7 +206,6 @@ void pos_navio(int tab[TAM][TAM], int jogador) {
             break;
         }
     }
-
     printf("\nPosicionamento concluído para jogador %d.\n", jogador);
 }
 
@@ -225,7 +230,9 @@ int atirar(int tabAlvo[TAM][TAM], int tirosDoJogador[TAM][TAM], int linha, int c
         tirosDoJogador[linha][coluna] = 3;
         return 1;
     }else{
-        if (tabAlvo[linha][coluna] == 0) tabAlvo[linha][coluna] = 2;
+        if(tabAlvo[linha][coluna] == 0){
+            tabAlvo[linha][coluna] = 2;
+        }
         tirosDoJogador[linha][coluna] = 2;
         return 0;
     }
@@ -248,9 +255,9 @@ int main(){
         if(vez == 1){
             printf("\n---Jogador 1---\n");
             printf("Seu tabuleiro:\n");
-            imprimirProprio(barcos1);
+            Tab_Jogador(barcos1);
             printf("\nPosições jogadas:\n");
-            imprimirAdversario(tiros1);
+            Tab_Adversario(tiros1);
             while(1){
                 printf("Jogador 1, informe a posição que deseja atirar: ");
                 read_line(buf, sizeof(buf));
@@ -279,10 +286,9 @@ int main(){
         }else{
             printf("\n---Jogador 2---\n");
             printf("Seu tabuleiro:\n");
-            imprimirProprio(barcos2);
+            Tab_Jogador(barcos2);
             printf("\nPosições jogadas:\n");
-            imprimirAdversario(tiros2);
-
+            Tab_Adversario(tiros2);
             while(1){
                 printf("Jogador 2, informe a posição que deseja atirar: ");
                 read_line(buf, sizeof(buf));
