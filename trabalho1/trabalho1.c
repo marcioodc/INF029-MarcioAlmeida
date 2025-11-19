@@ -162,7 +162,6 @@ int q1(char data[]){
  */
 
 DiasMesesAnos q2(char datainicial[], char datafinal[]){
-    //calcule os dados e armazene nas três variáveis a seguir
   DiasMesesAnos dma = {0,0,0,0};
   if (q1(datainicial) == 0){
       dma.retorno = 2;
@@ -421,49 +420,39 @@ DataQuebrada quebraData(char data[]){
 	for (i = 0; data[i] != '/'; i++){
 		sDia[i] = data[i];	
 	}
-	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
-		sDia[i] = '\0';  // coloca o barra zero no final
+	if(i == 1 || i == 2){ 
+		sDia[i] = '\0'; 
 	}else {
 		dq.valido = 0;
     return dq;
-  }  
-	
-
-	int j = i + 1; //anda 1 cada para pular a barra
+  }
+	int j = i + 1; 
 	i = 0;
-
 	for (; data[j] != '/'; j++){
 		sMes[i] = data[j];
 		i++;
 	}
-
-	if(i == 1 || i == 2){ // testa se tem 1 ou dois digitos
-		sMes[i] = '\0';  // coloca o barra zero no final
+	if(i == 1 || i == 2){ 
+		sMes[i] = '\0'; 
 	}else {
 		dq.valido = 0;
     return dq;
   }
-	
-
-	j = j + 1; //anda 1 cada para pular a barra
+	j = j + 1;
 	i = 0;
-	
 	for(; data[j] != '\0'; j++){
 	 	sAno[i] = data[j];
 	 	i++;
 	}
-
-	if(i == 2 || i == 4){ // testa se tem 2 ou 4 digitos
-		sAno[i] = '\0';  // coloca o barra zero no final
+	if(i == 2 || i == 4){
+		sAno[i] = '\0';  
 	}else {
 		dq.valido = 0;
     return dq;
   }
-
   dq.iDia = atoi(sDia);
   dq.iMes = atoi(sMes);
   dq.iAno = atoi(sAno); 
-
 	dq.valido = 1;
     
   return dq;
