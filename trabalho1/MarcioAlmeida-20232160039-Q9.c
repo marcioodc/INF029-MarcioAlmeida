@@ -76,7 +76,7 @@ void Tab_Adversario(int tiros[TAM][TAM]){
     printf("   ");
     for(int j=1; j<=TAM; j++){
         printf("%2d ", j);
-      )
+    }
     printf("\n");
     for(int i=0; i<TAM; i++){
         printf(" %c ", 'A' + i);
