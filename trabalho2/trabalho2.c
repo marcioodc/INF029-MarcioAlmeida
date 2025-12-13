@@ -309,9 +309,42 @@ Retorno (No*)
 */
 No *montarListaEncadeadaComCabecote()
 {
+    No *cabecote, *atual, *novo;
+    int temElemento = 0;
 
-    return NULL;
+    cabecote = (No *) malloc(sizeof(No));
+    if (cabecote == NULL)
+        return NULL;
+
+    cabecote->prox = NULL;
+    atual = cabecote;
+
+    for (int i = 0; i < TAM; i++) {
+        if (estruturas[i].p != NULL && estruturas[i].cont > 0) {
+            for (int j = 0; j < estruturas[i].cont; j++) {
+                novo = (No *) malloc(sizeof(No));
+                if (novo == NULL)
+                    break;
+
+                novo->conteudo = estruturas[i].p[j];
+                novo->prox = NULL;
+
+                atual->prox = novo;
+                atual = novo;
+
+                temElemento = 1;
+            }
+        }
+    }
+
+    if (!temElemento) {
+        free(cabecote);
+        return NULL;
+    }
+
+    return cabecote;
 }
+
 
 /*
 Objetivo: retorna os números da lista enceada com cabeçote armazenando em vetorAux.
@@ -319,7 +352,20 @@ Retorno void
 */
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
 {
+    int i = 0;
+    No *aux;
+
+    if (inicio == NULL)
+        return;
+
+    aux = inicio->prox; 
+
+    while (aux != NULL) {
+        vetorAux[i++] = aux->conteudo;
+        aux = aux->prox;
+    }
 }
+
 
 /*
 Objetivo: Destruir a lista encadeada com cabeçote a partir de início.
@@ -330,7 +376,20 @@ Retorno
 */
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
+    No *aux;
+
+    if (inicio == NULL || *inicio == NULL)
+        return;
+
+    while (*inicio != NULL) {
+        aux = *inicio;
+        *inicio = (*inicio)->prox;
+        free(aux);
+    }
+
+    *inicio = NULL;
 }
+
 
 /*
 Objetivo: inicializa o programa. deve ser chamado ao inicio do programa 
