@@ -5,7 +5,7 @@
 #include "trabalho2.h"
 
 int vetorPrincipal[TAM];
-
+int ehPosicaoValida(int posicao);
 /*
 Objetivo: criar estrutura auxiliar na posição 'posicao'.
 com tamanho 'tamanho'
