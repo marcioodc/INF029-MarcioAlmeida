@@ -17,11 +17,6 @@ Rertono (int)
     SEM_ESPACO_DE_MEMORIA - Sem espaço de memória
     TAMANHO_INVALIDO - o tamanho deve ser maior ou igual a 1
 */
-typedef struct{
-    int *p;
-    int cont;
-    int tam;
-} EstruturaAux;
 
 static EstruturaAux estruturas[TAM];
 
