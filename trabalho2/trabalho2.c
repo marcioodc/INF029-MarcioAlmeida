@@ -225,11 +225,18 @@ Rertono (int)
 */
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
+    int ret = getDadosDeTodasEstruturasAuxiliares(vetorAux);
+    if (ret != SUCESSO)
+        return ret;
 
-    int retorno = 0;
-    return retorno;
+    int total = 0;
+    for (int i = 0; i < TAM; i++)
+        total += estruturas[i].cont;
+
+    ordenar(vetorAux, total);
+    return SUCESSO;
 }
-
+    
 /*
 Objetivo: modificar o tamanho da estrutura auxiliar da posição 'posicao' para o novo tamanho 'novoTamanho' + tamanho atual
 Suponha o tamanho inicial = x, e novo tamanho = n. O tamanho resultante deve ser x + n. Sendo que x + n deve ser sempre >= 1
@@ -243,11 +250,31 @@ Rertono (int)
 */
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
 {
+    if (ehPosicaoValida(posicao) != SUCESSO)
+        return POSICAO_INVALIDA;
 
-    int retorno = 0;
-    return retorno;
+    if (novoTamanho < 0)
+        return NOVO_TAMANHO_INVALIDO;
+
+    int idx = posicao - 1;
+
+    if (estruturas[idx].p == NULL)
+        return SEM_ESTRUTURA_AUXILIAR;
+
+    int novoTam = estruturas[idx].tam + novoTamanho;
+    if (novoTam < 1)
+        return NOVO_TAMANHO_INVALIDO;
+
+    int *novo = realloc(estruturas[idx].p, novoTam * sizeof(int));
+    if (novo == NULL)
+        return SEM_ESPACO_DE_MEMORIA;
+
+    estruturas[idx].p = novo;
+    estruturas[idx].tam = novoTam;
+
+    return SUCESSO;
 }
-
+    
 /*
 Objetivo: retorna a quantidade de elementos preenchidos da estrutura auxiliar da posição 'posicao'.
 
@@ -259,12 +286,20 @@ Retorno (int)
 */
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
+    if (ehPosicaoValida(posicao) != SUCESSO)
+        return POSICAO_INVALIDA;
 
-    int retorno = 0;
+    int idx = posicao - 1;
 
-    return retorno;
+    if (estruturas[idx].p == NULL)
+        return SEM_ESTRUTURA_AUXILIAR;
+
+    if (estruturas[idx].cont == 0)
+        return ESTRUTURA_AUXILIAR_VAZIA;
+
+    return estruturas[idx].cont;
 }
-
+    
 /*
 Objetivo: montar a lista encadeada com cabeçote com todos os números presentes em todas as estruturas.
 
@@ -304,6 +339,12 @@ Objetivo: inicializa o programa. deve ser chamado ao inicio do programa
 
 void inicializar()
 {
+   for (int i = 0; i < TAM; i++) {
+        estruturas[i].p = NULL;
+        estruturas[i].cont = 0;
+        estruturas[i].tam = 0;
+    }
+
 }
 
 /*
@@ -314,4 +355,6 @@ para poder liberar todos os espaços de memória das estruturas auxiliares.
 
 void finalizar()
 {
+    for (int i = 0; i < TAM; i++)
+        free(estruturas[i].p);
 }
