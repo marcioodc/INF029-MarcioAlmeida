@@ -37,5 +37,6 @@ void destruirListaEncadeadaComCabecote(No **inicio);
 void inicializar();
 void finalizar();
 void dobrar(int *x);
+void ordenar(int *v, int n);
 
 #endif  // TRABALHO2_ESTRUTURAVETORES_H

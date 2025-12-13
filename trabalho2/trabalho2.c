@@ -40,7 +40,18 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
     estruturas[idx].cont = 0;
     return SUCESSO;
 }
-
+void ordenar(int *v, int n)
+{
+    for(int i = 0; i < n - 1; i++){
+        for(int j = i + 1; j < n; j++){
+            if(v[i] > v[j]){
+                int tmp = v[i];
+                v[i] = v[j];
+                v[j] = tmp;
+            }
+        }
+    }
+}
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
 Rertono (int)
