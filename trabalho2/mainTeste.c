@@ -10,9 +10,9 @@ void testeCriarEstrutura();
 void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
-void testeListar();/*
+void testeListar();
 void testeRetornarTodosNumeros();
-void testeMudarTamanhoEstrutura();
+void testeMudarTamanhoEstrutura();/*
 void testeListaEncadeada();*/
 
 int main()
@@ -23,9 +23,9 @@ int main()
     testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
-    testeListar();/*
+    testeListar();
     testeRetornarTodosNumeros();
-    testeMudarTamanhoEstrutura();
+    testeMudarTamanhoEstrutura();/*
     testeListaEncadeada();
     finalizar();*/
 }
