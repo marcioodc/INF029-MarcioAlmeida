@@ -7,10 +7,10 @@ void show_log(char *str);
 
 void testeInserirSemNada();
 void testeCriarEstrutura();
-void testeInserirComEstrutura();/*
+void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
-void testeListar();
+void testeListar();/*
 void testeRetornarTodosNumeros();
 void testeMudarTamanhoEstrutura();
 void testeListaEncadeada();*/
@@ -20,10 +20,10 @@ int main()
     inicializar();
     testeInserirSemNada();
     testeCriarEstrutura();
-    testeInserirComEstrutura();/*
+    testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
-    testeListar();
+    testeListar();/*
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();
