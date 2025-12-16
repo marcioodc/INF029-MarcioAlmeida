@@ -6,14 +6,14 @@
 void show_log(char *str);
 
 void testeInserirSemNada();
-void testeCriarEstrutura();
+void testeCriarEstrutura();/*
 void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
 void testeListar();
 void testeRetornarTodosNumeros();
 void testeMudarTamanhoEstrutura();
-void testeListaEncadeada();
+void testeListaEncadeada();*/
 
 int main()
 {
