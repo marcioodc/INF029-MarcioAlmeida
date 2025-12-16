@@ -4,12 +4,6 @@
 
 #include "trabalho2.h"
 
-typedef struct {
-    int *p;
-    int cont;
-    int tam;
-} EstruturaAux;
-
 static EstruturaAux estruturas[TAM];
 
 /* ================= FUNÇÕES AUXILIARES ================= */
