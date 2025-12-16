@@ -3,7 +3,7 @@
 
 #include "trabalho2.h"
 
-void show_log(char *str);/*
+void show_log(char *str);
 
 void testeInserirSemNada();
 void testeCriarEstrutura();
@@ -11,23 +11,23 @@ void testeInserirComEstrutura();
 void testeExcluir();
 void testeExcluirNumeroEspecifico();
 void testeListar();
-void testeRetornarTodosNumeros();*/
-void testeMudarTamanhoEstrutura();/*
-void testeListaEncadeada();*/
+void testeRetornarTodosNumeros();
+void testeMudarTamanhoEstrutura();
+void testeListaEncadeada();
 
 int main()
 {
-    inicializar();/*
+    inicializar();
     testeInserirSemNada();
     testeCriarEstrutura();
     testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();
-    testeRetornarTodosNumeros();*/
-    testeMudarTamanhoEstrutura();/*
+    testeRetornarTodosNumeros();
+    testeMudarTamanhoEstrutura();
     testeListaEncadeada();
-    finalizar();*/
+    finalizar();
 }
 int ligado = 0;
 void show_log(char *str)
