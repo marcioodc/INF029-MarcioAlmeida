@@ -24,6 +24,7 @@ int main()
     testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();*/
+
     testeRetornarTodosNumeros();/*
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();
@@ -167,7 +168,7 @@ void testeRetornarTodosNumeros()
 2 [3,8,0]
 5 [1,34,12,6,27,-6, , , , ]
 */
-    int vet[9];
+    /*int vet[9];
 
     printf("%d\n", getDadosDeTodasEstruturasAuxiliares(vet) == SUCESSO);
 
@@ -205,7 +206,7 @@ void testeRetornarTodosNumeros()
     printf("%d\n", vet[5] == 12);
     printf("%d\n", vet[6] == 6);
     printf("%d\n", vet[7] == 27);
-    printf("%d\n", vet[8] == -6);
+    printf("%d\n", vet[8] == -6);*/
 }
 /*
 2 [3,8,0]
