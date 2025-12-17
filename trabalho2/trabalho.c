@@ -41,7 +41,7 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
 
     estruturas[idx].p = malloc(tamanho * sizeof(int));
     if (!estruturas[idx].p)
-        return SEM_ESPACO_DE_MEMORIAok;
+        return SEM_ESPACO_DE_MEMORIA;
 
     estruturas[idx].tam = tamanho;
     estruturas[idx].cont = 0;
@@ -182,6 +182,12 @@ int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
         return SEM_ESPACO_DE_MEMORIA;
 
     estruturas[idx].p = novo;
+    if(novoTam > estruturas[idx].tam){
+         for(int i=estruturas[idx].tam; i < novoTam; i++){
+            estruturas[idx].p[i] = 0;
+        }
+    }
+    
     estruturas[idx].tam = novoTam;
 
     if (estruturas[idx].cont > novoTam)
