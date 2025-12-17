@@ -188,11 +188,11 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 
 No *montarListaEncadeadaComCabecote()
 {
-    No *cab=malloc(sizeof(No));
-    if(!cab) return NULL;
-    cab->prox=NULL;
+    No *cabecote = malloc(sizeof(No));
+    if(!cabecote) return NULL;
+    cabecote->prox=NULL;
 
-    No *atual=cab;
+    No *atual=cabecote;
     int tem=0;
 
     for(int i=0;i<TAM;i++){
@@ -209,10 +209,10 @@ No *montarListaEncadeadaComCabecote()
         }
     }
     if(!tem){
-        free(cab);
+        free(cabecote);
         return NULL;
     }
-    return cab;
+    return cabecote;
 }
 
 void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
