@@ -20,10 +20,10 @@ void testarArquivoSegundaVez();
 int main()
 {
     inicializar();
-    testarArquivoPrimeiraVez();
-    testarArquivoSegundaVez();
-    /*testeInserirSemNada();
-    testeCriarEstrutura();
+    //testarArquivoPrimeiraVez();
+  //  testarArquivoSegundaVez();
+    testeInserirSemNada();
+    /*testeCriarEstrutura();
     testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
