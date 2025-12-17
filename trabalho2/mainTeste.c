@@ -22,9 +22,9 @@ int main()
     //testeCriarEstrutura();
     //testeInserirComEstrutura();erro
     //testeExcluir(); erro parcial
-    testeExcluirNumeroEspecifico(); 
-    /*testeListar();
-    testeRetornarTodosNumeros();
+    //testeExcluirNumeroEspecifico(); 
+    testeListar();
+    /*testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();*/
     finalizar();
