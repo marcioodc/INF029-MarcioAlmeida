@@ -6,8 +6,6 @@
 
 static EstruturaAux estruturas[TAM];
 
-/* ================= AUXILIARES ================= */
-
 int ehPosicaoValida(int posicao)
 {
     return (posicao >= 1 && posicao <= TAM) ? SUCESSO : POSICAO_INVALIDA;
@@ -24,7 +22,6 @@ void ordenar(int *v, int n)
             }
 }
 
-/* ================= ESTRUTURAS AUXILIARES ================= */
 
 int criarEstruturaAuxiliar(int posicao,int tamanho)
 {
@@ -188,7 +185,6 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
     return estruturas[idx].cont;
 }
 
-/* ================= LISTA ENCADEADA ================= */
 
 No *montarListaEncadeadaComCabecote()
 {
@@ -242,7 +238,6 @@ void destruirListaEncadeadaComCabecote(No **inicio)
     *inicio=NULL;
 }
 
-/* ================= CONTROLE ================= */
 
 void inicializar()
 {
