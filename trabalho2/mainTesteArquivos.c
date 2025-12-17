@@ -22,10 +22,10 @@ int main()
     inicializar();
     //testarArquivoPrimeiraVez();
     //testarArquivoSegundaVez();
-    testeInserirSemNada();
+    //testeInserirSemNada();
     testeCriarEstrutura();
-    /*testeInserirComEstrutura();
-    testeExcluir();
+    testeInserirComEstrutura();
+    /*testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();
     testeRetornarTodosNumeros();
