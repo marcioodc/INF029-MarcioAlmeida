@@ -23,9 +23,9 @@ int main()
     //testeInserirComEstrutura();erro
     //testeExcluir(); erro parcial
     //testeExcluirNumeroEspecifico(); 
-    testeListar();
-    /*testeRetornarTodosNumeros();
-    testeMudarTamanhoEstrutura();
+    //testeListar(); erro parcial
+    testeRetornarTodosNumeros();
+    /*testeMudarTamanhoEstrutura();
     testeListaEncadeada();*/
     finalizar();
 }
