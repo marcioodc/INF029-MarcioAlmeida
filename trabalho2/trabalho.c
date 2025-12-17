@@ -176,12 +176,10 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
     if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx=posicao-1;
-    if(!estruturas[idx].p)
+    int idx = posicao-1;
+    if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
-    if(estruturas[idx].cont==0)
-        return ESTRUTURA_AUXILIAR_VAZIA;
-
+    }
     return estruturas[idx].cont;
 }
 
