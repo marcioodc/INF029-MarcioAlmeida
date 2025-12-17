@@ -24,8 +24,8 @@ int main()
   //  testarArquivoSegundaVez();
    // testeInserirSemNada();
    // testeCriarEstrutura();
-    testeInserirComEstrutura();
-    //testeExcluir();
+    //testeInserirComEstrutura();
+    testeExcluir();
     //testeExcluirNumeroEspecifico();
     /*testeListar();
     testeRetornarTodosNumeros();
