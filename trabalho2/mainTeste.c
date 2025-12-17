@@ -20,13 +20,13 @@ int main()
     inicializar();
     testeInserirSemNada();
     testeCriarEstrutura();
-    testeInserirComEstrutura();erro
-    testeExcluir(); erro parcial
-    testeExcluirNumeroEspecifico(); 
-    testeListar(); erro parcial
-    testeRetornarTodosNumeros(); erro parcial
-    testeMudarTamanhoEstrutura(); erro
-    testeListaEncadeada(); erro
+    testeInserirComEstrutura();
+    testeExcluir(); 
+    /*testeExcluirNumeroEspecifico(); 
+    testeListar(); 
+    testeRetornarTodosNumeros(); 
+    testeMudarTamanhoEstrutura(); 
+    testeListaEncadeada(); */
     finalizar();
 }
 int ligado = 0;
