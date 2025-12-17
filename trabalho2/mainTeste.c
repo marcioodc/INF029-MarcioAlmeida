@@ -18,15 +18,15 @@ void testeListaEncadeada();
 int main()
 {
     inicializar();
-   /* testeInserirSemNada();
-    testeCriarEstrutura();
+    testeInserirSemNada();
+    /*testeCriarEstrutura();
     testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();
-    */testeRetornarTodosNumeros();
+    testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
-    testeListaEncadeada();
+    testeListaEncadeada();*/
     finalizar();
 }
 int ligado = 0;
