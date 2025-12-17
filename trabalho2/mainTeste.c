@@ -24,9 +24,9 @@ int main()
     //testeExcluir(); erro parcial
     //testeExcluirNumeroEspecifico(); 
     //testeListar(); erro parcial
-    testeRetornarTodosNumeros();
-    /*testeMudarTamanhoEstrutura();
-    testeListaEncadeada();*/
+    //testeRetornarTodosNumeros(); erro parcial
+    testeMudarTamanhoEstrutura();
+    //testeListaEncadeada();
     finalizar();
 }
 int ligado = 0;
