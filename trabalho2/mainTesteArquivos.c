@@ -23,11 +23,11 @@ int main()
     //testarArquivoPrimeiraVez();
   //  testarArquivoSegundaVez();
    // testeInserirSemNada();
-    testeCriarEstrutura();
-   /* testeInserirComEstrutura();
+   // testeCriarEstrutura();
+    testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
-    testeListar();
+    /*testeListar();
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
     testeListaEncadeada();*/
