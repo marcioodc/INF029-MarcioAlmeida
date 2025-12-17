@@ -19,10 +19,10 @@ int main()
 {
     inicializar();
     //testeInserirSemNada();
-    testeCriarEstrutura();
-    /*testeInserirComEstrutura();
+    //testeCriarEstrutura();
+    //testeInserirComEstrutura();erro
     testeExcluir();
-    testeExcluirNumeroEspecifico();
+    /*testeExcluirNumeroEspecifico();
     testeListar();
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
