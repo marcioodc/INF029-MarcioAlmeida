@@ -22,14 +22,14 @@ int main()
     inicializar();
     //testarArquivoPrimeiraVez();
   //  testarArquivoSegundaVez();
-   // testeInserirSemNada();
-   // testeCriarEstrutura();
-    //testeInserirComEstrutura();
+    testeInserirSemNada();
+    testeCriarEstrutura();
+    testeInserirComEstrutura();
     //testeExcluir();
    // testeExcluirNumeroEspecifico();
-   // testeListar();
-    //testeRetornarTodosNumeros();
-    //testeMudarTamanhoEstrutura();
+    testeListar();
+    testeRetornarTodosNumeros();
+    testeMudarTamanhoEstrutura();
     testeListaEncadeada();
     finalizar();
 }
