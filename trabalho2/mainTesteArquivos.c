@@ -21,10 +21,10 @@ int main()
 {
     inicializar();
     //testarArquivoPrimeiraVez();
-    testarArquivoSegundaVez();
-    /*testeInserirSemNada();
+    //testarArquivoSegundaVez();
+    testeInserirSemNada();
     testeCriarEstrutura();
-    testeInserirComEstrutura();
+    /*testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();
