@@ -41,7 +41,7 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
 
     estruturas[idx].p = malloc(tamanho * sizeof(int));
     if (!estruturas[idx].p)
-        return SEM_ESPACO_DE_MEMORIA;
+        return SEM_ESPACO_DE_MEMORIAok;
 
     estruturas[idx].tam = tamanho;
     estruturas[idx].cont = 0;
