@@ -20,9 +20,9 @@ void testarArquivoSegundaVez();
 int main()
 {
     inicializar();
-    testarArquivoPrimeiraVez();
+    //testarArquivoPrimeiraVez();
     testarArquivoSegundaVez();
-    testeInserirSemNada();
+    /*testeInserirSemNada();
     testeCriarEstrutura();
     testeInserirComEstrutura();
     testeExcluir();
@@ -30,7 +30,7 @@ int main()
     testeListar();
     testeRetornarTodosNumeros();
     testeMudarTamanhoEstrutura();
-    testeListaEncadeada();
+    testeListaEncadeada();*/
     finalizar();
 }
 int ligado = 0;
