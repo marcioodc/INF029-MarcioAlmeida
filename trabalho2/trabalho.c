@@ -244,34 +244,29 @@ No *montarListaEncadeadaComCabecote()
     return cabecote;
 }
 
-
-void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
+void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
 {
-    if (!inicio)
-        return;
-
-    No *aux = inicio->prox;
-    int i = 0;
-
-    while (aux) {
-        vetorAux[i++] = aux->conteudo;
-        aux = aux->prox;
+    int i=0;
+    if(!inicio) return;
+    No *p=inicio->prox;
+    while(p){
+        vetorAux[i++]=p->conteudo;
+        p=p->prox;
     }
 }
 
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
-    if (!inicio || !*inicio)
-        return;
-
     No *aux;
-    while (*inicio) {
-        aux = *inicio;
-        *inicio = (*inicio)->prox;
+    if(!inicio||!*inicio) return;
+    while(*inicio){
+        aux=*inicio;
+        *inicio=(*inicio)->prox;
         free(aux);
     }
-    *inicio = NULL;
+    *inicio=NULL;
 }
+
 
 /* ================= CONTROLE ================= */
 
