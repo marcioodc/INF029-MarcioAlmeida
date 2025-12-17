@@ -206,35 +206,35 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 }
 
 /* ================= LISTA ENCADEADA ================= */
+
 No *montarListaEncadeadaComCabecote()
 {
     No *cabecote = malloc(sizeof(No));
-        if (cabecote == NULL)
-                return NULL;
+    if(cabecote == NULL){
+        return NULL;
+    }
+    cabecote->prox = NULL;
+    No *atual = cabecote;
 
-                    cabecote->prox = NULL;
-                        No *atual = cabecote;
+    for(int i=0; i < TAM; i++){
+        if(estruturas[i].p != NULL){
+            for(int j=0; j < estruturas[i].cont; j++){
+                No *novo = malloc(sizeof(No));
+                if(novo == NULL){
+                    destruirListaEncadeadaComCabecote(&cabecote);
+                    return NULL;
+                }
+                novo->conteudo = estruturas[i].p[j];
+                novo->prox = NULL;
+                atual->prox = novo;
+                atual = novo;
+            }
+        }
+    }
 
-                            for (int i = 0; i < TAM; i++) {
-                                    if (estruturas[i].p != NULL) {
-                                                for (int j = 0; j < estruturas[i].cont; j++) {
-                                                                No *novo = malloc(sizeof(No));
-                                                                                if (novo == NULL) {
-                                                                                                    destruirListaEncadeadaComCabecote(&cabecote);
-                                                                                                                        return NULL;
-                                                                                                                                        }
-                                                                                                                                                        novo->conteudo = estruturas[i].p[j];
-                                                                                                                                                                        novo->prox = NULL;
+    return cabecote;
+}
 
-                                                                                                                                                                                        atual->prox = novo;
-                                                                                                                                                                                                        atual = novo;
-                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                            }
-                                                                                                                                                                                                                                }
-
-                                                                                                                                                                                                                                    return cabecote;
-                                                                                                                                                                                                                                    }
-                                                                                                                                                                                                                                    
 
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
 {
