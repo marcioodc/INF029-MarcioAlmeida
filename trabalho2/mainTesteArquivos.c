@@ -22,9 +22,9 @@ int main()
     inicializar();
     //testarArquivoPrimeiraVez();
   //  testarArquivoSegundaVez();
-    testeInserirSemNada();
-    /*testeCriarEstrutura();
-    testeInserirComEstrutura();
+   // testeInserirSemNada();
+    testeCriarEstrutura();
+   /* testeInserirComEstrutura();
     testeExcluir();
     testeExcluirNumeroEspecifico();
     testeListar();
