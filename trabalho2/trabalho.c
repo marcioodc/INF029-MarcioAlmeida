@@ -132,7 +132,7 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
     ordenar(vetorAux, estruturas[idx].cont);
     return SUCESSO;
 }
-
+/*
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
     int k = 0;
@@ -143,7 +143,7 @@ int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 
     return (k == 0) ? TODAS_ESTRUTURAS_AUXILIARES_VAZIAS : SUCESSO;
 }
-
+*/
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
     int ret = getDadosDeTodasEstruturasAuxiliares(vetorAux);
