@@ -29,8 +29,8 @@ int main()
    // testeExcluirNumeroEspecifico();
    // testeListar();
     //testeRetornarTodosNumeros();
-    testeMudarTamanhoEstrutura();
-    //testeListaEncadeada();
+    //testeMudarTamanhoEstrutura();
+    testeListaEncadeada();
     finalizar();
 }
 int ligado = 0;
