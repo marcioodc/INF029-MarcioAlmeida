@@ -6,7 +6,7 @@
 
 static EstruturaAux estruturas[TAM];
 
-/* ================= FUNÇÕES AUXILIARES ================= */
+/* ================= AUXILIARES ================= */
 
 int ehPosicaoValida(int posicao)
 {
@@ -15,97 +15,111 @@ int ehPosicaoValida(int posicao)
 
 void ordenar(int *v, int n)
 {
-    for (int i = 0; i < n - 1; i++)
-        for (int j = i + 1; j < n; j++)
-            if (v[i] > v[j]) {
-                int tmp = v[i];
-                v[i] = v[j];
-                v[j] = tmp;
+    for(int i=0;i<n-1;i++)
+        for(int j=i+1;j<n;j++)
+            if(v[i]>v[j]){
+                int t=v[i];
+                v[i]=v[j];
+                v[j]=t;
             }
 }
 
-/* ================= IMPLEMENTAÇÃO ================= */
+/* ================= ESTRUTURAS AUXILIARES ================= */
 
-int criarEstruturaAuxiliar(int posicao, int tamanho)
+int criarEstruturaAuxiliar(int posicao,int tamanho)
 {
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-
-    if (tamanho < 1)
+    if(tamanho<1)
         return TAMANHO_INVALIDO;
 
-    int idx = posicao - 1;
-
-    if (estruturas[idx].p != NULL)
+    int idx=posicao-1;
+    if(estruturas[idx].p)
         return JA_TEM_ESTRUTURA_AUXILIAR;
 
-    estruturas[idx].p = malloc(tamanho * sizeof(int));
-    if (!estruturas[idx].p)
+    estruturas[idx].p=malloc(tamanho*sizeof(int));
+    if(!estruturas[idx].p)
         return SEM_ESPACO_DE_MEMORIA;
 
-    estruturas[idx].tam = tamanho;
-    estruturas[idx].cont = 0;
-
+    estruturas[idx].tam=tamanho;
+    estruturas[idx].cont=0;
     return SUCESSO;
 }
 
-int inserirNumeroEmEstrutura(int posicao, int valor)
+int inserirNumeroEmEstrutura(int posicao,int valor)
 {
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx = posicao - 1;
-
-    if (!estruturas[idx].p)
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-
-    if (estruturas[idx].cont == estruturas[idx].tam)
+    if(estruturas[idx].cont==estruturas[idx].tam)
         return SEM_ESPACO;
 
-    estruturas[idx].p[estruturas[idx].cont++] = valor;
+    estruturas[idx].p[estruturas[idx].cont++]=valor;
     return SUCESSO;
 }
 
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx = posicao - 1;
-
-    if (!estruturas[idx].p)
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-
-    if (estruturas[idx].cont == 0)
+    if(estruturas[idx].cont==0)
         return ESTRUTURA_AUXILIAR_VAZIA;
 
     estruturas[idx].cont--;
     return SUCESSO;
 }
 
-int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
+int excluirNumeroEspecificoDeEstrutura(int posicao,int valor)
 {
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx = posicao - 1;
-
-    if (!estruturas[idx].p)
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-
-    if (estruturas[idx].cont == 0)
+    if(estruturas[idx].cont==0)
         return ESTRUTURA_AUXILIAR_VAZIA;
 
-    for (int i = 0; i < estruturas[idx].cont; i++) {
-        if (estruturas[idx].p[i] == valor) {
-            for (int j = i; j < estruturas[idx].cont - 1; j++)
-                estruturas[idx].p[j] = estruturas[idx].p[j + 1];
+    for(int i=0;i<estruturas[idx].cont;i++){
+        if(estruturas[idx].p[i]==valor){
+            for(int j=i;j<estruturas[idx].cont-1;j++)
+                estruturas[idx].p[j]=estruturas[idx].p[j+1];
             estruturas[idx].cont--;
             return SUCESSO;
         }
     }
-
     return NUMERO_INEXISTENTE;
+}
+
+int getDadosEstruturaAuxiliar(int posicao,int vetorAux[])
+{
+    if(ehPosicaoValida(posicao)!=SUCESSO)
+        return POSICAO_INVALIDA;
+
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
+        return SEM_ESTRUTURA_AUXILIAR;
+
+    for(int i=0;i<estruturas[idx].cont;i++)
+        vetorAux[i]=estruturas[idx].p[i];
+
+    return SUCESSO;
+}
+
+int getDadosOrdenadosEstruturaAuxiliar(int posicao,int vetorAux[])
+{
+    int ret=getDadosEstruturaAuxiliar(posicao,vetorAux);
+    if(ret!=SUCESSO) return ret;
+
+    ordenar(vetorAux,estruturas[posicao-1].cont);
+    return SUCESSO;
 }
 
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
@@ -113,48 +127,23 @@ int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
     int k=0;
     for(int i=0;i<TAM;i++){
         if(estruturas[i].p){
-            for(int j=0;j<estruturas[i].cont;j++){
+            for(int j=0;j<estruturas[i].cont;j++)
                 vetorAux[k++]=estruturas[i].p[j];
-            }
         }
     }
     return k==0?TODAS_ESTRUTURAS_AUXILIARES_VAZIAS:SUCESSO;
 }
 
-
-int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
-{
-    int ret = getDadosEstruturaAuxiliar(posicao, vetorAux);
-    if (ret != SUCESSO)
-        return ret;
-
-    int idx = posicao - 1;
-    ordenar(vetorAux, estruturas[idx].cont);
-    return SUCESSO;
-}
-/*
-int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
-{
-    int k = 0;
-
-    for (int i = 0; i < TAM; i++)
-        for (int j = 0; j < estruturas[i].cont; j++)
-            vetorAux[k++] = estruturas[i].p[j];
-
-    return (k == 0) ? TODAS_ESTRUTURAS_AUXILIARES_VAZIAS : SUCESSO;
-}
-*/
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
-    int ret = getDadosDeTodasEstruturasAuxiliares(vetorAux);
-    if (ret != SUCESSO)
-        return ret;
+    int ret=getDadosDeTodasEstruturasAuxiliares(vetorAux);
+    if(ret!=SUCESSO) return ret;
 
-    int total = 0;
-    for (int i = 0; i < TAM; i++)
-        total += estruturas[i].cont;
+    int total=0;
+    for(int i=0;i<TAM;i++)
+        total+=estruturas[i].cont;
 
-    ordenar(vetorAux, total);
+    ordenar(vetorAux,total);
     return SUCESSO;
 }
 
@@ -162,12 +151,10 @@ int modificarTamanhoEstruturaAuxiliar(int posicao,int novoTamanho)
 {
     if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-
     if(novoTamanho<0)
         return NOVO_TAMANHO_INVALIDO;
 
     int idx=posicao-1;
-
     if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
 
@@ -181,38 +168,35 @@ int modificarTamanhoEstruturaAuxiliar(int posicao,int novoTamanho)
 
     estruturas[idx].p=novo;
     estruturas[idx].tam=novoTam;
-
     if(estruturas[idx].cont>novoTam)
         estruturas[idx].cont=novoTam;
 
     return SUCESSO;
 }
 
-
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx = posicao - 1;
-
-    if (!estruturas[idx].p)
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
+    if(estruturas[idx].cont==0)
+        return ESTRUTURA_AUXILIAR_VAZIA;
 
-    return (estruturas[idx].cont == 0)
-           ? ESTRUTURA_AUXILIAR_VAZIA
-           : estruturas[idx].cont;
+    return estruturas[idx].cont;
 }
 
 /* ================= LISTA ENCADEADA ================= */
 
-
 No *montarListaEncadeadaComCabecote()
 {
-    No *cabecote=malloc(sizeof(No));
-    if(!cabecote) return NULL;
-    cabecote->prox=NULL;
-    No *atual=cabecote;
+    No *cab=malloc(sizeof(No));
+    if(!cab) return NULL;
+    cab->prox=NULL;
+
+    No *atual=cab;
     int tem=0;
 
     for(int i=0;i<TAM;i++){
@@ -228,20 +212,18 @@ No *montarListaEncadeadaComCabecote()
             }
         }
     }
-
     if(!tem){
-        free(cabecote);
+        free(cab);
         return NULL;
     }
-    return cabecote;
+    return cab;
 }
-
 
 void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
 {
-    int i=0;
     if(!inicio) return;
     No *p=inicio->prox;
+    int i=0;
     while(p){
         vetorAux[i++]=p->conteudo;
         p=p->prox;
@@ -250,8 +232,8 @@ void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
 
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
-    No *aux;
     if(!inicio||!*inicio) return;
+    No *aux;
     while(*inicio){
         aux=*inicio;
         *inicio=(*inicio)->prox;
@@ -260,24 +242,23 @@ void destruirListaEncadeadaComCabecote(No **inicio)
     *inicio=NULL;
 }
 
-
 /* ================= CONTROLE ================= */
 
 void inicializar()
 {
-    for (int i = 0; i < TAM; i++) {
-        estruturas[i].p = NULL;
-        estruturas[i].cont = 0;
-        estruturas[i].tam = 0;
+    for(int i=0;i<TAM;i++){
+        estruturas[i].p=NULL;
+        estruturas[i].cont=0;
+        estruturas[i].tam=0;
     }
 }
 
 void finalizar()
 {
-    for (int i = 0; i < TAM; i++) {
+    for(int i=0;i<TAM;i++){
         free(estruturas[i].p);
-        estruturas[i].p = NULL;
-        estruturas[i].cont = 0;
-        estruturas[i].tam = 0;
+        estruturas[i].p=NULL;
+        estruturas[i].cont=0;
+        estruturas[i].tam=0;
     }
 }
