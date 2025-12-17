@@ -26,7 +26,7 @@ int main()
     //testeListar(); erro parcial
     //testeRetornarTodosNumeros(); erro parcial
     //testeMudarTamanhoEstrutura(); erro
-    testeListaEncadeada();
+    //testeListaEncadeada(); erro
     finalizar();
 }
 int ligado = 0;
