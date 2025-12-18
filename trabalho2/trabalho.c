@@ -187,33 +187,37 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 No *montarListaEncadeadaComCabecote()
 {
     No *cabecote = malloc(sizeof(No));
-    if(!cabecote) return NULL;
-    cabecote->prox=NULL;
+    if(!cabecote){
+       return NULL; 
+    } 
+    cabecote->prox = NULL;
+    No *atual = cabecote;
+    int total = 0;
 
-    No *atual=cabecote;
-    int tem=0;
-
-    for(int i=0;i<TAM;i++){
-        if(estruturas[i].p){
-            for(int j=0;j<estruturas[i].cont;j++){
+    for(int i=0; i<TAM; i++){
+        if(estruturas[i].p && estruturas[i].cont > 0){
+            for(int j=0; j<estruturas[i].cont; j++){
                 No *novo=malloc(sizeof(No));
-                if(!novo) break;
-                novo->conteudo=estruturas[i].p[j];
-                novo->prox=NULL;
-                atual->prox=novo;
-                atual=novo;
-                tem=1;
+                if(!novo){
+                    destruirListaEncadeadaComCabecote(&cabecote);
+                    return NULL;
+                }
+                novo->conteudo = estruturas[i].p[j];
+                novo->prox = NULL;
+                atual->prox = novo;
+                atual = novo;
+                total++;
             }
         }
     }
-    if(!tem){
+    if(total == 0){
         free(cabecote);
         return NULL;
     }
     return cabecote;
 }
 
-void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
+void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
 {   
     int i=0;
     if(!inicio){
