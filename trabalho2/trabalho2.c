@@ -233,28 +233,27 @@ Rertono (int)
     NOVO_TAMANHO_INVALIDO - novo tamanho não pode ser negativo
     SEM_ESPACO_DE_MEMORIA - erro na alocação do novo valor
 */
-int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
+int modificarTamanhoEstruturaAuxiliar(int posicao,int novoTamanho)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    if(novoTamanho < 0){
-        return NOVO_TAMANHO_INVALIDO;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    int idx = posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
+
     int novoTam = estruturas[idx].tam + novoTamanho;
-    if(novoTam < 1){
+    if(novoTam < 1)
         return NOVO_TAMANHO_INVALIDO;
-    }
-    int *novo = realloc(estruturas[idx].p, novoTam * sizeof(int));
-    if(novo == NULL){
+
+    int *novo=realloc(estruturas[idx].p,novoTam*sizeof(int));
+    if(!novo)
         return SEM_ESPACO_DE_MEMORIA;
-    }
-    estruturas[idx].p = novo;
-    estruturas[idx].tam = novoTam;
+
+    estruturas[idx].p=novo;
+    estruturas[idx].tam=novoTam;
+    if(estruturas[idx].cont>novoTam)
+        estruturas[idx].cont=novoTam;
 
     return SUCESSO;
 }
@@ -270,17 +269,15 @@ Retorno (int)
 */
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao) != SUCESSO)
         return POSICAO_INVALIDA;
-    }
+
     int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
-    if(estruturas[idx].cont == 0){
-        return ESTRUTURA_AUXILIAR_VAZIA;
-    }
-    return estruturas[idx].cont;
+
+    return estruturas[idx].cont; // pode ser 0
 }
     
 /*
@@ -290,39 +287,39 @@ Retorno (No*)
     NULL, caso não tenha nenhum número nas listas
     No*, ponteiro para o início da lista com cabeçote
 */
+
 No *montarListaEncadeadaComCabecote()
 {
-    No *cabecote, *atual, *novo;
-    int temElemento = 0;
-    cabecote = (No *) malloc(sizeof(No));
-    if(cabecote == NULL){
-        return NULL;
-    }
+    No *cabecote = malloc(sizeof(No));
+    if(!cabecote){
+       return NULL; 
+    } 
     cabecote->prox = NULL;
-    atual = cabecote;
-    for(int i = 0; i < TAM; i++){
-        if (estruturas[i].p != NULL && estruturas[i].cont > 0){
-            for(int j = 0; j < estruturas[i].cont; j++){
-                novo = (No *) malloc(sizeof(No));
-                if(novo == NULL){
-                    break;
+    No *atual = cabecote;
+    int total = 0;
+
+    for(int i=0; i<TAM; i++){
+        if(estruturas[i].p && estruturas[i].cont > 0){
+            for(int j=0; j<estruturas[i].cont; j++){
+                No *novo = malloc(sizeof(No));
+                if(!novo){
+                    destruirListaEncadeadaComCabecote(&cabecote);
+                    return NULL;
                 }
                 novo->conteudo = estruturas[i].p[j];
                 novo->prox = NULL;
-
                 atual->prox = novo;
                 atual = novo;
-                temElemento = 1;
+                total++;
             }
         }
     }
-    if(!temElemento){
+    if(total == 0){
         free(cabecote);
         return NULL;
     }
     return cabecote;
 }
-
 
 /*
 Objetivo: retorna os números da lista enceada com cabeçote armazenando em vetorAux.
