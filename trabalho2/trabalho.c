@@ -148,15 +148,13 @@ int modificarTamanhoEstruturaAuxiliar(int posicao,int novoTamanho)
 {
     if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    if(novoTamanho<0)
-        return NOVO_TAMANHO_INVALIDO;
 
-    int idx=posicao-1;
+    int idx = posicao-1;
     if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
 
-    int novoTam=estruturas[idx].tam+novoTamanho;
-    if(novoTam<1)
+    int novoTam = estruturas[idx].tam + novoTamanho;
+    if(novoTam < 1)
         return NOVO_TAMANHO_INVALIDO;
 
     int *novo=realloc(estruturas[idx].p,novoTam*sizeof(int));
@@ -173,16 +171,16 @@ int modificarTamanhoEstruturaAuxiliar(int posicao,int novoTamanho)
 
 int getQuantidadeElementosEstruturaAuxiliar(int posicao)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO)
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
     int idx = posicao - 1;
-    if(!estruturas[idx].p)
+    if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
-
-    if(estruturas[idx].cont == 0)
+    }
+    if(estruturas[idx].cont == 0){
         return ESTRUTURA_AUXILIAR_VAZIA;
-
+    }
     return estruturas[idx].cont;
 }
 
