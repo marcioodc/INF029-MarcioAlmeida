@@ -22,34 +22,37 @@ static EstruturaAux estruturas[TAM];
 
 int criarEstruturaAuxiliar(int posicao,int tamanho)
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO)
+    if(ehPosicaoValida(posicao) != SUCESSO){
         return POSICAO_INVALIDA;
-    if(tamanho<1)
+    }
+    if(tamanho < 1){
         return TAMANHO_INVALIDO;
-
-    int idx=posicao-1;
-    if(estruturas[idx].p)
+    }
+    int idx = posicao -1;
+    if(estruturas[idx].p){
         return JA_TEM_ESTRUTURA_AUXILIAR;
-
-    estruturas[idx].p=malloc(tamanho*sizeof(int));
-    if(!estruturas[idx].p)
+    }
+    estruturas[idx].p = malloc(tamanho * sizeof(int));
+    if(!estruturas[idx].p){
         return SEM_ESPACO_DE_MEMORIA;
-
-    estruturas[idx].tam=tamanho;
-    estruturas[idx].cont=0;
+    }
+    estruturas[idx].tam = tamanho;
+    estruturas[idx].cont = 0;
     return SUCESSO;
 }
 
 
 void ordenar(int *v, int n)
 {
-    for(int i=0;i<n-1;i++)
-        for(int j=i+1;j<n;j++)
-            if(v[i]>v[j]){
-                int t=v[i];
-                v[i]=v[j];
-                v[j]=t;
+    for(int i=0; i<n-1; i++){
+        for(int j=i+1; j<n; j++){
+            if(v[i] > v[j]){
+                int t = v[i];
+                v[i] = v[j];
+                v[j] = t;
             }
+        }
+    }
 }
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
@@ -62,16 +65,17 @@ CONSTANTES
 */
 int inserirNumeroEmEstrutura(int posicao,int valor)
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO)
+    if(ehPosicaoValida(posicao) != SUCESSO){
         return POSICAO_INVALIDA;
-
-    int idx=posicao-1;
-    if(!estruturas[idx].p)
+    }
+    int idx = posicao -1;
+    if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
-    if(estruturas[idx].cont==estruturas[idx].tam)
+    }
+    if(estruturas[idx].cont == estruturas[idx].tam){
         return SEM_ESPACO;
-
-    estruturas[idx].p[estruturas[idx].cont++]=valor;
+    }
+    estruturas[idx].p[estruturas[idx].cont++] = valor;
     return SUCESSO;
 }
 
@@ -88,15 +92,16 @@ Rertono (int)
 */
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO)
+    if(ehPosicaoValida(posicao) != SUCESSO){
         return POSICAO_INVALIDA;
-
-    int idx=posicao-1;
-    if(!estruturas[idx].p)
+    }
+    int idx = posicao -1;
+    if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
-    if(estruturas[idx].cont==0)
+    }
+    if(estruturas[idx].cont == 0){
         return ESTRUTURA_AUXILIAR_VAZIA;
-
+    }
     estruturas[idx].cont--;
     return SUCESSO;
 }
@@ -115,19 +120,21 @@ Rertono (int)
 */
 int excluirNumeroEspecificoDeEstrutura(int posicao,int valor)
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO)
+    if(ehPosicaoValida(posicao) != SUCESSO){
         return POSICAO_INVALIDA;
-
-    int idx=posicao-1;
-    if(!estruturas[idx].p)
+    }
+    int idx = posicao-1;
+    if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
-    if(estruturas[idx].cont==0)
+    }
+    if(estruturas[idx].cont == 0){
         return ESTRUTURA_AUXILIAR_VAZIA;
-
-    for(int i=0;i<estruturas[idx].cont;i++){
-        if(estruturas[idx].p[i]==valor){
-            for(int j=i;j<estruturas[idx].cont-1;j++)
-                estruturas[idx].p[j]=estruturas[idx].p[j+1];
+    }
+    for(int i=0; i<estruturas[idx].cont; i++){
+        if(estruturas[idx].p[i] == valor){
+            for(int j=i; j<estruturas[idx].cont-1; j++){
+                estruturas[idx].p[j] = estruturas[idx].p[j+1];
+            }
             estruturas[idx].cont--;
             return SUCESSO;
         }
@@ -151,7 +158,7 @@ Retorno (int)
 */
  int getDadosEstruturaAuxiliar(int posicao,int vetorAux[])
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO)
+    if(ehPosicaoValida(posicao) != SUCESSO)
         return POSICAO_INVALIDA;
 
     int idx = posicao - 1;
