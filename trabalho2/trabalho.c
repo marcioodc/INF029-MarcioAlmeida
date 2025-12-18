@@ -197,7 +197,7 @@ No *montarListaEncadeadaComCabecote()
     for(int i=0; i<TAM; i++){
         if(estruturas[i].p && estruturas[i].cont > 0){
             for(int j=0; j<estruturas[i].cont; j++){
-                No *novo=malloc(sizeof(No));
+                No *novo = malloc(sizeof(No));
                 if(!novo){
                     destruirListaEncadeadaComCabecote(&cabecote);
                     return NULL;
