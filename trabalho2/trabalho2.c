@@ -245,10 +245,10 @@ Rertono (int)
 */
 int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
 {
-    if(ehPosicaoValida(posicao)!=SUCESSO){
+    if(ehPosicaoValida(posicao) != SUCESSO){
         return POSICAO_INVALIDA;
     }
-    int idx = posicao-1;
+    int idx = posicao -1;
     if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
     }
@@ -256,7 +256,7 @@ int modificarTamanhoEstruturaAuxiliar(int posicao, int novoTamanho)
     if(novoTam < 1){
         return NOVO_TAMANHO_INVALIDO;
     }
-    int *novo=realloc(estruturas[idx].p, novoTam*sizeof(int));
+    int *novo = realloc(estruturas[idx].p, novoTam * sizeof(int));
     if(!novo){
         return SEM_ESPACO_DE_MEMORIA;
     }
