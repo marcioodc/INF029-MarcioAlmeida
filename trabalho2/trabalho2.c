@@ -149,18 +149,18 @@ Retorno (int)
     SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 */
-int getDadosEstruturaAuxiliar(int posicao, int vetorAux[])
+ int getDadosEstruturaAuxiliar(int posicao,int vetorAux[])
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
-    for(int i = 0; i < estruturas[idx].cont; i++){
-        vetorAux[i] = estruturas[idx].p[i];
-    }
+
+    for(int i=0;i<estruturas[idx].cont;i++)
+        vetorAux[i]=estruturas[idx].p[i];
+
     return SUCESSO;
 }
 
@@ -173,18 +173,14 @@ Rertono (int)
     SEM_ESTRUTURA_AUXILIAR - Não tem estrutura auxiliar
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 */
-int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
+int getDadosOrdenadosEstruturaAuxiliar(int posicao,int vetorAux[])
 {
-    int ret = getDadosEstruturaAuxiliar(posicao, vetorAux);
-    if(ret != SUCESSO){
-        return ret;
-    }
-    int idx = posicao - 1;
-    ordenar(vetorAux, estruturas[idx].cont);
+    int ret=getDadosEstruturaAuxiliar(posicao,vetorAux);
+    if(ret!=SUCESSO) return ret;
 
+    ordenar(vetorAux,estruturas[posicao-1].cont);
     return SUCESSO;
 }
-
 /*
 Objetivo: retorna os números de todas as estruturas auxiliares.
 os números devem ser armazenados em vetorAux
@@ -195,17 +191,15 @@ Rertono (int)
 */
 int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
-    int k = 0;
-    for(int i = 0; i < TAM; i++){
-        for(int j = 0; j < estruturas[i].cont; j++){
-            vetorAux[k++] = estruturas[i].p[j];
+    int k=0;
+    for(int i=0;i<TAM;i++){
+        if(estruturas[i].p){
+            for(int j=0;j<estruturas[i].cont;j++)
+                vetorAux[k++]=estruturas[i].p[j];
         }
     }
-    if(k == 0){
-        return TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
-    }
-    return SUCESSO;
-} 
+    return k==0?TODAS_ESTRUTURAS_AUXILIARES_VAZIAS:SUCESSO;
+}
 
 /*
 Objetivo: retorna os números ordenados de todas as estruturas auxiliares.
@@ -217,15 +211,14 @@ Rertono (int)
 */
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
-    int ret = getDadosDeTodasEstruturasAuxiliares(vetorAux);
-    if(ret != SUCESSO){
-        return ret;
-    }
-    int total = 0;
-    for(int i = 0; i < TAM; i++){
-        total += estruturas[i].cont;
-    }
-    ordenar(vetorAux, total);
+    int ret=getDadosDeTodasEstruturasAuxiliares(vetorAux);
+    if(ret!=SUCESSO) return ret;
+
+    int total=0;
+    for(int i=0;i<TAM;i++)
+        total+=estruturas[i].cont;
+
+    ordenar(vetorAux,total);
     return SUCESSO;
 }
     
