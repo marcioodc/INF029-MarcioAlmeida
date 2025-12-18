@@ -20,37 +20,36 @@ Rertono (int)
 
 static EstruturaAux estruturas[TAM];
 
-int criarEstruturaAuxiliar(int posicao, int tamanho)
+int criarEstruturaAuxiliar(int posicao,int tamanho)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    if(tamanho < 1){
+    if(tamanho<1)
         return TAMANHO_INVALIDO;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p != NULL){
+
+    int idx=posicao-1;
+    if(estruturas[idx].p)
         return JA_TEM_ESTRUTURA_AUXILIAR;
-    }
-    estruturas[idx].p = malloc(tamanho * sizeof(int));
-    if(estruturas[idx].p == NULL){
+
+    estruturas[idx].p=malloc(tamanho*sizeof(int));
+    if(!estruturas[idx].p)
         return SEM_ESPACO_DE_MEMORIA;
-    }
-    estruturas[idx].tam = tamanho;
-    estruturas[idx].cont = 0;
+
+    estruturas[idx].tam=tamanho;
+    estruturas[idx].cont=0;
     return SUCESSO;
 }
+
+
 void ordenar(int *v, int n)
 {
-    for(int i = 0; i < n - 1; i++){
-        for(int j = i + 1; j < n; j++){
-            if(v[i] > v[j]){
-                int tmp = v[i];
-                v[i] = v[j];
-                v[j] = tmp;
+    for(int i=0;i<n-1;i++)
+        for(int j=i+1;j<n;j++)
+            if(v[i]>v[j]){
+                int t=v[i];
+                v[i]=v[j];
+                v[j]=t;
             }
-        }
-    }
 }
 /*
 Objetivo: inserir número 'valor' em estrutura auxiliar da posição 'posicao'
@@ -144,10 +143,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
 // se posição é um valor válido {entre 1 e 10}
 int ehPosicaoValida(int posicao)
 {
-    if(posicao < 1 || posicao > TAM){
-        return POSICAO_INVALIDA;
-    }
-    return SUCESSO;
+    return (posicao >= 1 && posicao <= TAM) ? SUCESSO : POSICAO_INVALIDA;
 }
 /*
 Objetivo: retorna os números da estrutura auxiliar da posição 'posicao (1..10)'.
