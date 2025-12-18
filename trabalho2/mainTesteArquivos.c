@@ -294,7 +294,7 @@ void testeMudarTamanhoEstrutura()
 
     printf("%d\n", inserirNumeroEmEstrutura(2, 4) == SUCESSO);
     printf("%d\n", inserirNumeroEmEstrutura(2, -2) == SUCESSO);
-    printf("%d\n", inserirNumeroEmEstrutura(2, 6) == SUCESSO); //erro
+    printf("%d\n", inserirNumeroEmEstrutura(2, 6) == SUCESSO); 
     printf("%d\n", inserirNumeroEmEstrutura(2, 5) == SEM_ESPACO); //erro
 }
 
@@ -310,15 +310,15 @@ void testeListaEncadeada()
     No *inicio = montarListaEncadeadaComCabecote();
     getDadosListaEncadeadaComCabecote(inicio, vet);
 
-    printf("%d\n", vet[0] == 3);
+    printf("%d\n", vet[0] == 3); //erro
     printf("%d\n", vet[1] == 4);
     printf("%d\n", vet[2] == -2);
-    printf("%d\n", vet[3] == 6); //erro
+    printf("%d\n", vet[3] == 6); 
     printf("%d\n", vet[4] == 1);
-    printf("%d\n", vet[5] == 34);
+    printf("%d\n", vet[5] == 34);//erro
     printf("%d\n", vet[6] == 12);
-    printf("%d\n", vet[7] == 6);
-    printf("%d\n", vet[8] == 27);
+    printf("%d\n", vet[7] == 6); //erro
+    printf("%d\n", vet[8] == 27);//erro
     printf("%d\n", vet[9] == -6);
 
     destruirListaEncadeadaComCabecote(&inicio);
