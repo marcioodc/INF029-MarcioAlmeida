@@ -22,17 +22,45 @@ int main()
     inicializar();
     testarArquivoPrimeiraVez();
     testarArquivoSegundaVez();
+    finalizar();
+
+    inicializar();
     testeInserirSemNada();
+    finalizar();
+
+    inicializar();
     testeCriarEstrutura();
+    finalizar();
+
+    inicializar();
     testeInserirComEstrutura();
+    finalizar();
+
+    inicializar();
     testeExcluir();
+    finalizar();
+
+    inicializar();
     testeExcluirNumeroEspecifico();
+    finalizar();
+
+    inicializar();
     testeListar();
+    finalizar();
+
+    inicializar();
     testeRetornarTodosNumeros();
+    finalizar();
+
+    inicializar();
     testeMudarTamanhoEstrutura();
+    finalizar();
+
+    inicializar();
     testeListaEncadeada();
     finalizar();
 }
+
 int ligado = 0;
 void show_log(char *str)
 {
