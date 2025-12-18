@@ -176,7 +176,7 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao)
     if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
 
-    int idx = posicao-1;
+    int idx = posicao - 1;
     if(!estruturas[idx].p){
         return SEM_ESTRUTURA_AUXILIAR;
     }
@@ -214,13 +214,15 @@ No *montarListaEncadeadaComCabecote()
 }
 
 void getDadosListaEncadeadaComCabecote(No *inicio,int vetorAux[])
-{
-    if(!inicio) return;
-    No *p=inicio->prox;
+{   
     int i=0;
+    if(!inicio){
+       return; 
+    } 
+    No *p = inicio->prox;
     while(p){
-        vetorAux[i++]=p->conteudo;
-        p=p->prox;
+        vetorAux[i++] = p->conteudo;
+        p = p->prox;
     }
 }
 
