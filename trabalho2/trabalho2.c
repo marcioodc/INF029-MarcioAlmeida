@@ -60,21 +60,20 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 CONSTANTES
 */
-int inserirNumeroEmEstrutura(int posicao, int valor)
+int inserirNumeroEmEstrutura(int posicao,int valor)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
-    if(estruturas[idx].cont == estruturas[idx].tam){
+    if(estruturas[idx].cont==estruturas[idx].tam)
         return SEM_ESPACO;
-    }
-    estruturas[idx].p[estruturas[idx].cont++] = valor;
+
+    estruturas[idx].p[estruturas[idx].cont++]=valor;
     return SUCESSO;
-}  
+}
 
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar no final da estrutura.
@@ -89,20 +88,18 @@ Rertono (int)
 */
 int excluirNumeroDoFinaldaEstrutura(int posicao)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
-    if(estruturas[idx].cont == 0){
+    if(estruturas[idx].cont==0)
         return ESTRUTURA_AUXILIAR_VAZIA;
-    }
+
     estruturas[idx].cont--;
     return SUCESSO;
 }
-
 /*
 Objetivo: excluir o numero 'valor' da estrutura auxiliar da posição 'posicao'.
 Caso seja excluido, os números posteriores devem ser movidos para as posições anteriores
@@ -116,23 +113,21 @@ Rertono (int)
     POSICAO_INVALIDA - Posição inválida para estrutura auxiliar
 
 */
-int excluirNumeroEspecificoDeEstrutura(int posicao, int valor)
+int excluirNumeroEspecificoDeEstrutura(int posicao,int valor)
 {
-    if(ehPosicaoValida(posicao) != SUCESSO){
+    if(ehPosicaoValida(posicao)!=SUCESSO)
         return POSICAO_INVALIDA;
-    }
-    int idx = posicao - 1;
-    if(estruturas[idx].p == NULL){
+
+    int idx=posicao-1;
+    if(!estruturas[idx].p)
         return SEM_ESTRUTURA_AUXILIAR;
-    }
-    if(estruturas[idx].cont == 0){
+    if(estruturas[idx].cont==0)
         return ESTRUTURA_AUXILIAR_VAZIA;
-    }
-    for(int i = 0; i < estruturas[idx].cont; i++){
-        if(estruturas[idx].p[i] == valor){
-            for(int j = i; j < estruturas[idx].cont - 1; j++){
-                estruturas[idx].p[j] = estruturas[idx].p[j + 1];
-            }
+
+    for(int i=0;i<estruturas[idx].cont;i++){
+        if(estruturas[idx].p[i]==valor){
+            for(int j=i;j<estruturas[idx].cont-1;j++)
+                estruturas[idx].p[j]=estruturas[idx].p[j+1];
             estruturas[idx].cont--;
             return SUCESSO;
         }
