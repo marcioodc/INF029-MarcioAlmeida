@@ -183,7 +183,7 @@ Rertono (int)
 int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
     int ret = getDadosEstruturaAuxiliar(posicao, vetorAux);
-    if(ret! = SUCESSO){
+    if(ret != SUCESSO){
         return ret;
     }
     ordenar(vetorAux, estruturas[posicao-1].cont);
@@ -221,7 +221,7 @@ Rertono (int)
 int getDadosOrdenadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
     int ret = getDadosDeTodasEstruturasAuxiliares(vetorAux);
-    if(ret! = SUCESSO){
+    if(ret != SUCESSO){
         return ret;
     }
     int total = 0;
