@@ -51,7 +51,7 @@ int cadastraraluno(aluno a[], int *qtdaluno){
             if(a[*qtdaluno].sexo != 'F' && a[*qtdaluno].sexo != 'M'){
                 return 3;
             }
-                //CPF do aluno
+                //CPF do alunos
             printf("CPF: ");
             scanf(" %15s", a[*qtdaluno].cpf);
             int cpf = validar_cpf(a[*qtdaluno].cpf);
