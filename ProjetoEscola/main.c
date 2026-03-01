@@ -20,13 +20,55 @@ int main(){
           case 0:
             break;
           case 1:
-            //cadastrar_aluno();
+            int cas_aluno = cadastrar_aluno();
+            switch(cas_aluno){
+              case 0:
+                printf("Aluno cadastrado com sucesso!\n");
+                break;
+              case 1:
+                printf("Erro: Matrícula já existe. Tente novamente.\n");
+                break;
+              case 2:
+                printf("Erro: Nome do aluno é muito longo. Tente novamente.\n");
+                break;
+              case 3:
+                printf("Erro: Idade do aluno é inválida. Tente novamente.\n");
+                break;
+              default:
+                printf("Erro desconhecido. Tente novamente.\n");
+            }
             break;
           case 2:
-            //atualizar_cadastro_aluno();
+            int acas_aluno = atualizar_cadastro_aluno();
+            switch(acas_aluno){
+              case 0:
+                printf("Cadastro do aluno atualizado com sucesso!\n");
+                break;
+              case 1:
+                printf("Erro: Matrícula não encontrada. Tente novamente.\n");
+                break;
+              case 2:
+                printf("Erro: Nome do aluno é muito longo. Tente novamente.\n");
+                break;
+              case 3:
+                printf("Erro: Idade do aluno é inválida. Tente novamente.\n");
+                break;
+              default:
+                printf("Erro desconhecido. Tente novamente.\n");
+            }
             break;
           case 3:
-            //excluir_cadastro_aluno();
+            int ecas_aluno = excluir_cadastro_aluno();
+            switch(ecas_aluno){
+              case 0:
+                printf("Cadastro do aluno excluído com sucesso!\n");
+                break;
+              case 1:
+                printf("Erro: Matrícula não encontrada. Tente novamente.\n");
+                break;
+              default:
+                printf("Erro desconhecido. Tente novamente.\n");
+            }
             break;
           default:
             printf("Opção inválida. Tente novamente.\n");
