@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
+//#include "aluno.h"
 
 int menu_principal();
 int menu_aluno();
@@ -20,13 +20,13 @@ int main(){
           case 0:
             break;
           case 1:
-            cadastrar_aluno();
+            //cadastrar_aluno();
             break;
           case 2:
-            atualizar_cadastro_aluno();
+            //atualizar_cadastro_aluno();
             break;
           case 3:
-            excluir_cadastro_aluno();
+            //excluir_cadastro_aluno();
             break;
           default:
             printf("Opção inválida. Tente novamente.\n");
@@ -37,13 +37,13 @@ int main(){
           case 0:
             break;
           case 1:
-            cadastrar_professor();
+            //cadastrar_professor();
             break;
           case 2:
-            atualizar_cadastro_professor();
+            //atualizar_cadastro_professor();
             break;
           case 3:
-            excluir_cadastro_professor();
+            //excluir_cadastro_professor();
             break;
           default:
             printf("Opção inválida. Tente novamente.\n");
