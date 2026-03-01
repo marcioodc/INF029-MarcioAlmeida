@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-//#include "aluno.h"
+#include "aluno.h"
 
 int menu_principal();
 int menu_aluno();
@@ -10,6 +10,8 @@ int menu_disciplina();
 
 int main(){
   int op, op_aluno, op_prof, op_disciplina;
+  int qtd_aluno = 0, qtd_prof = 0, qtd_disciplina = 0;
+  aluno a[TAM_ALUNO];
   while(1){
     switch(menu_principal()){
       case 0:
@@ -20,25 +22,28 @@ int main(){
           case 0:
             break;
           case 1:
-            int cas_aluno = cadastrar_aluno();
+            int cas_aluno = cadastrar_aluno(a, &qtd_aluno);
             switch(cas_aluno){
               case 0:
                 printf("Aluno cadastrado com sucesso!\n");
                 break;
               case 1:
-                printf("Erro: Matrícula já existe. Tente novamente.\n");
+                printf("Erro: Matrícula já existe ou é inválida. Tente novamente!\n");
                 break;
               case 2:
-                printf("Erro: Nome do aluno é muito longo. Tente novamente.\n");
+                printf("Erro: Nome do aluno é muito longo. Tente novamente!\n");
                 break;
               case 3:
-                printf("Erro: Idade do aluno é inválida. Tente novamente.\n");
+                printf("Erro: Sexo do aluno é inválido. Tente novamente!\n");
+                break;
+              case 4:
+                printf("Erro: Data de nascimento do aluno é inválida. Tente novamente!\n");
                 break;
               default:
-                printf("Erro desconhecido. Tente novamente.\n");
+                printf("Erro desconhecido. Tente novamente!\n");
             }
             break;
-          case 2:
+          /*case 2:
             int acas_aluno = atualizar_cadastro_aluno();
             switch(acas_aluno){
               case 0:
@@ -102,7 +107,8 @@ int main(){
         break;
       // Adicione o menu para relatório aqui
       default:
-        printf("Opção inválida. Tente novamente.\n");
+        printf("Opção inválida. Tente novamente.\n");*/
+          }
     }
   }
 }
