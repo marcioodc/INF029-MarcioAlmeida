@@ -15,7 +15,7 @@ int menu_principal(){
   return op;
 }
 
-void menu_aluno(){
+int menu_aluno(){
   printf("\n>>>MENU ALUNO<<<\n");
   printf("0 > Voltar\n");
   printf("1 > Cadastrar aluno\n");
@@ -25,3 +25,16 @@ void menu_aluno(){
   return op_aluno;
 }
 
+int menu_professor(){
+  printf("\n>>>MENU PROFESSOR<<<\n");
+  printf("0 > Voltar\n");
+  printf("1 > Cadastrar professor\n");
+  printf("2 > Atualizar cadastro do professor\n");
+  printf("3 > Excluir cadastro do professor\n");
+  scanf("%d", &op_prof);
+  return op_prof;
+}
+
+int menu_disciplina(){
+  printf("\n>>>MENU DISCIPLINA<<<\n");
+}
