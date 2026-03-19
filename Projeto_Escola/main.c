@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 
 int menu_principal();
 int menu_aluno();
@@ -7,12 +8,15 @@ int menu_professor();
 int menu_disciplina();
 int menu_relatorios();
 
-while(true){
-  switch(PE){
-case 0:{
-  printf("Projeto finalizado!");
-}
-case 1:{
+void main(){
+  while(true){
+    int mp = menu_principal();
+    switch(mp){
+      case 0:{
+        printf("\nFinalizando o projeto!\n");
+        false;
+        break;
+      }
 
 
 int menu_principal(){
