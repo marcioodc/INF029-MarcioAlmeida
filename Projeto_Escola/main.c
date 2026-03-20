@@ -9,14 +9,14 @@ int menu_disciplina();
 int menu_relatorios();
 
 void main(){
-  while(true){
-    int mp = menu_principal();
-    switch(mp){
-      case 0:{
-        printf("\nFinalizando o projeto!\n");
-        false;
-        break;
-      }
+  while(!sair){
+    int OP = menu_principal();
+    switch(OP){
+case 0: {
+    printf("\n>>>Finalizando o projeto<<<\n");
+    OP = 1;
+    break;
+}
 
 
 int menu_principal(){
