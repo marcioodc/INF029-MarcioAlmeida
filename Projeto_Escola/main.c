@@ -10,7 +10,11 @@ int menu_relatorios();
 
 void main(){
   bool sair = false;
+<<<<<<< HEAD
   while(sair){
+=======
+  while(!sair){
+>>>>>>> 0c5622c (ok)
     int OP = menu_principal();
     switch(OP){
       case 0: {
