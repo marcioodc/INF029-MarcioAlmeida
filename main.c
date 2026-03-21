@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "aluno.h"
+/*#include "aluno.h"
 #include "professor.h"
 #include "disciplina.h"
 #include "relatorio.h"
-
+*/
 int menu_principal();
 int menu_aluno();
 int menu_professor();
@@ -13,9 +13,9 @@ int menu_disciplina();
 int menu_relatorio();
 
 int main(void){
-    aluno a[TAMALUNO];
+    /*aluno a[TAMALUNO];
     professor p[TAMPROFESSOR];
-    disciplina d[TAMDISCIPLINA];
+    disciplina d[TAMDISCIPLINA];*/
     int sair = 0;
     int qtdaluno = 0;
     int qtdprof = 0;
@@ -30,7 +30,7 @@ int main(void){
                 sair = 1;
                 break;
             }
-            case 1:{
+            /*case 1:{
                 int sairaluno = 0;
                 while(!sairaluno){
                     //Menu aluno
@@ -370,7 +370,7 @@ int main(void){
             }
             default:{
                 printf("\nOpção inválida!\n");
-            }break;
+            }break;*/
         }
     }
     return 0;

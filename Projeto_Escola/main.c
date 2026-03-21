@@ -8,7 +8,7 @@ int menu_professor();
 int menu_disciplina();
 int menu_relatorios();
 
-void main(){
+int main(void){
   bool sair = false;
   while(sair){
     int OP = menu_principal();
