@@ -1,0 +1,385 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include "relatorio.h"
+#include "aluno.h"
+#include "professor.h"
+#include "disciplina.h"
+
+void Rlistaralunos(aluno a[], int *qtdaluno){
+    if(*qtdaluno == 0){
+        printf("\nNão há alunos cadastrados!\n");
+        return;
+    }else{
+        printf("\n--Listando os alunos--\n");
+        printf("\nN° - Nome - Matrícula - CPF\n");
+        for(int i=0; i < *qtdaluno; i++){
+            if(a[i].ativo == 1){
+                printf("%d - %s - %d - %s\n", i+1, a[i].nome, a[i].matricula, a[i].cpf);
+            }
+        }
+        return;
+    }                   
+}
+
+void Rlistarprofessor(professor p[], int *qtdprof){
+    if(*qtdprof == 0){
+        printf("Não há professores cadastrados!\n");
+        return;
+    }else{
+        printf("\n--Listando os professores--");
+        printf("\nN° - Nome - Matrícula - CPF\n");
+        for(int i=0; i < *qtdprof; i++){
+            if(p[i].ativo == 1){
+                printf("%d - %s - %d -", i+1, p[i].nome, p[i].matricula);
+                printf(" %s\n", p[i].cpf);
+            }
+        }
+        return;
+    }
+}
+
+void Rlistardisciplina(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
+    if(*qtdisciplina == 0){
+        printf("\nNão há disciplinas cadastradas!\n");
+        return;
+    }else{
+        printf("\nN° - Disciplina - Código\n");
+        for(int i=0; i < *qtdisciplina; i++){
+            if(d[i].ativo == 1){
+                printf("%d -  %s  - %s\n", i+1, d[i].nome, d[i].codigo);
+                int posprofessor = posprof(p, *qtdprof, d[i].disprof);
+                if(posprofessor != -1){
+                    printf("Semestre: %d - Prof° responsável: %s\n", d[i].semestre, p[posprofessor].nome);
+                }
+            }
+        }
+    }
+}
+
+void Ralunosdisciplina(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
+    if(*qtdisciplina == 0){
+        printf("\nNão há disciplina cadastrada!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdisciplina; i++){
+            if(d[i].ativo == 1){
+                printf("\nDisciplina: %s - Código: %s ", d[i].nome, d[i].codigo);
+                int posprofessor = posprof(p, *qtdprof, d[i].disprof);
+                if(posprofessor != -1){
+                    printf("Professor responsável: %s\n", p[posprofessor].nome);
+                }
+                printf("Alunos matriculados:\n");
+                int temaluno = 0;
+                for(int j=0; j<TAMALUNO; j++){
+                    if(d[i].alunomatriculado[j] != 0){
+                        int posal = posaluno(a, *qtdaluno, d[i].alunomatriculado[j]);
+                        if(posal != -1){
+                            printf("Nome: %s - Matrícula: %d\n", a[posal].nome, a[posal].matricula);
+                            temaluno = 1;
+                        }
+                    }
+                }
+                if(!temaluno){
+                    printf("Nenhum aluno matriculado nesta disciplina!\n\n");
+                }
+            }
+        }
+    }
+    return;
+}
+
+void Rsexoalunos(aluno a[], int *qtdaluno){
+    int sexoaM = 0;
+    int sexoaF = 0;
+    if(*qtdaluno == 0){
+        printf("\nNão há alunos cadastrados!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdaluno; i++){
+            if(a[i].sexo == 'M' || a[i].sexo == 'm'){
+                sexoaM++;
+            }
+        }
+        for(int j=0; j< *qtdaluno; j++){
+            if(a[j].sexo == 'F' || a[j].sexo == 'f'){
+                sexoaF++;
+            }
+        }
+        if(sexoaM > 0){
+            printf("\n--Masculino--\n");
+            for(int i=0; i< *qtdaluno; i++){
+                printf("%s - %c\n", a[i].nome, a[i].sexo);
+            }
+        }
+        if(sexoaF > 0){
+            printf("\n--Feminino--\n");
+            for(int j=0; j< *qtdaluno; j++){
+                printf("%s - %c\n", a[j].nome, a[j].sexo);
+            }
+        }
+        return;
+    }
+}
+
+void Rnomealunos(aluno a[], int *qtdaluno){
+    if(*qtdaluno == 0){
+        printf("\nNenhum aluno cadastrado!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdaluno-1; i++){
+            for(int j=i+1; j< *qtdaluno; j++){
+                if(strcmp(a[i].nome, a[j].nome) > 0){
+                    aluno temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        printf("\n---Alunos---\n");
+        printf("\nNome - Matrícula\n");
+        for(int i=0; i< *qtdaluno; i++){
+            printf("\n%s - %d\n", a[i].nome, a[i].matricula);
+        }
+        return;
+    }
+}
+
+void Ralunosdatanascimento(aluno a[], int *qtdaluno){
+    if(*qtdaluno == 0){
+        printf("\nNenhum aluno cadastrado!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdaluno-1; i++){
+            for(int j=i+1; j< *qtdaluno; j++){
+                if(Acomparadata(a[i], a[j])){
+                    aluno temp = a[i];
+                    a[i] = a[j];
+                    a[j] = temp;
+                }
+            }
+        }
+        printf("\nData de nascimento - Nome\n");
+        for(int i=0; i< *qtdaluno; i++){
+            printf("\n%02d/%02d/%04d  -  %s\n", a[i].dia, a[i].mes, a[i].ano, a[i].nome);
+        }
+        return;
+    }
+}
+
+void Rprofessorsexo(professor p[], int *qtdprof){
+    int sexopM = 0;
+    int sexopF = 0;
+    if(*qtdprof == 0){
+        printf("\nNão há professores cadastrados!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdprof; i++){
+            if(p[i].sexo == 'M' || p[i].sexo == 'm'){
+                sexopM++;
+            }
+        }
+        for(int j=0; j< *qtdprof; j++){
+            if(p[j].sexo == 'F' || p[j].sexo == 'f'){
+                sexopF++;
+            }
+        }
+        if(sexopM > 0){
+            printf("\n--Masculino--\n");
+            for(int i=0; i< *qtdprof; i++){
+                printf("%s - %c\n", p[i].nome, p[i].sexo);
+            }
+        }
+        if(sexopF > 0){
+            printf("\n--Feminino--\n");
+            for(int j=0; j< *qtdprof; j++){
+                printf("%s - %c\n", p[j].nome, p[j].sexo);
+            }
+        }
+        return;
+    }
+}
+
+void Rnomeprofessor(professor p[], int *qtdprof){
+    if(*qtdprof == 0){
+        printf("\nNenhum professor cadastrado!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdprof-1; i++){
+            for(int j=i+1; j< *qtdprof; j++){
+                if(strcmp(p[i].nome, p[j].nome) > 0){
+                    professor temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                }
+            }
+        }
+        printf("\n---Professores---\n");
+        for(int i=0; i< *qtdprof; i++){
+            printf("\n%s - %d\n", p[i].nome, p[i].matricula);
+        }
+        return;
+    }
+}
+
+void Rprofessordatanascimento(professor p[], int *qtdprof){
+    if(*qtdprof == 0){
+        printf("\nNenhum professor cadastrado!\n");
+        return;
+    }else{
+        for(int i=0; i< *qtdprof-1; i++){
+            for(int j=i+1; j< *qtdprof; j++){
+                if(Pcomparadata(p[i], p[j])){
+                    professor temp = p[i];
+                    p[i] = p[j];
+                    p[j] = temp;
+                }
+            }
+        }
+        printf("\nData de nascimento - Nome\n");
+        for(int i=0; i< *qtdprof; i++){
+            printf("\n%02d/%02d/%04d  -  %s\n", p[i].dia, p[i].mes, p[i].ano, p[i].nome);
+        }
+        return;
+    }
+}
+
+void Raniversariantesmes(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
+        if(*qtdaluno == 0 && *qtdprof == 0){
+        printf("\nNão há dados cadastrados!\n");
+        return;
+    }else{
+        int mes = -1;
+        while(mes != 0){
+            printf("\nSelecione o mês: \n");
+            printf("0- Voltar ao menu Relatórios\n");
+            printf("1- Janeiro   | 7- Julho\n2- Fevereiro | 8- Agosto\n3- Março     | 9- Setembro\n");
+            printf("4- Abril     | 10- Outubro\n5- Maio      | 11- Novembro\n6- Junho     | 12- Dezembro\n");
+            scanf("%d", &mes);
+            if(mes >= 1 && mes <= 12){
+                meses(a, *qtdaluno, p, *qtdprof, mes);
+            }
+            else if(mes == 0){
+                printf("--Voltando ao menu relatório!--\n");
+                return;
+            }else{
+                printf("\nMês inválido!\n");
+                return;
+            }
+        }
+        return;
+    }
+}
+
+void Rbuscarnome(aluno a[], int *qtdaluno, professor p[], int *qtdprof){
+    if(*qtdaluno == 0 && *qtdprof == 0){
+        printf("Não há dados cadastrados!\n");
+        return;
+    }else{
+        char busca[100];
+        printf("Informe o nome que deseja buscar: ");
+        getchar();
+        fgets(busca, sizeof(busca), stdin);
+        busca[strcspn(busca, "\n")] = '\0';
+        for(int i=0; i < *qtdaluno; i++){
+            if(strcmp(a[i].nome, busca) == 0){
+                printf("Nome: %s\n", a[i].nome);
+                printf("Matrícula: %d\n", a[i].matricula);
+            }else{
+                printf("\nAluno não localizado!\n");
+            }
+        }
+        for(int j=0; j < *qtdaluno; j++){
+            if(strcmp(p[j].nome, busca) == 0){
+                printf("Nome: %s\n", p[j].nome);
+                printf("Matrícula: %d\n", p[j].matricula);
+            }else{
+                printf("\nProfessor não localizado!\n");
+            }
+        }
+        return;
+    }
+}
+
+void Ralunos3disciplinas(aluno a[], int *qtdaluno, disciplina d[], int *qtdisciplina){
+    if(*qtdaluno == 0){
+        printf("\nNenhum aluno cadastrado!\n");
+        return; 
+    }else if(*qtdisciplina == 0){
+        printf("\nNenhuma disciplina cadastrada!\n");
+        return;
+    }else{
+        printf("\nAlunos matriculados em menos de 3 disciplinas: \n");
+        for(int i=0; i< *qtdaluno; i++){
+            if(a[i].ativo == 1){
+                int icont = 0;
+                for(int j=0; j< *qtdisciplina; j++){
+                    for(int k=0; k<TAMALUNO; k++){
+                        if(d[j].alunomatriculado[k] == a[i].matricula){
+                            icont++;
+                        }
+                    }
+                }
+                if(icont < 3){
+                    printf("\nNome: %s - Matrícula: %d", a[i].nome, a[i].matricula);
+                }
+            }
+        }
+        return;
+    }
+}
+
+void Rdisciplinas40(disciplina d[], int *qtdisciplina, professor p[], int *qtdprof){
+    if(*qtdisciplina == 0){
+        printf("\nNenhuma disciplina cadastrada!\n");
+        return;
+    }else{
+        int encontrou = 0;
+        for(int i = 0; i < *qtdisciplina; i++){
+            if(d[i].ativo && d[i].qtdvagas > 40){
+                printf("\nDisciplinas com mais de 40 vagas:\n");
+                printf("N° %d - %s - Código: %s - Vagas: %d\n", i+1, d[i].nome, d[i].codigo, d[i].qtdvagas);
+                int posprofessor = posprof(p, *qtdprof, d[i].disprof);
+                if(posprofessor != -1){
+                    printf("Professor responsável: %s\n", p[posprofessor].nome);
+                }  
+                encontrou = 1;
+            }
+        }
+        if(!encontrou){ 
+            printf("\nNão há disciplinas com mais de 40 vagas!\n");
+        }
+        return;
+    }
+}
+
+int Acomparadata(aluno i, aluno j){
+    return (i.ano > j.ano) || (i.ano == j.ano && i.mes > j.mes) || (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
+}
+
+int Pcomparadata(professor i, professor j){
+    return (i.ano > j.ano) || (i.ano == j.ano && i.mes > j.mes) || (i.ano == j.ano && i.mes == j.mes && i.dia > j.dia);
+}
+
+void meses(aluno a[], int qtdaluno, professor p[], int qtdprof, int mes){
+    int cont = 0;
+    for(int i=0; i<qtdaluno; i++){
+        if(a[i].ativo && a[i].mes == mes){
+            printf("Aluno: %s\n", a[i].nome);
+            printf("Matrícula: %d\n", a[i].matricula);
+            printf("Data de nascimento: %02d/%02d/%04d\n", a[i].dia, a[i].mes, a[i].ano);
+            cont++;
+        }
+    }
+    for(int j=0; j<qtdprof; j++){
+        if(p[j].ativo && p[j].mes == mes){
+            printf("Professor: %s\n", p[j].nome);
+            printf("Matrícula: %d\n", p[j].matricula);
+            printf("Data de nascimento: %02d/%02d/%04d\n", p[j].dia, p[j].mes, p[j].ano);
+            cont++;
+        }
+    }
+    if(cont == 0){
+        printf("\nNão há aniversariantes neste mês!\n");
+    }
+}
