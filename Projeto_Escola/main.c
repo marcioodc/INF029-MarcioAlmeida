@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 #include <ctype.h>
+
+#include "aluno.h"
 
 int menu_principal();
 int menu_aluno();
@@ -30,9 +31,39 @@ int main(void){
               opaluno = 1;
               break;
             }
-            case 1:{}break;
+            //CADASTRAR
+            case 1:{
+              printf("\nCadastramento de aluno\n");
+              R_aluno = cadastrar_aluno(a, qtdaluno);
+              switch(R_aluno){
+                case 0:{
+                  printf("Aluno cadastrado com sucesso");
+                }break;
+                case 1:{
+                  printf("A lista está cheia");
+                }break;
+                case 2:{
+                  printf("Matrícula inválida ou ja existente");
+                }break;
+                case 3:{
+                  printf("sexo inválido");
+                }break;
+                case 4:{
+                  printf("CPF inválildo");
+                }break;
+                case 5:{
+                  printf("data inválida");
+                }break;
+                default:{
+                  printf("\nOpção inválida!\n");
+                }
+              }
+            }break;
+            //LISTAR
             case 2:{}break;
+            //ATUALIZAR
             case 3:{}break;
+            //EXCLUIR
             case 4:{}break;
             default:{
               printf("\nOpção inválida!\n");
@@ -51,7 +82,33 @@ int main(void){
               opprofessor = 1;
               break;
             }
-            case 1:{}break;
+            case 1:{
+              printf("\nCadastramento do professor\n");
+              R_professor = cadastrar_professor(p, qtdprofessor);
+              switch(R_professor){
+                case 0:{
+                  printf("Professor cadastrado com sucesso");
+                }break;
+                case 1:{
+                  printf("A lista está cheia");
+                }break;
+                case 2:{
+                  printf("Matrícula inválida ou já existente");
+                }break;
+                case 3:{
+                  printf("sexo inválido");
+                }break;
+                case 4:{
+                  printf("CPF inválildo");
+                }break;
+                case 5:{
+                  printf("data inválida");
+                }break;
+                default:{
+                  printf("\nOpção inválida!\n");
+                }break;
+              }
+            }break;
             case 2:{}break;
             case 3:{}break;
             case 4:{}break;
