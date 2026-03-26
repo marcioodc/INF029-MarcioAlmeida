@@ -51,7 +51,7 @@ int main(void)
           {
           case 0:
           {
-            printf("Aluno cadastrado com sucesso");
+            printf("\nAluno cadastrado com sucesso!");
           }
           break;
           case 1:

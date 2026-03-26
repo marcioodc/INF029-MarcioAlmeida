@@ -29,7 +29,6 @@ int cadastrar_aluno(aluno a[], int *ativo)
         printf("Informe o nome: ");
         fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
         a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
-        getchar();
         // SEXO
         char sexo;
         printf("Informe o sexo (F ou M): ");
@@ -48,6 +47,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         scanf(" 15S", a[*ativo].cpf);
         getchar();
         // DATA NASCIMENTO
+        getchar();
         printf("Informe a data de nascimento: ");
         scanf("%s", a[*ativo].data_nascimento);
 
