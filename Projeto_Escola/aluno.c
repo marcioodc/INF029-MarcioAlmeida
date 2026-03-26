@@ -43,11 +43,11 @@ int cadastrar_aluno(aluno a[], int *ativo)
             a[*ativo].sexo = sexo;
         }
         // CPF
+        getchar();
         printf("Informe o CPF: ");
         scanf(" 15S", a[*ativo].cpf);
-        getchar();
+        
         // DATA NASCIMENTO
-        getchar();
         printf("Informe a data de nascimento: ");
         scanf("%s", a[*ativo].data_nascimento);
 
