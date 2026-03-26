@@ -12,6 +12,7 @@ int menu_relatorios();
 
 int main(void)
 {
+  aluno a[tam_aluno];
   int sair = 0;
   int ativo = 0;
 
@@ -124,7 +125,7 @@ int main(void)
           opprofessor = 1;
           break;
         }
-        case 1:
+        /*case 1:
         {
           printf("\nCadastramento do professor\n");
           int R_professor = cadastrar_professor(p, &qtdprofessor);
@@ -167,7 +168,7 @@ int main(void)
           break;
           }
         }
-        break;
+        break;*/
         case 2:
         {
         }
