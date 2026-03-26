@@ -4,8 +4,37 @@
 
 #include "aluno.h"
 
-int cadastrar_aluno(aluno a[], int qtdaluno){
-
+int cadastrar_aluno(aluno a[], int tam_aluno){
+    int ativo = 0;
+    if(ativo == tam_aluno){
+        return 1;
+    }else{
+        int matricula;
+        printf("\nInforme a matrícula: ");
+        scanf("%d", &matricula);
+        //VERIFICA SE A MATRICULA É VÁLIDA
+        if(matricula < 0){
+            return 2;
+        }else{
+            a[ativo].matricula = matricula;
+        }
+        //NOME
+        printf("\nInforme o nome: ");
+        fgets(a[ativo].nome, sizeof(a[ativo].nome), stdin);
+        a[ativo].nome[strcspn(a[ativo].nome, "\n")] = '\0';
+        //SEXO
+        char sexo;
+        printf("\nInforme o sexo (F ou M): ");
+        scanf(" %c" &sexo);
+        sexo = toupper(sexo);
+        if(sexo != 'F' || sexo != 'M'){
+            return 3;
+        }
+        //cpf
+        printf("Informe o CPF: ");
+        scanf("%15s", a[ativo].CPF);
+    }
+    
 }
 
 int listar_aluno(aluno a[], int qtdaluno){
