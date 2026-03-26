@@ -30,9 +30,15 @@ int cadastrar_aluno(aluno a[], int tam_aluno){
         if(sexo != 'F' || sexo != 'M'){
             return 3;
         }
-        //cpf
-        printf("Informe o CPF: ");
-        scanf("%15s", a[ativo].CPF);
+        //CPF
+        printf("\nInforme o CPF");
+        scanf(" 15S",a[ativo].CPF); 
+        //DATA NASCIMENTO
+        printf("\nInforme a data de nascimento: ");
+        scanf("%s", a[ativo].data_nascimento);
+
+        ativo++;
+        return 0;
     }
     
 }

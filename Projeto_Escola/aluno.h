@@ -1,6 +1,6 @@
 #ifndef aluno_h
 #define aluno_h
-#define tam_aluno 3
+#define tam_aluno 2
 
 typedef struct aluno{
   char nome[100];
@@ -10,10 +10,10 @@ typedef struct aluno{
   int matricula[6];
 }aluno;
 
-int cadastrar_aluno(aluno a[], qtdaluno);
-int listar_aluno(aluno a[], int qtdaluno);
-int atualizar_aluno(aluno a[], int qtdaluno);
-int excluir_aluno(aluno a[], int qtdaluno);
+int cadastrar_aluno(aluno a[], int ativo);
+int listar_aluno(aluno a[], int ativo);
+int atualizar_aluno(aluno a[], int ativo);
+int excluir_aluno(aluno a[], int ativo);
 int validar_DATA(char data_nascimento);
 int validar_CPF(char cpf);
 
