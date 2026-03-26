@@ -4,61 +4,71 @@
 
 #include "aluno.h"
 
-int cadastrar_aluno(aluno a[], int tam_aluno){
-    int ativo = 0;
-    if(ativo == tam_aluno){
+int cadastrar_aluno(aluno a[], int *ativo)
+{
+    if (*ativo == tam_aluno)
+    {
         return 1;
-    }else{
+    }
+    else
+    {
         int matricula;
         printf("\nInforme a matrícula: ");
         scanf("%d", &matricula);
-        //VERIFICA SE A MATRICULA É VÁLIDA
-        if(matricula < 0){
+        // VERIFICA SE A MATRICULA É VÁLIDA
+        if (matricula < 0)
+        {
             return 2;
-        }else{
-            a[ativo].matricula = matricula;
         }
-        //NOME
+        else
+        {
+            a[*ativo].matricula = matricula;
+        }
+        // NOME
         printf("\nInforme o nome: ");
-        fgets(a[ativo].nome, sizeof(a[ativo].nome), stdin);
-        a[ativo].nome[strcspn(a[ativo].nome, "\n")] = '\0';
-        //SEXO
+        fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
+        a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
+        // SEXO
         char sexo;
         printf("\nInforme o sexo (F ou M): ");
-        scanf(" %c" &sexo);
+        scanf("%c", &sexo);
         sexo = toupper(sexo);
-        if(sexo != 'F' || sexo != 'M'){
+        if (sexo != 'F' && sexo != 'M')
+        {
             return 3;
         }
-        //CPF
+        else
+        {
+            a[*ativo].sexo = sexo;
+        }
+        // CPF
         printf("\nInforme o CPF");
-        scanf(" 15S",a[ativo].CPF); 
-        //DATA NASCIMENTO
+        scanf(" 15S", a[*ativo].cpf);
+        // DATA NASCIMENTO
         printf("\nInforme a data de nascimento: ");
-        scanf("%s", a[ativo].data_nascimento);
+        scanf("%s", a[*ativo].data_nascimento);
 
-        ativo++;
+        (*ativo)++;
         return 0;
     }
-    
 }
 
-int listar_aluno(aluno a[], int qtdaluno){
-
+int listar_aluno(aluno a[], int *ativo)
+{
 }
 
-int atualizar_aluno(aluno a[], int qtdaluno){
-
+int atualizar_aluno(aluno a[], int *ativo)
+{
 }
 
-int excluir_aluno(aluno a[], int qtdaluno){
-
+int excluir_aluno(aluno a[], int *ativo)
+{
 }
 
-int validar_DATA(char data_nascimento){
-
+int validar_DATA(char data_nascimento)
+{
 }
 
-int validar_CPF(char cpf){
-
+int validar_CPF(char cpf)
+{
 }
