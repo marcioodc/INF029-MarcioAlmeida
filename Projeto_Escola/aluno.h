@@ -10,6 +10,11 @@ typedef struct aluno{
   int matricula[6];
 }aluno;
 
-int cadastrar_aluno(aluno a[], qtdAluno);
+int cadastrar_aluno(aluno a[], qtdaluno);
+int listar_aluno(aluno a[], int qtdaluno);
+int atualizar_aluno(aluno a[], int qtdaluno);
+int excluir_aluno(aluno a[], int qtdaluno);
+int validar_DATA(char data_nascimento);
+int validar_CPF(char cpf);
 
 #endif
