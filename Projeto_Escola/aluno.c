@@ -45,7 +45,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         // CPF
         getchar();
         printf("Informe o CPF: ");
-        scanf(" 15S", a[*ativo].cpf);
+        scanf(" %15s", a[*ativo].cpf);
         
         // DATA NASCIMENTO
         printf("Informe a data de nascimento: ");
