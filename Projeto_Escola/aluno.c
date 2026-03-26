@@ -24,13 +24,15 @@ int cadastrar_aluno(aluno a[], int *ativo)
         {
             a[*ativo].matricula = matricula;
         }
+        getchar();
         // NOME
-        printf("\nInforme o nome: ");
+        printf("Informe o nome: ");
         fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
         a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
+        getchar();
         // SEXO
         char sexo;
-        printf("\nInforme o sexo (F ou M): ");
+        printf("Informe o sexo (F ou M): ");
         scanf("%c", &sexo);
         sexo = toupper(sexo);
         if (sexo != 'F' && sexo != 'M')
@@ -42,10 +44,11 @@ int cadastrar_aluno(aluno a[], int *ativo)
             a[*ativo].sexo = sexo;
         }
         // CPF
-        printf("\nInforme o CPF");
+        printf("Informe o CPF: ");
         scanf(" 15S", a[*ativo].cpf);
+        getchar();
         // DATA NASCIMENTO
-        printf("\nInforme a data de nascimento: ");
+        printf("Informe a data de nascimento: ");
         scanf("%s", a[*ativo].data_nascimento);
 
         (*ativo)++;
