@@ -278,15 +278,18 @@ int main(void)
             printf("\nDisciplina cadastrada com sucesso!\n");
             break;
           case 1:
-            printf("\nLimite de disciplinas cadastradas alcançado!\n");
+            printf("\n>>>Não ha professores cadastrados!<<<\n");
             break;
           case 2:
-            printf("\nProfessor não encontrado!\n");
+            printf("\nLimite de disciplinas cadastradas alcançado!\n");
             break;
           case 3:
             printf("\nSemestre inválido!\n");
             break;
           case 4:
+            printf("\nProfessor não encontrado!\n");
+            break;
+          case 5:
             printf("\nQuantidade de vagas inválida!\n");
             break;
           default:

@@ -13,11 +13,11 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     int pos = -1;
     if (*P_ativa == 0)
     {
-        return 2;
+        return 1;
     }
     if (*D_ativa == QTDISCIPLINA)
     {
-        return 1;
+        return 2;
     }
     else
     {
@@ -50,7 +50,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         }
         if (pos == -1)
         {
-            return 3;
+            return 4;
         }
         d[*D_ativa].matricula_professor = matricula;
 
@@ -58,7 +58,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         scanf("%d", &qtdvagas);
         if (qtdvagas < 1)
         {
-            return 4;
+            return 5;
         }
         d[*D_ativa].qtdvagas = qtdvagas;
 
