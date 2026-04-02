@@ -46,8 +46,8 @@ int main(void)
         case 1:
         {
           printf("\nCadastramento de aluno\n");
-          int R_aluno = cadastrar_aluno(a, &ativo);
-          switch (R_aluno)
+          int A_Cadastro = cadastrar_aluno(a, &ativo);
+          switch (A_Cadastro)
           {
           case 0:
           {
@@ -98,8 +98,33 @@ int main(void)
         // ATUALIZAR
         case 3:
         {
+          printf("Atualizar cadastro de aluno\n");
+          int A_Atualizar = atualizar_aluno(a, &ativo);
+          switch (A_Atualizar)
+          {
+          case 0:
+            printf("\nCadastro atualizado com sucesso!\n");
+            break;
+          case 1:
+            printf("\n>>>Não ha alunos cadastrados!<<<\n");
+            break;
+          case 2:
+            printf("\n>>>Matrícula não encontrada!<<<\n");
+            break;
+          case 3:
+            printf("\n>>>Sexo inválido!<<<\n");
+            break;
+          case 4:
+            printf("\n>>>CPF inválido!<<<\n");
+            break;
+          case 5:
+            printf("\n>>>Data de nascimento inválida!<<<\n");
+            break;
+          default:
+            printf("\nOpção inválida!\n");
+            break;
+          }
         }
-        break;
         // EXCLUIR
         case 4:
         {

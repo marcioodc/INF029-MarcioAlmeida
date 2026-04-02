@@ -41,7 +41,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         printf("\nInforme a matrícula: ");
         scanf("%d", &matricula);
         // VERIFICA SE A MATRICULA É VÁLIDA
-        if (valida_matricula(a, matricula, &ativo) != 0)
+        if (valida_matricula(a, matricula, ativo) != 0)
         {
             return 2;
         }
@@ -104,6 +104,7 @@ int atualizar_aluno(aluno a[], int *ativo)
 {
     int busca_matricula;
     int OpAtualizar;
+    int pos = -1;
     if (*ativo == 0)
     {
         return 1;
@@ -114,9 +115,13 @@ int atualizar_aluno(aluno a[], int *ativo)
     {
         if (busca_matricula == a[i].matricula)
         {
-            *ativo = i;
+            pos = i;
             break;
         }
+    }
+    if (pos == -1)
+    {
+        return 2;
     }
     printf("\nO que deseja atualizar?\n");
     printf("1 - Matrícula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
@@ -128,7 +133,7 @@ int atualizar_aluno(aluno a[], int *ativo)
         printf("\nInforme a matrícula: ");
         scanf("%d", &matricula);
         // VERIFICA SE A MATRICULA É VÁLIDA
-        if (valida_matricula(a, matricula, &ativo) != 0)
+        if (valida_matricula(a, matricula, ativo) != 0)
         {
             return 2;
         }
