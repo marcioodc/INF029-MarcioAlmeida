@@ -85,7 +85,7 @@ int listar_aluno(aluno a[], int *ativo)
     printf("\n>>>Alunos cadastrados<<<\n");
     for (int i = 0; i < *ativo; i++)
     {
-        printf("%d\t  Matrícula: %d", i + 1, a[i].matricula);
+        printf("%d\nMatrícula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
     }
     return 0;
 }
