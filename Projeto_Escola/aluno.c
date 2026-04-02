@@ -137,14 +137,14 @@ int atualizar_aluno(aluno a[], int *ativo)
         {
             return 2;
         }
-        a[*ativo].matricula = matricula;
+        a[pos].matricula = matricula;
         return 0;
         break;
     case 2:
         getchar();
         printf("Informe o nome: ");
-        fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
-        a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
+        fgets(a[pos].nome, sizeof(a[pos].nome), stdin);
+        a[pos].nome[strcspn(a[pos].nome, "\n")] = '\0';
         return 0;
         break;
     case 3:
@@ -156,7 +156,7 @@ int atualizar_aluno(aluno a[], int *ativo)
         {
             return 3;
         }
-        a[*ativo].sexo = sexo;
+        a[pos].sexo = sexo;
         return 0;
         break;
     case 4:
@@ -167,12 +167,12 @@ int atualizar_aluno(aluno a[], int *ativo)
         {
             return 4;
         }
-        strcpy(a[*ativo].cpf, cpf);
+        strcpy(a[pos].cpf, cpf);
         return 0;
         break;
     case 5:
         printf("Informe a data de nascimento: ");
-        scanf("%s", a[*ativo].data_nascimento);
+        scanf("%s", a[pos].data_nascimento);
         return 0;
         break;
     default:
