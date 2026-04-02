@@ -67,12 +67,8 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     }
 }
 
-int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
+int listar_disciplina(disciplina d[], int *D_ativa, professor p[])
 {
-    if (*P_ativa == 0)
-    {
-        return 2;
-    }
     if (*D_ativa == 0)
     {
         return 1;

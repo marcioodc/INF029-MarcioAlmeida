@@ -304,11 +304,7 @@ int main(void)
           {
             printf("\n>>>Não ha disciplinas cadastradas!<<<\n");
           }
-          if (listar_disciplina(d, &D_ativo, p, &P_ativo) == 2)
-          {
-            printf("\n>>>Não ha professores cadastrados!<<<\n");
-          }
-        }
+                }
         break;
         case 3:
         {

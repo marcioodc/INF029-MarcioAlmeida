@@ -17,7 +17,7 @@ typedef struct disciplina
 } disciplina;
 
 int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
-int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
+int listar_disciplina(disciplina d[], int *D_ativa, professor p[]);
 int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
 int excluir_disciplina(disciplina d[], int *D_ativa);
 
