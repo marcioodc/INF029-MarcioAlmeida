@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#include "aluno.h"
+// #include "aluno.h"
 #include "professor.h"
 
 int menu_principal();
@@ -13,7 +13,7 @@ int menu_relatorios();
 
 int main(void)
 {
-  aluno a[tam_aluno];
+  // aluno a[tam_aluno];
   professor p[tam_professor];
   int P_ativo = 0;
   int sair = 0;
@@ -202,7 +202,7 @@ int main(void)
         }
         break;
         case 2:
-          if (listar_aluno(a, &P_ativo) == 1)
+          if (listar_professor(p, &P_ativo) == 1)
           {
             printf("\n>>>Não ha professores cadastrados!<<<\n");
           }
