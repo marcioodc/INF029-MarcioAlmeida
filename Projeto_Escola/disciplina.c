@@ -107,7 +107,7 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[])
 
 int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
 {
-    int busca_matricula;
+    char busca_matricula;
     int OpAtualizar;
     int pos = -1;
     if (*D_ativa == 0)
@@ -115,7 +115,7 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         return 1;
     }
     printf("\nInforme o código da disciplina que deseja atualizar: ");
-    scanf("%d", &busca_matricula);
+    scanf("%s", &busca_matricula);
     for (int i = 0; i < *D_ativa; i++)
     {
         if (strcmp(busca_matricula, d[i].codigo) == 0)
