@@ -4,7 +4,7 @@
 
 #include "aluno.h"
 
-int valida_matricula(aluno a[], int matricula, int *ativo)
+int validar_matricula(aluno a[], int matricula, int *ativo)
 {
     for (int j = 0; j < *ativo; j++)
     {
@@ -183,7 +183,6 @@ int atualizar_aluno(aluno a[], int *ativo)
 
 int excluir_aluno(aluno a[], int *ativo)
 {
-    
 }
 
 int validar_DATA(char data_nascimento)

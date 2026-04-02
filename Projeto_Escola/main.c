@@ -31,117 +31,117 @@ int main(void)
       break;
     }
     // ALUNO
-    case 1:
-    {
-      int opaluno = 0;
-      while (!opaluno)
-      {
-        int OA = menu_aluno();
-        switch (OA)
-        {
-        case 0:
-        {
-          printf("\n>>>Voltando ao menu principal<<<\n");
-          opaluno = 1;
-          break;
-        }
-        // CADASTRAR
-        case 1:
-        {
-          printf("\nCadastramento de aluno\n");
-          int A_Cadastro = cadastrar_aluno(a, &ativo);
-          switch (A_Cadastro)
-          {
-          case 0:
-          {
-            printf("\nAluno cadastrado com sucesso!");
-          }
-          break;
-          case 1:
-          {
-            printf("A lista está cheia");
-          }
-          break;
-          case 2:
-          {
-            printf("Matrícula inválida ou ja existente");
-          }
-          break;
-          case 3:
-          {
-            printf("sexo inválido");
-          }
-          break;
-          case 4:
-          {
-            printf("CPF inválildo");
-          }
-          break;
-          case 5:
-          {
-            printf("data inválida");
-          }
-          break;
-          default:
-          {
-            printf("\nOpção inválida!\n");
-          }
-          }
-        }
-        break;
-        // LISTAR
-        case 2:
-        {
-          if (listar_aluno(a, &ativo) == 1)
-          {
-            printf("\n>>>Não ha alunos cadastrados!<<<\n");
-          }
-        }
-        break;
-        // ATUALIZAR
-        case 3:
-        {
-          printf("Atualizar cadastro de aluno\n");
-          int A_Atualizar = atualizar_aluno(a, &ativo);
-          switch (A_Atualizar)
-          {
-          case 0:
-            printf("\nCadastro atualizado com sucesso!\n");
-            break;
-          case 1:
-            printf("\n>>>Não ha alunos cadastrados!<<<\n");
-            break;
-          case 2:
-            printf("\n>>>Matrícula não encontrada!<<<\n");
-            break;
-          case 3:
-            printf("\n>>>Sexo inválido!<<<\n");
-            break;
-          case 4:
-            printf("\n>>>CPF inválido!<<<\n");
-            break;
-          case 5:
-            printf("\n>>>Data de nascimento inválida!<<<\n");
-            break;
-          default:
-            printf("\nOpção inválida!\n");
-            break;
-          }
-        }
-        // EXCLUIR
-        case 4:
-        {
-        }
-        break;
-        default:
-        {
-          printf("\nOpção inválida!\n");
-        }
-        break;
-        }
-      }
-    }
-    break;
+    case 1: /*
+     {
+       int opaluno = 0;
+       while (!opaluno)
+       {
+         int OA = menu_aluno();
+         switch (OA)
+         {
+         case 0:
+         {
+           printf("\n>>>Voltando ao menu principal<<<\n");
+           opaluno = 1;
+           break;
+         }
+         // CADASTRAR
+         case 1:
+         {
+           printf("\nCadastramento de aluno\n");
+           int A_Cadastro = cadastrar_aluno(a, &ativo);
+           switch (A_Cadastro)
+           {
+           case 0:
+           {
+             printf("\nAluno cadastrado com sucesso!");
+           }
+           break;
+           case 1:
+           {
+             printf("A lista está cheia");
+           }
+           break;
+           case 2:
+           {
+             printf("Matrícula inválida ou ja existente");
+           }
+           break;
+           case 3:
+           {
+             printf("sexo inválido");
+           }
+           break;
+           case 4:
+           {
+             printf("CPF inválildo");
+           }
+           break;
+           case 5:
+           {
+             printf("data inválida");
+           }
+           break;
+           default:
+           {
+             printf("\nOpção inválida!\n");
+           }
+           }
+         }
+         break;
+         // LISTAR
+         case 2:
+         {
+           if (listar_aluno(a, &ativo) == 1)
+           {
+             printf("\n>>>Não ha alunos cadastrados!<<<\n");
+           }
+         }
+         break;
+         // ATUALIZAR
+         case 3:
+         {
+           printf("Atualizar cadastro de aluno\n");
+           int A_Atualizar = atualizar_aluno(a, &ativo);
+           switch (A_Atualizar)
+           {
+           case 0:
+             printf("\nCadastro atualizado com sucesso!\n");
+             break;
+           case 1:
+             printf("\n>>>Não ha alunos cadastrados!<<<\n");
+             break;
+           case 2:
+             printf("\n>>>Matrícula não encontrada!<<<\n");
+             break;
+           case 3:
+             printf("\n>>>Sexo inválido!<<<\n");
+             break;
+           case 4:
+             printf("\n>>>CPF inválido!<<<\n");
+             break;
+           case 5:
+             printf("\n>>>Data de nascimento inválida!<<<\n");
+             break;
+           default:
+             printf("\nOpção inválida!\n");
+             break;
+           }
+         }
+         // EXCLUIR
+         case 4:
+         {
+         }
+         break;
+         default:
+         {
+           printf("\nOpção inválida!\n");
+         }
+         break;
+         }
+       }
+     }
+     break;*/
     // PROFESSOR
     case 2:
     {
