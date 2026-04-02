@@ -20,7 +20,7 @@ int valida_matricula(professor p[], int matricula, int *P_ativo)
     return 0;
 }
 
-int validar_cpf(char cpf[])
+int validacao_cpf(char cpf[])
 {
     if (strlen(cpf) != 11)
     {
@@ -68,7 +68,7 @@ int cadastrar_professor(professor p[], int *P_ativo)
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
-        if (validar_cpf(cpf) == 0)
+        if (validacao_cpf(cpf) == 0)
         {
             return 4;
         }
@@ -163,7 +163,7 @@ int atualizar_professor(professor p[], int *P_ativo)
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
-        if (validar_cpf(cpf) == 0)
+        if (validacao_cpf(cpf) == 0)
         {
             return 4;
         }
@@ -182,9 +182,5 @@ int atualizar_professor(professor p[], int *P_ativo)
 }
 
 int excluir_professor(professor p[], int *P_ativo)
-{
-}
-
-int validar_DATA(char data_nascimento)
 {
 }

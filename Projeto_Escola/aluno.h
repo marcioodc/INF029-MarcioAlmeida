@@ -16,7 +16,7 @@ int listar_aluno(aluno a[], int *ativo);
 int atualizar_aluno(aluno a[], int *ativo);
 int excluir_aluno(aluno a[], int *ativo);
 int validar_DATA(char data_nascimento);
-int validar_CPF(char cpf);
+int validar_CPF(char cpf[]);
 int validar_matricula(aluno a[], int matricula, int *ativo);
 
 #endif

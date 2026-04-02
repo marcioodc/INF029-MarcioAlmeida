@@ -1,5 +1,6 @@
 #ifndef professor_h
 #define professor_h
+
 #define tam_professor 3
 
 typedef struct professor
@@ -15,8 +16,7 @@ int cadastrar_professor(professor p[], int *P_ativo);
 int listar_professor(professor p[], int *P_ativo);
 int atualizar_professor(professor p[], int *P_ativo);
 int excluir_professor(professor p[], int *P_ativo);
-int validar_DATA(char data_nascimento);
-int validar_CPF(char cpf);
+int validacao_cpf(char cpf);
 int valida_matricula(professor p[], int matricula, int *P_ativo);
 
 #endif
