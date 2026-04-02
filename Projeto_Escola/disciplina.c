@@ -107,7 +107,7 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[])
 
 int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
 {
-    char busca_matricula;
+    char busca_matricula[10];
     int OpAtualizar;
     int pos = -1;
     if (*D_ativa == 0)
