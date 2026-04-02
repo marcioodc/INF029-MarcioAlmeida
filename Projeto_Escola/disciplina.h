@@ -20,5 +20,8 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
 int listar_disciplina(disciplina d[], int *D_ativa, professor p[]);
 int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
 int excluir_disciplina(disciplina d[], int *D_ativa);
+int matricular_aluno(disciplina d[], int *D_ativa, aluno a[], int *A_ativa);
+int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativa);
+int validar_codigo(disciplina d[], char codigo[], int *ativo);
 
 #endif
