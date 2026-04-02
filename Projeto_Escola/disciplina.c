@@ -56,19 +56,18 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
 
         printf("Informe a matrícula do professor responsável pela disciplina: ");
         scanf("%d", &matricula);
-        for (int i = 0; i < *D_ativa; i++)
+        for (int i = 0; i < *P_ativa; i++)
         {
             if (matricula == p[i].matricula)
             {
-                pos = i;
+                d[*D_ativa].matricula_professor = matricula;
                 break;
             }
+            else
+            {
+                return 4;
+            }
         }
-        if (pos == -1)
-        {
-            return 4;
-        }
-        d[*D_ativa].matricula_professor = matricula;
 
         printf("Informe a quantidade de vagas disponíveis para a disciplina: ");
         scanf("%d", &qtdvagas);
@@ -129,7 +128,7 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         return 2;
     }
     printf("\nO que deseja atualizar?\n");
-    printf("1 - Matrícula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
+    printf("1 - codigo\n2 - Nome\n3 - Semestre\n4 - Professor\n5 - Quantidade de Vagas\n");
     scanf("%d", &OpAtualizar);
     switch (OpAtualizar)
     {
@@ -166,19 +165,18 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         char matricula;
         printf("Informe a matrícula do professor responsável pela disciplina: ");
         scanf("%s", &matricula);
-        for (int i = 0; i < *D_ativa; i++)
+        for (int i = 0; i < *P_ativa; i++)
         {
             if (matricula == p[i].matricula)
             {
-                pos = i;
+                d[*D_ativa].matricula_professor = matricula;
                 break;
             }
+            else
+            {
+                return 4;
+            }
         }
-        if (pos == -1)
-        {
-            return 4;
-        }
-        d[*D_ativa].matricula_professor = matricula;
         return 0;
         break;
     case 5:
