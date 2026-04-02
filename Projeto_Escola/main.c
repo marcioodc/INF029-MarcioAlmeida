@@ -3,6 +3,7 @@
 #include <ctype.h>
 
 #include "aluno.h"
+#include "professor.h"
 
 int menu_principal();
 int menu_aluno();
@@ -13,6 +14,8 @@ int menu_relatorios();
 int main(void)
 {
   aluno a[tam_aluno];
+  professor p[tam_professor];
+  int P_ativo = 0;
   int sair = 0;
   int ativo = 0;
 
@@ -154,10 +157,10 @@ int main(void)
           opprofessor = 1;
           break;
         }
-        /*case 1:
+        case 1:
         {
           printf("\nCadastramento do professor\n");
-          int R_professor = cadastrar_professor(p, &qtdprofessor);
+          int R_professor = cadastrar_professor(p, &P_ativo);
           switch (R_professor)
           {
           case 0:
@@ -197,15 +200,43 @@ int main(void)
           break;
           }
         }
-        break;*/
-        case 2:
-        {
-        }
         break;
+        case 2:
+          if (listar_aluno(a, &P_ativo) == 1)
+          {
+            printf("\n>>>Não ha professores cadastrados!<<<\n");
+          }
+          break;
         case 3:
         {
+          printf("Atualizar cadastro do professor\n");
+          int P_Atualizar = atualizar_professor(p, &P_ativo);
+          switch (P_Atualizar)
+          {
+          case 0:
+            printf("\nCadastro atualizado com sucesso!\n");
+            break;
+          case 1:
+            printf("\n>>>Não ha professores cadastrados!<<<\n");
+            break;
+          case 2:
+            printf("\n>>>Matrícula não encontrada!<<<\n");
+            break;
+          case 3:
+            printf("\n>>>Sexo inválido!<<<\n");
+            break;
+          case 4:
+            printf("\n>>>CPF inválido!<<<\n");
+            break;
+          case 5:
+            printf("\n>>>Data de nascimento inválida!<<<\n");
+            break;
+          default:
+            printf("\nOpção inválida!\n");
+            break;
+          }
         }
-        break;
+        // EXCLUIR
         case 4:
         {
         }

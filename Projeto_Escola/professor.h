@@ -2,20 +2,21 @@
 #define professor_h
 #define tam_professor 3
 
-typedef struct professor{
+typedef struct professor
+{
   char nome[100];
-  char sexo[3];
+  char sexo;
   char cpf[15];
   char data_nascimento[10];
-  int matricula[6];
-}professor;
+  int matricula;
+} professor;
 
-int cadastrar_professor(professor p[], qtdprofessor);
-int listar_professor(professor p[], int qtdprofessor);
-int atualizar_professor(professor p[], int qtdprofessor);
-int excluir_professor(professor p[], int qtdprofessor);
+int cadastrar_professor(professor p[], int *P_ativo);
+int listar_professor(professor p[], int *P_ativo);
+int atualizar_professor(professor p[], int *P_ativo);
+int excluir_professor(professor p[], int *P_ativo);
 int validar_DATA(char data_nascimento);
 int validar_CPF(char cpf);
-
+int valida_matricula(professor p[], int matricula, int *P_ativo);
 
 #endif
