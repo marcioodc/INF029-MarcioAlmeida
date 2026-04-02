@@ -4,6 +4,7 @@
 
 // #include "aluno.h"
 #include "professor.h"
+#include "disciplina.h"
 
 int menu_principal();
 int menu_aluno();
@@ -15,7 +16,9 @@ int main(void)
 {
   // aluno a[tam_aluno];
   professor p[tam_professor];
+  disciplina d[QTDISCIPLINA];
   int P_ativo = 0;
+  int D_ativo = 0;
   int sair = 0;
   int ativo = 0;
 
@@ -267,10 +270,41 @@ int main(void)
         }
         case 1:
         {
+          printf("\nCadastramento de disciplina!\n");
+          int D_cadastrar = cadastrar_disciplina(d, &D_ativo, p, &P_ativo);
+          switch (D_cadastrar)
+          {
+          case 0:
+            printf("\nDisciplina cadastrada com sucesso!\n");
+            break;
+          case 1:
+            printf("\nLimite de disciplinas cadastradas alcançado!\n");
+            break;
+          case 2:
+            printf("\nProfessor não encontrado!\n");
+            break;
+          case 3:
+            printf("\nSemestre inválido!\n");
+            break;
+          case 4:
+            printf("\nQuantidade de vagas inválida!\n");
+            break;
+          default:
+            printf("\nOpção inválida!\n");
+            break;
+          }
         }
         break;
         case 2:
         {
+          if (listar_disciplina(d, &D_ativo, p, &P_ativo) == 1)
+          {
+            printf("\n>>>Não ha disciplinas cadastradas!<<<\n");
+          }
+          if (listar_disciplina(d, &D_ativo, p, &P_ativo) == 2)
+          {
+            printf("\n>>>Não ha professores cadastrados!<<<\n");
+          }
         }
         break;
         case 3:

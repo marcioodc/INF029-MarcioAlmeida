@@ -16,9 +16,9 @@ typedef struct disciplina
     int alunomatriculado[40];
 } disciplina;
 
-int cadastrar_disciplina(disciplina d[], int *D_ativa);
-int listar_disciplina(disciplina d[], int *D_ativa);
-int atualizar_disciplina(disciplina d[], int *D_ativa);
+int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
+int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
+int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa);
 int excluir_disciplina(disciplina d[], int *D_ativa);
 
 #endif

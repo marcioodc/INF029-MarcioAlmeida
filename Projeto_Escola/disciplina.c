@@ -5,12 +5,16 @@
 #include "disciplina.h"
 #include "professor.h"
 
-int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[])
+int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
 {
     int semestre;
     int qtdvagas;
     int matricula;
     int pos = -1;
+    if (*P_ativa == 0)
+    {
+        return 2;
+    }
     if (*D_ativa == QTDISCIPLINA)
     {
         return 1;
@@ -30,7 +34,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[])
         scanf("%d", &semestre);
         if (semestre < 1 || semestre > 10)
         {
-            return 2;
+            return 3;
         }
         d[*D_ativa].semestre = semestre;
 
@@ -46,7 +50,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[])
         }
         if (pos == -1)
         {
-            return 2;
+            return 3;
         }
         d[*D_ativa].matricula_professor = matricula;
 
@@ -54,7 +58,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[])
         scanf("%d", &qtdvagas);
         if (qtdvagas < 1)
         {
-            return 2;
+            return 4;
         }
         d[*D_ativa].qtdvagas = qtdvagas;
 
@@ -63,8 +67,12 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[])
     }
 }
 
-int listar_disciplina(disciplina d[], int *D_ativa, professor p[])
+int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
 {
+    if (*P_ativa == 0)
+    {
+        return 2;
+    }
     if (*D_ativa == 0)
     {
         return 1;
@@ -82,5 +90,10 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[])
         }
         printf("\n");
     }
+    return 0;
+}
+
+int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativa)
+{
     return 0;
 }
