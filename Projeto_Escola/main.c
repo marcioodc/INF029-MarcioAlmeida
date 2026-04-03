@@ -3,6 +3,7 @@
 #include <ctype.h>
 
 #include "aluno.h"
+#include "relatorio.h"
 #include "professor.h"
 #include "disciplina.h"
 
@@ -470,18 +471,34 @@ int main(void)
         break;
         case 1:
         {
+          if (listar_alunos(a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
         }
         break;
         case 2:
         {
+          if (listar_professores(p, &P_ativo) == 1)
+          {
+            printf("\nNao ha professores cadastrados!\n");
+          }
         }
         break;
         case 3:
         {
+          if (listar_disciplinas(d, &D_ativa, p, &P_ativo) == 1)
+          {
+            printf("\nNao ha disciplinas cadastradas!\n");
+          }
         }
         break;
         case 4:
         {
+          if (listar_alunos_disciplina(d, &D_ativa, a, &A_ativo) == 1)
+          {
+            printf("\nNao ha disciplinas cadastradas!\n");
+          }
         }
         break;
         case 5:
@@ -594,4 +611,13 @@ int menu_disciplina()
 
 int menu_relatorios()
 {
+  int MR;
+  printf("\n>>>MENU RELATORIOS<<<\n");
+  printf("0 - Sair\n");
+  printf("1 - Listar alunos cadastrados\n");
+  printf("2 - Listar professores cadastrados\n");
+  printf("3 - Listar disciplinas cadastradas\n");
+  printf("4 - Listar alunos matriculados em cada disciplina\n");
+  scanf("%d", &MR);
+  return MR;
 }
