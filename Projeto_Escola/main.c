@@ -301,7 +301,7 @@ int main(void)
         break;
         case 2:
         {
-          if (listar_disciplina(d, &D_ativa, p) == 1)
+          if (listar_disciplina(d, &D_ativa, p, &P_ativo) == 1)
           {
             printf("\n>>>Não ha disciplinas cadastradas!<<<\n");
           }

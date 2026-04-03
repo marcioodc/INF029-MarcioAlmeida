@@ -12,12 +12,13 @@ typedef struct disciplina
     char codigo[10];
     int semestre;
     int matricula_professor;
-    int qtdvagas;
-    int aluno_matriculado[40];
+    int vagas_total;
+    int alunos_matriculados[40];
+    int qtdalunos;
 } disciplina;
 
 int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo);
-int listar_disciplina(disciplina d[], int *D_ativa, professor p[]);
+int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo);
 int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo);
 int excluir_disciplina(disciplina d[], int *D_ativa);
 int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo);
