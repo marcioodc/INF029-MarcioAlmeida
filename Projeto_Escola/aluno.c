@@ -183,6 +183,32 @@ int atualizar_aluno(aluno a[], int *ativo)
 
 int excluir_aluno(aluno a[], int *ativo)
 {
+    int busca_matricula;
+    int pos = -1;
+    if (*ativo == 0)
+    {
+        return 1;
+    }
+    printf("\nInforme a matrícula do aluno que deseja excluir: ");
+    scanf("%d", &busca_matricula);
+    for (int i = 0; i < *ativo; i++)
+    {
+        if (busca_matricula == a[i].matricula)
+        {
+            pos = i;
+            break;
+        }
+    }
+    if (pos == -1)
+    {
+        return 2;
+    }
+    for (int j = pos; j < *ativo - 1; j++)
+    {
+        a[j] = a[j + 1];
+    }
+    (*ativo)--;
+    return 0;
 }
 
 int validar_DATA(char data_nascimento)

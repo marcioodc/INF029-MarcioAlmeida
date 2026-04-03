@@ -52,43 +52,43 @@ int main(void)
         // CADASTRAR
         case 1:
         {
-          printf("\nCadastramento de aluno\n");
+          printf("\n>>>Cadastramento de aluno<<<\n");
           int A_Cadastro = cadastrar_aluno(a, &ativo);
           switch (A_Cadastro)
           {
           case 0:
           {
-            printf("\nAluno cadastrado com sucesso!");
+            printf("\nAluno cadastrado com sucesso!\n");
           }
           break;
           case 1:
           {
-            printf("A lista está cheia");
+            printf("\nA lista esta cheia!\n");
           }
           break;
           case 2:
           {
-            printf("Matrícula inválida ou ja existente");
+            printf("\nMatricula invalida ou ja existente!\n");
           }
           break;
           case 3:
           {
-            printf("sexo inválido");
+            printf("\nsexo invalido!\n");
           }
           break;
           case 4:
           {
-            printf("CPF inválildo");
+            printf("\nCPF invalido!\n");
           }
           break;
           case 5:
           {
-            printf("data inválida");
+            printf("\ndata invalida!\n");
           }
           break;
           default:
           {
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
           }
           }
         }
@@ -98,14 +98,14 @@ int main(void)
         {
           if (listar_aluno(a, &ativo) == 1)
           {
-            printf("\n>>>Não ha alunos cadastrados!<<<\n");
+            printf("\nNao ha alunos cadastrados!\n");
           }
         }
         break;
         // ATUALIZAR
         case 3:
         {
-          printf("Atualizar cadastro de aluno\n");
+          printf("\n>>>Atualizar cadastro de aluno<<<\n");
           int A_Atualizar = atualizar_aluno(a, &ativo);
           switch (A_Atualizar)
           {
@@ -113,39 +113,55 @@ int main(void)
             printf("\nCadastro atualizado com sucesso!\n");
             break;
           case 1:
-            printf("\n>>>Não ha alunos cadastrados!<<<\n");
+            printf("\nNao ha alunos cadastrados!\n");
             break;
           case 2:
-            printf("\n>>>Matrícula não encontrada!<<<\n");
+            printf("\nMatricula nao encontrada!\n");
             break;
           case 3:
-            printf("\n>>>Sexo inválido!<<<\n");
+            printf("\nSexo invalido!\n");
             break;
           case 4:
-            printf("\n>>>CPF inválido!<<<\n");
+            printf("\nCPF invalido!\n");
             break;
           case 5:
-            printf("\n>>>Data de nascimento inválida!<<<\n");
+            printf("\nData de nascimento invalida!\n");
             break;
           default:
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
             break;
           }
         }
         // EXCLUIR
         case 4:
         {
-        }
-        break;
+          printf("\n>>>Excluir cadastro de aluno<<<\n");
+          int A_Excluir = excluir_aluno(a, &ativo);
+          switch (A_Excluir)
+          {
+          case 0:
+            printf("\nAluno excluido com sucesso!\n");
+            break;
+          case 1:
+            printf("\nNao ha alunos cadastrados!\n");
+            break;
+          case 2:
+            printf("\nMatricula nao encontrada!\n");
+            break;
+          default:
+            printf("\nOpcao invalida!\n");
+            break;
+          }
+          break;
         default:
         {
-          printf("\nOpção inválida!\n");
+          printf("\nOpcao invalida!\n");
         }
         break;
         }
+        }
       }
-    }
-    break;
+      break;
     // PROFESSOR
     case 2:
     {
@@ -163,43 +179,43 @@ int main(void)
         }
         case 1:
         {
-          printf("\nCadastramento do professor\n");
+          printf("\n>>>Cadastramento do professor<<<\n");
           int R_professor = cadastrar_professor(p, &P_ativo);
           switch (R_professor)
           {
           case 0:
           {
-            printf("Professor cadastrado com sucesso");
+            printf("\nProfessor cadastrado com sucesso!\n");
           }
           break;
           case 1:
           {
-            printf("A lista está cheia");
+            printf("\nA lista esta cheia!\n");
           }
           break;
           case 2:
           {
-            printf("Matrícula inválida ou já existente");
+            printf("\nMatricula invalida ou ja existente!\n");
           }
           break;
           case 3:
           {
-            printf("sexo inválido");
+            printf("\nSexo invalido!\n");
           }
           break;
           case 4:
           {
-            printf("CPF inválildo");
+            printf("\nCPF invalido!\n");
           }
           break;
           case 5:
           {
-            printf("data inválida");
+            printf("\nData invalida!\n");
           }
           break;
           default:
           {
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
           }
           break;
           }
@@ -208,12 +224,12 @@ int main(void)
         case 2:
           if (listar_professor(p, &P_ativo) == 1)
           {
-            printf("\n>>>Não ha professores cadastrados!<<<\n");
+            printf("\nNao ha professores cadastrados!\n");
           }
           break;
         case 3:
         {
-          printf("Atualizar cadastro do professor\n");
+          printf("\n>>>Atualizar cadastro do professor<<<\n");
           int P_Atualizar = atualizar_professor(p, &P_ativo);
           switch (P_Atualizar)
           {
@@ -221,33 +237,50 @@ int main(void)
             printf("\nCadastro atualizado com sucesso!\n");
             break;
           case 1:
-            printf("\n>>>Não ha professores cadastrados!<<<\n");
+            printf("\nNao ha professores cadastrados!\n");
             break;
           case 2:
-            printf("\n>>>Matrícula não encontrada!<<<\n");
+            printf("\nMatricula nao encontrada!\n");
             break;
           case 3:
-            printf("\n>>>Sexo inválido!<<<\n");
+            printf("\nSexo invalido!\n");
             break;
           case 4:
-            printf("\n>>>CPF inválido!<<<\n");
+            printf("\nCPF invalido!\n");
             break;
           case 5:
-            printf("\n>>>Data de nascimento inválida!<<<\n");
+            printf("\nData de nascimento invalida!\n");
             break;
           default:
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
             break;
           }
         }
         // EXCLUIR
         case 4:
         {
+          printf("\n>>>Excluir cadastro do professor<<<\n");
+          int P_Excluir = excluir_professor(p, &P_ativo);
+          switch (P_Excluir)
+          {
+          case 0:
+            printf("\nProfessor excluido com sucesso!\n");
+            break;
+          case 1:
+            printf("\nNao ha professores cadastrados!\n");
+            break;
+          case 2:
+            printf("\nMatricula nao encontrada!\n");
+            break;
+          default:
+            printf("\nOpcao invalida!\n");
+            break;
+          }
         }
         break;
         default:
         {
-          printf("\nOpção inválida!\n");
+          printf("\nOpcao invalida!\n");
         }
         break;
         }
@@ -271,7 +304,7 @@ int main(void)
         }
         case 1:
         {
-          printf("\nCadastramento de disciplina!\n");
+          printf("\n>>>Cadastramento de disciplina!<<<\n");
           int D_cadastrar = cadastrar_disciplina(d, &D_ativa, p, &P_ativo);
           switch (D_cadastrar)
           {
@@ -279,22 +312,22 @@ int main(void)
             printf("\nDisciplina cadastrada com sucesso!\n");
             break;
           case 1:
-            printf("\n>>>Não ha professores cadastrados!<<<\n");
+            printf("\nNao ha professores cadastrados!\n");
             break;
           case 2:
             printf("\nLimite de disciplinas cadastradas alcançado!\n");
             break;
           case 3:
-            printf("\nSemestre inválido!\n");
+            printf("\nSemestre invalido!\n");
             break;
           case 4:
-            printf("\nProfessor não encontrado!\n");
+            printf("\nProfessor nao encontrado!\n");
             break;
           case 5:
-            printf("\nQuantidade de vagas inválida!\n");
+            printf("\nQuantidade de vagas invalida!\n");
             break;
           default:
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
             break;
           }
         }
@@ -303,13 +336,13 @@ int main(void)
         {
           if (listar_disciplina(d, &D_ativa, p, &P_ativo) == 1)
           {
-            printf("\n>>>Não ha disciplinas cadastradas!<<<\n");
+            printf("\nNao ha disciplinas cadastradas!\n");
           }
         }
         break;
         case 3:
         {
-          printf("\nAtualizar dados da disciplina!\n");
+          printf("\n>>>Atualizar dados da disciplina!<<<\n");
           int D_atualizar = atualizar_disciplina(d, &D_ativa, p, &P_ativo);
           switch (D_atualizar)
           {
@@ -320,30 +353,47 @@ int main(void)
             printf("\nLimite de disciplinas cadastradas alcançado!\n");
             break;
           case 2:
-            printf("\nCódigo inválido!\n");
+            printf("\nCodigo invalido!\n");
             break;
           case 3:
-            printf("\nSemestre inválido!\n");
+            printf("\nSemestre invalido!\n");
             break;
           case 4:
-            printf("\nProfessor não encontrado!\n");
+            printf("\nProfessor nao encontrado!\n");
             break;
           case 5:
-            printf("\nQuantidade de vagas inválida!\n");
+            printf("\nQuantidade de vagas invalida!\n");
             break;
           default:
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
             break;
           }
         }
         break;
         case 4:
         {
+          printf("\n>>>Excluir disciplina!<<<\n");
+          int D_excluir = excluir_disciplina(d, &D_ativa);
+          switch (D_excluir)
+          {
+          case 0:
+            printf("\nDisciplina excluida com sucesso!\n");
+            break;
+          case 1:
+            printf("\nNao ha disciplinas cadastradas!\n");
+            break;
+          case 2:
+            printf("\nCodigo da disciplina nao encontrado!\n");
+            break;
+          default:
+            printf("\nOpcao invalida!\n");
+            break;
+          }
         }
         break;
         case 5:
         {
-          printf("\nMatricular aluno na disciplina!\n");
+          printf("\n>>>Matricular aluno na disciplina!<<<\n");
           int D_A_matricular = matricular_aluno_disciplina(d, &D_ativa, a, &A_ativo);
           switch (D_A_matricular)
           {
@@ -351,32 +401,58 @@ int main(void)
             printf("\nAluno matriculado com sucesso!\n");
             break;
           case 1:
-            printf("\nNão ha disciplinas cadastradas!\n");
+            printf("\nNao ha disciplinas cadastradas!\n");
             break;
           case 2:
-            printf("\nNão ha alunos cadastrados!\n");
+            printf("\nNao ha alunos cadastrados!\n");
             break;
           case 3:
-            printf("\nDisciplina sem vagas disponíveis!\n");
+            printf("\nDisciplina sem vagas disponiveis!\n");
             break;
           case 4:
-            printf("\nCódigo da matrícula não encontrado!\n");
+            printf("\nCodigo da matricula nao encontrado!\n");
             break;
           case 5:
-            printf("\nMatrícula do aluno não encontrada!\n");
+            printf("\nMatricula do aluno nao encontrada!\n");
             break;
           default:
-            printf("\nOpção inválida!\n");
+            printf("\nOpcao invalida!\n");
             break;
           }
         }
         break;
         case 6:
         {
+          printf("\n>>>Excluir aluno da disciplina!<<<\n");
+          int D_A_excluir = excluir_aluno_disciplina(d, &D_ativa, a, &A_ativo);
+          switch (D_A_excluir)
+          {
+          case 0:
+            printf("\nAluno excluido da disciplina com sucesso!\n");
+            break;
+          case 1:
+            printf("\nNao ha disciplinas cadastradas!\n");
+            break;
+          case 2:
+            printf("\nNao ha alunos cadastrados!\n");
+            break;
+          case 3:
+            printf("\nCodigo da matricula nao encontrado!\n");
+            break;
+          case 4:
+            printf("\nMatricula do aluno nao encontrada!\n");
+            break;
+          case 5:
+            printf("\nAluno Nao matriculado nessa disciplina!\n");
+            break;
+          default:
+            printf("\nOpcao invalida!\n");
+            break;
+          }
         }
         default:
         {
-          printf("\nOpção inválida!\n");
+          printf("\nOpcao invalida!\n");
         }
         break;
         }
@@ -456,7 +532,7 @@ int main(void)
         break;
         default:
         {
-          printf("\nOpção inválida!\n");
+          printf("\nOpcao invalida!\n");
         }
         break;
         }
@@ -465,65 +541,65 @@ int main(void)
     break;
     default:
     {
-      printf("\nOpção inválida!\n");
+      printf("\nOpcao invalida!\n");
     }
     break;
     }
+    }
   }
-}
 
-int menu_principal()
-{
-  int PE;
-  printf("\n>>>PROJETO ESCOLA<<<\n");
-  printf("0 - Sair\n");
-  printf("1 - Menu aluno\n");
-  printf("2 - Menu professor\n");
-  printf("3 - Menu disciplina\n");
-  printf("4 - Menu relatórios\n");
-  scanf("%d", &PE);
-  return PE;
-}
+  int menu_principal()
+  {
+    int PE;
+    printf("\n>>>PROJETO ESCOLA<<<\n");
+    printf("0 - Sair\n");
+    printf("1 - Menu aluno\n");
+    printf("2 - Menu professor\n");
+    printf("3 - Menu disciplina\n");
+    printf("4 - Menu relatórios\n");
+    scanf("%d", &PE);
+    return PE;
+  }
 
-int menu_aluno()
-{
-  int MA;
-  printf("\n>>>MENU ALUNO<<<\n");
-  printf("0 - Sair\n");
-  printf("1 - Cadastrar aluno\n");
-  printf("2 - Listar alunos cadastrados\n");
-  printf("3 - Atualizar cadastro de aluno\n");
-  printf("4 - Excluir cadastro de aluno\n");
-  scanf("%d", &MA);
-  return MA;
-}
+  int menu_aluno()
+  {
+    int MA;
+    printf("\n>>>MENU ALUNO<<<\n");
+    printf("0 - Sair\n");
+    printf("1 - Cadastrar aluno\n");
+    printf("2 - Listar alunos cadastrados\n");
+    printf("3 - Atualizar cadastro de aluno\n");
+    printf("4 - Excluir cadastro de aluno\n");
+    scanf("%d", &MA);
+    return MA;
+  }
 
-int menu_professor()
-{
-  int MP;
-  printf("\n>>>MENU PROFESSOR<<<\n");
-  printf("0 - Sair\n");
-  printf("1 - Cadastrar professor\n");
-  printf("2 - Listar professores cadastrados\n");
-  printf("3 - Atualizar cadastro do professor\n");
-  printf("4 - Excluir cadastro do professor\n");
-  scanf("%d", &MP);
-  return MP;
-}
+  int menu_professor()
+  {
+    int MP;
+    printf("\n>>>MENU PROFESSOR<<<\n");
+    printf("0 - Sair\n");
+    printf("1 - Cadastrar professor\n");
+    printf("2 - Listar professores cadastrados\n");
+    printf("3 - Atualizar cadastro do professor\n");
+    printf("4 - Excluir cadastro do professor\n");
+    scanf("%d", &MP);
+    return MP;
+  }
 
-int menu_disciplina()
-{
-  int MD;
-  printf("\n>>>MENU DISCIPLINA<<<\n");
-  printf("0 - Sair\n");
-  printf("1 - Cadastrar disciplina\n");
-  printf("2 - Listar disciplinas cadastrados\n");
-  printf("3 - Atualizar disciplina\n");
-  printf("4 - Excluir disciplina\n");
-  scanf("%d", &MD);
-  return MD;
-}
+  int menu_disciplina()
+  {
+    int MD;
+    printf("\n>>>MENU DISCIPLINA<<<\n");
+    printf("0 - Sair\n");
+    printf("1 - Cadastrar disciplina\n");
+    printf("2 - Listar disciplinas cadastrados\n");
+    printf("3 - Atualizar disciplina\n");
+    printf("4 - Excluir disciplina\n");
+    scanf("%d", &MD);
+    return MD;
+  }
 
-int menu_relatorios()
-{
-}
+  int menu_relatorios()
+  {
+  }

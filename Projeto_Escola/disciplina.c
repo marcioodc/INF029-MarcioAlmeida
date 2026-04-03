@@ -200,6 +200,36 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     }
 }
 
+int excluir_disciplina(disciplina d[], int *D_ativa)
+{
+    char busca_codigo[10];
+    int pos = -1;
+    if (*D_ativa == 0)
+    {
+        return 1;
+    }
+    printf("\nInforme o código da disciplina que deseja excluir: ");
+    scanf("%s", busca_codigo);
+    for (int i = 0; i < *D_ativa; i++)
+    {
+        if (strcmp(busca_codigo, d[i].codigo) == 0)
+        {
+            pos = i;
+            break;
+        }
+    }
+    if (pos == -1)
+    {
+        return 2;
+    }
+    for (int j = pos; j < *D_ativa - 1; j++)
+    {
+        d[j] = d[j + 1];
+    }
+    (*D_ativa)--;
+    return 0;
+}
+
 int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
 {
     char dcodigo[10];
@@ -245,4 +275,50 @@ int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_
         }
     }
     return 4;
+}
+
+int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
+{
+    char dcodigo[10];
+    int a_matricula;
+    if (*D_ativa == 0)
+    {
+        return 1;
+    }
+    if (*A_ativo == 0)
+    {
+        return 2;
+    }
+
+    printf("\nInforme o código da disciplina para excluir o aluno: ");
+    scanf("%s", dcodigo);
+    for (int i = 0; i < *D_ativa; i++)
+    {
+        if (strcmp(dcodigo, d[i].codigo) == 0)
+        {
+            printf("\nInforme a matrícula do aluno: ");
+            scanf("%d", &a_matricula);
+            for (int j = 0; j < *A_ativo; j++)
+            {
+                if (a_matricula == a[j].matricula)
+                {
+                    for (int k = 0; k < d[i].qtdalunos; k++)
+                    {
+                        if (d[i].alunos_matriculados[k] == a_matricula)
+                        {
+                            for (int l = k; l < d[i].qtdalunos - 1; l++)
+                            {
+                                d[i].alunos_matriculados[l] = d[i].alunos_matriculados[l + 1];
+                            }
+                            d[i].qtdalunos--;
+                            return 0;
+                        }
+                    }
+                    return 5;
+                }
+            }
+            return 4;
+        }
+    }
+    return 3;
 }

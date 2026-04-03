@@ -183,4 +183,30 @@ int atualizar_professor(professor p[], int *P_ativo)
 
 int excluir_professor(professor p[], int *P_ativo)
 {
+    int busca_matricula;
+    int pos = -1;
+    if (*P_ativo == 0)
+    {
+        return 1;
+    }
+    printf("\nInforme a matrícula do professor que deseja excluir: ");
+    scanf("%d", &busca_matricula);
+    for (int i = 0; i < *P_ativo; i++)
+    {
+        if (busca_matricula == p[i].matricula)
+        {
+            pos = i;
+            break;
+        }
+    }
+    if (pos == -1)
+    {
+        return 2;
+    }
+    for (int j = pos; j < *P_ativo - 1; j++)
+    {
+        p[j] = p[j + 1];
+    }
+    (*P_ativo)--;
+    return 0;
 }
