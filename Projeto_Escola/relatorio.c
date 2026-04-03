@@ -69,3 +69,51 @@ int listar_alunos_disciplina(disciplina d[], int *D_ativo, aluno a[], int *A_ati
     }
     return 0;
 }
+
+int listar_alunos_sexo(aluno a[], int *A_ativo)
+{
+    if (*A_ativo == 0)
+    {
+        return 1;
+    }
+    printf("\n>>>Listagem de alunos por sexo<<<\n");
+    for (int i = 0; i < *A_ativo; i++)
+    {
+        if (a[i].sexo == 'm' || a[i].sexo == 'M')
+        {
+            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        }
+        if (a[i].sexo == 'f' || a[i].sexo == 'F')
+        {
+            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        }
+    }
+    return 0;
+}
+
+int alunos_ordenados_nome(aluno a[], int *A_ativo)
+{
+    if (*A_ativo == 0)
+    {
+        return 1;
+    }
+    printf("\n>>>Listagem de alunos por nome<<<\n");
+    aluno aux;
+    for (int i = 0; i < *A_ativo - 1; i++)
+    {
+        for (int j = 0; j < *A_ativo - i - 1; j++)
+        {
+            if (strcmp(a[j].nome, a[j + 1].nome) > 0)
+            {
+                aux = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = aux;
+            }
+        }
+    }
+    for (int i = 0; i < *A_ativo; i++)
+    {
+        printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+    }
+    return 0;
+}
