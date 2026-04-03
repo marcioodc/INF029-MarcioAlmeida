@@ -38,9 +38,8 @@ int cadastrar_professor(professor p[], int *P_ativo)
     else
     {
         int matricula;
-        printf("\nInforme a matrícula: ");
+        printf("\nInforme a matricula: ");
         scanf("%d", &matricula);
-        // VERIFICA SE A MATRICULA É VÁLIDA
         if (valida_matricula(p, matricula, P_ativo) != 0)
         {
             return 2;
@@ -48,12 +47,10 @@ int cadastrar_professor(professor p[], int *P_ativo)
         p[*P_ativo].matricula = matricula;
 
         getchar();
-        // NOME
         printf("Informe o nome: ");
         fgets(p[*P_ativo].nome, sizeof(p[*P_ativo].nome), stdin);
         p[*P_ativo].nome[strcspn(p[*P_ativo].nome, "\n")] = '\0';
 
-        // SEXO
         char sexo;
         printf("Informe o sexo (F ou M): ");
         scanf(" %c", &sexo);
@@ -64,7 +61,6 @@ int cadastrar_professor(professor p[], int *P_ativo)
         }
         p[*P_ativo].sexo = sexo;
 
-        // CPF
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
@@ -74,7 +70,6 @@ int cadastrar_professor(professor p[], int *P_ativo)
         }
         strcpy(p[*P_ativo].cpf, cpf);
 
-        // DATA NASCIMENTO
         printf("Informe a data de nascimento: ");
         scanf("%s", p[*P_ativo].data_nascimento);
 
@@ -89,12 +84,11 @@ int listar_professor(professor p[], int *P_ativo)
     {
         return 1;
     }
-
     int j = 1;
     printf("\n>>>professores cadastrados<<<\n");
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("\nMatrícula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", p[i].matricula, p[i].nome, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("\nMatricula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", p[i].matricula, p[i].nome, p[i].sexo, p[i].cpf, p[i].data_nascimento);
         printf("\n");
     }
     return 0;
@@ -109,7 +103,7 @@ int atualizar_professor(professor p[], int *P_ativo)
     {
         return 1;
     }
-    printf("\nInforme a matrícula do professor que deseja atualizar: ");
+    printf("\nInforme a matricula do professor que deseja atualizar: ");
     scanf("%d", &busca_matricula);
     for (int i = 0; i < *P_ativo; i++)
     {
@@ -124,30 +118,34 @@ int atualizar_professor(professor p[], int *P_ativo)
         return 2;
     }
     printf("\nO que deseja atualizar?\n");
-    printf("1 - Matrícula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
+    printf("1 - Matricula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
     scanf("%d", &OpAtualizar);
     switch (OpAtualizar)
     {
     case 1:
+    {
         int matricula;
-        printf("\nInforme a matrícula: ");
+        printf("\nInforme a matricula: ");
         scanf("%d", &matricula);
-        // VERIFICA SE A MATRICULA É VÁLIDA
         if (valida_matricula(p, matricula, P_ativo) != 0)
         {
             return 2;
         }
         p[pos].matricula = matricula;
         return 0;
-        break;
+    }
+    break;
     case 2:
+    {
         getchar();
         printf("Informe o nome: ");
         fgets(p[pos].nome, sizeof(p[pos].nome), stdin);
         p[pos].nome[strcspn(p[pos].nome, "\n")] = '\0';
         return 0;
-        break;
+    }
+    break;
     case 3:
+    {
         char sexo;
         printf("Informe o sexo (F ou M): ");
         scanf(" %c", &sexo);
@@ -158,8 +156,10 @@ int atualizar_professor(professor p[], int *P_ativo)
         }
         p[pos].sexo = sexo;
         return 0;
-        break;
+    }
+    break;
     case 4:
+    {
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
@@ -169,15 +169,21 @@ int atualizar_professor(professor p[], int *P_ativo)
         }
         strcpy(p[pos].cpf, cpf);
         return 0;
-        break;
+    }
+    break;
     case 5:
+    {
         printf("Informe a data de nascimento: ");
         scanf("%s", p[pos].data_nascimento);
         return 0;
-        break;
+    }
+    break;
     default:
-        printf("\nOpção inválida!\n");
+    {
+        printf("\nOpcao invalida!\n");
         return 0;
+        break;
+    }
     }
 }
 
@@ -189,7 +195,7 @@ int excluir_professor(professor p[], int *P_ativo)
     {
         return 1;
     }
-    printf("\nInforme a matrícula do professor que deseja excluir: ");
+    printf("\nInforme a matricula do professor que deseja excluir: ");
     scanf("%d", &busca_matricula);
     for (int i = 0; i < *P_ativo; i++)
     {

@@ -32,9 +32,8 @@ int main(void)
     {
       printf("\n>>>Finalizando o projeto<<<\n");
       sair = 1;
-      break;
     }
-    // ALUNO
+    break;
     case 1:
     {
       int opaluno = 0;
@@ -47,9 +46,8 @@ int main(void)
         {
           printf("\n>>>Voltando ao menu principal<<<\n");
           opaluno = 1;
-          break;
         }
-        // CADASTRAR
+        break;
         case 1:
         {
           printf("\n>>>Cadastramento de aluno<<<\n");
@@ -89,11 +87,11 @@ int main(void)
           default:
           {
             printf("\nOpcao invalida!\n");
+            break;
           }
           }
         }
         break;
-        // LISTAR
         case 2:
         {
           if (listar_aluno(a, &ativo) == 1)
@@ -102,7 +100,6 @@ int main(void)
           }
         }
         break;
-        // ATUALIZAR
         case 3:
         {
           printf("\n>>>Atualizar cadastro de aluno<<<\n");
@@ -132,7 +129,7 @@ int main(void)
             break;
           }
         }
-        // EXCLUIR
+        break;
         case 4:
         {
           printf("\n>>>Excluir cadastro de aluno<<<\n");
@@ -152,17 +149,15 @@ int main(void)
             printf("\nOpcao invalida!\n");
             break;
           }
-          break;
-        default:
-        {
-          printf("\nOpcao invalida!\n");
         }
         break;
-        }
+        default:
+          printf("\nOpcao invalida!\n");
+          break;
         }
       }
-      break;
-    // PROFESSOR
+    }
+    break;
     case 2:
     {
       int opprofessor = 0;
@@ -175,8 +170,8 @@ int main(void)
         {
           printf("\n>>>Voltando ao menu principal<<<\n");
           opprofessor = 1;
-          break;
         }
+        break;
         case 1:
         {
           printf("\n>>>Cadastramento do professor<<<\n");
@@ -222,11 +217,13 @@ int main(void)
         }
         break;
         case 2:
+        {
           if (listar_professor(p, &P_ativo) == 1)
           {
             printf("\nNao ha professores cadastrados!\n");
           }
-          break;
+        }
+        break;
         case 3:
         {
           printf("\n>>>Atualizar cadastro do professor<<<\n");
@@ -256,7 +253,7 @@ int main(void)
             break;
           }
         }
-        // EXCLUIR
+        break;
         case 4:
         {
           printf("\n>>>Excluir cadastro do professor<<<\n");
@@ -287,7 +284,6 @@ int main(void)
       }
     }
     break;
-    // DISCIPLINA
     case 3:
     {
       int opdisciplina = 0;
@@ -300,8 +296,8 @@ int main(void)
         {
           printf("\n>>>Voltando ao menu principal<<<\n");
           opdisciplina = 1;
-          break;
         }
+        break;
         case 1:
         {
           printf("\n>>>Cadastramento de disciplina!<<<\n");
@@ -450,16 +446,14 @@ int main(void)
             break;
           }
         }
-        default:
-        {
-          printf("\nOpcao invalida!\n");
-        }
         break;
+        default:
+          printf("\nOpcao invalida!\n");
+          break;
         }
       }
     }
     break;
-    // RELATÓRIOS
     case 4:
     {
       int oprelatorios = 0;
@@ -472,8 +466,8 @@ int main(void)
         {
           printf("\n>>>Voltando ao menu principal<<<\n");
           oprelatorios = 1;
-          break;
         }
+        break;
         case 1:
         {
         }
@@ -533,73 +527,71 @@ int main(void)
         default:
         {
           printf("\nOpcao invalida!\n");
+          break;
         }
-        break;
         }
       }
     }
     break;
     default:
-    {
       printf("\nOpcao invalida!\n");
-    }
-    break;
-    }
+      break;
     }
   }
+}
 
-  int menu_principal()
-  {
-    int PE;
-    printf("\n>>>PROJETO ESCOLA<<<\n");
-    printf("0 - Sair\n");
-    printf("1 - Menu aluno\n");
-    printf("2 - Menu professor\n");
-    printf("3 - Menu disciplina\n");
-    printf("4 - Menu relatórios\n");
-    scanf("%d", &PE);
-    return PE;
-  }
+int menu_principal()
+{
+  int PE;
+  printf("\n>>>PROJETO ESCOLA<<<\n");
+  printf("0 - Sair\n");
+  printf("1 - Menu aluno\n");
+  printf("2 - Menu professor\n");
+  printf("3 - Menu disciplina\n");
+  printf("4 - Menu relatórios\n");
+  scanf("%d", &PE);
+  return PE;
+}
 
-  int menu_aluno()
-  {
-    int MA;
-    printf("\n>>>MENU ALUNO<<<\n");
-    printf("0 - Sair\n");
-    printf("1 - Cadastrar aluno\n");
-    printf("2 - Listar alunos cadastrados\n");
-    printf("3 - Atualizar cadastro de aluno\n");
-    printf("4 - Excluir cadastro de aluno\n");
-    scanf("%d", &MA);
-    return MA;
-  }
+int menu_aluno()
+{
+  int MA;
+  printf("\n>>>MENU ALUNO<<<\n");
+  printf("0 - Sair\n");
+  printf("1 - Cadastrar aluno\n");
+  printf("2 - Listar alunos cadastrados\n");
+  printf("3 - Atualizar cadastro de aluno\n");
+  printf("4 - Excluir cadastro de aluno\n");
+  scanf("%d", &MA);
+  return MA;
+}
 
-  int menu_professor()
-  {
-    int MP;
-    printf("\n>>>MENU PROFESSOR<<<\n");
-    printf("0 - Sair\n");
-    printf("1 - Cadastrar professor\n");
-    printf("2 - Listar professores cadastrados\n");
-    printf("3 - Atualizar cadastro do professor\n");
-    printf("4 - Excluir cadastro do professor\n");
-    scanf("%d", &MP);
-    return MP;
-  }
+int menu_professor()
+{
+  int MP;
+  printf("\n>>>MENU PROFESSOR<<<\n");
+  printf("0 - Sair\n");
+  printf("1 - Cadastrar professor\n");
+  printf("2 - Listar professores cadastrados\n");
+  printf("3 - Atualizar cadastro do professor\n");
+  printf("4 - Excluir cadastro do professor\n");
+  scanf("%d", &MP);
+  return MP;
+}
 
-  int menu_disciplina()
-  {
-    int MD;
-    printf("\n>>>MENU DISCIPLINA<<<\n");
-    printf("0 - Sair\n");
-    printf("1 - Cadastrar disciplina\n");
-    printf("2 - Listar disciplinas cadastrados\n");
-    printf("3 - Atualizar disciplina\n");
-    printf("4 - Excluir disciplina\n");
-    scanf("%d", &MD);
-    return MD;
-  }
+int menu_disciplina()
+{
+  int MD;
+  printf("\n>>>MENU DISCIPLINA<<<\n");
+  printf("0 - Sair\n");
+  printf("1 - Cadastrar disciplina\n");
+  printf("2 - Listar disciplinas cadastrados\n");
+  printf("3 - Atualizar disciplina\n");
+  printf("4 - Excluir disciplina\n");
+  scanf("%d", &MD);
+  return MD;
+}
 
-  int menu_relatorios()
-  {
-  }
+int menu_relatorios()
+{
+}

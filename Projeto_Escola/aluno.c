@@ -38,9 +38,8 @@ int cadastrar_aluno(aluno a[], int *ativo)
     else
     {
         int matricula;
-        printf("\nInforme a matrícula: ");
+        printf("\nInforme a matricula: ");
         scanf("%d", &matricula);
-        // VERIFICA SE A MATRICULA É VÁLIDA
         if (validar_matricula(a, matricula, ativo) != 0)
         {
             return 2;
@@ -94,7 +93,7 @@ int listar_aluno(aluno a[], int *ativo)
     printf("\n>>>Alunos cadastrados<<<\n");
     for (int i = 0; i < *ativo; i++)
     {
-        printf("\t%d\nMatrícula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\t%d\nMatricula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
         printf("\n");
     }
     return 0;
@@ -109,7 +108,7 @@ int atualizar_aluno(aluno a[], int *ativo)
     {
         return 1;
     }
-    printf("\nInforme a matrícula do aluno que deseja atualizar: ");
+    printf("\nInforme a matricula do aluno que deseja atualizar: ");
     scanf("%d", &busca_matricula);
     for (int i = 0; i < *ativo; i++)
     {
@@ -124,30 +123,34 @@ int atualizar_aluno(aluno a[], int *ativo)
         return 2;
     }
     printf("\nO que deseja atualizar?\n");
-    printf("1 - Matrícula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
+    printf("1 - Matricula\n2 - Nome\n3 - Sexo\n4 - CPF\n5 - Data de Nascimento\n");
     scanf("%d", &OpAtualizar);
     switch (OpAtualizar)
     {
     case 1:
+    {
         int matricula;
-        printf("\nInforme a matrícula: ");
+        printf("\nInforme a matricula: ");
         scanf("%d", &matricula);
-        // VERIFICA SE A MATRICULA É VÁLIDA
         if (validar_matricula(a, matricula, ativo) != 0)
         {
             return 2;
         }
         a[pos].matricula = matricula;
         return 0;
-        break;
+    }
+    break;
     case 2:
+    {
         getchar();
         printf("Informe o nome: ");
         fgets(a[pos].nome, sizeof(a[pos].nome), stdin);
         a[pos].nome[strcspn(a[pos].nome, "\n")] = '\0';
         return 0;
-        break;
+    }
+    break;
     case 3:
+    {
         char sexo;
         printf("Informe o sexo (F ou M): ");
         scanf(" %c", &sexo);
@@ -158,8 +161,10 @@ int atualizar_aluno(aluno a[], int *ativo)
         }
         a[pos].sexo = sexo;
         return 0;
-        break;
+    }
+    break;
     case 4:
+    {
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
@@ -169,15 +174,21 @@ int atualizar_aluno(aluno a[], int *ativo)
         }
         strcpy(a[pos].cpf, cpf);
         return 0;
-        break;
+    }
+    break;
     case 5:
+    {
         printf("Informe a data de nascimento: ");
         scanf("%s", a[pos].data_nascimento);
         return 0;
-        break;
+    }
+    break;
     default:
-        printf("\nOpção inválida!\n");
+    {
+        printf("\nOpcao invalida!\n");
         return 0;
+        break;
+    }
     }
 }
 
@@ -189,7 +200,7 @@ int excluir_aluno(aluno a[], int *ativo)
     {
         return 1;
     }
-    printf("\nInforme a matrícula do aluno que deseja excluir: ");
+    printf("\nInforme a matricula do aluno que deseja excluir: ");
     scanf("%d", &busca_matricula);
     for (int i = 0; i < *ativo; i++)
     {
