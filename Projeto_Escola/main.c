@@ -18,7 +18,8 @@ int main(void)
   professor p[tam_professor];
   disciplina d[QTDISCIPLINA];
   int P_ativo = 0;
-  int D_ativo = 0;
+  int D_ativa = 0;
+  int A_ativo = 0;
   int sair = 0;
   int ativo = 0;
 
@@ -271,7 +272,7 @@ int main(void)
         case 1:
         {
           printf("\nCadastramento de disciplina!\n");
-          int D_cadastrar = cadastrar_disciplina(d, &D_ativo, p, &P_ativo);
+          int D_cadastrar = cadastrar_disciplina(d, &D_ativa, p, &P_ativo);
           switch (D_cadastrar)
           {
           case 0:
@@ -300,7 +301,7 @@ int main(void)
         break;
         case 2:
         {
-          if (listar_disciplina(d, &D_ativo, p) == 1)
+          if (listar_disciplina(d, &D_ativa, p) == 1)
           {
             printf("\n>>>Não ha disciplinas cadastradas!<<<\n");
           }
@@ -308,12 +309,71 @@ int main(void)
         break;
         case 3:
         {
+          printf("\nAtualizar dados da disciplina!\n");
+          int D_atualizar = atualizar_disciplina(d, &D_ativa, p, &P_ativo);
+          switch (D_atualizar)
+          {
+          case 0:
+            printf("\nDisciplina atualizada com sucesso!\n");
+            break;
+          case 1:
+            printf("\nLimite de disciplinas cadastradas alcançado!\n");
+            break;
+          case 2:
+            printf("\nCódigo inválido!\n");
+            break;
+          case 3:
+            printf("\nSemestre inválido!\n");
+            break;
+          case 4:
+            printf("\nProfessor não encontrado!\n");
+            break;
+          case 5:
+            printf("\nQuantidade de vagas inválida!\n");
+            break;
+          default:
+            printf("\nOpção inválida!\n");
+            break;
+          }
         }
         break;
         case 4:
         {
         }
         break;
+        case 5:
+        {
+          printf("\nMatricular aluno na disciplina!\n");
+          int D_A_matricular = matricular_aluno_disciplina(d, &D_ativa, a, &A_ativo);
+          switch (D_A_matricular)
+          {
+          case 0:
+            printf("\nAluno matriculado com sucesso!\n");
+            break;
+          case 1:
+            printf("\nNão ha disciplinas cadastradas!\n");
+            break;
+          case 2:
+            printf("\nNão ha alunos cadastrados!\n");
+            break;
+          case 3:
+            printf("\nDisciplina sem vagas disponíveis!\n");
+            break;
+          case 4:
+            printf("\nCódigo da matrícula não encontrado!\n");
+            break;
+          case 5:
+            printf("\nMatrícula do aluno não encontrada!\n");
+            break;
+          default:
+            printf("\nOpção inválida!\n");
+            break;
+          }
+        }
+        break;
+        case 6:
+        {
+        }
         default:
         {
           printf("\nOpção inválida!\n");

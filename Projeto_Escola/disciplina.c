@@ -197,3 +197,48 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         return 0;
     }
 }
+
+int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
+{
+    char dcodigo[10];
+    int a_matricula;
+    if (*D_ativa == 0)
+    {
+        return 1;
+    }
+    if (*A_ativo == 0)
+    {
+        return 2;
+    }
+    if (d[*D_ativa].qtdvagas == 0)
+    {
+        return 3;
+    }
+    printf("\nInforme o código da disciplina para matricular o aluno: ");
+    scanf("%s", &dcodigo);
+    for (int i = 0; i < *D_ativa; i++)
+    {
+        if (strcmp(dcodigo, d[i].codigo) == 0)
+        {
+            printf("\nInforme a matrícula do aluno: ");
+            scanf("%d", &a_matricula);
+            for (int j = 0; j < *A_ativo; j++)
+            {
+                if (a_matricula == a[j].matricula)
+                {
+                    d[i].aluno_matriculado = a[j].matricula;
+                    d[i].qtdvagas--;
+                    return 0;
+                }
+                else
+                {
+                    return 5;
+                }
+            }
+        }
+        else
+        {
+            return 4;
+        }
+    }
+}
