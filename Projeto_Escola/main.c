@@ -503,10 +503,18 @@ int main(void)
         break;
         case 5:
         {
+          if (listar_alunos_sexo(a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
         }
         break;
         case 6:
         {
+          if (alunos_ordenados_nome(a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
         }
         break;
         case 7:
