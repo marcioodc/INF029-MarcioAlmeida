@@ -626,6 +626,8 @@ int menu_relatorios()
   printf("2 - Listar professores cadastrados\n");
   printf("3 - Listar disciplinas cadastradas\n");
   printf("4 - Listar alunos matriculados em cada disciplina\n");
+  printf("5 - Listar alunos por sexo\n");
+  printf("6 - Listar alunos ordenados por nome\n");
   scanf("%d", &MR);
   return MR;
 }
