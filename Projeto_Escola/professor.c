@@ -231,7 +231,7 @@ int atualizar_professor(professor p[], int *P_ativo)
 
 int excluir_professor(professor p[], int *P_ativo)
 {
-    char busca_matricula;
+    char busca_matricula[10];
     int pos = -1;
     if (*P_ativo == 0)
     {

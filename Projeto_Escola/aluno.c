@@ -229,7 +229,7 @@ int atualizar_aluno(aluno a[], int *ativo)
 
 int excluir_aluno(aluno a[], int *ativo)
 {
-    char busca_matricula;
+    char busca_matricula[10];
     int pos = -1;
     if (*ativo == 0)
     {
