@@ -527,7 +527,7 @@ int main(void)
         break;
         case 8:
         {
-          if (lista_professor_sexo(p, &P_ativo) == 1)
+          if (listar_professor_sexo(p, &P_ativo) == 1)
           {
             printf("\nNao ha professores cadastrados!\n");
           }

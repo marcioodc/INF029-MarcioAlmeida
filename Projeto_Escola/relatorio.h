@@ -17,7 +17,7 @@ int professores_ordenados_data(professor p[], int *P_ativo);
 int professores_ordenados_nome(professor p[], int *P_ativo);
 int aniversariantes_mes(professor p[], int *P_ativo, aluno a[], int *A_ativo);
 int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo);
-int alunos_matriculados_3_disciplinas(aluno a[], int *A_ativo, disciplina d[], int *D_ativa);
+int alunos_matriculados_3_disciplinas(disciplina d[], int *D_ativa, aluno a[], int *A_ativo);
 int disciplinas_professor_40_vagas(disciplina d[], int *D_ativa, professor p[], int *P_ativo);
 
 #endif
