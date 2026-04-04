@@ -94,7 +94,7 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo)
         printf("Disciplina: %s\nCodigo: %s\nSemestre: %d\nVagas disponiveis: %d\n", d[i].nome, d[i].codigo, d[i].semestre, d[i].vagas_total - d[i].qtdalunos);
         for (int j = 0; j < *P_ativo; j++)
         {
-            if (d[i].matricula_professor == p[j].matricula)
+            if (strcmp(d[i].matricula_professor, p[j].matricula) == 0)
             {
                 printf("Professor: %s\n", p[j].nome);
                 break;
@@ -170,16 +170,16 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     break;
     case 4:
     {
-        int matricula;
+        char matricula[10];
         int achou = -1;
         printf("Informe a matricula do professor responsavel pela disciplina: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         for (int i = 0; i < *P_ativo; i++)
         {
-            if (matricula == p[i].matricula)
+            if (strcmp(matricula, p[i].matricula) == 0)
             {
                 achou = 1;
-                d[pos].matricula_professor = matricula;
+                strcpy(d[pos].matricula_professor, matricula);
                 break;
             }
         }
@@ -246,7 +246,7 @@ int excluir_disciplina(disciplina d[], int *D_ativa)
 int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
 {
     char dcodigo[10];
-    int a_matricula;
+    char a_matricula[10];
     if (*D_ativa == 0)
     {
         return 1;
@@ -267,19 +267,19 @@ int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_
                 return 3;
             }
             printf("\nInforme a matricula do aluno: ");
-            scanf("%d", &a_matricula);
+            scanf("%s", &a_matricula);
             for (int j = 0; j < *A_ativo; j++)
             {
-                if (a_matricula == a[j].matricula)
+                if (strcmp(a_matricula, a[j].matricula) == 0)
                 {
                     for (int k = 0; k < d[i].qtdalunos; k++)
                     {
-                        if (d[i].alunos_matriculados[k] == a_matricula)
+                        if (strcmp(d[i].alunos_matriculados[k], a_matricula) == 0)
                         {
                             return 6;
                         }
                     }
-                    d[i].alunos_matriculados[d[i].qtdalunos] = a_matricula;
+                    strcpy(d[i].alunos_matriculados[d[i].qtdalunos], a_matricula);
                     d[i].qtdalunos++;
                     return 0;
                 }
@@ -293,7 +293,7 @@ int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_
 int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
 {
     char dcodigo[10];
-    int a_matricula;
+    char a_matricula[10];
     if (*D_ativa == 0)
     {
         return 1;
@@ -310,18 +310,18 @@ int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
         if (strcmp(dcodigo, d[i].codigo) == 0)
         {
             printf("\nInforme a matricula do aluno: ");
-            scanf("%d", &a_matricula);
+            scanf("%s", &a_matricula);
             for (int j = 0; j < *A_ativo; j++)
             {
-                if (a_matricula == a[j].matricula)
+                if (strcmp(a_matricula, a[j].matricula) == 0)
                 {
                     for (int k = 0; k < d[i].qtdalunos; k++)
                     {
-                        if (d[i].alunos_matriculados[k] == a_matricula)
+                        if (strcmp(d[i].alunos_matriculados[k], a_matricula) == 0)
                         {
                             for (int l = k; l < d[i].qtdalunos - 1; l++)
                             {
-                                d[i].alunos_matriculados[l] = d[i].alunos_matriculados[l + 1];
+                                strcpy(d[i].alunos_matriculados[l], d[i].alunos_matriculados[l + 1]);
                             }
                             d[i].qtdalunos--;
                             return 0;

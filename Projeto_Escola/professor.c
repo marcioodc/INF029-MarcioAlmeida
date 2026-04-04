@@ -122,7 +122,7 @@ int listar_professor(professor p[], int *P_ativo)
     printf("\n>>>professores cadastrados<<<\n");
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("\nMatricula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", p[i].matricula, p[i].nome, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("\nMatricula: %s\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", p[i].matricula, p[i].nome, p[i].sexo, p[i].cpf, p[i].data_nascimento);
         printf("\n");
     }
     return 0;
@@ -130,7 +130,7 @@ int listar_professor(professor p[], int *P_ativo)
 
 int atualizar_professor(professor p[], int *P_ativo)
 {
-    int busca_matricula;
+    char busca_matricula[10];
     int OpAtualizar;
     int pos = -1;
     if (*P_ativo == 0)
@@ -138,10 +138,10 @@ int atualizar_professor(professor p[], int *P_ativo)
         return 1;
     }
     printf("\nInforme a matricula do professor que deseja atualizar: ");
-    scanf("%d", &busca_matricula);
+    scanf("%s", &busca_matricula);
     for (int i = 0; i < *P_ativo; i++)
     {
-        if (busca_matricula == p[i].matricula)
+        if (strcmp(busca_matricula, p[i].matricula) == 0)
         {
             pos = i;
             break;
@@ -231,17 +231,17 @@ int atualizar_professor(professor p[], int *P_ativo)
 
 int excluir_professor(professor p[], int *P_ativo)
 {
-    int busca_matricula;
+    char busca_matricula;
     int pos = -1;
     if (*P_ativo == 0)
     {
         return 1;
     }
     printf("\nInforme a matricula do professor que deseja excluir: ");
-    scanf("%d", &busca_matricula);
+    scanf("%s", &busca_matricula);
     for (int i = 0; i < *P_ativo; i++)
     {
-        if (busca_matricula == p[i].matricula)
+        if (strcmp(busca_matricula, p[i].matricula) == 0)
         {
             pos = i;
             break;

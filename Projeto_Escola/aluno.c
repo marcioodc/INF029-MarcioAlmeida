@@ -122,7 +122,7 @@ int listar_aluno(aluno a[], int *ativo)
     printf("\n>>>Alunos cadastrados<<<\n");
     for (int i = 0; i < *ativo; i++)
     {
-        printf("\t%d\nMatricula: %d\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", i + 1, a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\nMatricula: %s\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
         printf("\n");
     }
     return 0;
@@ -130,7 +130,7 @@ int listar_aluno(aluno a[], int *ativo)
 
 int atualizar_aluno(aluno a[], int *ativo)
 {
-    int busca_matricula;
+    char busca_matricula[10];
     int OpAtualizar;
     int pos = -1;
     if (*ativo == 0)
@@ -138,10 +138,10 @@ int atualizar_aluno(aluno a[], int *ativo)
         return 1;
     }
     printf("\nInforme a matricula do aluno que deseja atualizar: ");
-    scanf("%d", &busca_matricula);
+    scanf("%s", &busca_matricula);
     for (int i = 0; i < *ativo; i++)
     {
-        if (busca_matricula == a[i].matricula)
+        if (strcmp(busca_matricula, a[i].matricula) == 0)
         {
             pos = i;
             break;
@@ -229,17 +229,17 @@ int atualizar_aluno(aluno a[], int *ativo)
 
 int excluir_aluno(aluno a[], int *ativo)
 {
-    int busca_matricula;
+    char busca_matricula;
     int pos = -1;
     if (*ativo == 0)
     {
         return 1;
     }
     printf("\nInforme a matricula do aluno que deseja excluir: ");
-    scanf("%d", &busca_matricula);
+    scanf("%s", &busca_matricula);
     for (int i = 0; i < *ativo; i++)
     {
-        if (busca_matricula == a[i].matricula)
+        if (strcmp(busca_matricula, a[i].matricula) == 0)
         {
             pos = i;
             break;
