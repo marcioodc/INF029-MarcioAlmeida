@@ -29,6 +29,60 @@ int validacao_cpf(char cpf[])
     return 1;
 }
 
+int validar_data(char data_nascimento[])
+{
+    char dia, mes, ano;
+    for (int i = 0; data_nascimento[i] != '\0'; i++)
+    {
+        while (data_nascimento[i] != '/')
+        {
+            dia = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '/')
+        {
+            mes = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '\0')
+        {
+            ano = data_nascimento[i];
+            i++;
+        }
+        int d = atoi(&dia);
+        int m = atoi(&mes);
+        int a = atoi(&ano);
+        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1900 || a > 2024)
+        {
+            return 1;
+        }
+        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
+        {
+            return 1;
+        }
+        if (m == 2)
+        {
+            if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
+            {
+                if (d > 29)
+                {
+                    return 1;
+                }
+            }
+            else
+            {
+                if (d > 28)
+                {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
 int cadastrar_professor(professor p[], int *P_ativo)
 {
     if (*P_ativo == tam_professor)
@@ -226,35 +280,5 @@ int excluir_professor(professor p[], int *P_ativo)
         p[j] = p[j + 1];
     }
     (*P_ativo)--;
-    return 0;
-}
-
-int validar_data(char data_nascimento[])
-{
-    char dia, mes, ano;
-    for (int i = 0; data_nascimento[i] != '\0'; i++)
-    {
-        while (data_nascimento[i] != '/')
-        {
-            dia = data_nascimento[i];
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '/')
-        {
-            mes = data_nascimento[i];
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '\0')
-        {
-            ano = data_nascimento[i];
-            i++;
-        }
-        if (dia < '1' || dia > '31' || mes < '1' || mes > '12' || ano < '1900' || ano > '2024')
-        {
-            return 1;
-        }
-    }
     return 0;
 }

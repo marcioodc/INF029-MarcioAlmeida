@@ -255,26 +255,29 @@ int validar_DATA(char data_nascimento[])
             ano = data_nascimento[i];
             i++;
         }
-        if (dia < '1' || dia > '31' || mes < '1' || mes > '12' || ano < '1800' || ano > '2025')
+        int d = atoi(&dia);
+        int m = atoi(&mes);
+        int a = atoi(&ano);
+        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1900 || a > 2024)
         {
             return 1;
         }
-        if ((mes == '4' || mes == '6' || mes == '9' || mes == '11') && dia > '30')
+        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
         {
             return 1;
         }
-        if (mes == '2')
+        if (m == 2)
         {
-            if ((ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0))
+            if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
             {
-                if (dia > '29')
+                if (d > 29)
                 {
                     return 1;
                 }
             }
             else
             {
-                if (dia > '28')
+                if (d > 28)
                 {
                     return 1;
                 }
