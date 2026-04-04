@@ -30,6 +30,32 @@ int validar_CPF(char cpf[])
     return 1;
 }
 
+int validar_DATA(char data_nascimento[])
+{
+    int d, m, a;
+    if (sscanf(data_nascimento, "%2d/%2d/%4d", &d, &m, &a) != 3)
+    {
+        return 1;
+    }
+    if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1800 || a > 2025)
+    {
+        return 1;
+    }
+    if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
+    {
+        return 1;
+    }
+    if (m == 2)
+    {
+        int bissexto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+        if ((bissexto && d > 29) || (!bissexto && d > 28))
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
 int cadastrar_aluno(aluno a[], int *ativo)
 {
     if (*ativo == tam_aluno)
@@ -71,15 +97,13 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         strcpy(a[*ativo].cpf, cpf);
 
-        getchar();
-        char data_nascimento[15];
+        char data_nascimento[11];
         printf("Informe a data de nascimento: ");
-        scanf(" %s", data_nascimento);
+        scanf("%10s", data_nascimento);
         if (validar_DATA(data_nascimento) == 1)
         {
             return 5;
         }
-        strcpy(a[*ativo].data_nascimento, data_nascimento);
 
         (*ativo)++;
         return 0;
@@ -182,15 +206,14 @@ int atualizar_aluno(aluno a[], int *ativo)
     break;
     case 5:
     {
-        getchar();
-        char dnascimento[15];
+        char data_nascimento[11];
         printf("Informe a data de nascimento: ");
-        scanf(" %s", dnascimento);
-        if (validar_DATA(dnascimento) == 1)
+        scanf("%10s", data_nascimento);
+        if (validar_DATA(data_nascimento) == 1)
         {
             return 5;
         }
-        strcpy(a[pos].data_nascimento, dnascimento);
+        strcpy(a[pos].data_nascimento, data_nascimento);
         return 0;
     }
     break;
@@ -230,67 +253,5 @@ int excluir_aluno(aluno a[], int *ativo)
         a[j] = a[j + 1];
     }
     (*ativo)--;
-    return 0;
-}
-
-int validar_DATA(char data_nascimento[])
-{
-    char dia[3], mes[3], ano[5];
-    for (int i = 0; data_nascimento[i] != '\0'; i++)
-    {
-        while (data_nascimento[i] != '/')
-        {
-            dia[0] = data_nascimento[i];
-            dia[1] = data_nascimento[i + 1];
-            dia[2] = '\0';
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '/')
-        {
-            mes[0] = data_nascimento[i];
-            mes[1] = data_nascimento[i + 1];
-            mes[2] = '\0';
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '\0')
-        {
-            ano[0] = data_nascimento[i];
-            ano[1] = data_nascimento[i + 1];
-            ano[2] = data_nascimento[i + 2];
-            ano[3] = data_nascimento[i + 3];
-            ano[4] = '\0';
-            i++;
-        }
-        int d = atoi(dia);
-        int m = atoi(mes);
-        int a = atoi(ano);
-        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1900 || a > 2024)
-        {
-            return 1;
-        }
-        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
-        {
-            return 1;
-        }
-        if (m == 2)
-        {
-            if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
-            {
-                if (d > 29)
-                {
-                    return 1;
-                }
-            }
-            else
-            {
-                if (d > 28)
-                {
-                    return 1;
-                }
-            }
-        }
-    }
     return 0;
 }

@@ -32,61 +32,25 @@ int validacao_cpf(char cpf[])
 
 int validar_data(char data_nascimento[])
 {
-    char dia[3], mes[3], ano[5];
-    for (int i = 0; data_nascimento[i] != '\0'; i++)
+    int d, m, a;
+    if (sscanf(data_nascimento, "%2d/%2d/%4d", &d, &m, &a) != 3)
     {
-        while (data_nascimento[i] != '/')
-        {
-            dia[0] = data_nascimento[i];
-            dia[1] = data_nascimento[i + 1];
-            dia[2] = '\0';
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '/')
-        {
-            mes[0] = data_nascimento[i];
-            mes[1] = data_nascimento[i + 1];
-            mes[2] = '\0';
-            i++;
-        }
-        i++;
-        while (data_nascimento[i] != '\0')
-        {
-            ano[0] = data_nascimento[i];
-            ano[1] = data_nascimento[i + 1];
-            ano[2] = data_nascimento[i + 2];
-            ano[3] = data_nascimento[i + 3];
-            ano[4] = '\0';
-            i++;
-        }
-        int d = atoi(dia);
-        int m = atoi(mes);
-        int a = atoi(ano);
-        if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1900 || a > 2024)
+        return 1;
+    }
+    if (d < 1 || d > 31 || m < 1 || m > 12 || a < 1800 || a > 2025)
+    {
+        return 1;
+    }
+    if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
+    {
+        return 1;
+    }
+    if (m == 2)
+    {
+        int bissexto = (a % 4 == 0 && a % 100 != 0) || (a % 400 == 0);
+        if ((bissexto && d > 29) || (!bissexto && d > 28))
         {
             return 1;
-        }
-        if ((m == 4 || m == 6 || m == 9 || m == 11) && d > 30)
-        {
-            return 1;
-        }
-        if (m == 2)
-        {
-            if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
-            {
-                if (d > 29)
-                {
-                    return 1;
-                }
-            }
-            else
-            {
-                if (d > 28)
-                {
-                    return 1;
-                }
-            }
         }
     }
     return 0;
