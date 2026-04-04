@@ -519,7 +519,7 @@ int main(void)
         break;
         case 7:
         {
-          if (alunos_ordenados_data_nascimento(a, &A_ativo) == 1)
+          if (alunos_ordenados_data(a, &A_ativo) == 1)
           {
             printf("\nNao ha alunos cadastrados!\n");
           }
@@ -543,7 +543,7 @@ int main(void)
         break;
         case 10:
         {
-          if (professores_ordenados_data_nascimento(p, &P_ativo) == 1)
+          if (professores_ordenados_data(p, &P_ativo) == 1)
           {
             printf("\nNao ha professores cadastrados!\n");
           }
@@ -551,13 +551,9 @@ int main(void)
         break;
         case 11:
         {
-          if (aniversariantes_mes(a, &A_ativo) == 1)
+          if (aniversariantes_mes(p, &P_ativo, a, &A_ativo) == 1)
           {
-            printf("\nNao ha alunos cadastrados!\n");
-          }
-          if (aniversariantes_mes_professor(p, &P_ativo) == 1)
-          {
-            printf("\nNao ha professores cadastrados!\n");
+            printf("\nNao ha alunos ou professores cadastrados!\n");
           }
         }
         break;
@@ -571,9 +567,9 @@ int main(void)
         break;
         case 13:
         {
-          if (alunos_matriculados_menos_3_disciplinas(d, &D_ativa, a, &A_ativo) == 1)
+          if (alunos_matriculados_3_disciplinas(d, &D_ativa, a, &A_ativo) == 1)
           {
-            printf("\nNao ha alunos cadastrados!\n");
+            printf("\nNao ha alunos ou disciplinas cadastrados!\n");
           }
         }
         break;
