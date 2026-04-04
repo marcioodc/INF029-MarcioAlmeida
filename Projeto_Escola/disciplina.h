@@ -13,7 +13,7 @@ typedef struct disciplina
     int semestre;
     int matricula_professor;
     int vagas_total;
-    int alunos_matriculados[40];
+    char alunos_matriculados[40];
     int qtdalunos;
 } disciplina;
 

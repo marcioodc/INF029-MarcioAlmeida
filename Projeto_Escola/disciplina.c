@@ -25,7 +25,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
 {
     int semestre;
     int qtdvagas;
-    int matricula;
+    char matricula[10];
     int pos = -1;
     if (*P_ativo == 0)
     {
@@ -55,12 +55,12 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         d[*D_ativa].semestre = semestre;
 
         printf("Informe a matricula do professor responsavel pela disciplina: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         for (int i = 0; i < *P_ativo; i++)
         {
-            if (matricula == p[i].matricula)
+            if (strcmp(matricula, p[i].matricula) == 0)
             {
-                d[*D_ativa].matricula_professor = matricula;
+                strcpy(d[*D_ativa].matricula_professor, matricula);
                 pos = 1;
                 break;
             }
