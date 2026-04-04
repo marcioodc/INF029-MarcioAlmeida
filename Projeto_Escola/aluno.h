@@ -1,5 +1,6 @@
 #ifndef aluno_h
 #define aluno_h
+
 #define tam_aluno 2
 
 typedef struct aluno
