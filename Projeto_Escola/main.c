@@ -72,7 +72,7 @@ int main(void)
           break;
           case 3:
           {
-            printf("\nsexo invalido!\n");
+            printf("\nSexo invalido!\n");
           }
           break;
           case 4:
@@ -82,7 +82,7 @@ int main(void)
           break;
           case 5:
           {
-            printf("\ndata invalida!\n");
+            printf("\nData de nascimento invalida!\n");
           }
           break;
           default:
@@ -206,7 +206,7 @@ int main(void)
           break;
           case 5:
           {
-            printf("\nData invalida!\n");
+            printf("\nData de nascimentoinvalida!\n");
           }
           break;
           default:
@@ -519,34 +519,70 @@ int main(void)
         break;
         case 7:
         {
+          if (alunos_ordenados_data_nascimento(a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
         }
         break;
         case 8:
         {
+          if (lista_professor_sexo(p, &P_ativo) == 1)
+          {
+            printf("\nNao ha professores cadastrados!\n");
+          }
         }
         break;
         case 9:
         {
+          if (professores_ordenados_nome(p, &P_ativo) == 1)
+          {
+            printf("\nNao ha professores cadastrados!\n");
+          }
         }
         break;
         case 10:
         {
+          if (professores_ordenados_data_nascimento(p, &P_ativo) == 1)
+          {
+            printf("\nNao ha professores cadastrados!\n");
+          }
         }
         break;
         case 11:
         {
+          if (aniversariantes_mes(a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
+          if (aniversariantes_mes_professor(p, &P_ativo) == 1)
+          {
+            printf("\nNao ha professores cadastrados!\n");
+          }
         }
         break;
         case 12:
         {
+          if (buscar_nome(a, &A_ativo, p, &P_ativo) == 1)
+          {
+            printf("\nNao ha alunos ou professores cadastrados!\n");
+          }
         }
         break;
         case 13:
         {
+          if (alunos_matriculados_menos_3_disciplinas(d, &D_ativa, a, &A_ativo) == 1)
+          {
+            printf("\nNao ha alunos cadastrados!\n");
+          }
         }
         break;
         case 14:
         {
+          if (disciplinas_professor_40_vagas(d, &D_ativa, p, &P_ativo) == 1)
+          {
+            printf("\nNao ha disciplinas cadastradas!\n");
+          }
         }
         break;
         default:
@@ -628,6 +664,14 @@ int menu_relatorios()
   printf("4 - Listar alunos matriculados em cada disciplina\n");
   printf("5 - Listar alunos por sexo\n");
   printf("6 - Listar alunos ordenados por nome\n");
+  printf("7 - Listar alunos ordenados por data de nascimento\n");
+  printf("8 - Listar professores por sexo\n");
+  printf("9 - Listar professores ordenados por nome\n");
+  printf("10 - Listar professores ordenados por data de nascimento\n");
+  printf("11 - Aniversariantes do mes\n");
+  printf("12 - Buscar por nome\n");
+  printf("13 - Listar alunos matriculados em menos de 3 disciplinas\n");
+  printf("14 - Disciplinas, com dados do professor, que extrapolam 40 vagas\n");
   scanf("%d", &MR);
   return MR;
 }

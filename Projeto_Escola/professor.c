@@ -70,8 +70,14 @@ int cadastrar_professor(professor p[], int *P_ativo)
         }
         strcpy(p[*P_ativo].cpf, cpf);
 
+        char p_data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", p[*P_ativo].data_nascimento);
+        scanf("%s", p_data_nascimento);
+        if (validar_data(p_data_nascimento) == 1)
+        {
+            return 5;
+        }
+        strcpy(p[*P_ativo].data_nascimento, p_data_nascimento);
 
         (*P_ativo)++;
         return 0;
@@ -173,8 +179,14 @@ int atualizar_professor(professor p[], int *P_ativo)
     break;
     case 5:
     {
+        char p_d_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", p[pos].data_nascimento);
+        scanf("%s", p_d_nascimento);
+        if (validar_data(p_d_nascimento) == 1)
+        {
+            return 5;
+        }
+        strcpy(p[pos].data_nascimento, p_d_nascimento);
         return 0;
     }
     break;
@@ -214,5 +226,35 @@ int excluir_professor(professor p[], int *P_ativo)
         p[j] = p[j + 1];
     }
     (*P_ativo)--;
+    return 0;
+}
+
+int validar_data(char data_nascimento[])
+{
+    char dia, mes, ano;
+    for (int i = 0; data_nascimento[i] != '\0'; i++)
+    {
+        while (data_nascimento[i] != '/')
+        {
+            dia = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '/')
+        {
+            mes = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '\0')
+        {
+            ano = data_nascimento[i];
+            i++;
+        }
+        if (dia < '1' || dia > '31' || mes < '1' || mes > '12' || ano < '1900' || ano > '2024')
+        {
+            return 1;
+        }
+    }
     return 0;
 }

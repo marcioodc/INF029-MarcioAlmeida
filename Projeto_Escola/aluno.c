@@ -73,9 +73,14 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         strcpy(a[*ativo].cpf, cpf);
 
-        // DATA NASCIMENTO
+        char data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", a[*ativo].data_nascimento);
+        scanf("%s", data_nascimento);
+        if (validar_DATA(data_nascimento) == 1)
+        {
+            return 5;
+        }
+        strcpy(a[*ativo].data_nascimento, data_nascimento);
 
         (*ativo)++;
         return 0;
@@ -178,8 +183,14 @@ int atualizar_aluno(aluno a[], int *ativo)
     break;
     case 5:
     {
+        char dnascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", a[pos].data_nascimento);
+        scanf("%s", dnascimento);
+        if (validar_DATA(dnascimento) == 1)
+        {
+            return 5;
+        }
+        strcpy(a[pos].data_nascimento, dnascimento);
         return 0;
     }
     break;
@@ -222,6 +233,32 @@ int excluir_aluno(aluno a[], int *ativo)
     return 0;
 }
 
-int validar_DATA(char data_nascimento)
+int validar_DATA(char data_nascimento[])
 {
+    char dia, mes, ano;
+    for (int i = 0; data_nascimento[i] != '\0'; i++)
+    {
+        while (data_nascimento[i] != '/')
+        {
+            dia = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '/')
+        {
+            mes = data_nascimento[i];
+            i++;
+        }
+        i++;
+        while (data_nascimento[i] != '\0')
+        {
+            ano = data_nascimento[i];
+            i++;
+        }
+        if (dia < '1' || dia > '31' || mes < '1' || mes > '12' || ano < '1900' || ano > '2024')
+        {
+            return 1;
+        }
+    }
+    return 0;
 }
