@@ -48,12 +48,10 @@ int cadastrar_aluno(aluno a[], int *ativo)
         a[*ativo].matricula = matricula;
 
         getchar();
-        // NOME
         printf("Informe o nome: ");
         fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
         a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
 
-        // SEXO
         char sexo;
         printf("Informe o sexo (F ou M): ");
         scanf(" %c", &sexo);
@@ -64,7 +62,6 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         a[*ativo].sexo = sexo;
 
-        // CPF
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
@@ -74,9 +71,10 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         strcpy(a[*ativo].cpf, cpf);
 
+        getchar();
         char data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", data_nascimento);
+        scanf(" %s", data_nascimento);
         if (validar_DATA(data_nascimento) == 1)
         {
             return 5;
@@ -184,9 +182,10 @@ int atualizar_aluno(aluno a[], int *ativo)
     break;
     case 5:
     {
+        getchar();
         char dnascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", dnascimento);
+        scanf(" %s", dnascimento);
         if (validar_DATA(dnascimento) == 1)
         {
             return 5;
