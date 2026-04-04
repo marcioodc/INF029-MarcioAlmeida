@@ -5,16 +5,16 @@
 
 #include "aluno.h"
 
-int validar_matricula(aluno a[], int matricula, int *ativo)
+int validar_matricula(aluno a[], char matricula[], int *ativo)
 {
     for (int j = 0; j < *ativo; j++)
     {
-        if (matricula == a[j].matricula)
+        if (strcmp(matricula, a[j].matricula) == 0)
         {
             return 1;
         }
     }
-    if (matricula < 0)
+    if (atoi(matricula) < 0)
     {
         return 1;
     }
@@ -64,14 +64,14 @@ int cadastrar_aluno(aluno a[], int *ativo)
     }
     else
     {
-        int matricula;
+        char matricula[10];
         printf("\nInforme a matricula: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         if (validar_matricula(a, matricula, ativo) != 0)
         {
             return 2;
         }
-        a[*ativo].matricula = matricula;
+        strcpy(a[*ativo].matricula, matricula);
 
         getchar();
         printf("Informe o nome: ");
@@ -104,6 +104,7 @@ int cadastrar_aluno(aluno a[], int *ativo)
         {
             return 5;
         }
+        strcpy(a[*ativo].data_nascimento, data_nascimento);
 
         (*ativo)++;
         return 0;
@@ -157,14 +158,14 @@ int atualizar_aluno(aluno a[], int *ativo)
     {
     case 1:
     {
-        int matricula;
+        char matricula[10];
         printf("\nInforme a matricula: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         if (validar_matricula(a, matricula, ativo) != 0)
         {
             return 2;
         }
-        a[pos].matricula = matricula;
+        strcpy(a[pos].matricula, matricula);
         return 0;
     }
     break;

@@ -5,16 +5,16 @@
 
 #include "professor.h"
 
-int valida_matricula(professor p[], int matricula, int *P_ativo)
+int valida_matricula(professor p[], char matricula[], int *P_ativo)
 {
     for (int j = 0; j < *P_ativo; j++)
     {
-        if (matricula == p[j].matricula)
+        if (strcmp(matricula, p[j].matricula) == 0)
         {
             return 1;
         }
     }
-    if (matricula < 0)
+    if (atoi(matricula) < 0)
     {
         return 1;
     }
@@ -64,14 +64,14 @@ int cadastrar_professor(professor p[], int *P_ativo)
     }
     else
     {
-        int matricula;
+        char matricula[10];
         printf("\nInforme a matricula: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         if (valida_matricula(p, matricula, P_ativo) != 0)
         {
             return 2;
         }
-        p[*P_ativo].matricula = matricula;
+        strcpy(p[*P_ativo].matricula, matricula);
 
         getchar();
         printf("Informe o nome: ");
@@ -158,14 +158,14 @@ int atualizar_professor(professor p[], int *P_ativo)
     {
     case 1:
     {
-        int matricula;
+        char matricula[10];
         printf("\nInforme a matricula: ");
-        scanf("%d", &matricula);
+        scanf("%s", &matricula);
         if (valida_matricula(p, matricula, P_ativo) != 0)
         {
             return 2;
         }
-        p[pos].matricula = matricula;
+        strcpy(p[pos].matricula, matricula);
         return 0;
     }
     break;

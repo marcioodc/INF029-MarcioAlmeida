@@ -9,7 +9,7 @@ typedef struct professor
   char sexo;
   char cpf[15];
   char data_nascimento[10];
-  int matricula;
+  char matricula[10];
 } professor;
 
 int cadastrar_professor(professor p[], int *P_ativo);
@@ -17,7 +17,7 @@ int listar_professor(professor p[], int *P_ativo);
 int atualizar_professor(professor p[], int *P_ativo);
 int excluir_professor(professor p[], int *P_ativo);
 int validacao_cpf(char cpf[]);
-int valida_matricula(professor p[], int matricula, int *P_ativo);
+int valida_matricula(professor p[], char matricula[], int *P_ativo);
 int validar_data(char data_nascimento[]);
 
 #endif

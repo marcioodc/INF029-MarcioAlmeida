@@ -8,7 +8,7 @@ typedef struct aluno
   char sexo;
   char cpf[15];
   char data_nascimento[10];
-  int matricula;
+  char matricula[10];
 } aluno;
 
 int cadastrar_aluno(aluno a[], int *ativo);
@@ -17,6 +17,6 @@ int atualizar_aluno(aluno a[], int *ativo);
 int excluir_aluno(aluno a[], int *ativo);
 int validar_DATA(char data_nascimento[]);
 int validar_CPF(char cpf[]);
-int validar_matricula(aluno a[], int matricula, int *ativo);
+int validar_matricula(aluno a[], char matricula[], int *ativo);
 
 #endif
