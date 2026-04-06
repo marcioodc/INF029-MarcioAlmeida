@@ -58,9 +58,9 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         scanf("%s", &matricula[0][10]);
         for (int i = 0; i < *P_ativo; i++)
         {
-            if (strcmp(matricula, p[i].matricula) == 0)
+            if (strcmp(matricula[0], p[i].matricula) == 0)
             {
-                strcpy(d[*D_ativa].matricula_professor, matricula);
+                strcpy(d[*D_ativa].matricula_professor, matricula[0]);
                 pos = 1;
                 break;
             }
