@@ -25,7 +25,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
 {
     int semestre;
     int qtdvagas;
-    char matricula[10];
+    char matricula[tam_professor][10];
     int pos = -1;
     if (*P_ativo == 0)
     {
@@ -170,7 +170,7 @@ int atualizar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     break;
     case 4:
     {
-        char matricula[10];
+        char matricula[tam_professor][10];
         int achou = -1;
         printf("Informe a matricula do professor responsavel pela disciplina: ");
         scanf("%s", &matricula);
@@ -246,7 +246,7 @@ int excluir_disciplina(disciplina d[], int *D_ativa)
 int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
 {
     char dcodigo[10];
-    char a_matricula[10];
+    char a_matricula[tam_aluno][10];
     if (*D_ativa == 0)
     {
         return 1;

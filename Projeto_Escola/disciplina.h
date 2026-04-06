@@ -11,9 +11,9 @@ typedef struct disciplina
     char nome[50];
     char codigo[10];
     int semestre;
-    char matricula_professor[tam_professor][10];
+    char matricula_professor[tam_professor];
     int vagas_total;
-    char alunos_matriculados[tam_aluno][10];
+    char alunos_matriculados[tam_aluno];
     int qtdalunos;
 } disciplina;
 
