@@ -274,12 +274,12 @@ int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_
                 {
                     for (int k = 0; k < d[i].qtdalunos; k++)
                     {
-                        if (strcmp(d[i].alunos_matriculados[k], a_matricula[0]) == 0)
+                        if (strcmp(d[i].alunos_matriculados[k][0], a_matricula[0]) == 0)
                         {
                             return 6;
                         }
                     }
-                    strcpy(d[i].alunos_matriculados[d[i].qtdalunos], a_matricula[0]);
+                    strcpy(&d[i].alunos_matriculados[d[i].qtdalunos][0], a_matricula[0]);
                     d[i].qtdalunos++;
                     return 0;
                 }
@@ -317,11 +317,11 @@ int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
                 {
                     for (int k = 0; k < d[i].qtdalunos; k++)
                     {
-                        if (strcmp(d[i].alunos_matriculados[k], a_matricula[0]) == 0)
+                        if (strcmp(d[i].alunos_matriculados[k][0], a_matricula[0]) == 0)
                         {
                             for (int l = k; l < d[i].qtdalunos - 1; l++)
                             {
-                                strcpy(d[i].alunos_matriculados[l], d[i].alunos_matriculados[l + 1]);
+                                strcpy(&d[i].alunos_matriculados[l][0], d[i].alunos_matriculados[l + 1][0]);
                             }
                             d[i].qtdalunos--;
                             return 0;

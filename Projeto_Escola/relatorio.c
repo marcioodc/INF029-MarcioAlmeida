@@ -58,7 +58,7 @@ int listar_alunos_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
         {
             for (int k = 0; k < *A_ativo; k++)
             {
-                if (strcmp(d[i].alunos_matriculados[j], a[k].matricula[0]) == 0)
+                if (strcmp(d[i].alunos_matriculados[j][0], a[k].matricula[0][10]) == 0)
                 {
                     strcpy(nome_a, a[k].nome);
                     break;
@@ -288,7 +288,7 @@ int alunos_matriculados_3_disciplinas(disciplina d[], int *D_ativa, aluno a[], i
         {
             for (int k = 0; k < d[j].qtdalunos; k++)
             {
-                if (strcmp(d[j].alunos_matriculados[k], a[i].matricula[0]) == 0)
+                if (strcmp(d[j].alunos_matriculados[k][0], a[i].matricula[0][10]) == 0)
                 {
                     contador++;
                 }

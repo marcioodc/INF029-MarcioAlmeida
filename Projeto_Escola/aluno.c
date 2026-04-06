@@ -5,16 +5,16 @@
 
 #include "aluno.h"
 
-int validar_matricula(aluno a[], char matricula[], int *ativo)
+int validar_matricula(aluno a[], char matricula[tam_aluno][10], int *ativo)
 {
     for (int j = 0; j < *ativo; j++)
     {
-        if (strcmp(matricula, a[j].matricula) == 0)
+        if (strcmp(matricula[0], a[j].matricula[0]) == 0)
         {
             return 1;
         }
     }
-    if (atoi(matricula) < 0)
+    if (atoi(matricula[0]) < 0)
     {
         return 1;
     }
@@ -64,14 +64,14 @@ int cadastrar_aluno(aluno a[], int *ativo)
     }
     else
     {
-        char matricula[10];
+        char matricula[tam_aluno][10];
         printf("\nInforme a matricula: ");
-        scanf("%s", &matricula);
-        if (validar_matricula(a, matricula, ativo) != 0)
+        scanf("%s", &matricula[0]);
+        if (validar_matricula(a, matricula[0], ativo) != 0)
         {
             return 2;
         }
-        strcpy(a[*ativo].matricula, matricula);
+        strcpy(a[*ativo].matricula, matricula[0]);
 
         getchar();
         printf("Informe o nome: ");
@@ -122,7 +122,7 @@ int listar_aluno(aluno a[], int *ativo)
     printf("\n>>>Alunos cadastrados<<<\n");
     for (int i = 0; i < *ativo; i++)
     {
-        printf("\nMatricula: %s\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", a[i].matricula, a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\nMatricula: %s\nNome: %s\nSexo: %c\nCPF: %s\nData de Nascimento: %s\n", a[i].matricula[0], a[i].nome, a[i].sexo, a[i].cpf, a[i].data_nascimento);
         printf("\n");
     }
     return 0;
@@ -130,7 +130,7 @@ int listar_aluno(aluno a[], int *ativo)
 
 int atualizar_aluno(aluno a[], int *ativo)
 {
-    char busca_matricula[10];
+    char busca_matricula[tam_aluno][10];
     int OpAtualizar;
     int pos = -1;
     if (*ativo == 0)
@@ -138,10 +138,10 @@ int atualizar_aluno(aluno a[], int *ativo)
         return 1;
     }
     printf("\nInforme a matricula do aluno que deseja atualizar: ");
-    scanf("%s", &busca_matricula);
+    scanf("%s", &busca_matricula[0]);
     for (int i = 0; i < *ativo; i++)
     {
-        if (strcmp(busca_matricula, a[i].matricula) == 0)
+        if (strcmp(busca_matricula[0], a[i].matricula[0]) == 0)
         {
             pos = i;
             break;
@@ -158,14 +158,14 @@ int atualizar_aluno(aluno a[], int *ativo)
     {
     case 1:
     {
-        char matricula[10];
+        char matricula[tam_aluno][10];
         printf("\nInforme a matricula: ");
-        scanf("%s", &matricula);
-        if (validar_matricula(a, matricula, ativo) != 0)
+        scanf("%s", &matricula[0]);
+        if (validar_matricula(a, matricula[0], ativo) != 0)
         {
             return 2;
         }
-        strcpy(a[pos].matricula, matricula);
+        strcpy(a[pos].matricula, matricula[0]);
         return 0;
     }
     break;
@@ -229,17 +229,17 @@ int atualizar_aluno(aluno a[], int *ativo)
 
 int excluir_aluno(aluno a[], int *ativo)
 {
-    char busca_matricula[10];
+    char busca_matricula[tam_aluno][10];
     int pos = -1;
     if (*ativo == 0)
     {
         return 1;
     }
     printf("\nInforme a matricula do aluno que deseja excluir: ");
-    scanf("%s", &busca_matricula);
+    scanf("%s", &busca_matricula[0]);
     for (int i = 0; i < *ativo; i++)
     {
-        if (strcmp(busca_matricula, a[i].matricula) == 0)
+        if (strcmp(busca_matricula[0], a[i].matricula[0]) == 0)
         {
             pos = i;
             break;

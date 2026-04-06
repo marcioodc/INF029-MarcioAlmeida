@@ -9,7 +9,7 @@ typedef struct aluno
   char sexo;
   char cpf[15];
   char data_nascimento[10];
-  char matricula[10];
+  char matricula[tam_aluno][10];
 } aluno;
 
 int cadastrar_aluno(aluno a[], int *ativo);
