@@ -55,7 +55,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         d[*D_ativa].semestre = semestre;
 
         printf("Informe a matricula do professor responsavel pela disciplina: ");
-        scanf("%s", &matricula);
+        scanf("%s", &matricula[0][10]);
         for (int i = 0; i < *P_ativo; i++)
         {
             if (strcmp(matricula, p[i].matricula) == 0)
