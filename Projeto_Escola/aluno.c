@@ -240,16 +240,16 @@ int validar_DATA(char data_nascimento[])
     {
         return 0;
     }
-    char dia[3], mes[3], ano[5];
-    strncpy(dia, data_nascimento, 2);
-    dia[2] = '\0';
-    strncpy(mes, data_nascimento + 3, 2);
-    mes[2] = '\0';
-    strncpy(ano, data_nascimento + 6, 4);
-    ano[4] = '\0';
-    int dia = atoi(dia);
-    int mes = atoi(mes);
-    int ano = atoi(ano);
+    char strdia[3], strmes[3], strano[5];
+    strncpy(strdia, data_nascimento, 2);
+    strdia[2] = '\0';
+    strncpy(strmes, data_nascimento + 3, 2);
+    strmes[2] = '\0';
+    strncpy(strano, data_nascimento + 6, 4);
+    strano[4] = '\0';
+    int dia = atoi(strdia);
+    int mes = atoi(strmes);
+    int ano = atoi(strano);
     if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1800 || ano > 2025)
     {
         return 0;
