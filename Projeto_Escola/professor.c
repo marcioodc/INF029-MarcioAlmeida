@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 #include "professor.h"
@@ -73,7 +74,7 @@ int cadastrar_professor(professor p[], int *P_ativo)
         char data_nascimento[15];
         printf("Informe a data de nascimento: ");
         scanf("%s", data_nascimento);
-        if (validar_DATA(data_nascimento) == 0)
+        if (validar_data(data_nascimento) == 0)
         {
             return 5;
         }
