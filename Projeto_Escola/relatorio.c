@@ -12,7 +12,7 @@ int listar_alunos(aluno a[], int *A_ativo)
     printf("\n>>>Lista de alunos cadastrados<<<\n");
     for (int i = 0; i < *A_ativo; i++)
     {
-        printf("\t%d\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\n\t%d\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
     }
     return 0;
 }
@@ -22,7 +22,7 @@ int listar_professores(professor p[], int *P_ativo)
     printf("\n>>>Lista de professores cadastrados<<<\n");
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("\t%d\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("\n\t%d\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
     }
     return 0;
 }
@@ -41,7 +41,7 @@ int listar_disciplinas(disciplina d[], int *D_ativa, professor p[], int *P_ativo
                 break;
             }
         }
-        printf("\t%d\nCodigo: %d\nNome: %s\nSemestre: %d\nProfessor: %s\nQuantidade de vagas: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, nome_p, d[i].vagas_total);
+        printf("\nCodigo: %d\nNome: %s\nSemestre: %d\n\nQuantidade de vagas: %d\nProfessor: %s", d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p);
     }
     return 0;
 }
@@ -52,8 +52,8 @@ int listar_alunos_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
     printf("\n>>>Lista de alunos matriculados em cada disciplina<<<\n");
     for (int i = 0; i < *D_ativa; i++)
     {
-        printf("\t%d\nCodigo: %d\nNome: %s\nSemestre: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre);
-        printf("Alunos matriculados:\n");
+        printf("\n\t%d\nCodigo: %d\tNome: %s\tSemestre: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre);
+        printf("Alunos matriculados\n");
         for (int j = 0; j < d[i].qtdalunos; j++)
         {
             for (int k = 0; k < *A_ativo; k++)
@@ -64,7 +64,7 @@ int listar_alunos_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
                     break;
                 }
             }
-            printf("\t%d. %s\n", j + 1, nome_a);
+            printf("- %s\n", nome_a);
         }
     }
     return 0;
@@ -76,21 +76,21 @@ int listar_alunos_sexo(aluno a[], int *A_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de alunos por sexo<<<\n");
-    printf("Alunos do sexo masculino:\n");
+    printf("\n>>>Alunos por sexo<<<\n");
+    printf("\nSexo masculino\n");
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].sexo == 'm' || a[i].sexo == 'M')
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tSexo: %c", a[i].nome, a[i].matricula, a[i].sexo);
         }
     }
-    printf("Alunos do sexo feminino:\n");
+    printf("\nSexo feminino\n");
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].sexo == 'f' || a[i].sexo == 'F')
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tSexo: %c", a[i].nome, a[i].matricula, a[i].sexo);
         }
     }
     return 0;
@@ -102,7 +102,7 @@ int alunos_ordenados_nome(aluno a[], int *A_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de alunos por nome<<<\n");
+    printf("\n>>>Lista de alunos por nome<<<\n");
     aluno aux;
     for (int i = 0; i < *A_ativo - 1; i++)
     {
@@ -118,7 +118,7 @@ int alunos_ordenados_nome(aluno a[], int *A_ativo)
     }
     for (int i = 0; i < *A_ativo; i++)
     {
-        printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\nNome: %s\tMatricula: %d", a[i].nome, a[i].matricula);
     }
     return 0;
 }
@@ -129,7 +129,7 @@ int alunos_ordenados_data(aluno a[], int *A_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de alunos por data de nascimento<<<\n");
+    printf("\n>>>Lista de alunos por data de nascimento<<<\n");
     aluno aux;
     for (int i = 0; i < *A_ativo - 1; i++)
     {
@@ -145,7 +145,7 @@ int alunos_ordenados_data(aluno a[], int *A_ativo)
     }
     for (int i = 0; i < *A_ativo; i++)
     {
-        printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("\nNome: %s\tMatricula: %d\tData de nascimento: %s", a[i].nome, a[i].matricula, a[i].data_nascimento);
     }
     return 0;
 }
@@ -156,21 +156,21 @@ int listar_professores_sexo(professor p[], int *P_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de professores por sexo<<<\n");
-    printf("Professores do sexo masculino:\n");
+    printf("\n>>>Lista de professores por sexo<<<\n");
+    printf("\nSexo masculino");
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].sexo == 'm' || p[i].sexo == 'M')
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tSexo: %c", p[i].nome, p[i].matricula, p[i].sexo);
         }
     }
-    printf("Professores do sexo feminino:\n");
+    printf("\nSexo feminino");
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].sexo == 'f' || p[i].sexo == 'F')
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tSexo: %c", p[i].nome, p[i].matricula, p[i].sexo);
         }
     }
     return 0;
@@ -182,7 +182,7 @@ int professores_ordenados_nome(professor p[], int *P_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de professores por nome<<<\n");
+    printf("\n>>>Lista de professores por nome<<<\n");
     professor aux;
     for (int i = 0; i < *P_ativo - 1; i++)
     {
@@ -198,7 +198,7 @@ int professores_ordenados_nome(professor p[], int *P_ativo)
     }
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("\nNome: %s\tMatricula: %d", p[i].nome, p[i].matricula);
     }
     return 0;
 }
@@ -209,7 +209,7 @@ int professores_ordenados_data(professor p[], int *P_ativo)
     {
         return 1;
     }
-    printf("\n>>>Listagem de professores por data de nascimento<<<\n");
+    printf("\n>>>Lista de professores por data de nascimento<<<\n");
     professor aux;
     for (int i = 0; i < *P_ativo - 1; i++)
     {
@@ -225,7 +225,7 @@ int professores_ordenados_data(professor p[], int *P_ativo)
     }
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("\nNome: %s\tMatricula: %d\tData de nascimento: %s", p[i].nome, p[i].matricula, p[i].data_nascimento);
     }
     return 0;
 }
@@ -239,20 +239,20 @@ int aniversariantes_mes(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     char mes[3];
     printf("Informe o mes (MM): ");
     scanf("%s", mes);
-    printf("\n>>>Listagem de alunos aniversariantes do mes<<<\n");
+    printf("\n>>>Alunos aniversariantes do mes<<<\n");
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].data_nascimento[3] == mes[0] && a[i].data_nascimento[4] == mes[1])
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].data_nascimento);
         }
     }
-    printf("\n>>>Listagem de professores aniversariantes do mes<<<\n");
+    printf("\n>>>Professores aniversariantes do mes<<<\n");
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].data_nascimento[3] == mes[0] && p[i].data_nascimento[4] == mes[1])
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d\tData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].data_nascimento);
         }
     }
     return 0;
@@ -268,6 +268,10 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     printf("\n>>>Busca por nome<<<\n");
     printf("Informe o nome a ser buscado: ");
     scanf("%s", busca);
+    if (strlen(busca) < 3)
+    {
+        return 2;
+    }
     printf("\n>>>Alunos encontrados<<<\n");
     for (int i = 0; i < *A_ativo; i++)
     {
@@ -309,7 +313,7 @@ int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina 
         }
         if (contador < 3)
         {
-            printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+            printf("\nNome: %s\tMatricula: %d", a[i].nome, a[i].matricula);
         }
     }
     return 0;
@@ -327,15 +331,23 @@ int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], i
         if (d[i].vagas_total > 40)
         {
             char nome_p[100];
+            char sexo_p;
+            char cpf_p[15];
+            int matricula_p;
+            char data_nascimento_p[10];
             for (int j = 0; j < *P_ativo; j++)
             {
                 if (d[i].matricula_professor == p[j].matricula)
                 {
+                    strcpy(data_nascimento_p, p[j].data_nascimento);
                     strcpy(nome_p, p[j].nome);
+                    strcpy(cpf_p, p[j].cpf);
+                    sexo_p = p[j].sexo;
+                    matricula_p = p[j].matricula;
                     break;
                 }
             }
-            printf("\nCodigo: %d\nNome: %s\nSemestre: %d\nProfessor: %s\nQuantidade de vagas: %d\n", d[i].codigo, d[i].nome, d[i].semestre, nome_p, d[i].vagas_total);
+            printf("\nCodigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\tProfessor\nNome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p, matricula_p, sexo_p, cpf_p, data_nascimento_p);
         }
     }
     return 0;
