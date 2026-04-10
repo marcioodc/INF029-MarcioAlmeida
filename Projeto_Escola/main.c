@@ -22,7 +22,6 @@ int main(void)
   int D_ativa = 0;
   int A_ativo = 0;
   int sair = 0;
-  int ativo = 0;
 
   while (!sair)
   {
@@ -52,7 +51,7 @@ int main(void)
         case 1:
         {
           printf("\n>>>Cadastramento de aluno<<<\n");
-          int A_Cadastro = cadastrar_aluno(a, &ativo);
+          int A_Cadastro = cadastrar_aluno(a, &A_ativo);
           switch (A_Cadastro)
           {
           case 0:
@@ -95,7 +94,7 @@ int main(void)
         break;
         case 2:
         {
-          if (listar_aluno(a, &ativo) == 1)
+          if (listar_aluno(a, &A_ativo) == 1)
           {
             printf("\nNao ha alunos cadastrados!\n");
           }
@@ -104,7 +103,7 @@ int main(void)
         case 3:
         {
           printf("\n>>>Atualizar cadastro de aluno<<<\n");
-          int A_Atualizar = atualizar_aluno(a, &ativo);
+          int A_Atualizar = atualizar_aluno(a, &A_ativo);
           switch (A_Atualizar)
           {
           case 0:
@@ -134,7 +133,7 @@ int main(void)
         case 4:
         {
           printf("\n>>>Excluir cadastro de aluno<<<\n");
-          int A_Excluir = excluir_aluno(a, &ativo);
+          int A_Excluir = excluir_aluno(a, &A_ativo);
           switch (A_Excluir)
           {
           case 0:
