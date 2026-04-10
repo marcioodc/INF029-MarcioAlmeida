@@ -79,7 +79,6 @@ int cadastrar_professor(professor p[], int *P_ativo)
         }
         strcpy(p[*P_ativo].data_nascimento, data_nascimento);
 
-
         (*P_ativo)++;
         return 0;
     }
