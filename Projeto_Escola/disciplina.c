@@ -4,6 +4,7 @@
 
 #include "disciplina.h"
 #include "professor.h"
+#include "aluno.h"
 
 int validar_codigo(disciplina d[], char codigo[], int *D_ativa)
 {
