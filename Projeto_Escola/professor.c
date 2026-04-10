@@ -182,7 +182,7 @@ int atualizar_professor(professor p[], int *P_ativo)
         char datanascimento[15];
         printf("Informe a data de nascimento: ");
         scanf("%s", datanascimento);
-        if (validar_DATA(datanascimento) == 0)
+        if (validar_data(datanascimento) == 0)
         {
             return 5;
         }
@@ -227,4 +227,28 @@ int excluir_professor(professor p[], int *P_ativo)
     }
     (*P_ativo)--;
     return 0;
+}
+
+int validar_data(char data_nascimento[])
+{
+    if (strlen(data_nascimento) != 10 || data_nascimento[2] != '/' || data_nascimento[5] != '/')
+    {
+        return 0;
+    }
+    return 1;
+    char strdia[3], strmes[3], strano[5];
+    strncpy(strdia, data_nascimento, 2);
+    strdia[2] = '\0';
+    strncpy(strmes, data_nascimento + 3, 2);
+    strmes[2] = '\0';
+    strncpy(strano, data_nascimento + 6, 4);
+    strano[4] = '\0';
+    int dia = atoi(strdia);
+    int mes = atoi(strmes);
+    int ano = atoi(strano);
+    if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1800 || ano > 2025)
+    {
+        return 0;
+    }
+    return 1;
 }

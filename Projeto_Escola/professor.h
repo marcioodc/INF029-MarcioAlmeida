@@ -17,6 +17,7 @@ int listar_professor(professor p[], int *P_ativo);
 int atualizar_professor(professor p[], int *P_ativo);
 int excluir_professor(professor p[], int *P_ativo);
 int validacao_cpf(char cpf[]);
+int validar_data(char data_nascimento[]);
 int valida_matricula(professor p[], int matricula, int *P_ativo);
 
 #endif
