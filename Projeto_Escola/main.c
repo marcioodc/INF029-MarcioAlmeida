@@ -600,7 +600,7 @@ int menu_principal()
   printf("1 - Menu aluno\n");
   printf("2 - Menu professor\n");
   printf("3 - Menu disciplina\n");
-  printf("4 - Menu relatórios\n");
+  printf("4 - Menu relatorios\n");
   scanf("%d", &PE);
   return PE;
 }

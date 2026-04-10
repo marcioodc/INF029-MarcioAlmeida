@@ -77,12 +77,17 @@ int listar_alunos_sexo(aluno a[], int *A_ativo)
         return 1;
     }
     printf("\n>>>Listagem de alunos por sexo<<<\n");
+    printf("Alunos do sexo masculino:\n");
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].sexo == 'm' || a[i].sexo == 'M')
         {
             printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
         }
+    }
+    printf("Alunos do sexo feminino:\n");
+    for (int i = 0; i < *A_ativo; i++)
+    {
         if (a[i].sexo == 'f' || a[i].sexo == 'F')
         {
             printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
@@ -152,12 +157,17 @@ int listar_professores_sexo(professor p[], int *P_ativo)
         return 1;
     }
     printf("\n>>>Listagem de professores por sexo<<<\n");
+    printf("Professores do sexo masculino:\n");
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].sexo == 'm' || p[i].sexo == 'M')
         {
             printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
         }
+    }
+    printf("Professores do sexo feminino:\n");
+    for (int i = 0; i < *P_ativo; i++)
+    {
         if (p[i].sexo == 'f' || p[i].sexo == 'F')
         {
             printf("\nNome: %s\nMatricula: %d\nSexo: %c\nCPF: %s\nData de nascimento: %s\n", p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
@@ -227,9 +237,9 @@ int aniversariantes_mes(aluno a[], int *A_ativo, professor p[], int *P_ativo)
         return 1;
     }
     char mes[3];
-    printf("\n>>>Listagem de alunos aniversariantes do mes<<<\n");
     printf("Informe o mes (MM): ");
     scanf("%s", mes);
+    printf("\n>>>Listagem de alunos aniversariantes do mes<<<\n");
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].data_nascimento[3] == mes[0] && a[i].data_nascimento[4] == mes[1])
