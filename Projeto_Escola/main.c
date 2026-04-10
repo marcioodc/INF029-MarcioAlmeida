@@ -641,6 +641,8 @@ int menu_disciplina()
   printf("2 - Listar disciplinas cadastrados\n");
   printf("3 - Atualizar disciplina\n");
   printf("4 - Excluir disciplina\n");
+  printf("5 - Matricular aluno na disciplina\n");
+  printf("6 - Excluir aluno da disciplina\n");
   scanf("%d", &MD);
   return MD;
 }

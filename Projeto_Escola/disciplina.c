@@ -5,9 +5,9 @@
 #include "disciplina.h"
 #include "professor.h"
 
-int validar_codigo(disciplina d[], char codigo[], int *ativo)
+int validar_codigo(disciplina d[], char codigo[], int *D_ativa)
 {
-    for (int j = 0; j < *ativo; j++)
+    for (int j = 0; j < *D_ativa; j++)
     {
         if (strcmp(codigo, d[j].codigo) == 0)
         {
