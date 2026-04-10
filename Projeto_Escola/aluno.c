@@ -231,27 +231,23 @@ int excluir_aluno(aluno a[], int *A_ativo)
     return 0;
 }
 
-int validar_DATA(char data_nascimento[])
+int validar_DATA(char data[])
 {
-    if (strlen(data_nascimento) != 10)
+    int d, m, a;
+    if (sscanf(data, "%d/%d/%d", &d, &m, &a) != 3)
     {
         return 0;
     }
-    if (data_nascimento[2] != '/' || data_nascimento[5] != '/')
+    if (m < 1 || m > 12 || a < 1800 || a > 2025)
     {
         return 0;
     }
-    char strdia[3], strmes[3], strano[5];
-    strncpy(strdia, data_nascimento, 2);
-    strdia[2] = '\0';
-    strncpy(strmes, data_nascimento + 3, 2);
-    strmes[2] = '\0';
-    strncpy(strano, data_nascimento + 6, 4);
-    strano[4] = '\0';
-    int dia = atoi(strdia);
-    int mes = atoi(strmes);
-    int ano = atoi(strano);
-    if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1800 || ano > 2025)
+    int dias_mes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if ((a % 4 == 0 && a % 100 != 0) || (a % 400 == 0))
+    {
+        dias_mes[1] = 29;
+    }
+    if (d < 1 || d > dias_mes[m - 1])
     {
         return 0;
     }
