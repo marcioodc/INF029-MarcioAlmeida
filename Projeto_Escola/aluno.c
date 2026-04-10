@@ -233,7 +233,7 @@ int excluir_aluno(aluno a[], int *ativo)
 
 int validar_DATA(char data_nascimento[])
 {
-    if (strlen(data_nascimento) != 11)
+    if (strlen(data_nascimento) != 10)
     {
         return 0;
     }

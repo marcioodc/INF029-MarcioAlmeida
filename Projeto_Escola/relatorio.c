@@ -27,11 +27,11 @@ int listar_professores(professor p[], int *P_ativo)
     return 0;
 }
 
-int listar_disciplinas(disciplina d[], int *D_ativo, professor p[], int *P_ativo)
+int listar_disciplinas(disciplina d[], int *D_ativa, professor p[], int *P_ativo)
 {
     char nome_p[100];
     printf("\n>>>Lista de disciplinas cadastradas<<<\n");
-    for (int i = 0; i < *D_ativo; i++)
+    for (int i = 0; i < *D_ativa; i++)
     {
         for (int j = 0; j < *P_ativo; j++)
         {
@@ -46,11 +46,11 @@ int listar_disciplinas(disciplina d[], int *D_ativo, professor p[], int *P_ativo
     return 0;
 }
 
-int listar_alunos_disciplina(disciplina d[], int *D_ativo, aluno a[], int *A_ativo)
+int listar_alunos_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ativo)
 {
     char nome_a[100];
     printf("\n>>>Lista de alunos matriculados em cada disciplina<<<\n");
-    for (int i = 0; i < *D_ativo; i++)
+    for (int i = 0; i < *D_ativa; i++)
     {
         printf("\t%d\nCodigo: %d\nNome: %s\nSemestre: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre);
         printf("Alunos matriculados:\n");
@@ -277,9 +277,9 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     return 0;
 }
 
-int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina d[], int *D_ativo)
+int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina d[], int *D_ativa)
 {
-    if (*A_ativo == 0 || *D_ativo == 0)
+    if (*A_ativo == 0 || *D_ativa == 0)
     {
         return 1;
     }
@@ -287,7 +287,7 @@ int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina 
     for (int i = 0; i < *A_ativo; i++)
     {
         int contador = 0;
-        for (int j = 0; j < *D_ativo; j++)
+        for (int j = 0; j < *D_ativa; j++)
         {
             for (int k = 0; k < d[j].qtdalunos; k++)
             {
@@ -305,14 +305,14 @@ int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina 
     return 0;
 }
 
-int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], int *D_ativo)
+int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], int *D_ativa)
 {
-    if (*P_ativo == 0 || *D_ativo == 0)
+    if (*P_ativo == 0 || *D_ativa == 0)
     {
         return 1;
     }
     printf("\n>>>Disciplinas com mais de 40 vagas<<<\n");
-    for (int i = 0; i < *D_ativo; i++)
+    for (int i = 0; i < *D_ativa; i++)
     {
         if (d[i].vagas_total > 40)
         {
