@@ -70,8 +70,15 @@ int cadastrar_professor(professor p[], int *P_ativo)
         }
         strcpy(p[*P_ativo].cpf, cpf);
 
+        char data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", p[*P_ativo].data_nascimento);
+        scanf("%s", data_nascimento);
+        if (validar_DATA(data_nascimento) == 0)
+        {
+            return 5;
+        }
+        strcpy(p[*P_ativo].data_nascimento, data_nascimento);
+
 
         (*P_ativo)++;
         return 0;
@@ -173,8 +180,14 @@ int atualizar_professor(professor p[], int *P_ativo)
     break;
     case 5:
     {
+        char datanascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", p[pos].data_nascimento);
+        scanf("%s", datanascimento);
+        if (validar_DATA(datanascimento) == 0)
+        {
+            return 5;
+        }
+        strcpy(p[pos].data_nascimento, datanascimento);
         return 0;
     }
     break;

@@ -47,12 +47,10 @@ int cadastrar_aluno(aluno a[], int *ativo)
         a[*ativo].matricula = matricula;
 
         getchar();
-        // NOME
         printf("Informe o nome: ");
         fgets(a[*ativo].nome, sizeof(a[*ativo].nome), stdin);
         a[*ativo].nome[strcspn(a[*ativo].nome, "\n")] = '\0';
 
-        // SEXO
         char sexo;
         printf("Informe o sexo (F ou M): ");
         scanf(" %c", &sexo);
@@ -63,7 +61,6 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         a[*ativo].sexo = sexo;
 
-        // CPF
         char cpf[15];
         printf("Informe o CPF: ");
         scanf("%15s", cpf);
@@ -73,9 +70,14 @@ int cadastrar_aluno(aluno a[], int *ativo)
         }
         strcpy(a[*ativo].cpf, cpf);
 
-        // DATA NASCIMENTO
+        char data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", a[*ativo].data_nascimento);
+        scanf("%s", data_nascimento);
+        if (validar_DATA(data_nascimento) == 0)
+        {
+            return 5;
+        }
+        strcpy(a[*ativo].data_nascimento, data_nascimento);
 
         (*ativo)++;
         return 0;
@@ -178,8 +180,14 @@ int atualizar_aluno(aluno a[], int *ativo)
     break;
     case 5:
     {
+        char data_nascimento[15];
         printf("Informe a data de nascimento: ");
-        scanf("%s", a[pos].data_nascimento);
+        scanf("%s", data_nascimento);
+        if (validar_DATA(data_nascimento) == 0)
+        {
+            return 5;
+        }
+        strcpy(a[pos].data_nascimento, data_nascimento);
         return 0;
     }
     break;
@@ -222,6 +230,29 @@ int excluir_aluno(aluno a[], int *ativo)
     return 0;
 }
 
-int validar_DATA(char data_nascimento)
+int validar_DATA(char data_nascimento[])
 {
+    if (strlen(data_nascimento) != 11)
+    {
+        return 0;
+    }
+    if (data_nascimento[2] != '/' || data_nascimento[5] != '/')
+    {
+        return 0;
+    }
+    char dia[3], mes[3], ano[5];
+    strncpy(dia, data_nascimento, 2);
+    dia[2] = '\0';
+    strncpy(mes, data_nascimento + 3, 2);
+    mes[2] = '\0';
+    strncpy(ano, data_nascimento + 6, 4);
+    ano[4] = '\0';
+    int dia = atoi(dia);
+    int mes = atoi(mes);
+    int ano = atoi(ano);
+    if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || ano < 1800 || ano > 2025)
+    {
+        return 0;
+    }
+    return 1;
 }
