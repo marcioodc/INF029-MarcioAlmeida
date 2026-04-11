@@ -312,12 +312,15 @@ int main(void)
             printf("\nLimite de disciplinas cadastradas alcancado!\n");
             break;
           case 3:
-            printf("\nSemestre invalido!\n");
+            printf("\nCodigo da disciplina ja existente ou invalido!\n");
             break;
           case 4:
-            printf("\nProfessor nao encontrado!\n");
+            printf("\nSemestre invalido!\n");
             break;
           case 5:
+            printf("\nProfessor nao encontrado!\n");
+            break;
+          case 6:
             printf("\nQuantidade de vagas invalida!\n");
             break;
           default:

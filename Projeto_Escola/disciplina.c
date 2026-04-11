@@ -42,6 +42,10 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         printf("Informe o codigo da disciplina: ");
         fgets(d[*D_ativa].codigo, sizeof(d[*D_ativa].codigo), stdin);
         d[*D_ativa].codigo[strcspn(d[*D_ativa].codigo, "\n")] = '\0';
+        if (validar_codigo(d, d[*D_ativa].codigo, D_ativa) != 0)
+        {
+            return 3;
+        }
 
         printf("\nInforme o nome da disciplina: ");
         fgets(d[*D_ativa].nome, sizeof(d[*D_ativa].nome), stdin);
@@ -51,7 +55,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         scanf("%d", &semestre);
         if (semestre < 1 || semestre > 10)
         {
-            return 3;
+            return 4;
         }
         d[*D_ativa].semestre = semestre;
 
@@ -59,7 +63,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         scanf("%d", &qtdvagas);
         if (qtdvagas < 1)
         {
-            return 5;
+            return 6;
         }
         d[*D_ativa].vagas_total = qtdvagas;
         d[*D_ativa].qtdalunos = 0;
@@ -77,7 +81,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         }
         if (pos == -1)
         {
-            return 4;
+            return 5;
         }
         (*D_ativa)++;
         return 0;
