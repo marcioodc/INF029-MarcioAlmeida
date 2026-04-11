@@ -91,6 +91,7 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo)
         return 1;
     }
     printf("\n>>>Disciplinas cadastradas<<<\n");
+    printf("\n");
     for (int i = 0; i < *D_ativa; i++)
     {
         printf("%d - Disciplina: %s\tCodigo: %s\tSemestre: %d\tVagas disponiveis: %d\t", i + 1, d[i].nome, d[i].codigo, d[i].semestre, d[i].vagas_total - d[i].qtdalunos);

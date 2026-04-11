@@ -92,6 +92,7 @@ int listar_professor(professor p[], int *P_ativo)
         return 1;
     }
     printf("\n>>>professores cadastrados<<<\n");
+    printf("\n");
     for (int i = 0; i < *P_ativo; i++)
     {
         printf("%d - Matricula: %d\tNome: %s\tSexo: %c\tCPF: %s\tData de Nascimento: %s\n", i + 1, p[i].matricula, p[i].nome, p[i].sexo, p[i].cpf, p[i].data_nascimento);
