@@ -39,13 +39,13 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     else
     {
         getchar();
-        printf("\nInforme o nome da disciplina: ");
-        fgets(d[*D_ativa].nome, sizeof(d[*D_ativa].nome), stdin);
-        d[*D_ativa].nome[strcspn(d[*D_ativa].nome, "\n")] = '\0';
-
         printf("Informe o codigo da disciplina: ");
         fgets(d[*D_ativa].codigo, sizeof(d[*D_ativa].codigo), stdin);
         d[*D_ativa].codigo[strcspn(d[*D_ativa].codigo, "\n")] = '\0';
+
+        printf("\nInforme o nome da disciplina: ");
+        fgets(d[*D_ativa].nome, sizeof(d[*D_ativa].nome), stdin);
+        d[*D_ativa].nome[strcspn(d[*D_ativa].nome, "\n")] = '\0';
 
         printf("Informe o semestre da disciplina: ");
         scanf("%d", &semestre);
@@ -54,6 +54,15 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
             return 3;
         }
         d[*D_ativa].semestre = semestre;
+
+        printf("Informe a quantidade de vagas disponiveis para a disciplina: ");
+        scanf("%d", &qtdvagas);
+        if (qtdvagas < 1)
+        {
+            return 5;
+        }
+        d[*D_ativa].vagas_total = qtdvagas;
+        d[*D_ativa].qtdalunos = 0;
 
         printf("Informe a matricula do professor responsavel pela disciplina: ");
         scanf("%d", &matricula);
@@ -70,15 +79,6 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
         {
             return 4;
         }
-
-        printf("Informe a quantidade de vagas disponiveis para a disciplina: ");
-        scanf("%d", &qtdvagas);
-        if (qtdvagas < 1)
-        {
-            return 5;
-        }
-        d[*D_ativa].vagas_total = qtdvagas;
-        d[*D_ativa].qtdalunos = 0;
         (*D_ativa)++;
         return 0;
     }

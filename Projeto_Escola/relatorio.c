@@ -13,7 +13,7 @@ int listar_alunos(aluno a[], int *A_ativo)
     printf("\n");
     for (int i = 0; i < *A_ativo; i++)
     {
-        printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+        printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\t\tCPF: %s\tData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
     }
     return 0;
 }
@@ -24,7 +24,7 @@ int listar_professores(professor p[], int *P_ativo)
     printf("\n");
     for (int i = 0; i < *P_ativo; i++)
     {
-        printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+        printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\t\tCPF: %s\tData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
     }
     return 0;
 }
@@ -44,7 +44,7 @@ int listar_disciplinas(disciplina d[], int *D_ativa, professor p[], int *P_ativo
                 break;
             }
         }
-        printf("%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\tProfessor: %s\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p);
+        printf("%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\t\tProfessor: %s\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p);
     }
     return 0;
 }
@@ -83,19 +83,24 @@ int listar_alunos_sexo(aluno a[], int *A_ativo)
     }
     printf("\n>>>Alunos por sexo<<<\n");
     printf("\nSexo masculino\n");
+    int j = 0;
     for (int i = 0; i < *A_ativo; i++)
     {
+
         if (a[i].sexo == 'm' || a[i].sexo == 'M')
         {
-            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo);
+            j++;
+            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", j, a[i].nome, a[i].matricula, a[i].sexo);
         }
     }
     printf("\nSexo feminino\n");
+    j = 0;
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].sexo == 'f' || a[i].sexo == 'F')
         {
-            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo);
+            j++;
+            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", j, a[i].nome, a[i].matricula, a[i].sexo);
         }
     }
     return 0;
@@ -291,7 +296,7 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     {
         if (strstr(a[i].nome, busca) != NULL)
         {
-            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
+            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\t\tCPF: %s\tData de nascimento: %s\n", i + 1, a[i].nome, a[i].matricula, a[i].sexo, a[i].cpf, a[i].data_nascimento);
         }
     }
     printf("\n>>>Professores encontrados<<<\n");
@@ -300,7 +305,7 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     {
         if (strstr(p[i].nome, busca) != NULL)
         {
-            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
+            printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\t\tCPF: %s\tData de nascimento: %s\n", i + 1, p[i].nome, p[i].matricula, p[i].sexo, p[i].cpf, p[i].data_nascimento);
         }
     }
     return 0;
@@ -342,6 +347,7 @@ int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], i
         return 1;
     }
     printf("\n>>>Disciplinas com mais de 40 vagas<<<\n");
+    int k = 0;
     for (int i = 0; i < *D_ativa; i++)
     {
         if (d[i].vagas_total > 40)
@@ -363,7 +369,8 @@ int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], i
                     break;
                 }
             }
-            printf("\n%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\nProfessor\nNome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p, matricula_p, sexo_p, cpf_p, data_nascimento_p);
+            k++;
+            printf("\n%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\n\t\tProfessor\nNome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", k, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p, matricula_p, sexo_p, cpf_p, data_nascimento_p);
         }
     }
     return 0;
