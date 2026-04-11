@@ -90,9 +90,10 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo)
     {
         return 1;
     }
+    printf("\n>>>Disciplinas cadastradas<<<\n");
     for (int i = 0; i < *D_ativa; i++)
     {
-        printf("Disciplina: %s\nCodigo: %s\nSemestre: %d\nVagas disponiveis: %d\n", d[i].nome, d[i].codigo, d[i].semestre, d[i].vagas_total - d[i].qtdalunos);
+        printf("%d - Disciplina: %s\tCodigo: %s\tSemestre: %d\tVagas disponiveis: %d\t", i + 1, d[i].nome, d[i].codigo, d[i].semestre, d[i].vagas_total - d[i].qtdalunos);
         for (int j = 0; j < *P_ativo; j++)
         {
             if (d[i].matricula_professor == p[j].matricula)
@@ -101,7 +102,6 @@ int listar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ativo)
                 break;
             }
         }
-        printf("\n");
     }
     return 0;
 }
@@ -267,7 +267,7 @@ int matricular_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_
             {
                 return 3;
             }
-            printf("\nInforme a matricula do aluno: ");
+            printf("Informe a matricula do aluno: ");
             scanf("%d", &a_matricula);
             for (int j = 0; j < *A_ativo; j++)
             {
@@ -310,7 +310,7 @@ int excluir_aluno_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
     {
         if (strcmp(dcodigo, d[i].codigo) == 0)
         {
-            printf("\nInforme a matricula do aluno: ");
+            printf("Informe a matricula do aluno: ");
             scanf("%d", &a_matricula);
             for (int j = 0; j < *A_ativo; j++)
             {
