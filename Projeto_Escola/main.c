@@ -309,7 +309,7 @@ int main(void)
             printf("\nNao ha professores cadastrados!\n");
             break;
           case 2:
-            printf("\nLimite de disciplinas cadastradas alcançado!\n");
+            printf("\nLimite de disciplinas cadastradas alcancado!\n");
             break;
           case 3:
             printf("\nSemestre invalido!\n");
