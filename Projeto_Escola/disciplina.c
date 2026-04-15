@@ -10,7 +10,7 @@ int validar_codigo(disciplina d[], char codigo[], int *D_ativa)
 {
     for (int j = 0; j < *D_ativa; j++)
     {
-        if (strcmp(codigo, d[j].codigo) == 0)
+        if (strcmp(codigo, d[j].codigo) == 0 || strlen(codigo) > 10)
         {
             return 1;
         }
@@ -39,7 +39,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
     else
     {
         getchar();
-        printf("Informe o codigo da disciplina: ");
+        printf("\nInforme o codigo da disciplina: ");
         fgets(d[*D_ativa].codigo, sizeof(d[*D_ativa].codigo), stdin);
         d[*D_ativa].codigo[strcspn(d[*D_ativa].codigo, "\n")] = '\0';
         if (validar_codigo(d, d[*D_ativa].codigo, D_ativa) != 0)

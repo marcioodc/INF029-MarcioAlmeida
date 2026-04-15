@@ -146,7 +146,7 @@ int alunos_ordenados_data(aluno a[], int *A_ativo)
     {
         for (int j = 0; j < *A_ativo - i - 1; j++)
         {
-            if (strcmp(a[j].data_nascimento, a[j + 1].data_nascimento) > 0)
+            if (comparar_datas(a[j].data_nascimento, a[j + 1].data_nascimento) > 0)
             {
                 aux = a[j];
                 a[j] = a[j + 1];
@@ -228,7 +228,7 @@ int professores_ordenados_data(professor p[], int *P_ativo)
     {
         for (int j = 0; j < *P_ativo - i - 1; j++)
         {
-            if (strcmp(p[j].data_nascimento, p[j + 1].data_nascimento) > 0)
+            if (comparar_datas(p[j].data_nascimento, p[j + 1].data_nascimento) > 0)
             {
                 aux = p[j];
                 p[j] = p[j + 1];
@@ -373,4 +373,23 @@ int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], i
         }
     }
     return 0;
+}
+
+int comparar_datas(char d1[], char d2[])
+{
+    int dia1, mes1, ano1;
+    int dia2, mes2, ano2;
+
+    sscanf(d1, "%d/%d/%d", &dia1, &mes1, &ano1);
+    sscanf(d2, "%d/%d/%d", &dia2, &mes2, &ano2);
+
+    if (ano1 != ano2)
+    {
+        return ano1 - ano2;
+    }
+    if (mes1 != mes2)
+    {
+        return mes1 - mes2;
+    }
+    return dia1 - dia2;
 }

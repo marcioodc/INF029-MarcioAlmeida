@@ -5,6 +5,7 @@
 #include "professor.h"
 #include "disciplina.h"
 
+int comparar_datas(char d1[], char d2[]);
 int listar_alunos(aluno a[], int *A_ativo);
 int listar_professores(professor p[], int *P_ativo);
 int listar_disciplinas(disciplina d[], int *D_ativa, professor p[], int *P_ativo);
