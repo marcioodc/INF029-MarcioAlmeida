@@ -170,21 +170,22 @@ int listar_professores_sexo(professor p[], int *P_ativo)
     }
     printf("\n>>>Lista de professores por sexo<<<\n");
     printf("\nSexo masculino\n");
-    int j = 1;
+    int j;
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].sexo == 'm' || p[i].sexo == 'M')
         {
+            j = 1;
             printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", j, p[i].nome, p[i].matricula, p[i].sexo);
         }
         j++;
     }
     printf("\nSexo feminino\n");
-    j = 1;
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].sexo == 'f' || p[i].sexo == 'F')
         {
+            j = 1;
             printf("%d - Nome: %s\tMatricula: %d\tSexo: %c\n", j, p[i].nome, p[i].matricula, p[i].sexo);
         }
         j++;
@@ -259,11 +260,12 @@ int aniversariantes_mes(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     scanf("%s", mes);
     printf("\n>>>Alunos aniversariantes do mes<<<\n");
     printf("\n");
-    int j = 1;
+    int j;
     for (int i = 0; i < *A_ativo; i++)
     {
         if (a[i].data_nascimento[3] == mes[0] && a[i].data_nascimento[4] == mes[1])
         {
+            j = 1;
             printf("%d - Nome: %s\tMatricula: %d\tData de nascimento: %s\n", j, a[i].nome, a[i].matricula, a[i].data_nascimento);
         }
         j++;
@@ -271,11 +273,11 @@ int aniversariantes_mes(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     printf("\n");
     printf("\n>>>Professores aniversariantes do mes<<<\n");
     printf("\n");
-    j = 1;
     for (int i = 0; i < *P_ativo; i++)
     {
         if (p[i].data_nascimento[3] == mes[0] && p[i].data_nascimento[4] == mes[1])
         {
+            j = 1;
             printf("%d - Nome: %s\tMatricula: %d\tData de nascimento: %s\n", j, p[i].nome, p[i].matricula, p[i].data_nascimento);
         }
         j++;
@@ -330,6 +332,7 @@ int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina 
     }
     printf("\n>>>Alunos matriculados em menos de 3 disciplinas<<<\n");
     printf("\n");
+    int l;
     for (int i = 0; i < *A_ativo; i++)
     {
         int contador = 0;
@@ -345,8 +348,10 @@ int alunos_matriculados_menos_3_disciplinas(aluno a[], int *A_ativo, disciplina 
         }
         if (contador < 3)
         {
-            printf("%d - Nome: %s\tMatricula: %d\n", i + 1, a[i].nome, a[i].matricula);
+            l = 1;
+            printf("%d - Nome: %s\tMatricula: %d\n", l, a[i].nome, a[i].matricula);
         }
+        l++;
     }
     return 0;
 }
