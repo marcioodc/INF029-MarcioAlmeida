@@ -4,7 +4,7 @@
 #include "aluno.h"
 #include "professor.h"
 
-#define QTDISCIPLINA 2
+#define QTDISCIPLINA 5
 
 typedef struct disciplina
 {

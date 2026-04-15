@@ -1,7 +1,7 @@
 #ifndef professor_h
 #define professor_h
 
-#define tam_professor 2
+#define tam_professor 5
 
 typedef struct professor
 {
