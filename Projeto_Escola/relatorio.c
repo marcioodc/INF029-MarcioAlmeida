@@ -44,7 +44,7 @@ int listar_disciplinas(disciplina d[], int *D_ativa, professor p[], int *P_ativo
                 break;
             }
         }
-        printf("%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\t\tProfessor: %s\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p);
+        printf("%d - Codigo: %s\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\t\tProfessor: %s\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p);
     }
     return 0;
 }
@@ -56,7 +56,7 @@ int listar_alunos_disciplina(disciplina d[], int *D_ativa, aluno a[], int *A_ati
     printf("\n>>>Lista de alunos matriculados em cada disciplina<<<\n");
     for (int i = 0; i < *D_ativa; i++)
     {
-        printf("\n%d - Codigo: %d\tNome: %s\tSemestre: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre);
+        printf("\n%d - Codigo: %s\tNome: %s\tSemestre: %d\n", i + 1, d[i].codigo, d[i].nome, d[i].semestre);
         printf("Alunos matriculados\n");
         for (int j = 0; j < d[i].qtdalunos; j++)
         {
@@ -283,7 +283,6 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     }
     char busca[100];
     printf("\n>>>Busca por nome<<<\n");
-    getchar();
     printf("Informe o nome a ser buscado: ");
     scanf("%s", busca);
     if (strlen(busca) < 3)
@@ -370,7 +369,7 @@ int disciplinas_professor_40vagas(professor p[], int *P_ativo, disciplina d[], i
                 }
             }
             k++;
-            printf("\n%d - Codigo: %d\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\n\t\tProfessor\nNome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", k, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p, matricula_p, sexo_p, cpf_p, data_nascimento_p);
+            printf("\n%d - Codigo: %s\tNome: %s\tSemestre: %d\tQuantidade de vagas: %d\n\t\tProfessor\nNome: %s\tMatricula: %d\tSexo: %c\tCPF: %s\tData de nascimento: %s\n", k, d[i].codigo, d[i].nome, d[i].semestre, d[i].vagas_total, nome_p, matricula_p, sexo_p, cpf_p, data_nascimento_p);
         }
     }
     return 0;

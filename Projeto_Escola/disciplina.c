@@ -47,7 +47,7 @@ int cadastrar_disciplina(disciplina d[], int *D_ativa, professor p[], int *P_ati
             return 3;
         }
 
-        printf("\nInforme o nome da disciplina: ");
+        printf("Informe o nome da disciplina: ");
         fgets(d[*D_ativa].nome, sizeof(d[*D_ativa].nome), stdin);
         d[*D_ativa].nome[strcspn(d[*D_ativa].nome, "\n")] = '\0';
 

@@ -8,7 +8,7 @@
 
 typedef struct disciplina
 {
-    char nome[50];
+    char nome[100];
     char codigo[10];
     int semestre;
     int matricula_professor;
