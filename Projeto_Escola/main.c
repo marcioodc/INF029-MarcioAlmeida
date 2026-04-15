@@ -563,11 +563,7 @@ int main(void)
           {
             printf("\nNao ha alunos ou professores cadastrados!\n");
           }
-          if (buscar_nome(a, &A_ativo, p, &P_ativo) == 2)
-          {
-            printf("\nDigite pelo menos 3 caracteres para a busca!\n");
-          }
-        }
+                }
         break;
         case 13:
         {
