@@ -294,7 +294,8 @@ int buscar_nome(aluno a[], int *A_ativo, professor p[], int *P_ativo)
     char busca[100];
     printf("\n>>>Busca por nome<<<\n");
     printf("Informe o nome a ser buscado: ");
-    scanf("%s", busca);
+    fgets(busca, sizeof(busca), stdin);
+    busca[strcspn(busca, "\n")] = '\0';
     if (strlen(busca) < 3)
     {
         return 2;
