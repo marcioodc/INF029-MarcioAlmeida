@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-struct cliente{
+typedef struct cliente{
     char nome[100];
     char DataNascimento[15];
     char sexo;
