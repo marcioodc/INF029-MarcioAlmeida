@@ -8,27 +8,31 @@ typedef struct cliente{
     char DataNascimento[15];
     char sexo;
     char cpf[15];
-}cliente;
-int CadastrarCliente(){
+} cliente;
+
+int CadastrarCliente(cliente c[]){
     printf("Informe o nome do cliente: ");
-    fgets(cliente.nome, sizeof(cliente.nome), stdin);
-    cliente.nome[strcspn(cliente.nome, "\n")] = '\0';
+    fgets(c[0].nome, sizeof(c[0].nome), stdin);
+    c[0].nome[strcspn(c[0].nome, "\n")] = '\0';
 
     printf("Informe a data de nascimento do cliente: ");
-    scanf(" %s", cliente.DataNascimento);
+    scanf(" %s", c[0].DataNascimento);
 
     printf("Informe o CPF do cliente: ");
-    scanf(" %15s", cliente.cpf);
+    scanf(" %15s", c[0].cpf);
 
     printf("Informe o sexo do cliente (F/ M/ O): ");
-    scanf(" %c", &cliente.sexo);
-    cliente.sexo = toupper(cliente.sexo);
+    scanf(" %c", &c[0].sexo);
+    c[0].sexo = toupper(c[0].sexo);
     
     return 0;
 }
 
 int main()
 {
-    printf("Nome: %s\nData de nascimento: %s\nCPF: %s\nSexo: %s\n", cliente.nome, cliente.DataNascimento, cliente.cpf, cliente.sexo);
+    cliente c[1];
+    CadastrarCliente(c);
+    printf("Nome: %s\nData de nascimento: %s\nCPF: %s\nSexo: %c\n", c[0].nome, c[0].DataNascimento, c[0].cpf, c[0].sexo);
     return 0;
 }
+
