@@ -4,32 +4,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ler4numeros(int num[]){
-    scanf("%d", &num[0]);
-    scanf("%d", &num[1]);
-    scanf("%d", &num[2]);
-    scanf("%d", &num[3]);
-
-    return num[0];
-    return num[1];
-    return num[2];
-    return num[3];
-}
-
-int main(){
-
-    typedef struct lernumeros{
-        int num[4];
-    }lernumeros;   
-    
-    lernumeros numeros;
-    ler4numeros(numeros.num);
-
-    printf("Os números lidos foram:");
-    for(int i = 0; i < 4; i++){
-        printf(" %d", numeros.num[i]);
+int ler4numeros()
+{
+    int n[4];
+    for (int i = 0; i < 4; i++)
+    {
+        scanf("%d", &n[i]);
+        return n[i];
     }
+}
+typedef struct
+{
+    int numero[4];
+} ler;
+int main()
+{
+    ler ler;
+    for (int i = 0; i < 4; i++)
+    {
+        ler.numero[i] = ler4numeros();
+    }
+    printf("Os numeros lidos foram: %d, %d, %d, %d\n", ler.numero[0], ler.numero[1], ler.numero[2], ler.numero[3]);
 
     return 0;
-
 }
