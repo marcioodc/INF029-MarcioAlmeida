@@ -3,56 +3,37 @@
 #include <string.h>
 #include <ctype.h>
 
-char *CadastrarCliente()
+typedef struct
 {
-    char n[100];
+    char nome[100];
     char DataNascimento[15];
     char sexo;
     char cpf[15];
+} cliente;
 
+cliente c[2];
+
+void CadastrarCliente()
+{
     printf("Informe o nome do cliente: ");
-    fgets(n, sizeof(n), stdin);
-    n[strcspn(n, "\n")] = '\0';
-    char *nome = malloc(strlen(n) + 1);
-    strcpy(nome, n);
-    return nome;
+    fgets(c[0].nome, sizeof(c[0].nome), stdin);
+    c[0].nome[strcspn(c[0].nome, "\n")] = '\0';
 
     printf("Informe a data de nascimento do cliente: ");
-    scanf(" %14s", DataNascimento);
-    char *DNascimento = malloc(strlen(DataNascimento) + 1);
-    strcpy(DNascimento, DataNascimento);
-    return DNascimento;
+    scanf(" %s", c[0].DataNascimento);
 
     printf("Informe o CPF do cliente: ");
-    scanf(" %15s", cpf);
-    char *c_cpf = malloc(strlen(cpf) + 1);
-    strcpy(c_cpf, cpf);
-    return c_cpf;
+    scanf(" %15s", c[0].cpf);
 
     printf("Informe o sexo do cliente (F/ M/ O): ");
-    scanf(" %c", &sexo);
-    sexo = toupper(sexo);
-    char *c_sexo = malloc(sizeof(char));
-    *c_sexo = sexo;
-    return c_sexo;
+    scanf(" %c", &c[0].sexo);
+    c[0].sexo = toupper(c[0].sexo);
 }
 
 int main()
 {
-    char *nome;
-    char *DNascimento;
-    char *c_cpf;
-    char *c_sexo;
-
-    nome = CadastrarCliente();
-    DNascimento = CadastrarCliente();   
-    printf("Nome: %s\n", nome);
-    printf("Data de Nascimento: %s\n", DNascimento);
-    printf("CPF: %s\n", c_cpf);
-    printf("Sexo: %c\n", *c_sexo);
-    free(nome);
-    free(DNascimento);
-    free(c_cpf);
-    free(c_sexo);
+    CadastrarCliente();
+    printf("---Cliente---\n");
+    printf("Nome: %s\nCPF: %s\nData de Nascimento: %s\nSexo: %c\n", c[0].nome, c[0].cpf, c[0].DataNascimento, c[0].sexo);
     return 0;
 }
