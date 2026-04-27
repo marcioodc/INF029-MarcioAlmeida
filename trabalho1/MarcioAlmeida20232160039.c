@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include "MarcioAlmeida20232160039.h"
 #include <stdlib.h>
+#include <string.h>
 
 DataQuebrada quebraData(char data[]);
 
@@ -260,22 +261,25 @@ int q3(char *texto, char c, int isCaseSensitive)
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    int tamtexto = strlen(*strTexto);
-    int tambusca = strlen(*strBusca);
-    for (i = 0; i <= tamTexto - tamBusca; i++) {
-        for (j = 0; j < tamBusca; j++) {
-            if (strTexto[i + j] != strBusca[j]) {
+    for (int i = 0; strTexto[i] != '\0'; i++)
+    {
+        int j;
+        for (j = 0; strBusca[j] != '\0'; j++)
+        {
+            if (strTexto[i + j] != strBusca[j])
+            {
                 break;
             }
         }
-        if (j == tamBusca) {
-            posicoes[2 * n] = i + 1;                
-            posicoes[2 * n + 1] = i + tamBusca;      
+        if (strBusca[j] == '\0')
+        {
+            posicoes[qtdOcorrencias * 2] = i + 1;
+            posicoes[qtdOcorrencias * 2 + 1] = i + j;
             qtdOcorrencias++;
         }
     }
 
-        return qtdOcorrencias;
+    return qtdOcorrencias;
 }
 
 /*
