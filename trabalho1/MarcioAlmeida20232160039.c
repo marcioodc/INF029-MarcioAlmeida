@@ -265,14 +265,13 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
     for (i = 0; i <= tamTexto - tamBusca; i++) {
         for (j = 0; j < tamBusca; j++) {
             if (strTexto[i + j] != strBusca[j]) {
-                qtdOcorrencias++;
                 break;
             }
         }
         if (j == tamBusca) {
             posicoes[2 * n] = i + 1;                
             posicoes[2 * n + 1] = i + tamBusca;      
-            n++;
+            qtdOcorrencias++;
         }
     }
 
