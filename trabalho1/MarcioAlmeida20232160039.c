@@ -275,12 +275,6 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
             qtdOcorrencias++;
         }
     }
-    printf("%d\n", posicoes[0]);
-    printf("%d\n", posicoes[1]);
-    printf("%d\n", posicoes[2]);
-    printf("%d\n", posicoes[3]);
-    printf("%d\n", posicoes[4]);
-    printf("%d\n", posicoes[5]);
 
     return qtdOcorrencias;
 }
