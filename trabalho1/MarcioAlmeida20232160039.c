@@ -259,6 +259,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
     int qtdOcorrencias = 0;
     for(int i = 0; strTexto[i] != '\0'; i++)
     {
+        
         int j;
         for (j = 0; strBusca[j] != '\0'; j++)
         {
@@ -274,6 +275,12 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
             qtdOcorrencias++;
         }
     }
+    printf("%d\n", posicoes[0]);
+    printf("%d\n", posicoes[1]);
+    printf("%d\n", posicoes[2]);
+    printf("%d\n", posicoes[3]);
+    printf("%d\n", posicoes[4]);
+    printf("%d\n", posicoes[5]);
 
     return qtdOcorrencias;
 }
