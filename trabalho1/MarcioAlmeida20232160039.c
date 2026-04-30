@@ -257,7 +257,7 @@ int q3(char *texto, char c, int isCaseSensitive)
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    for (int i = 0; strTexto[i] != '\0'; i++)
+    for(int i = 0; strTexto[i] != '\0'; i++)
     {
         int j;
         for (j = 0; strBusca[j] != '\0'; j++)
@@ -290,6 +290,13 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
 
 int q5(int num)
 {
+    int invertido = 0;
+    while (num != 0)
+    {
+        invertido = invertido * 10 + num % 10;
+        num /= 10;
+    }
+    num = invertido;
 
     return num;
 }
