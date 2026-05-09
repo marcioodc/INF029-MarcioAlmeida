@@ -259,54 +259,13 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
     int qtdOcorrencias = 0;
     int sTexto = strlen(strTexto);
     int sBusca = strlen(strBusca);
-    char acentuacao(char c) {
-    switch(c) {
-        case 'á':
-        case 'à':
-        case 'â':
-        case 'ã':
-        case 'Á':
-        case 'À':
-        case 'Â':
-        case 'Ã':
-            return 'a';
-
-        case 'é':
-        case 'ê':
-        case 'É':
-        case 'Ê':
-            return 'e';
-
-        case 'í':
-        case 'Í':
-            return 'i';
-
-        case 'ó':
-        case 'ô':
-        case 'õ':
-        case 'Ó':
-        case 'Ô':
-        case 'Õ':
-            return 'o';
-
-        case 'ú':
-        case 'Ú':
-            return 'u';
-
-        case 'ç':
-        case 'Ç':
-            return 'c';
-
-        default:
-            return c;
-        }
-    }
+    
     for (int i = 0; i <= sTexto - sBusca; i++)
     {
         int achou = 1;
         for (int j = 0; j < sBusca; j++)
         {
-            if (acentuacao(strTexto[i + j]) != acentuacao(strBusca[j]))
+            if (strTexto[i + j] != strBusca[j])
             {
                 achou = 0;
                 break;
