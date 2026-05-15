@@ -257,13 +257,49 @@ int q3(char *texto, char c, int isCaseSensitive)
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    int QtdTexto = strlen(strTexto);
-    int Texto_int[QtdTexto+5];
-    for(int i=0; strTexto != '\0'; i++){
-        Texto_int = (int) strTexto;
+    int transforma_int(char *strTexto, int *Texto_int)
+    {
+        int j = 0;
+        for (int i = 0; i < strlen(strTexto); i++)
+        {
+            if (strTexto[i] != -61 && strTexto[i] != -197)
+            {
+                Texto_int[j] = (int)strTexto[i];
+                j++;
+            }
+        }
+        return j;
     }
-    printf("%s\n", strTexto);
-    printf("%d\n", Texto_int);
+    int Texto_int[250];
+    int lenTexto = transforma_int(strTexto, Texto_int);
+    int Busca_int[100];
+    int lenBusca = transforma_int(strBusca, Busca_int);
+
+    for (int i = 0; i <= lenTexto - lenBusca; i++)
+    {
+        int j;
+        for (j = 0; j < lenBusca; j++)
+        {
+            if (Texto_int[i + j] != Busca_int[j])
+            {
+                break;
+            }
+        }
+        if (j == lenBusca)
+        {
+            posicoes[qtdOcorrencias * 2] = i + 1;
+            posicoes[qtdOcorrencias * 2 + 1] = i + j;
+            qtdOcorrencias++;
+        }
+    }
+    printf("%d\n", qtdOcorrencias);
+    printf("%d\n", posicoes[0]);
+    printf("%d\n", posicoes[1]);
+    printf("%d\n", posicoes[2]);
+    printf("%d\n", posicoes[3]);
+    printf("%d\n", posicoes[4]);
+    printf("%d\n", posicoes[5]);
+    printf("%d\n", posicoes[6]);
     return qtdOcorrencias;
 }
 
