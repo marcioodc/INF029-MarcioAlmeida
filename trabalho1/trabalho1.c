@@ -147,7 +147,6 @@ int q1(char data[])
 DiasMesesAnos q2(char datainicial[], char datafinal[])
 {
     DiasMesesAnos dma;
-
     if (q1(datainicial) == 0)
     {
         dma.retorno = 2;
@@ -160,39 +159,46 @@ DiasMesesAnos q2(char datainicial[], char datafinal[])
     }
     else
     {
-        for (int i = 0; datainicial[i] != '\0' && datafinal[i] != '\0'; i++)
-        {
-            if (datainicial[i] < datafinal[i])
-            {
-                break;
-            }
-            else if (datainicial[i] > datafinal[i])
-            {
-                dma.retorno = 4;
-                return dma;
-            }
-        }
-        // calcule a distancia entre as datas
         DataQuebrada dqInicial = quebraData(datainicial);
         DataQuebrada dqFinal = quebraData(datafinal);
+
+        if (dqInicial.iAno > dqFinal.iAno)
+        {
+            dma.retorno = 4;
+            return dma;
+        }
+        if (dqInicial.iAno == dqFinal.iAno && dqInicial.iMes > dqFinal.iMes)
+        {
+            dma.retorno = 4;
+            return dma;
+        }
+        if (dqInicial.iAno == dqFinal.iAno && dqInicial.iMes == dqFinal.iMes && dqInicial.iDia > dqFinal.iDia)
+        {
+            dma.retorno = 4;
+            return dma;
+        }
+        // calcule a distancia entre as datas
         dma.qtdDias = 0;
         dma.qtdMeses = 0;
         dma.qtdAnos = 0;
-        while (dqInicial.iAno < dqFinal.iAno)
+        int dias_mes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        if ((dqFinal.iAno % 4 == 0 && dqFinal.iAno % 100 != 0) || (dqFinal.iAno % 400 == 0))
         {
-            dma.qtdAnos++;
-            dqInicial.iAno++;
+            dias_mes[1] = 29;
         }
-        while (dqInicial.iMes < dqFinal.iMes)
+        if (dqFinal.iDia < dqInicial.iDia)
         {
-            dma.qtdMeses++;
-            dqInicial.iMes++;
+            dqFinal.iMes--;
+            dqFinal.iDia += dias_mes[dqFinal.iMes - 1];
         }
-        while (dqInicial.iDia < dqFinal.iDia)
+        dma.qtdDias = dqFinal.iDia - dqInicial.iDia;
+        if (dqFinal.iMes < dqInicial.iMes)
         {
-            dma.qtdDias++;
-            dqInicial.iDia++;
+            dqFinal.iAno--;
+            dqFinal.iMes += 12;
         }
+        dma.qtdMeses = dqFinal.iMes - dqInicial.iMes;
+        dma.qtdAnos = dqFinal.iAno - dqInicial.iAno;
         dma.retorno = 1;
         return dma;
     }
@@ -293,6 +299,7 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
             posicoes[qtdOcorrencias * 2] = i + 1;
             posicoes[qtdOcorrencias * 2 + 1] = i + j;
             qtdOcorrencias++;
+            i = i + lenBusca - 1;
         }
     }
     free(strTexto_int);
@@ -352,6 +359,7 @@ int q6(int numerobase, int numerobusca)
         if (sNumerobusca[j] == '\0')
         {
             qtdOcorrencias++;
+            i = i + j - 1;
         }
     }
 
@@ -419,8 +427,13 @@ DataQuebrada quebraData(char data[])
     char sAno[5];
     int i;
 
-    for (i = 0; data[i] != '/'; i++)
+    for (i = 0; data[i] != '/' && data[i] != '\0'; i++)
     {
+        if (data[i] < '0' || data[i] > '9')
+        {
+            dq.valido = 0;
+            return dq;
+        }
         sDia[i] = data[i];
     }
     if (i == 1 || i == 2)
@@ -436,7 +449,7 @@ DataQuebrada quebraData(char data[])
     int j = i + 1; // anda 1 cada para pular a barra
     i = 0;
 
-    for (; data[j] != '/'; j++)
+    for (; data[j] != '/' && data[j] != '\0'; j++)
     {
         sMes[i] = data[j];
         i++;
@@ -455,25 +468,25 @@ DataQuebrada quebraData(char data[])
     j = j + 1; // anda 1 cada para pular a barra
     i = 0;
 
-    for (; data[j] != '\0'; j++)
+    for (; data[j] != '\0' && data[j] != '/'; j++)
     {
         sAno[i] = data[j];
         i++;
     }
+    sAno[i] = '\0';
 
     if (i == 2)
     { // testa se tem 2 ou 4 digitos
         int ano = atoi(sAno);
         if (ano <= 50)
-            ano += 2000;
+            dq.iAno = ano + 2000;
         else
-            ano += 1900;
-
-        sAno[i] = '\0'; // coloca o barra zero no final
+            dq.iAno = ano + 1900;
     }
     else if (i == 4)
     {
         sAno[i] = '\0'; // coloca o barra zero no final
+        dq.iAno = atoi(sAno);
     }
     else
     {
@@ -483,7 +496,6 @@ DataQuebrada quebraData(char data[])
 
     dq.iDia = atoi(sDia);
     dq.iMes = atoi(sMes);
-    dq.iAno = atoi(sAno);
 
     dq.valido = 1;
 
