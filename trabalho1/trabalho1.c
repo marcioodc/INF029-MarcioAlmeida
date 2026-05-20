@@ -251,36 +251,39 @@ int q3(char *texto, char c, int isCaseSensitive)
         posicoes[1] = 16;
         Observe que o índice da posição no texto deve começar ser contado a partir de 1.
         O retorno da função, n, nesse caso seria 1;
-    a acentuação e pontuação devem ser ignoradas
+*/
 
- */
+int *transforma_Int(char Texto[], int *Novotam)
+{
+    int tam = strlen(Texto);
+    int *Texto_int = malloc(tam * sizeof(int));
+    int j = 0;
+    for (int i = 0; Texto[i] != '\0'; i++)
+    {
+        int valor = (int)Texto[i];
+        if (valor != -61)
+        {
+            Texto_int[j] = valor;
+            j++;
+        }
+    }
+    Texto_int[j] = '\0';
+    *Novotam = j;
+    return Texto_int;
+}
 int q4(char *strTexto, char *strBusca, int posicoes[30])
 {
     int qtdOcorrencias = 0;
-    int transforma_int(char *strTexto, int *Texto_int)
-    {
-        int j = 0;
-        for (int i = 0; i < strlen(strTexto); i++)
-        {
-            if (strTexto[i] != -61 && strTexto[i] != -197)
-            {
-                Texto_int[j] = (int)strTexto[i];
-                j++;
-            }
-        }
-        return j;
-    }
-    int Texto_int[250];
-    int lenTexto = transforma_int(strTexto, Texto_int);
-    int Busca_int[100];
-    int lenBusca = transforma_int(strBusca, Busca_int);
-
+    int lenTexto = strlen(strTexto);
+    int lenBusca = strlen(strBusca);
+    int *strTexto_int = transforma_Int(strTexto, &lenTexto);
+    int *strBusca_int = transforma_Int(strBusca, &lenBusca);
     for (int i = 0; i <= lenTexto - lenBusca; i++)
     {
         int j;
         for (j = 0; j < lenBusca; j++)
         {
-            if (Texto_int[i + j] != Busca_int[j])
+            if (strTexto_int[i + j] != strBusca_int[j])
             {
                 break;
             }
@@ -292,14 +295,8 @@ int q4(char *strTexto, char *strBusca, int posicoes[30])
             qtdOcorrencias++;
         }
     }
-    printf("%d\n", qtdOcorrencias);
-    printf("%d\n", posicoes[0]);
-    printf("%d\n", posicoes[1]);
-    printf("%d\n", posicoes[2]);
-    printf("%d\n", posicoes[3]);
-    printf("%d\n", posicoes[4]);
-    printf("%d\n", posicoes[5]);
-    printf("%d\n", posicoes[6]);
+    free(strTexto_int);
+    free(strBusca_int);
     return qtdOcorrencias;
 }
 
