@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+// tamanho da estrutura principal
 #define TAM 10
 
 #include "trabalho2.h"
 
 int vetorPrincipal[TAM];
+int ehPosicaoValida(int posicao);
 
 /*
 Objetivo: criar estrutura auxiliar na posição 'posicao'.
@@ -31,41 +33,34 @@ int criarEstruturaAuxiliar(int posicao, int tamanho)
     retorno = TAMANHO_INVALIDO;
     // deu tudo certo, crie
     retorno = SUCESSO;*/
-    posicao = posicao - 1;
-    int *vetorAuxiliar = malloc(vetorPrincipal[posicao] * sizeof(int));
-    if (tamanho < 1)
-    {
-        retorno = TAMANHO_INVALIDO;
-    }
-    if (posicao < 1 || posicao > 10)
-    {
-        retorno = POSICAO_INVALIDA;
-    }
-    if (vetorPrincipal[posicao - 1] != 0)
+    int *vetorAuxiliar[tamanho];
+    if (vetorPrincipal[posicao] != 0)
     {
         retorno = JA_TEM_ESTRUTURA_AUXILIAR;
     }
+    else if (ehPosicaoValida(posicao) != SUCESSO)
+    {
+        retorno = POSICAO_INVALIDA;
+    }
+    else if (tamanho > 100)
+    {
+        retorno = SEM_ESPACO_DE_MEMORIA;
+    }
+    else if (tamanho < 1)
+    {
+        retorno = TAMANHO_INVALIDO;
+    }
     else
     {
-        vetorPrincipal[posicao - 1] = 1;
-    }
-    if (tamanho > 100)
-    {
-        retorno = SEM_ESPACO_DE_MEMORIA;
-    }
-    if (vetorAuxiliar == NULL)
-    {
-        retorno = SEM_ESPACO_DE_MEMORIA;
-    }
-    if (vetorAuxiliar != NULL)
-    {
+        int *vetorAuxiliar = malloc(tamanho * sizeof(int));
+        vetorPrincipal[posicao] = 1;
         for (int i = 0; i < tamanho; i++)
         {
             vetorAuxiliar[i] = -1;
         }
+        retorno = SUCESSO;
     }
-    retorno = SUCESSO;
-
+    // tamanho = tamanho da estrutura auxiliar
     return retorno;
 }
 
@@ -84,9 +79,10 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
     int existeEstruturaAuxiliar = 0;
     int temEspaco = 0;
     int posicao_invalida = 0;
-    int *vetorAuxiliar = NULL;
+    int tamanho;
+    int vetorAuxiliar[tamanho];
 
-    if (posicao_invalida)
+    if (posicao < 1 || posicao > 10)
         retorno = POSICAO_INVALIDA;
     else
     {
@@ -97,21 +93,23 @@ int inserirNumeroEmEstrutura(int posicao, int valor)
         }
         if (existeEstruturaAuxiliar)
         {
-            temEspaco = 1;
-        }
-        if (existeEstruturaAuxiliar)
-        {
+            // testar se tem espaço
+            for (int i = 0; i < tamanho; i++)
+            {
+                if (vetorAuxiliar[i] == -1)
+                {
+                    temEspaco = 1;
+                    break;
+                }
+            }
             if (temEspaco)
             {
                 // insere
-                criarEstruturaAuxiliar(posicao, TAM);
-                int i = 0;
-                for (; i < TAM; i++)
+                for (int j = 0; j < tamanho; j++)
                 {
-                    if (vetorAuxiliar[i] == -1)
+                    if (vetorAuxiliar[j] == -1)
                     {
-                        vetorAuxiliar[i] = valor;
-                        break;
+                        vetorAuxiliar[j] = valor;
                     }
                 }
                 retorno = SUCESSO;
