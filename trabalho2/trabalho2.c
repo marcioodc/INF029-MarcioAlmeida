@@ -298,11 +298,18 @@ int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[])
 {
 
     int retorno = 0;
+    for (int i = 0; i < TAM; i++)
+    {
+        if (vetorPrincipal[posicao - 1][i] == -1)
+        {
+            retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
+        }
+    }
     if (vetorPrincipal[posicao - 1] == NULL)
     {
         retorno = SEM_ESTRUTURA_AUXILIAR;
     }
-    if (ehPosicaoValida(posicao) != SUCESSO)
+    else if (posicao < 1 || posicao > TAM)
     {
         retorno = POSICAO_INVALIDA;
     }
@@ -341,22 +348,20 @@ int getDadosDeTodasEstruturasAuxiliares(int vetorAux[])
 {
 
     int retorno = 0;
-    int vetorAuxiliar[TAM] = {0};
-    for (int j = 0; j < 10; j++)
+    for (int j = 0; j < TAM; j++)
     {
-        if (vetorPrincipal[j] == 0)
+        if (vetorPrincipal[j] == NULL)
         {
             retorno = TODAS_ESTRUTURAS_AUXILIARES_VAZIAS;
-            return retorno;
         }
     }
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < TAM; i++)
     {
-        if (vetorPrincipal[i] != 0)
+        if (vetorPrincipal[i] != NULL)
         {
             for (int j = 0; j < TAM; j++)
             {
-                vetorAux[i * TAM + j] = vetorAuxiliar[i];
+                vetorAux[i] = vetorPrincipal[i][j];
             }
         }
     }
